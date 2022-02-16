@@ -17,8 +17,9 @@ namespace ChaosPoppycarsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
+            cardInfo.allowMultiple = false;
             UnityEngine.Debug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.spread = 0.20f;
+            gun.spread = 0.10f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -72,7 +73,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = false,
                     stat = "Spread",
-                    amount = "+20%",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
