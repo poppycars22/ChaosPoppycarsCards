@@ -20,7 +20,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.1.3"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.1.4"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
 
@@ -49,6 +49,30 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<AmmoChest>();
             CustomCard.BuildCard<StrengthPotion>();
             CustomCard.BuildCard<SpeedPotion>();
+            CustomCard.BuildCard<LBoot>();
+            CustomCard.BuildCard<LHelm>();
+            CustomCard.BuildCard<LChes>();
+            CustomCard.BuildCard<LLeg>();
+            CustomCard.BuildCard<CBoot>();
+            CustomCard.BuildCard<CHelm>();
+            CustomCard.BuildCard<CChes>();
+            CustomCard.BuildCard<CLeg>();
+            CustomCard.BuildCard<IBoot>();
+            CustomCard.BuildCard<IHelm>();
+            CustomCard.BuildCard<IChes>();
+            CustomCard.BuildCard<ILeg>();
+            CustomCard.BuildCard<GBoot>();
+            CustomCard.BuildCard<GHelm>();
+            CustomCard.BuildCard<GChes>();
+            CustomCard.BuildCard<GLeg>();
+            CustomCard.BuildCard<DBoot>();
+            CustomCard.BuildCard<DHelm>();
+            CustomCard.BuildCard<DChes>();
+            CustomCard.BuildCard<DLeg>();
+            CustomCard.BuildCard<NBoot>();
+            CustomCard.BuildCard<NHelm>();
+            CustomCard.BuildCard<NChes>();
+            CustomCard.BuildCard<NLeg>();
         }
     }
 }
