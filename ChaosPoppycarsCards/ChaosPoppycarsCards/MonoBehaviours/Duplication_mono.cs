@@ -6,11 +6,10 @@ using ModdingUtils.Extensions;
 using System;
 using System.Collections.Generic;
 using ChaosPoppycarsCards.Cards;
-using PlayerJumpPatch;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
-    internal class RegenEffect : ReversibleEffect
+    internal class DupeEffect : ReversibleEffect
     {
         private float duration = 0;
         public override void OnOnDestroy()
@@ -23,11 +22,13 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             {
                 ApplyModifiers();
             }
-            duration = 3f;
+            duration = 2f;
         }
 
         public override void OnStart()
         {
+            gunStatModifier.numberOfProjectiles_mult = 2;
+            gunStatModifier.spread_add = 0.1f;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }
@@ -36,7 +37,6 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             if (!(duration <= 0))
             {
                 duration -= TimeHandler.deltaTime;
-                data.healthHandler.Heal(0.4f);
             }
             else
             {

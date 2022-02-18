@@ -11,39 +11,44 @@ using ChaosPoppycarsCards.Cards;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ChaosPoppycarsCards.MonoBehaviours;
+using System.Reflection;
+using UnboundLib.Networking;
+using System.Collections.ObjectModel;
+using UnboundLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class PoppysChaos : CustomCard
+    class ActivatedDuplicator : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-
-            statModifiers.lifeSteal = 0.5f;
-
+            cardInfo.allowMultiple = false;
+            block.cdMultiplier = 1.15f;
             UnityEngine.Debug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
+            var mono = player.gameObject.GetOrAddComponent<DupeEffect>();
             UnityEngine.Debug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
+        
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
             UnityEngine.Debug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
+            var mono = player.gameObject.GetOrAddComponent<DupeEffect>();
+            UnityEngine.GameObject.Destroy(mono);
             //Run when the card is removed from the player
         }
-
+       
         protected override string GetTitle()
         {
-            return "Poppys Chaos";
+            return "Activated Duplicator";
         }
         protected override string GetDescription()
         {
-            return "This cards effects change every update";
+            return "When you block you activate a duplicator that doubles your projectiles for around 2 seconds";
         }
         protected override GameObject GetCardArt()
         {
@@ -57,12 +62,18 @@ namespace ChaosPoppycarsCards.Cards
         {
             return new CardInfoStat[]
             {
-                
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Block Cooldown",
+                    amount = "+15%",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.MagicPink;
         }
         public override string GetModName()
         {
