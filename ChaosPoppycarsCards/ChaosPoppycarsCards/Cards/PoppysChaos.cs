@@ -34,6 +34,8 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            var mono = player.gameObject.GetOrAddComponent<SpeedEffect>();
+            UnityEngine.GameObject.Destroy(mono);
             UnityEngine.Debug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }
