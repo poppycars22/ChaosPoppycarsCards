@@ -12,8 +12,14 @@
           "0Harmony": "2.9.0.0",
           "Assembly-CSharp": "0.0.0.0",
           "BepInEx": "5.4.19.0",
+          "BlockForcePatch": "1.0.0.0",
           "CardChoiceSpawnUniqueCardPatch": "1.0.0.0",
+          "DemonicPactPatch": "1.0.0.0",
+          "GunUnblockablePatch": "1.0.0.0",
+          "LegRaycastersPatch": "1.0.0.0",
           "ModdingUtils": "1.0.0.0",
+          "PlayerJumpPatch": "1.0.0.0",
+          "TemporaryStatsPatch": "1.0.0.0",
           "UnboundLib": "2.10.2.0",
           "UnityEngine.CoreModule": "0.0.0.0",
           "UnityEngine": "0.0.0.0"
@@ -46,6 +52,14 @@
           }
         }
       },
+      "BlockForcePatch/1.0.0.0": {
+        "runtime": {
+          "BlockForcePatch.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "CardChoiceSpawnUniqueCardPatch/1.0.0.0": {
         "runtime": {
           "CardChoiceSpawnUniqueCardPatch.dll": {
@@ -54,9 +68,49 @@
           }
         }
       },
+      "DemonicPactPatch/1.0.0.0": {
+        "runtime": {
+          "DemonicPactPatch.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GunUnblockablePatch/1.0.0.0": {
+        "runtime": {
+          "GunUnblockablePatch.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "LegRaycastersPatch/1.0.0.0": {
+        "runtime": {
+          "LegRaycastersPatch.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "ModdingUtils/1.0.0.0": {
         "runtime": {
           "ModdingUtils.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "PlayerJumpPatch/1.0.0.0": {
+        "runtime": {
+          "PlayerJumpPatch.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "TemporaryStatsPatch/1.0.0.0": {
+        "runtime": {
+          "TemporaryStatsPatch.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -685,12 +739,42 @@
       "serviceable": false,
       "sha512": ""
     },
+    "BlockForcePatch/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "CardChoiceSpawnUniqueCardPatch/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
+    "DemonicPactPatch/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GunUnblockablePatch/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LegRaycastersPatch/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "ModdingUtils/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PlayerJumpPatch/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TemporaryStatsPatch/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

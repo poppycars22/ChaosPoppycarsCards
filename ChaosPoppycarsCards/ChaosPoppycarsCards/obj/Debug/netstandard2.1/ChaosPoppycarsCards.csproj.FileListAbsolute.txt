@@ -93,3 +93,9 @@ C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPopp
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\obj\Debug\netstandard2.1\ChaosPoppycarsCards.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\obj\Debug\netstandard2.1\ChaosPoppycarsCards.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\obj\Debug\netstandard2.1\ChaosPoppycarsCards.pdb
+C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\BlockForcePatch.dll
+C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\DemonicPactPatch.dll
+C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\GunUnblockablePatch.dll
+C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\LegRaycastersPatch.dll
+C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\PlayerJumpPatch.dll
+C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\TemporaryStatsPatch.dll

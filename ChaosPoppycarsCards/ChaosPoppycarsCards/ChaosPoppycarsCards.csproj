@@ -15,11 +15,29 @@
     <Reference Include="BepInEx">
       <HintPath>..\..\..\..\..\Desktop\bepin\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
+    <Reference Include="BlockForcePatch">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\willuwontu-BlockForcePatch\BlockForcePatch.dll</HintPath>
+    </Reference>
     <Reference Include="CardChoiceSpawnUniqueCardPatch">
       <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-CardChoiceSpawnUniqueCardPatch\CardChoiceSpawnUniqueCardPatch.dll</HintPath>
     </Reference>
+    <Reference Include="DemonicPactPatch">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-DemonicPactPatch\DemonicPactPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="GunUnblockablePatch">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-GunUnblockablePatch\GunUnblockablePatch.dll</HintPath>
+    </Reference>
+    <Reference Include="LegRaycastersPatch">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-LegRaycastersPatch\LegRaycastersPatch.dll</HintPath>
+    </Reference>
     <Reference Include="ModdingUtils">
       <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-ModdingUtils\ModdingUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="PlayerJumpPatch">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-PlayerJumpPatch\PlayerJumpPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="TemporaryStatsPatch">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-TemporaryStatsPatch\TemporaryStatsPatch.dll</HintPath>
     </Reference>
     <Reference Include="UnboundLib">
       <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\willis81808-UnboundLib\UnboundLib.dll</HintPath>

@@ -18,7 +18,7 @@ using UnboundLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class SpeedPotion : CustomCard
+    class RegenPotion : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
@@ -29,7 +29,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetOrAddComponent<SpeedEffect>();
+            var mono = player.gameObject.GetOrAddComponent<RegenEffect>();
             UnityEngine.Debug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -37,18 +37,18 @@ namespace ChaosPoppycarsCards.Cards
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             UnityEngine.Debug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            var mono = player.gameObject.GetOrAddComponent<SpeedEffect>();
+            var mono = player.gameObject.GetOrAddComponent<RegenEffect>();
             UnityEngine.GameObject.Destroy(mono);
             //Run when the card is removed from the player
         }
        
         protected override string GetTitle()
         {
-            return "Speed Potion";
+            return "Regeneration Potion";
         }
         protected override string GetDescription()
         {
-            return "When you block you get double movment, reload, and attack speed for 5 seconds";
+            return "When you block you get some regen for 3.5 seconds";
         }
         protected override GameObject GetCardArt()
         {
