@@ -1,2 +1,2 @@
 # ChaosPoppycarsCards
- This is a discription
+ Adds some chaotic, but balanced (ish) cards to rounds, pretty poggers amirite
