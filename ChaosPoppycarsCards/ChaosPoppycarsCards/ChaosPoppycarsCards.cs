@@ -23,13 +23,17 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.1.7"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.1.8"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         private static readonly AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
 
         public static GameObject WoodenSwordArt = Bundle.LoadAsset<GameObject>("C_WoodenSword");
         public static GameObject StoneSwordArt = Bundle.LoadAsset<GameObject>("C_StoneSword");
+        public static GameObject GoldSwordArt = Bundle.LoadAsset<GameObject>("C_GoldSword");
+        public static GameObject IronSwordArt = Bundle.LoadAsset<GameObject>("C_IronSword");
+        public static GameObject DiamondSwordArt = Bundle.LoadAsset<GameObject>("C_DiamondSword");
+        public static GameObject NetheriteSwordArt = Bundle.LoadAsset<GameObject>("C_NetheriteSword");
         void Awake()
         {
             // Use this to call any harmony patch files your mod may have

@@ -35,7 +35,7 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Golden Sword";
+            return "Gold Sword";
         }
         protected override string GetDescription()
         {
@@ -43,7 +43,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return ChaosPoppycarsCards.GoldSwordArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
