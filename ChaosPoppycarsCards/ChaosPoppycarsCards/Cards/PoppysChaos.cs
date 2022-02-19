@@ -19,7 +19,7 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
 
-            statModifiers.lifeSteal = 0.5f;
+            gun.reflects = 5;
 
             UnityEngine.Debug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
