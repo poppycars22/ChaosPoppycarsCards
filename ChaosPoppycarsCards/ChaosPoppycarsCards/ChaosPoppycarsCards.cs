@@ -23,7 +23,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.1.9"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.2.0"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         private static readonly AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
@@ -40,6 +40,11 @@ namespace ChaosPoppycarsCards
         public static GameObject IarmorArt = Bundle.LoadAsset<GameObject>("C_IronArmor");
         public static GameObject DarmorArt = Bundle.LoadAsset<GameObject>("C_DiamondArmor");
         public static GameObject NarmorArt = Bundle.LoadAsset<GameObject>("C_NetheriteArmor");
+        public static GameObject RegenPotionArt = Bundle.LoadAsset<GameObject>("C_RegenrationPotion");
+        public static GameObject SpeedPotionArt = Bundle.LoadAsset<GameObject>("C_SpeedPotion");
+        public static GameObject JumpPotionArt = Bundle.LoadAsset<GameObject>("C_JumpPotion");
+        public static GameObject MinecraftBowArt = Bundle.LoadAsset<GameObject>("C_MinecraftBow");
+        public static GameObject StrengthPotionArt = Bundle.LoadAsset<GameObject>("C_StrengthPotion");
         void Awake()
         {
             // Use this to call any harmony patch files your mod may have
