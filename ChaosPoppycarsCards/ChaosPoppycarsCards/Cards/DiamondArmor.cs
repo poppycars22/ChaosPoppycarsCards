@@ -13,12 +13,11 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class NHelm : CustomCard
+    class Darmor : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.health = 1.70f;
-            statModifiers.movementSpeed = 1.35f;
+            statModifiers.health = 1.75f;
             cardInfo.allowMultiple = false;
             UnityEngine.Debug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -36,15 +35,15 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Netherite Helmet";
+            return "Diamond Armor";
         }
         protected override string GetDescription()
         {
-            return "Put on a netherite helmet so you can survive longer";
+            return "Put on diamond armor to survive longer";
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return ChaosPoppycarsCards.DarmorArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -58,14 +57,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+70%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Move Speed",
-                    amount = "+35%",
+                    amount = "+75%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

@@ -23,7 +23,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.1.8"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.1.9"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         private static readonly AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
@@ -34,6 +34,12 @@ namespace ChaosPoppycarsCards
         public static GameObject IronSwordArt = Bundle.LoadAsset<GameObject>("C_IronSword");
         public static GameObject DiamondSwordArt = Bundle.LoadAsset<GameObject>("C_DiamondSword");
         public static GameObject NetheriteSwordArt = Bundle.LoadAsset<GameObject>("C_NetheriteSword");
+        public static GameObject LarmorArt = Bundle.LoadAsset<GameObject>("C_LeatherArmor");
+        public static GameObject CarmorArt = Bundle.LoadAsset<GameObject>("C_ChainmailArmor");
+        public static GameObject GarmorArt = Bundle.LoadAsset<GameObject>("C_GoldArmor");
+        public static GameObject IarmorArt = Bundle.LoadAsset<GameObject>("C_IronArmor");
+        public static GameObject DarmorArt = Bundle.LoadAsset<GameObject>("C_DiamondArmor");
+        public static GameObject NarmorArt = Bundle.LoadAsset<GameObject>("C_NetheriteArmor");
         void Awake()
         {
             // Use this to call any harmony patch files your mod may have
@@ -59,30 +65,12 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<AmmoChest>();
             CustomCard.BuildCard<StrengthPotion>();
             CustomCard.BuildCard<SpeedPotion>();
-            CustomCard.BuildCard<LBoot>();
-            CustomCard.BuildCard<LHelm>();
-            CustomCard.BuildCard<LChes>();
-            CustomCard.BuildCard<LLeg>();
-            CustomCard.BuildCard<CBoot>();
-            CustomCard.BuildCard<CHelm>();
-            CustomCard.BuildCard<CChes>();
-            CustomCard.BuildCard<CLeg>();
-            CustomCard.BuildCard<IBoot>();
-            CustomCard.BuildCard<IHelm>();
-            CustomCard.BuildCard<IChes>();
-            CustomCard.BuildCard<ILeg>();
-            CustomCard.BuildCard<GBoot>();
-            CustomCard.BuildCard<GHelm>();
-            CustomCard.BuildCard<GChes>();
-            CustomCard.BuildCard<GLeg>();
-            CustomCard.BuildCard<DBoot>();
-            CustomCard.BuildCard<DHelm>();
-            CustomCard.BuildCard<DChes>();
-            CustomCard.BuildCard<DLeg>();
-            CustomCard.BuildCard<NBoot>();
-            CustomCard.BuildCard<NHelm>();
-            CustomCard.BuildCard<NChes>();
-            CustomCard.BuildCard<NLeg>();
+            CustomCard.BuildCard<Larmor>();
+            CustomCard.BuildCard<Carmor>();
+            CustomCard.BuildCard<Iarmor>();
+            CustomCard.BuildCard<Garmor>();
+            CustomCard.BuildCard<Darmor>();
+            CustomCard.BuildCard<Narmor>();
             CustomCard.BuildCard<JumpPotion>();
             CustomCard.BuildCard<RegenPotion>();
             CustomCard.BuildCard<PoppysChaos>();

@@ -13,11 +13,11 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class GLeg : CustomCard
+    class Carmor : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.movementSpeed = 1.40f;
+            statModifiers.health = 1.45f;
             cardInfo.allowMultiple = false;
             UnityEngine.Debug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -35,19 +35,19 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Gold Leggings";
+            return "Chain Armor";
         }
         protected override string GetDescription()
         {
-            return "Put on gold leggings to survive longer";
+            return "Put on Chain Armor to survive longer";
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return ChaosPoppycarsCards.CarmorArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -56,8 +56,8 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Move Speed",
-                    amount = "+40%",
+                    stat = "Health",
+                    amount = "+45%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
