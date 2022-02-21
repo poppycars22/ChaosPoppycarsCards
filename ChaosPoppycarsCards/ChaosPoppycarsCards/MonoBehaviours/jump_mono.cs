@@ -13,6 +13,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
     internal class JumpEffect : ReversibleEffect
     {
         private float duration = 0;
+        
         public override void OnOnDestroy()
         {
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Remove(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
@@ -25,7 +26,6 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             }
             duration = 5f;
         }
-
         public override void OnStart()
         {
             characterStatModifiersModifier.jump_add = 1.15f; 
@@ -42,7 +42,6 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             else
             {
                 ClearModifiers();
-
             }
         }
     }

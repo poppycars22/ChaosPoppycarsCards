@@ -80,6 +80,7 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<RegenPotion>();
             CustomCard.BuildCard<PoppysChaos>();
             CustomCard.BuildCard<ActivatedDuplicator>();
+            CustomCard.BuildCard<UltimatePotion>();
         }
     }
 }
