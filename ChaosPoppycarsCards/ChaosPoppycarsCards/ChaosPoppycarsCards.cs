@@ -45,6 +45,8 @@ namespace ChaosPoppycarsCards
         public static GameObject JumpPotionArt = Bundle.LoadAsset<GameObject>("C_JumpPotion");
         public static GameObject MinecraftBowArt = Bundle.LoadAsset<GameObject>("C_MinecraftBow");
         public static GameObject StrengthPotionArt = Bundle.LoadAsset<GameObject>("C_StrengthPotion");
+        public static GameObject ChaosArt = Bundle.LoadAsset<GameObject>("C_PoppysChaos");
+        public static GameObject UPotionArt = Bundle.LoadAsset<GameObject>("C_UltimatePotion");
         void Awake()
         {
             // Use this to call any harmony patch files your mod may have
@@ -81,6 +83,7 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<PoppysChaos>();
             CustomCard.BuildCard<ActivatedDuplicator>();
             CustomCard.BuildCard<UltimatePotion>();
+            CustomCard.BuildCard<WoodenAxe>();
         }
     }
 }

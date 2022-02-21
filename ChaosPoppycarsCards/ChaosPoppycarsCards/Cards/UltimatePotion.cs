@@ -61,7 +61,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.RegenPotionArt;
+            return ChaosPoppycarsCards.UPotionArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
