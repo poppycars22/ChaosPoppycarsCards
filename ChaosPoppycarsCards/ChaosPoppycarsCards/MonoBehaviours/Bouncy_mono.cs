@@ -28,6 +28,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         }
         public override void OnStart()
         {
+            gunStatModifier.reflects_add = 3;
             gunStatModifier.reflects_mult = 3;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
