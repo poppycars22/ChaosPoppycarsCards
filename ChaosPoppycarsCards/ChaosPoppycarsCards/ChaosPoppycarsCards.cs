@@ -84,6 +84,7 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<ActivatedDuplicator>();
             CustomCard.BuildCard<UltimatePotion>();
             CustomCard.BuildCard<WoodenAxe>();
+            CustomCard.BuildCard<BouncyGel>();
         }
     }
 }
