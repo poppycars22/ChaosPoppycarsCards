@@ -23,6 +23,8 @@ namespace ChaosPoppycarsCards.MonoBehaviours
                 ApplyModifiers();
             }
             duration = 5f;
+            ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
+            effect.SetColor(Color.cyan);
         }
 
         public override void OnStart()
@@ -42,7 +44,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             else
             {
                 ClearModifiers();
-
+                UnityEngine.GameObject.Destroy(this.gameObject.GetOrAddComponent<ColorEffect>());
             }
         }
     }

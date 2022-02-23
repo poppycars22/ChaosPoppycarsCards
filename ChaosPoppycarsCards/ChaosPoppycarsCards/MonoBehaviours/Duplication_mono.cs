@@ -23,12 +23,15 @@ namespace ChaosPoppycarsCards.MonoBehaviours
                 ApplyModifiers();
             }
             duration = 2f;
+            ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
+            effect.SetColor(Color.gray);
         }
 
         public override void OnStart()
         {
             gunStatModifier.numberOfProjectiles_mult = 2;
             gunStatModifier.spread_add = 0.1f;
+            gunStatModifier.projectileColor = Color.grey;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }
@@ -41,7 +44,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             else
             {
                 ClearModifiers();
-
+                UnityEngine.GameObject.Destroy(this.gameObject.GetOrAddComponent<ColorEffect>());
             }
         }
     }

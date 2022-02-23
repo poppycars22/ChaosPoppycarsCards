@@ -23,7 +23,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.2.0"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.2.5"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         private static readonly AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
@@ -47,6 +47,12 @@ namespace ChaosPoppycarsCards
         public static GameObject StrengthPotionArt = Bundle.LoadAsset<GameObject>("C_StrengthPotion");
         public static GameObject ChaosArt = Bundle.LoadAsset<GameObject>("C_PoppysChaos");
         public static GameObject UPotionArt = Bundle.LoadAsset<GameObject>("C_UltimatePotion");
+        public static GameObject WoodenAxeArt = Bundle.LoadAsset<GameObject>("C_WoodenAxe");
+        public static GameObject StoneAxeArt = Bundle.LoadAsset<GameObject>("C_StoneAxe");
+        public static GameObject IronAxeArt = Bundle.LoadAsset<GameObject>("C_IronAxe");
+        public static GameObject GoldAxeArt = Bundle.LoadAsset<GameObject>("C_GoldAxe");
+        public static GameObject DiamondAxeArt = Bundle.LoadAsset<GameObject>("C_DiamondAxe");
+        public static GameObject NetheriteAxeArt = Bundle.LoadAsset<GameObject>("C_NetheriteAxe");
         void Awake()
         {
             // Use this to call any harmony patch files your mod may have
@@ -85,6 +91,11 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<UltimatePotion>();
             CustomCard.BuildCard<WoodenAxe>();
             CustomCard.BuildCard<BouncyGel>();
+            CustomCard.BuildCard<StoneAxe>(); 
+            CustomCard.BuildCard<IronAxe>();
+            CustomCard.BuildCard<GoldAxe>();
+            CustomCard.BuildCard<DiamondAxe>();
+            CustomCard.BuildCard<NetheriteAxe>();
         }
     }
 }
