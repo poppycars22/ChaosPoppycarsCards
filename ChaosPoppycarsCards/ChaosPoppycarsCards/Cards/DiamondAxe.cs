@@ -19,7 +19,7 @@ namespace ChaosPoppycarsCards.Cards
         {
             UnityEngine.Debug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             gun.damage = 3f;
-            gun.attackSpeed = 2.75f;
+            gun.attackSpeed = 3.25f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -57,14 +57,14 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+300%",
+                    amount = "+200%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Attack speed",
-                    amount = "-175%",
+                    amount = "-225%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
