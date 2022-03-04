@@ -1,7 +1,6 @@
 ﻿using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
-using CPC.Extensions;
 using ChaosPoppycarsCards.MonoBehaviours;
 
 
@@ -13,14 +12,14 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
             cardInfo.allowMultiple = true;
+            statModifiers.respawns = 1;
+            statModifiers.movementSpeed = 0.5f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             
 
-            player.gameObject.GetOrAddComponent<TotemEffect>();
-            characterStats.GetAdditionalData().mulligans++;
-            characterStats.GetAdditionalData().remainingMulligans = characterStats.GetAdditionalData().mulligans;
+            
 
         }
         public override void OnRemoveCard()
@@ -53,7 +52,7 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat
                 {
                 positive = true,
-                stat = "Mulligans",
+                stat = "Revives",
                 amount = "+1",
                 simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }

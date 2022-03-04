@@ -19,7 +19,7 @@ using UnboundLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class UltimatePotion : CustomCard
+    class InvisPotion : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
@@ -30,11 +30,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetOrAddComponent<RegenEffect>();
-            var mono2 = player.gameObject.GetOrAddComponent<JumpEffect>();
-            var mono3 = player.gameObject.GetOrAddComponent<SpeedEffect>();
-            var mono4 = player.gameObject.GetOrAddComponent<StrengthEffect>();
-            var mono5 = player.gameObject.GetOrAddComponent<InvisEffect>();
+            var mono = player.gameObject.GetOrAddComponent<InvisEffect>();
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -42,34 +38,26 @@ namespace ChaosPoppycarsCards.Cards
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            var mono = player.gameObject.GetOrAddComponent<RegenEffect>();
-            var mono2 = player.gameObject.GetOrAddComponent<JumpEffect>();
-            var mono3 = player.gameObject.GetOrAddComponent<SpeedEffect>();
-            var mono4 = player.gameObject.GetOrAddComponent<StrengthEffect>();
-            var mono5 = player.gameObject.GetOrAddComponent<InvisEffect>();
+            var mono = player.gameObject.GetOrAddComponent<InvisEffect>();
             UnityEngine.GameObject.Destroy(mono);
-            UnityEngine.GameObject.Destroy(mono2);
-            UnityEngine.GameObject.Destroy(mono3);
-            UnityEngine.GameObject.Destroy(mono4);
-            UnityEngine.GameObject.Destroy(mono5);
             //Run when the card is removed from the player
         }
        
         protected override string GetTitle()
         {
-            return "Ultimate Potion";
+            return "Invisablity Potion";
         }
         protected override string GetDescription()
         {
-            return "When you block you get all the potion effects";
+            return "When you block you and your bullets become invisable for 5 seconds";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.UPotionArt;
+            return null;
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
