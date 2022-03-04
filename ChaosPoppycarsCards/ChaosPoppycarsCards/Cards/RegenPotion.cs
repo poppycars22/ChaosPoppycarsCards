@@ -48,7 +48,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "When you block you get some regen for 3.5 seconds";
+            return "When you block you get some regen for 3 seconds";
         }
         protected override GameObject GetCardArt()
         {

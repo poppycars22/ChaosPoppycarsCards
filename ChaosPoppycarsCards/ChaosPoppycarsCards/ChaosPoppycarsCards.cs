@@ -96,6 +96,7 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<GoldAxe>();
             CustomCard.BuildCard<DiamondAxe>();
             CustomCard.BuildCard<NetheriteAxe>();
+            CustomCard.BuildCard<TotemOfUndying>();
         }
     }
 }
