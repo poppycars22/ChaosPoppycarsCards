@@ -98,6 +98,8 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<NetheriteAxe>();
             CustomCard.BuildCard<TotemOfUndying>();
             CustomCard.BuildCard<InvisPotion>();
+            CustomCard.BuildCard<TimesNegativeOne>();
+            CustomCard.BuildCard<StoneHoe>();
         }
     }
 }

@@ -32,7 +32,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Always survive a fatal blow, and gain a bit of regen";
+            return "Gain a regen, but loose some movement speed";
         }
 
         protected override GameObject GetCardArt()
@@ -54,6 +54,13 @@ namespace ChaosPoppycarsCards.Cards
                 positive = true,
                 stat = "Revives",
                 amount = "+1",
+                simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                 new CardInfoStat
+                {
+                positive = false,
+                stat = "Move Speed",
+                amount = "-50%",
                 simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
