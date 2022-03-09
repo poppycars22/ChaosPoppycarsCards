@@ -18,7 +18,7 @@ namespace ChaosPoppycarsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.health = 1.45f;
+            statModifiers.health = 1.65f;
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -58,7 +58,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+45%",
+                    amount = "+65%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

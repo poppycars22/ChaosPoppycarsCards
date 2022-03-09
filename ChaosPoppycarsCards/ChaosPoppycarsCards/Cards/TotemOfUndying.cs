@@ -32,7 +32,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gain a regen, but loose some movement speed";
+            return "Gain a respawn, but loose some movement speed";
         }
 
         protected override GameObject GetCardArt()

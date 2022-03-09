@@ -24,7 +24,7 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            block.cdMultiplier = 1.5f;
+            block.cdMultiplier = 1.75f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
@@ -79,7 +79,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = false,
                     stat = "Block Cooldown",
-                    amount = "+50%",
+                    amount = "+75%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 }
             };
