@@ -49,7 +49,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return ChaosPoppycarsCards.GetAwayArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {

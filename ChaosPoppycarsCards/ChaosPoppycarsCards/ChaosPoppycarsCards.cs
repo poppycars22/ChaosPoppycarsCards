@@ -53,6 +53,9 @@ namespace ChaosPoppycarsCards
         public static GameObject GoldAxeArt = Bundle.LoadAsset<GameObject>("C_GoldAxe");
         public static GameObject DiamondAxeArt = Bundle.LoadAsset<GameObject>("C_DiamondAxe");
         public static GameObject NetheriteAxeArt = Bundle.LoadAsset<GameObject>("C_NetheriteAxe");
+        public static GameObject GetAwayArt = Bundle.LoadAsset<GameObject>("C_GETAWAY");
+        public static GameObject WoodenHoeArt = Bundle.LoadAsset<GameObject>("C_WoodenHoe");
+        public static GameObject StoneHoeArt = Bundle.LoadAsset<GameObject>("C_StoneHoe");
         void Awake()
         {
             // Use this to call any harmony patch files your mod may have
