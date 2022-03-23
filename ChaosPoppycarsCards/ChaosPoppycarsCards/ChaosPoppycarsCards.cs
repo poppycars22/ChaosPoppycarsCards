@@ -5,10 +5,14 @@ using ChaosPoppycarsCards.Cards;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using UnityEngine;
+using ModdingUtils;
+using ModdingUtils.Extensions;
+using System.Collections;
+using UnboundLib.GameModes;
 
 namespace ChaosPoppycarsCards
 {
-   
+
     // These are the mods required for our mod to work
     [BepInDependency("com.willis.rounds.unbound", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.playerjumppatch", BepInDependency.DependencyFlags.HardDependency)]
@@ -56,6 +60,7 @@ namespace ChaosPoppycarsCards
         public static GameObject GetAwayArt = Bundle.LoadAsset<GameObject>("C_GETAWAY");
         public static GameObject WoodenHoeArt = Bundle.LoadAsset<GameObject>("C_WoodenHoe");
         public static GameObject StoneHoeArt = Bundle.LoadAsset<GameObject>("C_StoneHoe");
+
         void Awake()
         {
             // Use this to call any harmony patch files your mod may have
@@ -65,7 +70,8 @@ namespace ChaosPoppycarsCards
         void Start()
 
         {
-          Instance = this;
+            Instance = this;
+            //   GameModeManager.AddHook(GameModeHooks.HookGameStart, this.GameStart);
             CustomCard.BuildCard<Sugared>();
             CustomCard.BuildCard<GETAWAY>();
             CustomCard.BuildCard<AttackSpeed>();
@@ -94,7 +100,7 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<UltimatePotion>();
             CustomCard.BuildCard<WoodenAxe>();
             CustomCard.BuildCard<BouncyGel>();
-            CustomCard.BuildCard<StoneAxe>(); 
+            CustomCard.BuildCard<StoneAxe>();
             CustomCard.BuildCard<IronAxe>();
             CustomCard.BuildCard<GoldAxe>();
             CustomCard.BuildCard<DiamondAxe>();
@@ -103,6 +109,23 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<InvisPotion>();
             CustomCard.BuildCard<TimesNegativeOne>();
             CustomCard.BuildCard<StoneHoe>();
+            CustomCard.BuildCard<GoldHoe>();
+
         }
+        //  IEnumerator GameStart(IGameModeHandler gm)
+        //   {
+        // Runs at start of match
+        //        foreach (var player in PlayerManager.instance.players)
+        //        {
+        //            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.StoneSwordCategory);
+        //            yield break;
+        //        }
+        //     }
+        //  }
+        // static class CPCCardCategories
+        // {
+        //    public static CardCategory StoneSwordCategory = CustomCardCategories.instance.CardCategory("Bounce Absorption");
+        //     public static CardCategory RepentanceCategory = CustomCardCategories.instance.CardCategory("Repentance");
+        //  }
     }
 }

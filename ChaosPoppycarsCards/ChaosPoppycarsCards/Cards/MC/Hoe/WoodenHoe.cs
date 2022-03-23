@@ -14,13 +14,12 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class Darmor : CustomCard
+    class AttackSpeed : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.health = 1.90f;
-            cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            gun.attackSpeed = 1f/1.2f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -36,19 +35,19 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Diamond Armor";
+            return "Wooden Hoe";
         }
         protected override string GetDescription()
         {
-            return "Put on diamond armor to survive longer";
+            return "gives attack speed";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.DarmorArt;
+            return ChaosPoppycarsCards.WoodenHoeArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -57,15 +56,15 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Health",
-                    amount = "+90%",
+                    stat = "Attack Speed",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.FirepowerYellow;
         }
         public override string GetModName()
         {

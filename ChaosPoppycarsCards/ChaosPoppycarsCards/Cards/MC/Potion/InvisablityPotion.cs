@@ -11,45 +11,45 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using ChaosPoppycarsCards.MonoBehaviours;
+using System.Reflection;
+using UnboundLib.Networking;
+using System.Collections.ObjectModel;
+using UnboundLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class TimesNegativeOne : CustomCard
+    class InvisPotion : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
+            cardInfo.allowMultiple = false;
+            block.cdMultiplier = 1.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            statModifiers.movementSpeed *= -1;
-            gun.attackSpeed *= -1;
-            gun.damage *= -1;
-            statModifiers.jump *= -1;
-            statModifiers.gravity *= -1;
-            gun.gravity *= -1;
-            gun.dmgMOnBounce *= -1;
-            gun.knockback *= -1;
-            gun.reflects *= -1;
-            statModifiers.secondsToTakeDamageOver *= -1;
-            statModifiers.sizeMultiplier *= -1;
+            var mono = player.gameObject.GetOrAddComponent<InvisEffect>();
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
+        
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
+            var mono = player.gameObject.GetOrAddComponent<InvisEffect>();
+            UnityEngine.GameObject.Destroy(mono);
             //Run when the card is removed from the player
         }
-
+       
         protected override string GetTitle()
         {
-            return "*-1";
+            return "invisibility Potion";
         }
         protected override string GetDescription()
         {
-            return "Times some of your stats by -1";
+            return "When you block you and your bullets become invisible for 5 seconds";
         }
         protected override GameObject GetCardArt()
         {
@@ -63,12 +63,18 @@ namespace ChaosPoppycarsCards.Cards
         {
             return new CardInfoStat[]
             {
-
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Block Cooldown",
+                    amount = "+50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.MagicPink;
         }
         public override string GetModName()
         {

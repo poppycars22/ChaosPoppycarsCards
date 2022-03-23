@@ -14,17 +14,20 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class NetheriteAxe : CustomCard
+    class StoneSword : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
+          //  cardInfo.categories = new CardCategory[] { CPCCardCategories.StoneSwordCategory };
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.damage = 2.75f;
-            gun.attackSpeed = 2.75f;
+
+            gun.damage = 1.35f;
+
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -36,19 +39,19 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Netherite Axe";
+            return "Stone Sword";
         }
         protected override string GetDescription()
         {
-            return "Gives a lot of damage, reduces attack speed";
+            return "Gives some damage";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.NetheriteAxeArt;
+            return ChaosPoppycarsCards.StoneSwordArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -58,14 +61,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+175%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Attack speed",
-                    amount = "-175%",
+                    amount = "+35%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

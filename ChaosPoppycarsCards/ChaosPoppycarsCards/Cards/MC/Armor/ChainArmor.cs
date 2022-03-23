@@ -14,13 +14,13 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class NetheriteSword : CustomCard
+    class Carmor : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
+            statModifiers.health = 1.7f;
+            cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.damage = 1.75f;
-            gun.attackSpeed = 0.75f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -36,19 +36,19 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Netherite Sword";
+            return "Chain Armor";
         }
         protected override string GetDescription()
         {
-            return "Gives a lot of damage, and some attack speed";
+            return "Put on Chain Armor to survive longer";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.NetheriteSwordArt;
+            return ChaosPoppycarsCards.CarmorArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -57,22 +57,15 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Damage",
-                    amount = "+75%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Attack Speed",
-                    amount = "+33%",
+                    stat = "Health",
+                    amount = "+70%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.FirepowerYellow;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

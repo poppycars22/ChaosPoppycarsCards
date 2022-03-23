@@ -12,19 +12,21 @@ using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
+
 namespace ChaosPoppycarsCards.Cards
 {
-    class StoneSword : CustomCard
+    class WoodenSword : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.damage = 1.35f;
+            gun.damage = 1.25f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+          //  ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Remove(CPCCardCategories.StoneSwordCategory);
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -35,15 +37,15 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Stone Sword";
+            return "Wooden Sword";
         }
         protected override string GetDescription()
         {
-            return "Gives some damage";
+            return "Gives a little damage";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.StoneSwordArt;
+            return ChaosPoppycarsCards.WoodenSwordArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -57,7 +59,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+35%",
+                    amount = "+25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

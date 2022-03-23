@@ -14,13 +14,14 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class GoldSword : CustomCard
+    class Narmor : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
+            statModifiers.health = 2f;
+            statModifiers.movementSpeed = 1.5f;
+            cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.damage = 0.85f;
-            gun.attackSpeed = 0.5f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -36,19 +37,19 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Gold Sword";
+            return "Netherite Armor";
         }
         protected override string GetDescription()
         {
-            return "Why would you make this?";
+            return "Put on netherite armor to survive longer";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.GoldSwordArt;
+            return ChaosPoppycarsCards.NarmorArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -56,15 +57,15 @@ namespace ChaosPoppycarsCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Damage",
-                    amount = "-15%",
+                    positive = true,
+                    stat = "Health",
+                    amount = "+100%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Attack Speed",
+                    stat = "Move Speed",
                     amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
@@ -72,7 +73,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.FirepowerYellow;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {
