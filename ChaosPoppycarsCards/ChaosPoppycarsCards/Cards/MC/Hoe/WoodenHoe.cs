@@ -39,7 +39,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "gives attack speed";
+            return "Gives attack speed";
         }
         protected override GameObject GetCardArt()
         {

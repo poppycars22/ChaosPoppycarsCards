@@ -54,7 +54,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "This cards changes every update (i tried to make it a rng thing, idk how to <i>yet</i>";
+            return "This cards changes almost every update";
         }
         protected override GameObject GetCardArt()
         {
