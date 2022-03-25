@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class Poppycars : CustomCard
+    class SpeedBounce : CustomCard
     {
         int bounceCount = 0;
 

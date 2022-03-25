@@ -110,7 +110,7 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<TimesNegativeOne>();
             CustomCard.BuildCard<StoneHoe>();
             CustomCard.BuildCard<GoldHoe>();
-            CustomCard.BuildCard<Poppycars>();
+            CustomCard.BuildCard<SpeedBounce>();
 
         }
         //  IEnumerator GameStart(IGameModeHandler gm)
