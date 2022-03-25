@@ -11,7 +11,7 @@ namespace ChaosPoppycarsCards.Cards
 {
     class SpeedBounce : CustomCard
     {
-        int bounceCount = 0;
+        int bounceCounts = 0;
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -21,9 +21,9 @@ namespace ChaosPoppycarsCards.Cards
             void IncreaseSpeed(HitInfo hitInfo)
             {
                 characterStats.movementSpeed *= .15f;
-                bounceCount++;
+                bounceCounts++;
 
-                if (bounceCount % 5 == 0)
+                if (bounceCounts % 5 == 0)
                     gun.reflects++;
             }
         }
