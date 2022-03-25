@@ -27,7 +27,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.3.3"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.3.4"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         private static readonly AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
@@ -110,6 +110,7 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<TimesNegativeOne>();
             CustomCard.BuildCard<StoneHoe>();
             CustomCard.BuildCard<GoldHoe>();
+            CustomCard.BuildCard<Poppycars>();
 
         }
         //  IEnumerator GameStart(IGameModeHandler gm)
