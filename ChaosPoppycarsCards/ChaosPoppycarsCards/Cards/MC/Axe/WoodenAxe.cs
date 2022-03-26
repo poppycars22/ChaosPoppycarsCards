@@ -21,6 +21,7 @@ namespace ChaosPoppycarsCards.Cards
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             gun.damage = 1.50f;
             gun.attackSpeed = 1.5f;
+            gun.reloadTime = 1.25f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -40,7 +41,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gives a lot of damage, reduces attack speed";
+            return "Gives a lot of damage, reduces attack speed and reload speed";
         }
         protected override GameObject GetCardArt()
         {
@@ -66,6 +67,13 @@ namespace ChaosPoppycarsCards.Cards
                     positive = false,
                     stat = "Attack speed",
                     amount = "-50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Reload speed",
+                    amount = "-25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

@@ -25,12 +25,7 @@ namespace ChaosPoppycarsCards.Cards
         {
             statModifiers.movementSpeed *= -1;
             gun.attackSpeed *= -1;
-            gun.damage *= -1;
-            gun.gravity *= -1;
-            gun.dmgMOnBounce *= -1;
             gun.knockback *= -1;
-            gun.reflects *= -1;
-            statModifiers.secondsToTakeDamageOver *= -1;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -60,7 +55,27 @@ namespace ChaosPoppycarsCards.Cards
         {
             return new CardInfoStat[]
             {
-
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Attack speed",
+                    amount = "*-1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Move speed",
+                    amount = "*-1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "knockback",
+                    amount = "*-1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

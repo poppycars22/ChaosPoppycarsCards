@@ -49,7 +49,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "When you block you activate a duplicator that doubles your projectiles for around 2 seconds";
+            return "When you block you activate a duplicator that doubles your projectiles for 2 seconds";
         }
         protected override GameObject GetCardArt()
         {

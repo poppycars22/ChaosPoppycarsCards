@@ -95,7 +95,7 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<Narmor>();
             CustomCard.BuildCard<JumpPotion>();
             CustomCard.BuildCard<RegenPotion>();
-            CustomCard.BuildCard<PoppysChaos>();
+          //  CustomCard.BuildCard<PoppysChaos>();
             CustomCard.BuildCard<ActivatedDuplicator>();
             CustomCard.BuildCard<UltimatePotion>();
             CustomCard.BuildCard<WoodenAxe>();
