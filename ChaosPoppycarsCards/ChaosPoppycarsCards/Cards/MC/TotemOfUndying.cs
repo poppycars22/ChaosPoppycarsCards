@@ -37,7 +37,7 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override GameObject GetCardArt()
         {
-            return null;
+            return ChaosPoppycarsCards.TotemArt;
         }
 
         protected override CardInfo.Rarity GetRarity()

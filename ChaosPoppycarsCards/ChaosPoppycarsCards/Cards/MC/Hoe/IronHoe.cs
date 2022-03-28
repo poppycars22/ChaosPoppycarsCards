@@ -14,19 +14,16 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class DoubleDuplicator : CustomCard
+    class IronHoe : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.spread = 0.20f;
+            gun.attackSpeed = 1f / 1.50f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            gun.numberOfProjectiles *= 4;
-            gun.damage *= 0.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -38,19 +35,19 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Double Duplicator";
+            return "Iron Hoe";
         }
         protected override string GetDescription()
         {
-            return "Quadrouples your projectiles";
+            return "Gives attack speed";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.DduplicatorArt;
+            return ChaosPoppycarsCards.IronHoeArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -59,22 +56,8 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Projectiles",
-                    amount = "*4",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                  new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Damage",
-                    amount = "1/2",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                    new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Spread",
-                    amount = "+20%",
+                    stat = "Attack Speed",
+                    amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

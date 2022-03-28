@@ -27,7 +27,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.3.4"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.3.5"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         private static readonly AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
@@ -60,7 +60,18 @@ namespace ChaosPoppycarsCards
         public static GameObject GetAwayArt = Bundle.LoadAsset<GameObject>("C_GETAWAY");
         public static GameObject WoodenHoeArt = Bundle.LoadAsset<GameObject>("C_WoodenHoe");
         public static GameObject StoneHoeArt = Bundle.LoadAsset<GameObject>("C_StoneHoe");
-
+        public static GameObject GoldHoeArt = Bundle.LoadAsset<GameObject>("C_GoldHoe");
+        public static GameObject IronHoeArt = Bundle.LoadAsset<GameObject>("C_IronHoe");
+        public static GameObject DiamondHoeArt = Bundle.LoadAsset<GameObject>("C_DiamondHoe");
+        public static GameObject NetheriteHoeArt = Bundle.LoadAsset<GameObject>("C_NetheriteHoe");
+        public static GameObject TotemArt = Bundle.LoadAsset<GameObject>("C_TotemOfUndying");
+        public static GameObject AmmoChestArt = Bundle.LoadAsset<GameObject>("C_AmmoChest");
+        public static GameObject AduplicatorArt = Bundle.LoadAsset<GameObject>("C_ActivatedDuplicator");
+        public static GameObject duplicatorArt = Bundle.LoadAsset<GameObject>("C_Duplicator");
+        public static GameObject DduplicatorArt = Bundle.LoadAsset<GameObject>("C_DoubleDuplicator");
+        public static GameObject BouncyGelArt = Bundle.LoadAsset<GameObject>("C_BouncyGel");
+        public static GameObject NegativeOneArt = Bundle.LoadAsset<GameObject>("C_Negafy");
+        public static GameObject SugaredArt = Bundle.LoadAsset<GameObject>("C_Sugared");
         void Awake()
         {
             // Use this to call any harmony patch files your mod may have
@@ -110,7 +121,10 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<TimesNegativeOne>();
             CustomCard.BuildCard<StoneHoe>();
             CustomCard.BuildCard<GoldHoe>();
-            CustomCard.BuildCard<SpeedBounce>();
+            CustomCard.BuildCard<IronHoe>();
+            CustomCard.BuildCard<DiamondHoe>();
+            CustomCard.BuildCard<NetheriteHoe>();
+            //  CustomCard.BuildCard<SpeedBounce>();
 
         }
         //  IEnumerator GameStart(IGameModeHandler gm)

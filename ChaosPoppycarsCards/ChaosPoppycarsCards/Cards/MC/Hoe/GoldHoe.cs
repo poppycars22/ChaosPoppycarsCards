@@ -40,11 +40,11 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gives attack speed";
+            return "Gives attack speed and reload speed";
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return ChaosPoppycarsCards.GoldHoeArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {

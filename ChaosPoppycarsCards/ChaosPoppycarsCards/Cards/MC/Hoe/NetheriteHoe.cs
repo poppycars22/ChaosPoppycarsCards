@@ -14,19 +14,17 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class DoubleDuplicator : CustomCard
+    class NetheriteHoe : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.spread = 0.20f;
+            gun.attackSpeed = 1f / 1.60f;
+            gun.reloadTime = 1f/1.4f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            gun.numberOfProjectiles *= 4;
-            gun.damage *= 0.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -38,15 +36,15 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Double Duplicator";
+            return "Netherite Hoe";
         }
         protected override string GetDescription()
         {
-            return "Quadrouples your projectiles";
+            return "Gives attack speed and reload speed";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.DduplicatorArt;
+            return ChaosPoppycarsCards.NetheriteHoeArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -59,22 +57,15 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Projectiles",
-                    amount = "*4",
+                    stat = "Attack Speed",
+                    amount = "+60%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
-                  new CardInfoStat()
+                new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Damage",
-                    amount = "1/2",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                    new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Spread",
-                    amount = "+20%",
+                    positive = true,
+                    stat = "Reload Speed",
+                    amount = "+40%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

@@ -45,7 +45,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Once below 50% hp gain movment speed, attack speed, and knockback, when below 50% hp";
+            return "Once below 50% hp gain movment speed, attack speed, and knockback";
         }
         protected override GameObject GetCardArt()
         {

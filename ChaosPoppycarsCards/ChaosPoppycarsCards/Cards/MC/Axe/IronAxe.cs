@@ -37,7 +37,7 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Iron axe";
+            return "Iron Axe";
         }
         protected override string GetDescription()
         {

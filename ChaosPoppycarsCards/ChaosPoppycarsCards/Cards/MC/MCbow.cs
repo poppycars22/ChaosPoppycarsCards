@@ -41,7 +41,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "you shoot a additional projectile";
+            return "You shoot a additional projectile";
         }
         protected override GameObject GetCardArt()
         {
