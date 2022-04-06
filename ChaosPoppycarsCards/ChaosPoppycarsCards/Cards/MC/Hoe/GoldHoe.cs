@@ -19,7 +19,7 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.attackSpeed = 1f / 1.40f;
+            gun.attackSpeed = .60f;
             gun.reloadTime = 1f/1.4f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }

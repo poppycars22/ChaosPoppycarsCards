@@ -19,12 +19,16 @@
           "LegRaycastersPatch": "1.0.0.0",
           "ModdingUtils": "1.0.0.0",
           "PhotonRealtime": "0.0.0.0",
+          "PhotonUnityNetworking": "0.0.0.0",
           "PlayerJumpPatch": "1.0.0.0",
           "TemporaryStatsPatch": "1.0.0.0",
           "UnboundLib": "2.11.1.0",
+          "Unity.TextMeshPro": "0.0.0.0",
           "UnityEngine.AssetBundleModule": "0.0.0.0",
           "UnityEngine.CoreModule": "0.0.0.0",
-          "UnityEngine": "0.0.0.0"
+          "UnityEngine": "0.0.0.0",
+          "UnityEngine.UI": "1.0.0.0",
+          "UnityEngine.UIModule": "0.0.0.0"
         },
         "runtime": {
           "ChaosPoppycarsCards.dll": {}
@@ -110,6 +114,14 @@
           }
         }
       },
+      "PhotonUnityNetworking/0.0.0.0": {
+        "runtime": {
+          "PhotonUnityNetworking.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
       "PlayerJumpPatch/1.0.0.0": {
         "runtime": {
           "PlayerJumpPatch.dll": {
@@ -134,6 +146,14 @@
           }
         }
       },
+      "Unity.TextMeshPro/0.0.0.0": {
+        "runtime": {
+          "Unity.TextMeshPro.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
       "UnityEngine.AssetBundleModule/0.0.0.0": {
         "runtime": {
           "UnityEngine.AssetBundleModule.dll": {
@@ -153,6 +173,22 @@
       "UnityEngine/0.0.0.0": {
         "runtime": {
           "UnityEngine.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "UnityEngine.UI/1.0.0.0": {
+        "runtime": {
+          "UnityEngine.UI.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "UnityEngine.UIModule/0.0.0.0": {
+        "runtime": {
+          "UnityEngine.UIModule.dll": {
             "assemblyVersion": "0.0.0.0",
             "fileVersion": "0.0.0.0"
           }
@@ -190,14 +226,6 @@
           }
         }
       },
-      "PhotonUnityNetworking/0.0.0.0": {
-        "runtime": {
-          "PhotonUnityNetworking.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
       "Sirenix.OdinInspector.Attributes/2.1.6.0": {
         "runtime": {
           "Sirenix.OdinInspector.Attributes.dll": {
@@ -225,30 +253,6 @@
       "SonigonAudioEngine.Runtime/0.0.0.0": {
         "runtime": {
           "SonigonAudioEngine.Runtime.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "Unity.TextMeshPro/0.0.0.0": {
-        "runtime": {
-          "Unity.TextMeshPro.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "UnityEngine.UI/1.0.0.0": {
-        "runtime": {
-          "UnityEngine.UI.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "UnityEngine.UIModule/0.0.0.0": {
-        "runtime": {
-          "UnityEngine.UIModule.dll": {
             "assemblyVersion": "0.0.0.0",
             "fileVersion": "0.0.0.0"
           }
@@ -409,6 +413,14 @@
       "UnityEngine.ImageConversionModule/0.0.0.0": {
         "runtime": {
           "UnityEngine.ImageConversionModule.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "UnityEngine.TextCoreModule/0.0.0.0": {
+        "runtime": {
+          "UnityEngine.TextCoreModule.dll": {
             "assemblyVersion": "0.0.0.0",
             "fileVersion": "0.0.0.0"
           }
@@ -630,14 +642,6 @@
           }
         }
       },
-      "UnityEngine.TextCoreModule/0.0.0.0": {
-        "runtime": {
-          "UnityEngine.TextCoreModule.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
       "UnityEngine.UIElementsModule/0.0.0.0": {
         "runtime": {
           "UnityEngine.UIElementsModule.dll": {
@@ -776,6 +780,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "PhotonUnityNetworking/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "PlayerJumpPatch/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -791,6 +800,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Unity.TextMeshPro/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "UnityEngine.AssetBundleModule/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -802,6 +816,16 @@
       "sha512": ""
     },
     "UnityEngine/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UnityEngine.UI/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UnityEngine.UIModule/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -826,11 +850,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "PhotonUnityNetworking/0.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Sirenix.OdinInspector.Attributes/2.1.6.0": {
       "type": "reference",
       "serviceable": false,
@@ -847,21 +866,6 @@
       "sha512": ""
     },
     "SonigonAudioEngine.Runtime/0.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Unity.TextMeshPro/0.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "UnityEngine.UI/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "UnityEngine.UIModule/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -962,6 +966,11 @@
       "sha512": ""
     },
     "UnityEngine.ImageConversionModule/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UnityEngine.TextCoreModule/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -1097,11 +1106,6 @@
       "sha512": ""
     },
     "UnityEngine.InputModule/0.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "UnityEngine.TextCoreModule/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
