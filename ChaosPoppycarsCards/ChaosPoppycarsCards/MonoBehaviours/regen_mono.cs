@@ -38,13 +38,17 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             if (!(duration <= 0))
             {
                 duration -= TimeHandler.deltaTime;
-                data.healthHandler.Heal(0.2f);
+                data.healthHandler.Heal(10f * TimeHandler.deltaTime);
             }
             else
             {
                 ClearModifiers();
                 UnityEngine.GameObject.Destroy(this.gameObject.GetOrAddComponent<ColorEffect>());
             }
+        }
+        public override void OnOnDisable()
+        {
+            duration = 0;
         }
     }
 }
