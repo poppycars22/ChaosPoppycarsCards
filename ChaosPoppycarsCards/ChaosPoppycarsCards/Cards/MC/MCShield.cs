@@ -8,52 +8,43 @@ using UnboundLib.Cards;
 using UnityEngine;
 using BepInEx;
 using ChaosPoppycarsCards.Cards;
+using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using ChaosPoppycarsCards.MonoBehaviours;
-using ChaosPoppycarsCards.Utilities;
-using System.Reflection;
-using UnboundLib.Networking;
-using System.Collections.ObjectModel;
-using UnboundLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class ActivatedDuplicator : CustomCard
+    class MCShield : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            block.cdMultiplier = 1.15f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            gun.attackSpeed = 1.5f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetOrAddComponent<DupeEffect>();
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            block.additionalBlocks += 1;
             //Edits values on player when card is selected
         }
-        
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            var mono = player.gameObject.GetOrAddComponent<DupeEffect>();
-            UnityEngine.GameObject.Destroy(mono);
             //Run when the card is removed from the player
         }
-       
+
         protected override string GetTitle()
         {
-            return "Activated Duplicator";
+            return "Minecraft Shield";
         }
         protected override string GetDescription()
         {
-            return "When you block you activate a duplicator that doubles your projectiles for 5 seconds";
+            return "You gain another block";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.AduplicatorArt;
+            return ChaosPoppycarsCards.ShieldArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -65,16 +56,23 @@ namespace ChaosPoppycarsCards.Cards
             {
                 new CardInfoStat()
                 {
+                    positive = true,
+                    stat = "Blocks",
+                    amount = "+1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
                     positive = false,
-                    stat = "Block Cooldown",
-                    amount = "+15%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                    stat = "Attack Speed",
+                    amount = "-50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.MagicPink;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

@@ -9,7 +9,7 @@ using ChaosPoppycarsCards.Cards;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
-    internal class DupeEffect : ReversibleEffect
+    internal class DRSodaEffect : ReversibleEffect
     {
         private float duration = 0;
         public override void OnOnDestroy()
@@ -23,15 +23,16 @@ namespace ChaosPoppycarsCards.MonoBehaviours
                 ApplyModifiers();
             }
             duration = 5f;
-            ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
-            effect.SetColor(Color.gray);
+             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
+            effect.SetColor(Color.red);
         }
 
         public override void OnStart()
         {
-            gunStatModifier.numberOfProjectiles_mult = 2;
-            gunStatModifier.spread_add = 0.1f;
-            gunStatModifier.projectileColor = Color.grey;
+            gunStatModifier.damage_mult = 1.5f;
+            gunAmmoStatModifier.reloadTimeMultiplier_mult = 0.5f;
+            gunStatModifier.attackSpeed_mult = 0.5f;
+            blockModifier.cdMultiplier_mult = 1.5f;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }

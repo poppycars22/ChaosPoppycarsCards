@@ -31,7 +31,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         {
             characterStatModifiersModifier.movementSpeed_mult = 2f;
             gunStatModifier.attackSpeed_mult = 0.5f;
-            gun.reloadTime = 0.5f;
+            gunAmmoStatModifier.reloadTimeMultiplier_mult = 0.5f;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }
