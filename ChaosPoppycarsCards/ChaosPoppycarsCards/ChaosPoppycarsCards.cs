@@ -9,6 +9,9 @@ using ModdingUtils;
 using ModdingUtils.Extensions;
 using System.Collections;
 using UnboundLib.GameModes;
+using Jotunn.Utils;
+using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace ChaosPoppycarsCards
 {
@@ -27,57 +30,11 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.4.0"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.4.1"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
-        private static readonly AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
-
-        public static GameObject WoodenSwordArt = Bundle.LoadAsset<GameObject>("C_WoodenSword");
-        public static GameObject StoneSwordArt = Bundle.LoadAsset<GameObject>("C_StoneSword");
-        public static GameObject GoldSwordArt = Bundle.LoadAsset<GameObject>("C_GoldSword");
-        public static GameObject IronSwordArt = Bundle.LoadAsset<GameObject>("C_IronSword");
-        public static GameObject DiamondSwordArt = Bundle.LoadAsset<GameObject>("C_DiamondSword");
-        public static GameObject NetheriteSwordArt = Bundle.LoadAsset<GameObject>("C_NetheriteSword");
-        public static GameObject LarmorArt = Bundle.LoadAsset<GameObject>("C_LeatherArmor");
-        public static GameObject CarmorArt = Bundle.LoadAsset<GameObject>("C_ChainmailArmor");
-        public static GameObject GarmorArt = Bundle.LoadAsset<GameObject>("C_GoldArmor");
-        public static GameObject IarmorArt = Bundle.LoadAsset<GameObject>("C_IronArmor");
-        public static GameObject DarmorArt = Bundle.LoadAsset<GameObject>("C_DiamondArmor");
-        public static GameObject NarmorArt = Bundle.LoadAsset<GameObject>("C_NetheriteArmor");
-        public static GameObject RegenPotionArt = Bundle.LoadAsset<GameObject>("C_RegenrationPotion");
-        public static GameObject SpeedPotionArt = Bundle.LoadAsset<GameObject>("C_SpeedPotion");
-        public static GameObject JumpPotionArt = Bundle.LoadAsset<GameObject>("C_JumpPotion");
-        public static GameObject MinecraftBowArt = Bundle.LoadAsset<GameObject>("C_MinecraftBow");
-        public static GameObject StrengthPotionArt = Bundle.LoadAsset<GameObject>("C_StrengthPotion");
-        public static GameObject ChaosArt = Bundle.LoadAsset<GameObject>("C_PoppysChaos");
-        public static GameObject UPotionArt = Bundle.LoadAsset<GameObject>("C_UltimatePotion");
-        public static GameObject WoodenAxeArt = Bundle.LoadAsset<GameObject>("C_WoodenAxe");
-        public static GameObject StoneAxeArt = Bundle.LoadAsset<GameObject>("C_StoneAxe");
-        public static GameObject IronAxeArt = Bundle.LoadAsset<GameObject>("C_IronAxe");
-        public static GameObject GoldAxeArt = Bundle.LoadAsset<GameObject>("C_GoldAxe");
-        public static GameObject DiamondAxeArt = Bundle.LoadAsset<GameObject>("C_DiamondAxe");
-        public static GameObject NetheriteAxeArt = Bundle.LoadAsset<GameObject>("C_NetheriteAxe");
-        public static GameObject GetAwayArt = Bundle.LoadAsset<GameObject>("C_GETAWAY");
-        public static GameObject WoodenHoeArt = Bundle.LoadAsset<GameObject>("C_WoodenHoe");
-        public static GameObject StoneHoeArt = Bundle.LoadAsset<GameObject>("C_StoneHoe");
-        public static GameObject GoldHoeArt = Bundle.LoadAsset<GameObject>("C_GoldHoe");
-        public static GameObject IronHoeArt = Bundle.LoadAsset<GameObject>("C_IronHoe");
-        public static GameObject DiamondHoeArt = Bundle.LoadAsset<GameObject>("C_DiamondHoe");
-        public static GameObject NetheriteHoeArt = Bundle.LoadAsset<GameObject>("C_NetheriteHoe");
-        public static GameObject TotemArt = Bundle.LoadAsset<GameObject>("C_TotemOfUndying");
-        public static GameObject AmmoChestArt = Bundle.LoadAsset<GameObject>("C_AmmoChest");
-        public static GameObject AduplicatorArt = Bundle.LoadAsset<GameObject>("C_ActivatedDuplicator");
-        public static GameObject duplicatorArt = Bundle.LoadAsset<GameObject>("C_Duplicator");
-        public static GameObject DduplicatorArt = Bundle.LoadAsset<GameObject>("C_DoubleDuplicator");
-        public static GameObject BouncyGelArt = Bundle.LoadAsset<GameObject>("C_BouncyGel");
-        public static GameObject NegativeOneArt = Bundle.LoadAsset<GameObject>("C_Negafy");
-        public static GameObject SugaredArt = Bundle.LoadAsset<GameObject>("C_Sugared");
-        public static GameObject InvisPotArt = Bundle.LoadAsset<GameObject>("C_InvisiblilityPotion");
-        public static GameObject WormholeArt = Bundle.LoadAsset<GameObject>("C_WormHole");
-        public static GameObject DrPepperArt = Bundle.LoadAsset<GameObject>("C_DrPepper");
-        public static GameObject CokeArt = Bundle.LoadAsset<GameObject>("C_Coke");
-        public static GameObject PepsiArt = Bundle.LoadAsset<GameObject>("C_Pepsi");
-        public static GameObject SpriteArt = Bundle.LoadAsset<GameObject>("C_Sprite");
+        public static AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
+        
         public static GameObject ShieldArt = Bundle.LoadAsset<GameObject>("C_MinecraftSheild");
         void Awake()
         {
@@ -89,7 +46,8 @@ namespace ChaosPoppycarsCards
 
         {
             Instance = this;
-            //   GameModeManager.AddHook(GameModeHooks.HookGameStart, this.GameStart);
+            GameModeManager.AddHook(GameModeHooks.HookGameStart, this.GameStart);
+            ChaosPoppycarsCards.ArtAssets = AssetUtils.LoadAssetBundleFromResources("cpccart", typeof(ChaosPoppycarsCards).Assembly);
             CustomCard.BuildCard<Sugared>();
             CustomCard.BuildCard<GETAWAY>();
             CustomCard.BuildCard<AttackSpeed>();
@@ -142,20 +100,53 @@ namespace ChaosPoppycarsCards
             // CustomCard.BuildCard<StonePickaxe>();
             // CustomCard.BuildCard<GoldPickaxe>();
         }
-        //  IEnumerator GameStart(IGameModeHandler gm)
-        //   {
-        // Runs at start of match
-        //        foreach (var player in PlayerManager.instance.players)
-        //        {
-        //            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.StoneSwordCategory);
-        //            yield break;
-        //        }
-        //     }
-        //  }
-        // static class CPCCardCategories
-        // {
-        //    public static CardCategory StoneSwordCategory = CustomCardCategories.instance.CardCategory("Bounce Absorption");
-        //     public static CardCategory RepentanceCategory = CustomCardCategories.instance.CardCategory("Repentance");
-        //  }
+        IEnumerator GameStart(IGameModeHandler gm)
+        {
+            // Runs at start of match
+            foreach (var player in PlayerManager.instance.players)
+            {
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.StoneSwordCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.IronSwordCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.DiamondSwordCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.NetheriteSwordCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.StoneAxeCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.IronAxeCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.DiamondAxeCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.NetheriteAxeCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.StoneHoeCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.IronHoeCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.DiamondHoeCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.NetheriteHoeCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.ChainArmorCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.IronArmorCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.DiamondArmorCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.NetheriteArmorCategory);
+                ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Remove(CPCCardCategories.PotionCategory);
+            }
+            yield break;
+
+            }
+        
+        internal static AssetBundle ArtAssets;
+    }
+    static class CPCCardCategories
+    {
+        public static CardCategory StoneSwordCategory = CustomCardCategories.instance.CardCategory("StoneSword");
+        public static CardCategory IronSwordCategory = CustomCardCategories.instance.CardCategory("IronSword");
+        public static CardCategory DiamondSwordCategory = CustomCardCategories.instance.CardCategory("DiamondSword");
+        public static CardCategory NetheriteSwordCategory = CustomCardCategories.instance.CardCategory("NetheriteSword");
+        public static CardCategory StoneAxeCategory = CustomCardCategories.instance.CardCategory("StoneAxe");
+        public static CardCategory IronAxeCategory = CustomCardCategories.instance.CardCategory("IronAxe");
+        public static CardCategory DiamondAxeCategory = CustomCardCategories.instance.CardCategory("DiamondAxe");
+        public static CardCategory NetheriteAxeCategory = CustomCardCategories.instance.CardCategory("NetheriteAxe");
+        public static CardCategory StoneHoeCategory = CustomCardCategories.instance.CardCategory("StoneHoe");
+        public static CardCategory IronHoeCategory = CustomCardCategories.instance.CardCategory("IronHoe");
+        public static CardCategory DiamondHoeCategory = CustomCardCategories.instance.CardCategory("DiamondHoe");
+        public static CardCategory NetheriteHoeCategory = CustomCardCategories.instance.CardCategory("NetheriteHoe");
+        public static CardCategory ChainArmorCategory = CustomCardCategories.instance.CardCategory("ChainArmor");
+        public static CardCategory IronArmorCategory = CustomCardCategories.instance.CardCategory("IronArmor");
+        public static CardCategory DiamondArmorCategory = CustomCardCategories.instance.CardCategory("DiamondArmor");
+        public static CardCategory NetheriteArmorCategory = CustomCardCategories.instance.CardCategory("NetheriteArmor");
+        public static CardCategory PotionCategory = CustomCardCategories.instance.CardCategory("UltimatePotion");
     }
 }

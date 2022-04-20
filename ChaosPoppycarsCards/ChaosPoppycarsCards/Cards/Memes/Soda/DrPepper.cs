@@ -53,7 +53,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.DrPepperArt;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_DrPepper");
         }
         protected override CardInfo.Rarity GetRarity()
         {

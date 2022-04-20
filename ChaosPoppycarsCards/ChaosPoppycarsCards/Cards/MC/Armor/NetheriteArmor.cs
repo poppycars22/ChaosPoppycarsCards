@@ -22,6 +22,8 @@ namespace ChaosPoppycarsCards.Cards
             statModifiers.movementSpeed = 1.5f;
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            cardInfo.categories = new CardCategory[] { CPCCardCategories.NetheriteArmorCategory };
+            
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -45,11 +47,11 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.NarmorArt;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_NetheriteArmor");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {

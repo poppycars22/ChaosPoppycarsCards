@@ -26,6 +26,7 @@ namespace ChaosPoppycarsCards.Cards
             cardInfo.allowMultiple = false;
             block.cdMultiplier = 1.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            cardInfo.categories = new CardCategory[] { CPCCardCategories.PotionCategory };
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -53,7 +54,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.StrengthPotionArt;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_StrengthPotion");
         }
         protected override CardInfo.Rarity GetRarity()
         {

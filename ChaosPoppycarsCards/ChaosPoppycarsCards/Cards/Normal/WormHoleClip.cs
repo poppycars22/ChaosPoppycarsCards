@@ -24,6 +24,7 @@ namespace ChaosPoppycarsCards.Cards
             gun.damage = 0.3f;
             gun.attackSpeed = 1.5f;
             statModifiers.movementSpeed = 0.6f;
+            cardInfo.allowMultiple = false;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -47,7 +48,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.WormholeArt;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_WormHole");
         }
         protected override CardInfo.Rarity GetRarity()
         {

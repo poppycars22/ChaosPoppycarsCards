@@ -44,7 +44,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.AmmoChestArt;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_AmmoChest");
         }
         protected override CardInfo.Rarity GetRarity()
         {

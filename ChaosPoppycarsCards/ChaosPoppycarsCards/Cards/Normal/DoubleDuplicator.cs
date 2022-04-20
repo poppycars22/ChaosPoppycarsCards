@@ -46,7 +46,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.DduplicatorArt;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_DoubleDuplicator");
         }
         protected override CardInfo.Rarity GetRarity()
         {

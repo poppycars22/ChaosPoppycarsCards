@@ -37,7 +37,7 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.TotemArt;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_TotemOfUndying");
         }
 
         protected override CardInfo.Rarity GetRarity()

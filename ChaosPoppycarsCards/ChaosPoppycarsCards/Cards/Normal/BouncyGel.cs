@@ -54,7 +54,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.BouncyGelArt;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_BouncyGel");
         }
         protected override CardInfo.Rarity GetRarity()
         {

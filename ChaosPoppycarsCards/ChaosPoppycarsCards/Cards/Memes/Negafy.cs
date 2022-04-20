@@ -38,7 +38,7 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "*-1";
+            return "x-1";
         }
         protected override string GetDescription()
         {
@@ -46,7 +46,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.NegativeOneArt;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_Negafy");
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -60,21 +60,21 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Attack speed",
-                    amount = "*-1",
+                    amount = "x-1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Move speed",
-                    amount = "*-1",
+                    amount = "x-1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "knockback",
-                    amount = "*-1",
+                    amount = "x-1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

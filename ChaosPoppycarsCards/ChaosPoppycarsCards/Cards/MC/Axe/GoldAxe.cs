@@ -21,6 +21,7 @@ namespace ChaosPoppycarsCards.Cards
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             gun.damage = 1.25f;
             gun.attackSpeed = 0.75f;
+            cardInfo.allowMultiple = false;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -44,7 +45,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.GoldAxeArt;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_GoldAxe");
         }
         protected override CardInfo.Rarity GetRarity()
         {

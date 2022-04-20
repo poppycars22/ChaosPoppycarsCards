@@ -36,9 +36,10 @@ namespace ChaosPoppycarsCards.Cards
             var mono4 = player.gameObject.GetOrAddComponent<StrengthEffect>();
             var mono5 = player.gameObject.GetOrAddComponent<InvisEffect>();
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.PotionCategory);
             //Edits values on player when card is selected
         }
-        
+
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
@@ -52,9 +53,10 @@ namespace ChaosPoppycarsCards.Cards
             UnityEngine.GameObject.Destroy(mono3);
             UnityEngine.GameObject.Destroy(mono4);
             UnityEngine.GameObject.Destroy(mono5);
+            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Remove(CPCCardCategories.PotionCategory);
             //Run when the card is removed from the player
         }
-       
+
         protected override string GetTitle()
         {
             return "Ultimate Potion";
@@ -65,7 +67,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.UPotionArt;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_UltimatePotion");
         }
         protected override CardInfo.Rarity GetRarity()
         {

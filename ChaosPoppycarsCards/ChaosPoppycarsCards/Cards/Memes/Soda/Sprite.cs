@@ -53,7 +53,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.SpriteArt;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_Sprite");
         }
         protected override CardInfo.Rarity GetRarity()
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ChaosPoppycarsCards.Utilities
 {
-    internal class CPCDebug
+    public class CPCDebug
     {
         public static void Log(object message)
         {
