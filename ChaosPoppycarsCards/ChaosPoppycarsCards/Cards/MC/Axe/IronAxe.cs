@@ -22,7 +22,7 @@ namespace ChaosPoppycarsCards.Cards
             cardInfo.categories = new CardCategory[] { CPCCardCategories.IronAxeCategory };
             gun.damage = 2.50f;
             gun.attackSpeed = 2.75f;
-            gun.reloadTime = 1.75f;
+           
             cardInfo.allowMultiple = false;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
@@ -45,7 +45,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gives a lot of damage, reduces attack speed and reload speed";
+            return "Gives a lot of damage, reduces attack speed, unlocks diamond axe";
         }
         protected override GameObject GetCardArt()
         {
@@ -71,13 +71,6 @@ namespace ChaosPoppycarsCards.Cards
                     positive = false,
                     stat = "Attack speed",
                     amount = "-175%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Reload speed",
-                    amount = "-75%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using BepInEx;
 using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
-using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace ChaosPoppycarsCards.Cards
@@ -19,7 +17,7 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.categories = new CardCategory[] { CPCCardCategories.StoneSwordCategory };
-            gun.damage = 1.35f;
+            gun.damage = 1.45f;
             cardInfo.allowMultiple = false;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
@@ -43,7 +41,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gives some damage";
+            return "Gives some damage, unlocks iron sword";
         }
         protected override GameObject GetCardArt()
         {
@@ -61,7 +59,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+35%",
+                    amount = "+45%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

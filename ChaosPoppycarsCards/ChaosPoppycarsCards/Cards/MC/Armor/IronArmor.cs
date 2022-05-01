@@ -18,7 +18,7 @@ namespace ChaosPoppycarsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.health = 1.85f;
+            statModifiers.health = 1.95f;
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             cardInfo.categories = new CardCategory[] { CPCCardCategories.IronArmorCategory };
@@ -45,7 +45,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Put on iron armor to survive longer";
+            return "Put on iron armor to survive longer, unlocks diamond armor";
         }
         protected override GameObject GetCardArt()
         {
@@ -63,7 +63,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+85%",
+                    amount = "+95%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

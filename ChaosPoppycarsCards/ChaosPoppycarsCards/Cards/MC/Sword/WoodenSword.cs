@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using BepInEx;
 using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
-using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 
@@ -21,7 +19,7 @@ namespace ChaosPoppycarsCards.Cards
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             cardInfo.allowMultiple = false;
-            gun.damage = 1.25f;
+            gun.damage = 1.35f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -44,7 +42,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gives a little damage";
+            return "Gives a little damage, unlocks stone sword";
         }
         protected override GameObject GetCardArt()
         {
@@ -62,7 +60,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+25%",
+                    amount = "+35%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

@@ -24,7 +24,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             }
             duration = 5f;
              ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
-            effect.SetColor(Color.red);
+            effect.SetColor(Color.green);
         }
 
         public override void OnStart()

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using BepInEx;
+
 using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
-using HarmonyLib;
+
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace ChaosPoppycarsCards.Cards
@@ -18,7 +18,7 @@ namespace ChaosPoppycarsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.health = 1.6f;
+            statModifiers.health = 1.7f;
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             
@@ -43,7 +43,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Put on leather armor to survive longer";
+            return "Put on leather armor to survive longer, unlocks chainmail armor";
         }
         protected override GameObject GetCardArt()
         {
@@ -61,7 +61,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+60%",
+                    amount = "+70%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

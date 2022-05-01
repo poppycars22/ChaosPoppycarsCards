@@ -18,7 +18,7 @@ namespace ChaosPoppycarsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.health = 1.7f;
+            statModifiers.health = 1.85f;
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             cardInfo.categories = new CardCategory[] { CPCCardCategories.ChainArmorCategory };
@@ -43,7 +43,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Put on Chainmail Armor to survive longer";
+            return "Put on Chainmail Armor to survive longer, unlocks iron armor";
         }
         protected override GameObject GetCardArt()
         {
@@ -61,7 +61,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+70%",
+                    amount = "+85%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

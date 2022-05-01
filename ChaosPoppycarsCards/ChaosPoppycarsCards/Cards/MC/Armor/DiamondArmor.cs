@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using BepInEx;
 using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
-using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace ChaosPoppycarsCards.Cards
@@ -45,7 +43,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Put on diamond armor to survive longer";
+            return "Put on diamond armor to survive longer, unlocks netherite armor";
         }
         protected override GameObject GetCardArt()
         {

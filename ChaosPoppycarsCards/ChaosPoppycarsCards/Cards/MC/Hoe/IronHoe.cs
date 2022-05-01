@@ -45,7 +45,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gives attack speed";
+            return "Gives attack speed, unlocks diamond hoe";
         }
         protected override GameObject GetCardArt()
         {

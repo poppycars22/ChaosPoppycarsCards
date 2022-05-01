@@ -20,6 +20,8 @@ namespace ChaosPoppycarsCards.Cards
         {
             statModifiers.movementSpeed = 4f;
             statModifiers.health = 0.5f;
+            gun.reloadTime = 1f / 1.5f;
+            gun.attackSpeed = .50f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
 
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -68,7 +70,22 @@ namespace ChaosPoppycarsCards.Cards
                     stat = "Health",
                     amount = "1/2",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Reload Speed",
+                    amount = "+50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Attack Speed",
+                    amount = "+50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
+                
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

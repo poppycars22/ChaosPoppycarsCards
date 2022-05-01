@@ -7,10 +7,8 @@ using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
 using ChaosPoppycarsCards.MonoBehaviours;
-using BepInEx;
 using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
-using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace ChaosPoppycarsCards.Cards
@@ -22,6 +20,7 @@ namespace ChaosPoppycarsCards.Cards
             block.cdMultiplier = 1.15f;
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
