@@ -6,54 +6,59 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using BepInEx;
+using ChaosPoppycarsCards.MonoBehaviours;
 using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
-using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using ChaosPoppycarsCards.MonoBehaviours;
-using System.Reflection;
-using UnboundLib.Networking;
-using System.Collections.ObjectModel;
-using UnboundLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class DrPepper : CustomCard
+    class BouncyBombs : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            block.cdMultiplier = 1.5f;
+            gun.reflects = 5;
+            gun.dmgMOnBounce = 0.7f;
+            gun.speedMOnBounce = 1.3f;
+            gun.attackSpeed = 1.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetOrAddComponent<DRSodaEffect>();
+            
+            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Timed detonation")).GetComponent<Gun>().objectsToSpawn[0];
+            ObjectsToSpawn objectsToSpawn2 = ((GameObject)Resources.Load("0 cards/Mayhem")).GetComponent<Gun>().objectsToSpawn[0];
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            list.Add(
+                objectsToSpawn
+            );
+            list.Add(
+                objectsToSpawn2
+            );
+            gun.objectsToSpawn = list.ToArray();     
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
-        
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+           
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            var mono = player.gameObject.GetOrAddComponent<DRSodaEffect>();
-            UnityEngine.GameObject.Destroy(mono);
             //Run when the card is removed from the player
         }
-       
+
         protected override string GetTitle()
         {
-            return "Dr.Pepper";
+            return "Bouncy Bombs";
         }
         protected override string GetDescription()
         {
-            return "When you block you get increased gun stats for 5 seconds, but your block cd gets increased during the duration";
+            return "Your bullets turn into bouncy bombs (taking multiple wont affect bomb size until you take timed detonation)";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_DrPepper");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_BouncyBombs");
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -65,16 +70,37 @@ namespace ChaosPoppycarsCards.Cards
             {
                 new CardInfoStat()
                 {
+                    positive = true,
+                    stat = "Bounces",
+                    amount = "+5",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Speed Per Bounce",
+                    amount = "+30%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
                     positive = false,
-                    stat = "Block Cooldown",
-                    amount = "+50%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                    stat = "Damage Per Bounce",
+                    amount = "-30%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Attack Speed",
+                    amount = "-50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.MagicPink;
+            return CardThemeColor.CardThemeColorType.TechWhite;
         }
         public override string GetModName()
         {

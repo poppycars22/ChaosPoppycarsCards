@@ -49,7 +49,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "When you block you get incereased life steal and you become smaller for 5 seconds, but your block cd gets increased during the duration";
+            return "When you block you get increased life steal and you become smaller for 5 seconds, but your block cd gets increased during the duration";
         }
         protected override GameObject GetCardArt()
         {

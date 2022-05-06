@@ -71,7 +71,6 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<Narmor>();
             CustomCard.BuildCard<JumpPotion>();
             CustomCard.BuildCard<RegenPotion>();
-          //  CustomCard.BuildCard<PoppysChaos>();
             CustomCard.BuildCard<ActivatedDuplicator>();
             CustomCard.BuildCard<UltimatePotion>();
             CustomCard.BuildCard<WoodenAxe>();
@@ -95,10 +94,12 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<Pepsi>();
             CustomCard.BuildCard<DrPepper>();
             CustomCard.BuildCard<SpriteSoda>();
+            CustomCard.BuildCard<BouncyBombs>();
             //  CustomCard.BuildCard<SpeedBounce>();
             // CustomCard.BuildCard<WoodenPickaxe>();
             // CustomCard.BuildCard<StonePickaxe>();
             // CustomCard.BuildCard<GoldPickaxe>();
+            //  CustomCard.BuildCard<PoppysChaos>();
         }
         IEnumerator GameStart(IGameModeHandler gm)
         {

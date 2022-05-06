@@ -14,6 +14,7 @@
           "BepInEx": "5.4.19.0",
           "BlockForcePatch": "1.0.0.0",
           "CardChoiceSpawnUniqueCardPatch": "1.0.0.0",
+          "ClassesManagerReborn": "1.0.0.0",
           "DemonicPactPatch": "1.0.0.0",
           "GunUnblockablePatch": "1.0.0.0",
           "LegRaycastersPatch": "1.0.0.0",
@@ -69,6 +70,14 @@
       "CardChoiceSpawnUniqueCardPatch/1.0.0.0": {
         "runtime": {
           "CardChoiceSpawnUniqueCardPatch.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "ClassesManagerReborn/1.0.0.0": {
+        "runtime": {
+          "ClassesManagerReborn.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -751,6 +760,11 @@
       "sha512": ""
     },
     "CardChoiceSpawnUniqueCardPatch/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ClassesManagerReborn/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
