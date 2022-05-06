@@ -38,7 +38,7 @@ namespace ChaosPoppycarsCards.Cards
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            var mono = player.gameObject.GetOrAddComponent<SPRSodaEffect>();
+            var mono = player.gameObject.GetOrAddComponent<MTDSodaEffect>();
             UnityEngine.GameObject.Destroy(mono);
             //Run when the card is removed from the player
         }
@@ -49,7 +49,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "When you block you get increased life steal and you become smaller for 5 seconds, but your block cd gets increased during the duration";
+            return "When you block you get increased movment speed, jumpheight and you become bigger for 5 seconds, but your block cd gets increased during the duration";
         }
         protected override GameObject GetCardArt()
         {
