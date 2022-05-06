@@ -95,6 +95,7 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<DrPepper>();
             CustomCard.BuildCard<SpriteSoda>();
             CustomCard.BuildCard<BouncyBombs>();
+            CustomCard.BuildCard<MountainDewSoda>();
             //  CustomCard.BuildCard<SpeedBounce>();
             // CustomCard.BuildCard<WoodenPickaxe>();
             // CustomCard.BuildCard<StonePickaxe>();

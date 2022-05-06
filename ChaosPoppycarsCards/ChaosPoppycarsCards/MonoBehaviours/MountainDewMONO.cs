@@ -29,8 +29,9 @@ namespace ChaosPoppycarsCards.MonoBehaviours
 
         public override void OnStart()
         {
-            characterStatModifiersModifier.lifeSteal_add = 2.5f; //make it affect speed, jumpheight, and increase size
-            characterStatModifiersModifier.sizeMultiplier_mult = 0.5f;
+            characterStatModifiersModifier.movementSpeed_mult = 2f; //make it affect speed, jumpheight, and increase size
+            characterStatModifiersModifier.sizeMultiplier_mult = 1.5f;
+            characterStatModifiersModifier.jump_mult = 2f;
             blockModifier.cdMultiplier_mult = 1.5f;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
