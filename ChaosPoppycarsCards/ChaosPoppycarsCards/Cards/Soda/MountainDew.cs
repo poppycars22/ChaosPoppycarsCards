@@ -19,7 +19,7 @@ using UnboundLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class SpriteSoda : CustomCard
+    class MountainDewSoda : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
@@ -45,7 +45,7 @@ namespace ChaosPoppycarsCards.Cards
        
         protected override string GetTitle()
         {
-            return "Sprite";
+            return "Mountain Dew";
         }
         protected override string GetDescription()
         {
