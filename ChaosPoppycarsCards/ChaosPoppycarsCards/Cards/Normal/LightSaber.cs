@@ -20,7 +20,9 @@ namespace ChaosPoppycarsCards.Cards
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
-            //make this card give x-1 attack speed, near instant reload, +100% damage, x 0 bounces, no gravity and if you can figure out how, a light saber png attached to the gun that also makes the bullets invisable and makes the gun auto fire
+           gun.damage = 2f;
+            cardInfo.allowMultiple = false;
+           //make this card give x-1 attack speed, near instant reload, x 0 bounces, no gravity and if you can figure out how, a light saber png attached to the gun that also makes the bullets invisable and makes the gun auto fire
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
