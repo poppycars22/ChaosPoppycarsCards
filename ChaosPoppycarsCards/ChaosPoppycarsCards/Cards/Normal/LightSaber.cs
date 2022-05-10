@@ -24,8 +24,8 @@ namespace ChaosPoppycarsCards.Cards
             cardInfo.allowMultiple = false;
             gun.destroyBulletAfter = 0.1f;
             gun.reload = 0.0000000003f;
-            
-           //make this card give x-1 attack speed, near instant reload, x 0 bounces, no gravity and if you can figure out how, a light saber png attached to the gun that also makes the bullets invisable and makes the gun auto fire
+            gun.gravity = 0f;
+           //make this card, if you can figure out how, a light saber png attached to the gun that also makes the bullets invisable and makes the gun auto fire
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
