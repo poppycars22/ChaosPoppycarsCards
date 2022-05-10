@@ -28,6 +28,8 @@ namespace ChaosPoppycarsCards.Cards
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
+            gun.attackSpeed *= -1;
+            gun.reflects *= 0;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -87,7 +89,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = false,
                     stat = "Bounces",
-                    amount = "None",
+                    amount = "Reset",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
