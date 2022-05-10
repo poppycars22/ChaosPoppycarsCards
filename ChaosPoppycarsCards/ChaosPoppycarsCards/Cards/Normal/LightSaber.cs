@@ -43,7 +43,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gain a light saber";
+            return "Replace your gun with a lightsaber";
         }
         protected override GameObject GetCardArt()
         {
