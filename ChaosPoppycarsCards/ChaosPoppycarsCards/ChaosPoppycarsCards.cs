@@ -30,12 +30,14 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.4.3"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.4.5"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
+        public static object CPC_Assets { get; internal set; }
+
         public static AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
         
-        public static GameObject ShieldArt = Bundle.LoadAsset<GameObject>("C_MinecraftSheild");
+        
         void Awake()
         {
             // Use this to call any harmony patch files your mod may have
@@ -96,6 +98,7 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<SpriteSoda>();
             CustomCard.BuildCard<BouncyBombs>();
             CustomCard.BuildCard<MountainDewSoda>();
+            CustomCard.BuildCard<LightSaber>();
             //  CustomCard.BuildCard<SpeedBounce>();
             // CustomCard.BuildCard<WoodenPickaxe>();
             // CustomCard.BuildCard<StonePickaxe>();

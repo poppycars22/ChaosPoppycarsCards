@@ -10,6 +10,11 @@ using ChaosPoppycarsCards.MonoBehaviours;
 using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using ModdingUtils.Extensions;
+using UnityEngine.UI;
+using ClassesManagerReborn.Util;
+using ClassesManagerReborn;
+using ClassesManagerReborn.Patchs;
 
 namespace ChaosPoppycarsCards.Cards
 {

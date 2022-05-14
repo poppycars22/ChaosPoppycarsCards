@@ -17,17 +17,20 @@
           "ClassesManagerReborn": "1.0.0.0",
           "DemonicPactPatch": "1.0.0.0",
           "GunUnblockablePatch": "1.0.0.0",
+          "InControl": "0.0.0.0",
           "LegRaycastersPatch": "1.0.0.0",
           "ModdingUtils": "1.0.0.0",
           "PhotonRealtime": "0.0.0.0",
           "PhotonUnityNetworking": "0.0.0.0",
           "PlayerJumpPatch": "1.0.0.0",
+          "SonigonAudioEngine.Runtime": "0.0.0.0",
           "TemporaryStatsPatch": "1.0.0.0",
           "UnboundLib": "2.11.1.0",
           "Unity.TextMeshPro": "0.0.0.0",
           "UnityEngine.AssetBundleModule": "0.0.0.0",
           "UnityEngine.CoreModule": "0.0.0.0",
           "UnityEngine": "0.0.0.0",
+          "UnityEngine.Physics2DModule": "0.0.0.0",
           "UnityEngine.UI": "1.0.0.0",
           "UnityEngine.UIModule": "0.0.0.0"
         },
@@ -99,6 +102,14 @@
           }
         }
       },
+      "InControl/0.0.0.0": {
+        "runtime": {
+          "InControl.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
       "LegRaycastersPatch/1.0.0.0": {
         "runtime": {
           "LegRaycastersPatch.dll": {
@@ -136,6 +147,14 @@
           "PlayerJumpPatch.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "SonigonAudioEngine.Runtime/0.0.0.0": {
+        "runtime": {
+          "SonigonAudioEngine.Runtime.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -187,6 +206,14 @@
           }
         }
       },
+      "UnityEngine.Physics2DModule/0.0.0.0": {
+        "runtime": {
+          "UnityEngine.Physics2DModule.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
       "UnityEngine.UI/1.0.0.0": {
         "runtime": {
           "UnityEngine.UI.dll": {
@@ -227,14 +254,6 @@
           }
         }
       },
-      "UnityEngine.Physics2DModule/0.0.0.0": {
-        "runtime": {
-          "UnityEngine.Physics2DModule.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
       "Sirenix.OdinInspector.Attributes/2.1.6.0": {
         "runtime": {
           "Sirenix.OdinInspector.Attributes.dll": {
@@ -254,14 +273,6 @@
       "UnityEngine.ParticleSystemModule/0.0.0.0": {
         "runtime": {
           "UnityEngine.ParticleSystemModule.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "SonigonAudioEngine.Runtime/0.0.0.0": {
-        "runtime": {
-          "SonigonAudioEngine.Runtime.dll": {
             "assemblyVersion": "0.0.0.0",
             "fileVersion": "0.0.0.0"
           }
@@ -288,14 +299,6 @@
           "Photon3Unity3D.dll": {
             "assemblyVersion": "4.1.4.8",
             "fileVersion": "4.1.4.8"
-          }
-        }
-      },
-      "InControl/0.0.0.0": {
-        "runtime": {
-          "InControl.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -779,6 +782,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "InControl/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "LegRaycastersPatch/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -800,6 +808,11 @@
       "sha512": ""
     },
     "PlayerJumpPatch/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SonigonAudioEngine.Runtime/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -834,6 +847,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "UnityEngine.Physics2DModule/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "UnityEngine.UI/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -859,11 +877,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "UnityEngine.Physics2DModule/0.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Sirenix.OdinInspector.Attributes/2.1.6.0": {
       "type": "reference",
       "serviceable": false,
@@ -879,11 +892,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "SonigonAudioEngine.Runtime/0.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "UnityEngine.SpriteMaskModule/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -895,11 +903,6 @@
       "sha512": ""
     },
     "Photon3Unity3D/4.1.4.8": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "InControl/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
