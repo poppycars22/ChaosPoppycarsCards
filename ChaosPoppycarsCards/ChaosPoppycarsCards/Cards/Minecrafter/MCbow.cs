@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,70 +11,51 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using ChaosPoppycarsCards.MonoBehaviours;
-using ClassesManagerReborn;
-using ClassesManagerReborn.Patchs;
 using ClassesManagerReborn.Util;
-using ModdingUtils.Extensions;
-using UnityEngine.UI;
-using RarityLib.Utils;
-using RarityLib;
 
-
-namespace ChaosPoppycarsCards.Cards
+namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
-    class LightSaber : CustomCard
+    
+
+    class MCBow : CustomCard
     {
+        internal static CardInfo Card = null;
+
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
+            gun.spread = 0.20f;
+            gun.projectileSpeed = 0.85f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
-            gun.damage = 0.5f;
-            cardInfo.allowMultiple = false;
-            gun.destroyBulletAfter = 0.066f;
-            gun.reloadTime = 0.0000000003f;
-            gun.gravity = 0f;
-            gun.attackSpeed = 0.0000000000000003f;
-            gun.ammo = -101;
-            gun.unblockable = true;
-           
-            //make this card, if you can figure out how, a light saber png attached to the gun that also makes the bullets invisable and makes the gun auto fire
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            gun.numberOfProjectiles += 1;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
-            gun.reflects *= 0;
-            gun.spread *= 0;
-
-            var mono = player.gameObject.GetOrAddComponent<TestMono>();
-            
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-
-            var mono = player.gameObject.GetOrAddComponent<TestMono>();
-            UnityEngine.GameObject.Destroy(mono);
             //Run when the card is removed from the player
         }
 
         protected override string GetTitle()
         {
-            return "Light Saber";
+            return "Minecraft Bow";
         }
         protected override string GetDescription()
         {
-            return "Replace your gun with a lightsaber";
+            return "You shoot a additional projectile";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_LightSaber");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_MinecraftBow");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return RarityUtils.GetRarity("Legendary");
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -83,55 +64,23 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Attack Speed",
-                    amount = "Almost Instant",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Range",
-                    amount = "Very Little",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Damage",
-                    amount = "-50%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Reload",
-                    amount = "Almost Instant",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Bounces",
-                    amount = "Reset",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Ammo",
-                    amount = "1"
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Spread",
-                    amount = "No"
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
                     stat = "Bullets",
-                    amount = "Unblockable"
+                    amount = "+1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Bullet speed",
+                    amount = "-15%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                   new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Spread",
+                    amount = "+20%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }

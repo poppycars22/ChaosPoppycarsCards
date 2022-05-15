@@ -2,6 +2,7 @@
 using UnboundLib;
 using UnboundLib.Cards;
 using ChaosPoppycarsCards.Cards;
+using ChaosPoppycarsCards.Cards.Minecrafter;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace ChaosPoppycarsCards
     [BepInDependency("pykess.rounds.plugins.playerjumppatch", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.moddingutils", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.cardchoicespawnuniquecardpatch", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("root.classes.manager.reborn")]
     // Declares our mod to Bepin
     [BepInPlugin(ModId, ModName, Version)]
 
@@ -30,21 +32,20 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.4.5"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.4.6"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
 
         public static AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
-        
-        
+
         void Awake()
         {
             // Use this to call any harmony patch files your mod may have
             var harmony = new Harmony(ModId);
             harmony.PatchAll();
         }
-        void Start()
+        private void Start()
 
         {
             Instance = this;
@@ -52,46 +53,46 @@ namespace ChaosPoppycarsCards
             ChaosPoppycarsCards.ArtAssets = AssetUtils.LoadAssetBundleFromResources("cpccart", typeof(ChaosPoppycarsCards).Assembly);
             CustomCard.BuildCard<Sugared>();
             CustomCard.BuildCard<GETAWAY>();
-            CustomCard.BuildCard<AttackSpeed>();
-            CustomCard.BuildCard<WoodenSword>();
+            CustomCard.BuildCard<AttackSpeed>((card) => AttackSpeed.Card = card);
+            CustomCard.BuildCard<WoodenSword>((card) => WoodenSword.Card = card);
             CustomCard.BuildCard<DoubleDuplicator>();
             CustomCard.BuildCard<Duplicator>();
-            CustomCard.BuildCard<StoneSword>();
-            CustomCard.BuildCard<GoldSword>();
-            CustomCard.BuildCard<IronSword>();
-            CustomCard.BuildCard<DiamondSword>();
-            CustomCard.BuildCard<NetheriteSword>();
-            CustomCard.BuildCard<MCBow>();
+            CustomCard.BuildCard<StoneSword>((card) => StoneSword.Card = card);
+            CustomCard.BuildCard<GoldSword>((card) => GoldSword.Card = card);
+            CustomCard.BuildCard<IronSword>((card) => IronSword.Card = card);
+            CustomCard.BuildCard<DiamondSword>((card) => DiamondSword.Card = card);
+            CustomCard.BuildCard<NetheriteSword>((card) => NetheriteSword.Card = card);
+            CustomCard.BuildCard<MCBow>((card) => MCBow.Card = card);
             CustomCard.BuildCard<AmmoChest>();
-            CustomCard.BuildCard<StrengthPotion>();
-            CustomCard.BuildCard<SpeedPotion>();
-            CustomCard.BuildCard<Larmor>();
-            CustomCard.BuildCard<Carmor>();
-            CustomCard.BuildCard<Iarmor>();
-            CustomCard.BuildCard<Garmor>();
-            CustomCard.BuildCard<Darmor>();
-            CustomCard.BuildCard<Narmor>();
-            CustomCard.BuildCard<JumpPotion>();
-            CustomCard.BuildCard<RegenPotion>();
+            CustomCard.BuildCard<StrengthPotion>((card) => StrengthPotion.Card = card);
+            CustomCard.BuildCard<SpeedPotion>((card) => SpeedPotion.Card = card);
+            CustomCard.BuildCard<Larmor>((card) => Larmor.Card = card);
+            CustomCard.BuildCard<Carmor>((card) => Carmor.Card = card);
+            CustomCard.BuildCard<Iarmor>((card) => Iarmor.Card = card);
+            CustomCard.BuildCard<Garmor>((card) => Garmor.Card = card);
+            CustomCard.BuildCard<Darmor>((card) => Darmor.Card = card);
+            CustomCard.BuildCard<Narmor>((card) => Narmor.Card = card);
+            CustomCard.BuildCard<JumpPotion>((card) => JumpPotion.Card = card);
+            CustomCard.BuildCard<RegenPotion>((card) => RegenPotion.Card = card);
             CustomCard.BuildCard<ActivatedDuplicator>();
-            CustomCard.BuildCard<UltimatePotion>();
-            CustomCard.BuildCard<WoodenAxe>();
+            CustomCard.BuildCard<UltimatePotion>((card) => UltimatePotion.Card = card);
+            CustomCard.BuildCard<WoodenAxe>((card) => WoodenAxe.Card = card);
             CustomCard.BuildCard<BouncyGel>();
-            CustomCard.BuildCard<StoneAxe>();
-            CustomCard.BuildCard<IronAxe>();
-            CustomCard.BuildCard<GoldAxe>();
-            CustomCard.BuildCard<DiamondAxe>();
-            CustomCard.BuildCard<NetheriteAxe>();
-            CustomCard.BuildCard<TotemOfUndying>();
-            CustomCard.BuildCard<InvisPotion>();
+            CustomCard.BuildCard<StoneAxe>((card) => StoneAxe.Card = card);
+            CustomCard.BuildCard<IronAxe>((card) => IronAxe.Card = card);
+            CustomCard.BuildCard<GoldAxe>((card) => GoldAxe.Card = card);
+            CustomCard.BuildCard<DiamondAxe>((card) => DiamondAxe.Card = card);
+            CustomCard.BuildCard<NetheriteAxe>((card) => NetheriteAxe.Card = card);
+            CustomCard.BuildCard<TotemOfUndying>((card) => TotemOfUndying.Card = card);
+            CustomCard.BuildCard<InvisPotion>((card) => InvisPotion.Card = card);
             CustomCard.BuildCard<TimesNegativeOne>();
-            CustomCard.BuildCard<StoneHoe>();
-            CustomCard.BuildCard<GoldHoe>();
-            CustomCard.BuildCard<IronHoe>();
-            CustomCard.BuildCard<DiamondHoe>();
-            CustomCard.BuildCard<NetheriteHoe>();
+            CustomCard.BuildCard<StoneHoe>((card) => StoneHoe.Card = card);
+            CustomCard.BuildCard<GoldHoe>((card) => GoldHoe.Card = card);
+            CustomCard.BuildCard<IronHoe>((card) => IronHoe.Card = card);
+            CustomCard.BuildCard<DiamondHoe>((card) => DiamondHoe.Card = card);
+            CustomCard.BuildCard<NetheriteHoe>((card) => NetheriteHoe.Card = card);
             CustomCard.BuildCard<WormholeClip>();
-            CustomCard.BuildCard<MCShield>();
+            CustomCard.BuildCard<MCShield>((card) => MCShield.Card = card);
             CustomCard.BuildCard<CocaCola>();
             CustomCard.BuildCard<Pepsi>();
             CustomCard.BuildCard<DrPepper>();
@@ -99,6 +100,9 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<BouncyBombs>();
             CustomCard.BuildCard<MountainDewSoda>();
             CustomCard.BuildCard<LightSaber>();
+            CustomCard.BuildCard<CraftingTable>((card) => CraftingTable.Card = card);
+            CustomCard.BuildCard<BrewingStand>((card) => BrewingStand.Card = card);
+            //nrn, and again im copying a different persons code so i can manipulate it into doing what i want
             //  CustomCard.BuildCard<SpeedBounce>();
             // CustomCard.BuildCard<WoodenPickaxe>();
             // CustomCard.BuildCard<StonePickaxe>();
