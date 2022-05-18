@@ -14,40 +14,32 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         
         public override void OnUpdate()
         {
-            if (gun.projectileSpeed == 0f)
+            if (gun.projectileSpeed != 1f)
             {
                 gun.projectileSpeed = 1f;
             }
-            if (gun.projectileSpeed != 1f)
-            {
-                gun.projectileSpeed *= 0f;
-            }
-            if (gun.projectielSimulatonSpeed == 0f)
+            if (gun.projectielSimulatonSpeed != 1f)
             {
                 gun.projectielSimulatonSpeed = 1f;
             }
-            if (gun.projectielSimulatonSpeed != 1f)
+            if (gun.destroyBulletAfter != 0.066f)
             {
-                gun.projectielSimulatonSpeed *= 0f;
+                gun.destroyBulletAfter = 0.066f;
             }
         }
         public override void OnLateUpdate()
         {
-            if (gun.projectileSpeed == 0f)
+            if (gun.projectileSpeed != 1f)
             {
                 gun.projectileSpeed = 1f;
             }
-            if (gun.projectileSpeed != 1f)
-            {
-                gun.projectileSpeed *= 0f;
-            }
-            if (gun.projectielSimulatonSpeed == 0f)
+            if (gun.projectielSimulatonSpeed != 1f)
             {
                 gun.projectielSimulatonSpeed = 1f;
             }
-            if (gun.projectielSimulatonSpeed != 1f)
+            if (gun.destroyBulletAfter != 0.066f)
             {
-                gun.projectielSimulatonSpeed *= 0f;
+                gun.destroyBulletAfter = 0.066f;
             }
         }
     }

@@ -20,7 +20,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             gun.damage = 1.25f;
             gun.attackSpeed = 0.75f;
@@ -37,7 +37,10 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }
-
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+        }
         protected override string GetTitle()
         {
             return "Gold Axe";

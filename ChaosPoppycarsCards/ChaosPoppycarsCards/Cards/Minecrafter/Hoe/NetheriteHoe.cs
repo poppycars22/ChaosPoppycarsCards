@@ -20,11 +20,10 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.attackSpeed = .40f;
+            gun.attackSpeed = .1f;
             gun.reloadTime = 1f / 1.4f;
-            cardInfo.categories = new CardCategory[] { CPCCardCategories.NetheriteHoeCategory };
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             cardInfo.allowMultiple = false;
         }
@@ -38,7 +37,10 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }
-
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+        }
         protected override string GetTitle()
         {
             return "Netherite Hoe";
@@ -63,7 +65,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 {
                     positive = true,
                     stat = "Attack Speed",
-                    amount = "+60%",
+                    amount = "+90%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

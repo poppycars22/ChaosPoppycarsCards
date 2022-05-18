@@ -22,7 +22,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             gun.attackSpeed = 1.5f;
-            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+            
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -36,7 +36,10 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }
-
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+        }
         protected override string GetTitle()
         {
             return "Minecraft Shield";

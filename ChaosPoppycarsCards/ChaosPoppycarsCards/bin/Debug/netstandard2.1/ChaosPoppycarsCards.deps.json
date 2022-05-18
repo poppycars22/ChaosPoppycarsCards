@@ -26,8 +26,9 @@
           "RarityLib": "1.0.0.0",
           "SonigonAudioEngine.Runtime": "0.0.0.0",
           "TemporaryStatsPatch": "1.0.0.0",
-          "UnboundLib": "2.11.2.0",
+          "UnboundLib": "3.0.0.0",
           "Unity.TextMeshPro": "0.0.0.0",
+          "UnityEngine.AnimationModule": "0.0.0.0",
           "UnityEngine.AssetBundleModule": "0.0.0.0",
           "UnityEngine.CoreModule": "0.0.0.0",
           "UnityEngine": "0.0.0.0",
@@ -175,17 +176,25 @@
           }
         }
       },
-      "UnboundLib/2.11.2.0": {
+      "UnboundLib/3.0.0.0": {
         "runtime": {
           "UnboundLib.dll": {
-            "assemblyVersion": "2.11.2.0",
-            "fileVersion": "2.11.2.0"
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.0"
           }
         }
       },
       "Unity.TextMeshPro/0.0.0.0": {
         "runtime": {
           "Unity.TextMeshPro.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "UnityEngine.AnimationModule/0.0.0.0": {
+        "runtime": {
+          "UnityEngine.AnimationModule.dll": {
             "assemblyVersion": "0.0.0.0",
             "fileVersion": "0.0.0.0"
           }
@@ -330,14 +339,6 @@
       "UnityEngine.PhysicsModule/0.0.0.0": {
         "runtime": {
           "UnityEngine.PhysicsModule.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "UnityEngine.AnimationModule/0.0.0.0": {
-        "runtime": {
-          "UnityEngine.AnimationModule.dll": {
             "assemblyVersion": "0.0.0.0",
             "fileVersion": "0.0.0.0"
           }
@@ -836,12 +837,17 @@
       "serviceable": false,
       "sha512": ""
     },
-    "UnboundLib/2.11.2.0": {
+    "UnboundLib/3.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
     "Unity.TextMeshPro/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UnityEngine.AnimationModule/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -932,11 +938,6 @@
       "sha512": ""
     },
     "UnityEngine.PhysicsModule/0.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "UnityEngine.AnimationModule/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

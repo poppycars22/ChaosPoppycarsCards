@@ -11,12 +11,12 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using ChaosPoppycarsCards.MonoBehaviours;
 using System.Reflection;
 using UnboundLib.Networking;
 using System.Collections.ObjectModel;
 using UnboundLib.Utils;
 using ClassesManagerReborn.Util;
+using ChaosPoppycarsCards.MonoBehaviours;
 
 namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
@@ -25,7 +25,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+           
             cardInfo.allowMultiple = false;
             block.cdMultiplier = 1.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
@@ -46,7 +46,10 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             UnityEngine.GameObject.Destroy(mono);
             //Run when the card is removed from the player
         }
-       
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+        }
         protected override string GetTitle()
         {
             return "invisibility Potion";

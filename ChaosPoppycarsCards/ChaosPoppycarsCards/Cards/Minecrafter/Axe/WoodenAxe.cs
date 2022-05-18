@@ -20,7 +20,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             gun.damage = 1.50f;
             gun.attackSpeed = 1.5f;
@@ -30,7 +30,6 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Remove(CPCCardCategories.StoneAxeCategory);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -38,9 +37,11 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
-            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.StoneAxeCategory);
         }
-
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+        }
         protected override string GetTitle()
         {
             return "Wooden Axe";

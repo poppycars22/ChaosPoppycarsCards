@@ -20,28 +20,28 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            cardInfo.categories = new CardCategory[] { CPCCardCategories.StoneHoeCategory };
             cardInfo.allowMultiple = false;
-            gun.attackSpeed = .70f;
+            gun.attackSpeed = .40f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Remove(CPCCardCategories.IronHoeCategory);
 
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.IronHoeCategory);
 
             //Run when the card is removed from the player
         }
-
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+        }
         protected override string GetTitle()
         {
             return "Stone Hoe";
@@ -66,7 +66,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 {
                     positive = true,
                     stat = "Attack Speed",
-                    amount = "+30%",
+                    amount = "+60%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

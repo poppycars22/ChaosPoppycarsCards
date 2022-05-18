@@ -25,7 +25,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+            
             cardInfo.allowMultiple = false;
             block.cdMultiplier = 1.25f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
@@ -46,7 +46,10 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             UnityEngine.GameObject.Destroy(mono);
             //Run when the card is removed from the player
         }
-       
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+        }
         protected override string GetTitle()
         {
             return "Jump Potion";

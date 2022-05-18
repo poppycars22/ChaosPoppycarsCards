@@ -19,27 +19,27 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
-            statModifiers.health = 2f;
+            statModifiers.health = 2.5f;
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            cardInfo.categories = new CardCategory[] { CPCCardCategories.DiamondArmorCategory };
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Remove(CPCCardCategories.NetheriteArmorCategory);
 
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.NetheriteArmorCategory);
 
             //Run when the card is removed from the player
         }
-
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+        }
         protected override string GetTitle()
         {
             return "Diamond Armor";
@@ -64,7 +64,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+100%",
+                    amount = "+150%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

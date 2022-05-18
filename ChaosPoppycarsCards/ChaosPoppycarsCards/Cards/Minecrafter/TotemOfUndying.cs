@@ -15,7 +15,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             cardInfo.allowMultiple = true;
             statModifiers.respawns = 1;
             statModifiers.movementSpeed = 0.5f;
-            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+            
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -27,7 +27,10 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         public override void OnRemoveCard()
         {
         }
-
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+        }
         protected override string GetTitle()
         {
             return "Totem Of Undying";

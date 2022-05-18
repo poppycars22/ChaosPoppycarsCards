@@ -20,12 +20,11 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
-            statModifiers.health = 2f;
+            
+            statModifiers.health = 3f;
             statModifiers.movementSpeed = 1.5f;
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            cardInfo.categories = new CardCategory[] { CPCCardCategories.NetheriteArmorCategory };
             
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
@@ -39,7 +38,10 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }
-
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+        }
         protected override string GetTitle()
         {
             return "Netherite Armor";
@@ -64,7 +66,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+100%",
+                    amount = "+200%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

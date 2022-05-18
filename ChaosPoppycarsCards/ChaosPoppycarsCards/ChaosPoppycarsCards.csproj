@@ -80,6 +80,9 @@
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>bin\Debug\netstandard2.1\UnityEngine.AssetBundleModule.dll</HintPath>
     </Reference>
@@ -95,5 +98,9 @@
     <Reference Include="UnityEngine.UIModule">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.UIModule.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Cards\Minecrafter\Arrows\" />
   </ItemGroup>
 </Project>
