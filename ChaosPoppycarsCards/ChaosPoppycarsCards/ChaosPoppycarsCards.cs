@@ -32,7 +32,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.4.9"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.5.0"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -102,13 +102,12 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<LightSaber>();
             CustomCard.BuildCard<CraftingTable>((card) => CraftingTable.Card = card);
             CustomCard.BuildCard<BrewingStand>((card) => BrewingStand.Card = card);
-            
-            //  CustomCard.BuildCard<SpeedBounce>();
+            //CustomCard.BuildCard<FlammingArrows>();
             // CustomCard.BuildCard<WoodenPickaxe>();
             // CustomCard.BuildCard<StonePickaxe>();
             // CustomCard.BuildCard<GoldPickaxe>();
             //  CustomCard.BuildCard<PoppysChaos>();
-        }
+        } 
         IEnumerator GameStart(IGameModeHandler gm)
         {
             // Runs at start of match
@@ -125,5 +124,21 @@ namespace ChaosPoppycarsCards
     static class CPCCardCategories
     {
         public static CardCategory PotionCategory = CustomCardCategories.instance.CardCategory("UltimatePotion");
+        public static CardCategory StoneSwordCategory = CustomCardCategories.instance.CardCategory("StoneSword");
+        public static CardCategory IronSwordCategory = CustomCardCategories.instance.CardCategory("IronSword");
+        public static CardCategory DiamondSwordCategory = CustomCardCategories.instance.CardCategory("DiamondSword");
+        public static CardCategory NetheriteSwordCategory = CustomCardCategories.instance.CardCategory("NetheriteSword");
+        public static CardCategory StoneAxeCategory = CustomCardCategories.instance.CardCategory("StoneAxe");
+        public static CardCategory IronAxeCategory = CustomCardCategories.instance.CardCategory("IronAxe");
+        public static CardCategory DiamondAxeCategory = CustomCardCategories.instance.CardCategory("DiamondAxe");
+        public static CardCategory NetheriteAxeCategory = CustomCardCategories.instance.CardCategory("NetheriteAxe");
+        public static CardCategory StoneHoeCategory = CustomCardCategories.instance.CardCategory("StoneHoe");
+        public static CardCategory IronHoeCategory = CustomCardCategories.instance.CardCategory("IronHoe");
+        public static CardCategory DiamondHoeCategory = CustomCardCategories.instance.CardCategory("DiamondHoe");
+        public static CardCategory NetheriteHoeCategory = CustomCardCategories.instance.CardCategory("NetheriteHoe");
+        public static CardCategory ChainArmorCategory = CustomCardCategories.instance.CardCategory("ChainArmor");
+        public static CardCategory IronArmorCategory = CustomCardCategories.instance.CardCategory("IronArmor");
+        public static CardCategory DiamondArmorCategory = CustomCardCategories.instance.CardCategory("DiamondArmor");
+        public static CardCategory NetheriteArmorCategory = CustomCardCategories.instance.CardCategory("NetheriteArmor");
     }
 }

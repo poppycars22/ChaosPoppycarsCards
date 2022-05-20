@@ -20,16 +20,17 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            
+            cardInfo.categories = new CardCategory[] { CPCCardCategories.NetheriteAxeCategory };
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             gun.damage = 3f;
             gun.attackSpeed = 3f;
-            gun.reloadTime = 2.25f;
+            
             cardInfo.allowMultiple = false;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.NetheriteAxeCategory);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -37,6 +38,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
+            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Remove(CPCCardCategories.NetheriteAxeCategory);
         }
         public override void Callback()
         {
@@ -48,7 +50,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         protected override string GetDescription()
         {
-            return "Gives a lot of damage, reduces attack speed and reload speed";
+            return "Gives a lot of damage, reduces attack speed";
         }
         protected override GameObject GetCardArt()
         {
@@ -56,7 +58,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -74,13 +76,6 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                     positive = false,
                     stat = "Attack speed",
                     amount = "-200%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Reload speed",
-                    amount = "-125%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

@@ -11,54 +11,55 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using ClassesManagerReborn.Util;
+using ChaosPoppycarsCards.MonoBehaviours;
 
-namespace ChaosPoppycarsCards.Cards.Minecrafter
+namespace ChaosPoppycarsCards.Cards
 {
-    class StoneHoe : CustomCard
+    class FlammingArrows : CustomCard
     {
-        internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.categories = new CardCategory[] { CPCCardCategories.StoneHoeCategory };
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            cardInfo.allowMultiple = false;
-            gun.attackSpeed = .40f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList<ObjectsToSpawn>();
+            list.Add(new ObjectsToSpawn
+            {
+                AddToProjectile = new GameObject("A_Flamethrowers", new Type[]
+                {
+                    typeof(FlameMono)
+                })
+            });
+            gun.objectsToSpawn = list.ToArray();
+            player.gameObject.AddComponent<BurnMono>();
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.StoneHoeCategory);
-
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            var mono = player.gameObject.GetOrAddComponent<FlameMono>();
+            UnityEngine.GameObject.Destroy(mono);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Remove(CPCCardCategories.StoneHoeCategory);
-
             //Run when the card is removed from the player
         }
-        public override void Callback()
-        {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
-        }
+
         protected override string GetTitle()
         {
-            return "Stone Hoe";
+            return "Flamming Arrows";
         }
         protected override string GetDescription()
         {
-            return "Gives attack speed, unlocks iron hoe";
+            return "You shoot another arrow, with flames now";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_StoneHoe");
+            return null;
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -67,15 +68,15 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Attack Speed",
-                    amount = "+60%",
+                    stat = "Effect",
+                    amount = "No",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.FirepowerYellow;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {
