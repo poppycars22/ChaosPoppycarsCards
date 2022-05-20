@@ -19,10 +19,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
     class AttackSpeed : CustomCard
     {
-        public static CardCategory[] StoneHoeUpgrade = new CardCategory[] { CPCCardCategories.StoneHoeCategory };
-        public static CardCategory[] IronHoeUpgrade = new CardCategory[] { CPCCardCategories.IronHoeCategory };
-        public static CardCategory[] DiamondHoeUpgrade = new CardCategory[] { CPCCardCategories.DiamondHoeCategory };
-        public static CardCategory[] NetheriteHoeUpgrade = new CardCategory[] { CPCCardCategories.NetheriteHoeCategory };
+        
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
@@ -40,40 +37,28 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeHoe);
             IEnumerator UpgradeHoe(IGameModeHandler gm)
             {
-                if (everyOtherRound2 == true)
+                if (everyOtherRound2)
                 {
                     everyOtherRound2 = false;
                 }
                 else if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Contains(CPCCardCategories.StoneHoeCategory) == false)
                 {
-
-                    CardInfo upgradeStoneHoe = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(null, null, null, null, null, null, null, null, this.condition);
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeStoneHoe, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeStoneHoe);
+                    ModdingUtils.Utils.Cards.instance.GetCardWithName("Stone Hoe");
                     everyOtherRound2 = true;
                 }
                 else if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Contains(CPCCardCategories.IronHoeCategory) == false)
                 {
-
-                    CardInfo upgradeIronHoe = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(null, null, null, null, null, null, null, null, this.condition2);
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeIronHoe, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeIronHoe);
+                    ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Hoe");
                     everyOtherRound2 = true;
                 }
                 else if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Contains(CPCCardCategories.DiamondHoeCategory) == false)
                 {
-
-                    CardInfo upgradeDiamondHoe = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(null, null, null, null, null, null, null, null, this.condition3);
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeDiamondHoe, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeDiamondHoe);
+                    ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Hoe");
                     everyOtherRound2 = true;
                 }
                 else if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Contains(CPCCardCategories.NetheriteHoeCategory) == false)
                 {
-
-                    CardInfo upgradeNetheriteHoe = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(null, null, null, null, null, null, null, null, this.condition4);
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeNetheriteHoe, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeNetheriteHoe);
+                    ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Hoe");
                     everyOtherRound2 = true;
                 }
                 yield break;
@@ -122,22 +107,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             return CardThemeColor.CardThemeColorType.FirepowerYellow;
         }
-        public bool condition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            return card.categories.Intersect(AttackSpeed.StoneHoeUpgrade).Any();
-        }
-        public bool condition2(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            return card.categories.Intersect(AttackSpeed.IronHoeUpgrade).Any();
-        }
-        public bool condition3(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            return card.categories.Intersect(AttackSpeed.DiamondHoeUpgrade).Any();
-        }
-        public bool condition4(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            return card.categories.Intersect(AttackSpeed.NetheriteHoeUpgrade).Any();
-        }
+        
         public override string GetModName()
         {
             return "CPC";

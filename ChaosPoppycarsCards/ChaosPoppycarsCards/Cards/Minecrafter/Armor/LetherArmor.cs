@@ -18,10 +18,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
     class Larmor : CustomCard
     {
         internal static CardInfo Card = null;
-        public static CardCategory[] ChainArmorUpgrade = new CardCategory[] { CPCCardCategories.ChainArmorCategory };
-        public static CardCategory[] IronArmorUpgrade = new CardCategory[] { CPCCardCategories.IronArmorCategory };
-        public static CardCategory[] DiamondArmorUpgrade = new CardCategory[] { CPCCardCategories.DiamondArmorCategory };
-        public static CardCategory[] NetheriteArmorUpgrade = new CardCategory[] { CPCCardCategories.NetheriteArmorCategory };
+        
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             
@@ -37,40 +34,28 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeArmor);
             IEnumerator UpgradeArmor(IGameModeHandler gm)
             {
-                if (everyOtherRound4 == true)
+                if (everyOtherRound4)
                 {
                     everyOtherRound4 = false;
                 }
                 else if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Contains(CPCCardCategories.ChainArmorCategory) == false)
                 {
-
-                    CardInfo upgradeStoneArmor = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(null, null, null, null, null, null, null, null, this.condition);
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeStoneArmor, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeStoneArmor);
+                    ModdingUtils.Utils.Cards.instance.GetCardWithName("Chainmail Armor");
                     everyOtherRound4 = true;
                 }
                 else if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Contains(CPCCardCategories.IronArmorCategory) == false)
                 {
-
-                    CardInfo upgradeIronArmor = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(null, null, null, null, null, null, null, null, this.condition2);
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeIronArmor, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeIronArmor);
+                    ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Armor");
                     everyOtherRound4 = true;
                 }
                 else if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Contains(CPCCardCategories.DiamondArmorCategory) == false)
                 {
-
-                    CardInfo upgradeDiamondArmor = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(null, null, null, null, null, null, null, null, this.condition3);
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeDiamondArmor, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeDiamondArmor);
+                    ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Armor");
                     everyOtherRound4 = true;
                 }
                 else if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Contains(CPCCardCategories.NetheriteArmorCategory) == false)
                 {
-
-                    CardInfo upgradeNetheriteArmor = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(null, null, null, null, null, null, null, null, this.condition4);
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeNetheriteArmor, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeNetheriteArmor);
+                    ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Armor");
                     everyOtherRound4 = true;
                 }
                 yield break;
@@ -120,22 +105,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             return CardThemeColor.CardThemeColorType.ColdBlue;
         }
-        public bool condition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            return card.categories.Intersect(Larmor.ChainArmorUpgrade).Any();
-        }
-        public bool condition2(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            return card.categories.Intersect(Larmor.IronArmorUpgrade).Any();
-        }
-        public bool condition3(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            return card.categories.Intersect(Larmor.DiamondArmorUpgrade).Any();
-        }
-        public bool condition4(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            return card.categories.Intersect(Larmor.NetheriteArmorUpgrade).Any();
-        }
+        
         public override string GetModName()
         {
             return "CPC";
