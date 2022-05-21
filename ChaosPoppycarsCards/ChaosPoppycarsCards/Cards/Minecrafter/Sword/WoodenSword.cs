@@ -38,24 +38,32 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 {
                     everyOtherRound = false;
                 }
-                else if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Contains(CPCCardCategories.StoneSwordCategory) == false)
+                else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Stone Sword")))
                 {
-                    ModdingUtils.Utils.Cards.instance.GetCardWithName("Stone Sword");
+                    var upgradeStone = ModdingUtils.Utils.Cards.instance.GetCardWithName("Stone Sword");
+                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeStone, addToCardBar: true);
+                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeStone);
                     everyOtherRound = true;
                 }
-                else if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Contains(CPCCardCategories.IronSwordCategory) == false)
+                else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Sword")))
                 {
-                    ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Sword");
+                    var upgradeIron = ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Sword");
+                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeIron, addToCardBar: true);
+                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeIron);
                     everyOtherRound = true;
                 }
-                else if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Contains(CPCCardCategories.DiamondSwordCategory) == false)
+                else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Sword")))
                 {
-                    ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Sword");
+                    var upgradeDiamond = ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Sword");
+                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeDiamond, addToCardBar: true);
+                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeDiamond);
                     everyOtherRound = true;
                 }
-                else if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Contains(CPCCardCategories.NetheriteSwordCategory) == false)
+                else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Sword")))
                 {
-                    ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Sword");
+                    var upgradeNetherite = ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Sword");
+                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeNetherite, addToCardBar: true);
+                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeNetherite);
                     everyOtherRound = true;
                 }
                 yield break;
