@@ -14,6 +14,7 @@ using Jotunn.Utils;
 using System.Linq;
 using System.Collections.ObjectModel;
 
+
 namespace ChaosPoppycarsCards
 {
 
@@ -50,7 +51,9 @@ namespace ChaosPoppycarsCards
         {
             Instance = this;
             GameModeManager.AddHook(GameModeHooks.HookGameStart, this.GameStart);
+
             ChaosPoppycarsCards.ArtAssets = AssetUtils.LoadAssetBundleFromResources("cpccart", typeof(ChaosPoppycarsCards).Assembly);
+
             CustomCard.BuildCard<Sugared>();
             CustomCard.BuildCard<GETAWAY>();
             CustomCard.BuildCard<AttackSpeed>((card) => AttackSpeed.Card = card);
@@ -99,7 +102,7 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<SpriteSoda>();
             CustomCard.BuildCard<BouncyBombs>();
             CustomCard.BuildCard<MountainDewSoda>();
-            CustomCard.BuildCard<LightSaber>();
+            //CustomCard.BuildCard<LightSaber>();
             CustomCard.BuildCard<CraftingTable>((card) => CraftingTable.Card = card);
             CustomCard.BuildCard<BrewingStand>((card) => BrewingStand.Card = card);
             //CustomCard.BuildCard<FlammingArrows>();
@@ -107,7 +110,24 @@ namespace ChaosPoppycarsCards
             // CustomCard.BuildCard<StonePickaxe>();
             // CustomCard.BuildCard<GoldPickaxe>();
             //  CustomCard.BuildCard<PoppysChaos>();
+            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, (gm) =>
+            {
+                return WoodenSword.UpgradeSword(gm);
+            });
+            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, (gm) =>
+            {
+                return AttackSpeed.UpgradeHoe(gm);
+            });
+            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, (gm) =>
+            {
+                return WoodenAxe.UpgradeAxe(gm);
+            });
+            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, (gm) =>
+            {
+                return Larmor.UpgradeArmor(gm);
+            });
         } 
+        
         IEnumerator GameStart(IGameModeHandler gm)
         {
             // Runs at start of match

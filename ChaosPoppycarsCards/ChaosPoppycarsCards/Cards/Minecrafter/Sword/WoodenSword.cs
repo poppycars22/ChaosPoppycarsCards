@@ -12,62 +12,35 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ClassesManagerReborn.Util;
 using UnboundLib.GameModes;
 using System.Collections;
+using System.Collections.ObjectModel;
+using System.Reflection;
+using TMPro;
+using UnityEngine.UI;
+using UnboundLib.Utils;
+using UnboundLib.Networking;
+using Photon.Pun;
 
 namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
+    
     class WoodenSword : CustomCard
     {
         internal static CardInfo Card = null;
         
+
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             cardInfo.allowMultiple = false;
             gun.damage = 1.35f;
-           
+            
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            bool everyOtherRound = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeSword);
-            IEnumerator UpgradeSword(IGameModeHandler gm)
-            {
-                if (everyOtherRound)
-                {
-                    everyOtherRound = false;
-                }
-                else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Stone Sword")))
-                {
-                    var upgradeStone = ModdingUtils.Utils.Cards.instance.GetCardWithName("Stone Sword");
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeStone, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeStone);
-                    everyOtherRound = true;
-                }
-                else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Sword")))
-                {
-                    var upgradeIron = ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Sword");
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeIron, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeIron);
-                    everyOtherRound = true;
-                }
-                else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Sword")))
-                {
-                    var upgradeDiamond = ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Sword");
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeDiamond, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeDiamond);
-                    everyOtherRound = true;
-                }
-                else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Sword")))
-                {
-                    var upgradeNetherite = ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Sword");
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeNetherite, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeNetherite);
-                    everyOtherRound = true;
-                }
-                yield break;
-            }
+
+           
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -118,6 +91,50 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             return "CPC";
         }
+        static bool everyOtherRound = true;
+        
+        
+        internal static IEnumerator UpgradeSword(IGameModeHandler gm)
+        {
+            everyOtherRound = !everyOtherRound;
+            if (everyOtherRound == false)
+            {
+                foreach (Player player in PlayerManager.instance.players.ToArray())
+                {
+                        if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Stone Sword")))
+                        {
+                            var upgradeStone = ModdingUtils.Utils.Cards.instance.GetCardWithName("Stone Sword");
+                            ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeStone, addToCardBar: true);
+                            ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeStone);
+
+                        }
+                        else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Sword")))
+                        {
+                            var upgradeIron = ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Sword");
+                            ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeIron, addToCardBar: true);
+                            ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeIron);
+
+                        }
+                        else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Sword")))
+                        {
+                            var upgradeDiamond = ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Sword");
+                            ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeDiamond, addToCardBar: true);
+                            ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeDiamond);
+
+                        }
+                        else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Sword")))
+                        {
+                            var upgradeNetherite = ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Sword");
+                            ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeNetherite, addToCardBar: true);
+                            ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeNetherite);
+
+                        }
+                }
+                    
+            }
+            yield break;
+        }
+
         
     }
 }

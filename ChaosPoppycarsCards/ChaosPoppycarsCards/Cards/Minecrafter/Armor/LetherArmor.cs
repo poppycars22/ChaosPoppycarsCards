@@ -18,56 +18,19 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
     class Larmor : CustomCard
     {
         internal static CardInfo Card = null;
-        
+        static bool everyOtherRound4 = true;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            
-            statModifiers.health = 1.8f;
+
+            statModifiers.health = 1.7f;
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            
+
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            bool everyOtherRound4 = false;
-            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeArmor);
-            IEnumerator UpgradeArmor(IGameModeHandler gm)
-            {
-                if (everyOtherRound4)
-                {
-                    everyOtherRound4 = false;
-                }
-                else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Chainmail Armor")))
-                {
-                    var upgradeStoneArmor = ModdingUtils.Utils.Cards.instance.GetCardWithName("Chainmail Armor");
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeStoneArmor, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeStoneArmor);
-                    everyOtherRound4 = true;
-                }
-                else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Armor")))
-                {
-                    var upgradeIronArmor = ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Armor");
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeIronArmor, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeIronArmor);
-                    everyOtherRound4 = true;
-                }
-                else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Armor")))
-                {
-                    var upgradeDiamondArmor = ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Armor");
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeDiamondArmor, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeDiamondArmor);
-                    everyOtherRound4 = true;
-                }
-                else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Armor")))
-                {
-                    var upgradeNetheriteArmor = ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Armor");
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeNetheriteArmor, addToCardBar: true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeNetheriteArmor);
-                    everyOtherRound4 = true;
-                }
-                yield break;
-            }
+
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -104,7 +67,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+80%",
+                    amount = "+70%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
@@ -113,10 +76,50 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             return CardThemeColor.CardThemeColorType.ColdBlue;
         }
-        
+
         public override string GetModName()
         {
             return "CPC";
+        }
+
+        internal static IEnumerator UpgradeArmor(IGameModeHandler gm)
+        {
+            everyOtherRound4 = !everyOtherRound4;
+            if (everyOtherRound4 == false)
+            {
+                foreach (Player player in PlayerManager.instance.players.ToArray())
+                {
+                    if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Chainmail Armor")))
+                    {
+                        var upgradeChainArmor = ModdingUtils.Utils.Cards.instance.GetCardWithName("Chainmail Armor");
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeChainArmor, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeChainArmor);
+
+                    }
+                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Armor")))
+                    {
+                        var upgradeIronArmor = ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Armor");
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeIronArmor, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeIronArmor);
+
+                    }
+                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Armor")))
+                    {
+                        var upgradeDiamondArmor = ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Armor");
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeDiamondArmor, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeDiamondArmor);
+
+                    }
+                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Armor")))
+                    {
+                        var upgradeNetheriteArmor = ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Armor");
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeNetheriteArmor, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeNetheriteArmor);
+
+                    }
+                    yield break;
+                }
+            }
         }
     }
 }
