@@ -110,22 +110,10 @@ namespace ChaosPoppycarsCards
             // CustomCard.BuildCard<StonePickaxe>();
             // CustomCard.BuildCard<GoldPickaxe>();
             //  CustomCard.BuildCard<PoppysChaos>();
-            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, (gm) =>
-            {
-                return WoodenSword.UpgradeSword(gm);
-            });
-            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, (gm) =>
-            {
-                return AttackSpeed.UpgradeHoe(gm);
-            });
-            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, (gm) =>
-            {
-                return WoodenAxe.UpgradeAxe(gm);
-            });
-            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, (gm) =>
-            {
-                return Larmor.UpgradeArmor(gm);
-            });
+            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, WoodenSword.UpgradeSword);
+            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, AttackSpeed.UpgradeHoe);
+            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, WoodenAxe.UpgradeAxe);
+            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, Larmor.UpgradeArmor);
         } 
         
         IEnumerator GameStart(IGameModeHandler gm)
