@@ -33,7 +33,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.5.4"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.5.5"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -110,12 +110,18 @@ namespace ChaosPoppycarsCards
             // CustomCard.BuildCard<StonePickaxe>();
             // CustomCard.BuildCard<GoldPickaxe>();
             //  CustomCard.BuildCard<PoppysChaos>();
-            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, WoodenSword.UpgradeSword);
-            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, AttackSpeed.UpgradeHoe);
-            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, WoodenAxe.UpgradeAxe);
-            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, Larmor.UpgradeArmor);
+            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeAction);
+            
         } 
-        
+        private IEnumerator UpgradeAction(IGameModeHandler gm)
+        {
+            
+                yield return WoodenSword.UpgradeSword(gm);
+                yield return AttackSpeed.UpgradeHoe(gm);
+                yield return WoodenAxe.UpgradeAxe(gm);
+                yield return Larmor.UpgradeArmor(gm);
+            
+        }
         IEnumerator GameStart(IGameModeHandler gm)
         {
             // Runs at start of match

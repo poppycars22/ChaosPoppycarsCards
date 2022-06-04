@@ -128,9 +128,11 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeNetheriteAxe);
 
                     }
-                    yield break;
+                    
                 }
+                
             }
+            yield break;
         }
     }
 }
