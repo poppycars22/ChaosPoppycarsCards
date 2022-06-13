@@ -17,36 +17,32 @@ using ChaosPoppycarsCards.Cards.Minecrafter;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class FlammingArrows : CustomCard
+    class ExplosiveArrows : CustomCard
     {
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             gun.spread = 0.05f;
             gun.ammo = 1;
-            cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            cardInfo.allowMultiple = false;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList<ObjectsToSpawn>();
-            list.Add(new ObjectsToSpawn
-            {
-                AddToProjectile = new GameObject("A_Flamethrowers", new Type[]
-                {
-                    typeof(FlameMono)
-                })
-            });
-            gun.objectsToSpawn = list.ToArray();
-            player.gameObject.AddComponent<BurnMono>();
+            gun.numberOfProjectiles += 1;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Timed detonation")).GetComponent<Gun>().objectsToSpawn[0];
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            list.Add(
+                objectsToSpawn
+            );
+            gun.objectsToSpawn = list.ToArray();
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetOrAddComponent<FlameMono>();
-            UnityEngine.GameObject.Destroy(mono);
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }
@@ -56,15 +52,15 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetTitle()
         {
-            return "Flame";
+            return "TNT Arrows";
         }
         protected override string GetDescription()
         {
-            return "You enchanted your bow with flame, now your arrows are on fire";
+            return "You attached TNT to your arrows, now they will explode shortly after landing";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_FlameArrow");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_ExplosiveArrow");
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -74,6 +70,13 @@ namespace ChaosPoppycarsCards.Cards
         {
             return new CardInfoStat[]
             {
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Arrows",
+                    amount = "+1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
                 new CardInfoStat()
                 {
                     positive = true,

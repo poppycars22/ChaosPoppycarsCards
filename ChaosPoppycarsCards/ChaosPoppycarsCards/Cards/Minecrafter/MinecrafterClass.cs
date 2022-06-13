@@ -50,25 +50,35 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 ClassesRegistry.Register(SpeedPotion.Card, CardType.Card, BrewingStand.Card);
                 ClassesRegistry.Register(StrengthPotion.Card, CardType.Card, BrewingStand.Card);
                 ClassesRegistry.Register(UltimatePotion.Card, CardType.Card, BrewingStand.Card);
-            ClassesRegistry.Register(MCBow.Card, CardType.Card, CraftingTable.Card);
-                //posion tipped arrows (posion effect, +dmg, another projectile)
-                //fire tipped arrows (CR flame effect, another projectile)
-                //Instant damage arrows (essentialy chompy bullets)
-                //Speed boost tipped arrows (when you hit a oppenent they become much faster, +dmg, +another projectile)
-                //Crossbow (much faster bullets, slower attack cooldown)
-                //Jump boost tipped arrows (when you hit a oppenent they gain a lot of jump height)
+            ClassesRegistry.Register(MCBow.Card, CardType.SubClass, CraftingTable.Card);
+                ClassesRegistry.Register(FlammingArrows.Card, CardType.Card, MCBow.Card);
+                ClassesRegistry.Register(PoisonArrows.Card, CardType.Card, MCBow.Card);
+                ClassesRegistry.Register(BouncyArrows.Card, CardType.Card, MCBow.Card);
+                ClassesRegistry.Register(ToxicArrows.Card, CardType.Card, MCBow.Card);
+                ClassesRegistry.Register(Arrows.Card, CardType.Card, MCBow.Card);
+                ClassesRegistry.Register(ExplosiveArrows.Card, CardType.Card, MCBow.Card);
+            //Instant damage arrows (essentialy chompy bullets)
+            //Speed boost tipped arrows (when you hit a oppenent they become much faster, +dmg, +another projectile)
+            //Crossbow (much faster bullets, slower attack cooldown)
+            //Jump boost tipped arrows (when you hit a oppenent they gain a lot of jump height)
+            //Levitation tipped arrows
             //Modded subclass
-                //MOST OF THESE WILL BE RARES OR HIGHER
-                //
+            //MOST OF THESE WILL BE RARES OR HIGHER
+            //
             //Redstoner subclass
-                //
+            //
             //Builder subclass
-                //Dirt, build a box that is easily broken
-                //Stone, build a box that is slightly harder to break
-                //Deepslate
-                //Obsidian
-                //(tier system)
+            //Dirt, build a box that is easily broken
+            //Stone, build a box that is slightly harder to break
+            //Deepslate
+            //Obsidian
+            //(tier system)
             //Farmer
+            //potato gain a bit of regen
+            //bread gain a bit more regen
+            //steak gain even more regen
+            //golden carrot gain a lot of regen
+
         }
         public override IEnumerator PostInit()
         {

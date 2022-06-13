@@ -17,7 +17,7 @@ using ChaosPoppycarsCards.Cards.Minecrafter;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class FlammingArrows : CustomCard
+    class ToxicArrows : CustomCard
     {
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
@@ -26,27 +26,28 @@ namespace ChaosPoppycarsCards.Cards
             gun.ammo = 1;
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList<ObjectsToSpawn>();
-            list.Add(new ObjectsToSpawn
-            {
-                AddToProjectile = new GameObject("A_Flamethrowers", new Type[]
-                {
-                    typeof(FlameMono)
-                })
-            });
-            gun.objectsToSpawn = list.ToArray();
-            player.gameObject.AddComponent<BurnMono>();
+            gun.numberOfProjectiles += 1;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            ObjectsToSpawn objectsToSpawn2 = ((GameObject)Resources.Load("0 cards/Timed detonation")).GetComponent<Gun>().objectsToSpawn[0];
+            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Toxic cloud")).GetComponent<Gun>().objectsToSpawn[0];
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            list.Add(
+                objectsToSpawn
+            );
+            list.Add(
+                objectsToSpawn2
+            );
+            gun.objectsToSpawn = list.ToArray();
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetOrAddComponent<FlameMono>();
-            UnityEngine.GameObject.Destroy(mono);
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }
@@ -54,26 +55,34 @@ namespace ChaosPoppycarsCards.Cards
         {
             gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
         }
+
         protected override string GetTitle()
         {
-            return "Flame";
+            return "Toxic Bomb Arrows";
         }
         protected override string GetDescription()
         {
-            return "You enchanted your bow with flame, now your arrows are on fire";
+            return "You attached a toxic bomb to your arrows, now they release a gas cloud on exploding";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_FlameArrow");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_ToxicArrow");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
             {
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Arrows",
+                    amount = "+1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
                 new CardInfoStat()
                 {
                     positive = true,

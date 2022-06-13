@@ -14,7 +14,6 @@ using Jotunn.Utils;
 using System.Linq;
 using System.Collections.ObjectModel;
 
-
 namespace ChaosPoppycarsCards
 {
 
@@ -33,7 +32,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.5.5"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.5.6"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -105,7 +104,12 @@ namespace ChaosPoppycarsCards
             //CustomCard.BuildCard<LightSaber>();
             CustomCard.BuildCard<CraftingTable>((card) => CraftingTable.Card = card);
             CustomCard.BuildCard<BrewingStand>((card) => BrewingStand.Card = card);
-            //CustomCard.BuildCard<FlammingArrows>();
+            CustomCard.BuildCard<FlammingArrows>((card) => FlammingArrows.Card = card);
+            CustomCard.BuildCard<PoisonArrows>((card) => PoisonArrows.Card = card);
+            CustomCard.BuildCard<ToxicArrows>((card) => ToxicArrows.Card = card);
+            CustomCard.BuildCard<ExplosiveArrows>((card) => ExplosiveArrows.Card = card);
+            CustomCard.BuildCard<BouncyArrows>((card) => BouncyArrows.Card = card);
+            CustomCard.BuildCard<Arrows>((card) => Arrows.Card = card);
             // CustomCard.BuildCard<WoodenPickaxe>();
             // CustomCard.BuildCard<StonePickaxe>();
             // CustomCard.BuildCard<GoldPickaxe>();

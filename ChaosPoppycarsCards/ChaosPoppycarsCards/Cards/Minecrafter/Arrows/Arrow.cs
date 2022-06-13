@@ -17,36 +17,27 @@ using ChaosPoppycarsCards.Cards.Minecrafter;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class FlammingArrows : CustomCard
+    class Arrows : CustomCard
     {
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.spread = 0.05f;
             gun.ammo = 1;
-            cardInfo.allowMultiple = false;
+            gun.spread = 0.05f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList<ObjectsToSpawn>();
-            list.Add(new ObjectsToSpawn
-            {
-                AddToProjectile = new GameObject("A_Flamethrowers", new Type[]
-                {
-                    typeof(FlameMono)
-                })
-            });
-            gun.objectsToSpawn = list.ToArray();
-            player.gameObject.AddComponent<BurnMono>();
+            gun.numberOfProjectiles += 1;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetOrAddComponent<FlameMono>();
-            UnityEngine.GameObject.Destroy(mono);
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }
@@ -54,26 +45,34 @@ namespace ChaosPoppycarsCards.Cards
         {
             gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
         }
+
         protected override string GetTitle()
         {
-            return "Flame";
+            return "Arrow";
         }
         protected override string GetDescription()
         {
-            return "You enchanted your bow with flame, now your arrows are on fire";
+            return "You shoot another arrow";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_FlameArrow");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_Arrow");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
             {
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Arrows",
+                    amount = "+1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
                 new CardInfoStat()
                 {
                     positive = true,
@@ -88,7 +87,7 @@ namespace ChaosPoppycarsCards.Cards
                     amount = "+5%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
-                
+                 
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

@@ -25,6 +25,8 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             gun.spread = 0.20f;
             gun.projectileSpeed = 0.85f;
+            cardInfo.allowMultiple = false;
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -50,7 +52,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         protected override string GetDescription()
         {
-            return "You shoot a additional projectile";
+            return "You unlock some new arrow types (+1 arrow = +1 projectile)";
         }
         protected override GameObject GetCardArt()
         {
@@ -67,7 +69,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Bullets",
+                    stat = "Arrow",
                     amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
