@@ -42,7 +42,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             ClassesRegistry.Register(Garmor.Card, CardType.Card, CraftingTable.Card);
                         ClassesRegistry.Register(Darmor.Card, CardType.Gate, Iarmor.Card);
                             ClassesRegistry.Register(Narmor.Card, CardType.Card, Darmor.Card);
-            ClassesRegistry.Register(TotemOfUndying.Card, CardType.Card, CraftingTable.Card);
+            ClassesRegistry.Register(TotemOfUndying.Card, CardType.Card, CraftingTable.Card, 3);
             ClassesRegistry.Register(BrewingStand.Card, CardType.SubClass, CraftingTable.Card);
                 ClassesRegistry.Register(InvisPotion.Card, CardType.Card, BrewingStand.Card);
                 ClassesRegistry.Register(JumpPotion.Card, CardType.Card, BrewingStand.Card);
@@ -57,6 +57,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 ClassesRegistry.Register(ToxicArrows.Card, CardType.Card, MCBow.Card);
                 ClassesRegistry.Register(Arrows.Card, CardType.Card, MCBow.Card);
                 ClassesRegistry.Register(ExplosiveArrows.Card, CardType.Card, MCBow.Card);
+                ClassesRegistry.Register(Punch2.Card, CardType.Card, MCBow.Card);
             //Instant damage arrows (essentialy chompy bullets)
             //Speed boost tipped arrows (when you hit a oppenent they become much faster, +dmg, +another projectile)
             //Crossbow (much faster bullets, slower attack cooldown)

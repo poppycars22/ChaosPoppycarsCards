@@ -27,10 +27,7 @@ namespace ChaosPoppycarsCards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.timeBetweenBullets = 0.02f;
-            gun.numberOfProjectiles = 2;
-            gun.bursts = 3;
-            gun.spread = 0.01f;
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }

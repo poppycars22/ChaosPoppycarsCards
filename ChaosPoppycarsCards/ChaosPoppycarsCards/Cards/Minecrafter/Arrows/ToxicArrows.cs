@@ -14,6 +14,7 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ChaosPoppycarsCards.MonoBehaviours;
 using ClassesManagerReborn.Util;
 using ChaosPoppycarsCards.Cards.Minecrafter;
+using RarityLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
@@ -24,6 +25,7 @@ namespace ChaosPoppycarsCards.Cards
         {
             gun.spread = 0.05f;
             gun.ammo = 1;
+            gun.damage = 0.85f;
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             
@@ -70,7 +72,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return RarityUtils.GetRarity("Legendary");
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -96,8 +98,14 @@ namespace ChaosPoppycarsCards.Cards
                     stat = "Spread",
                     amount = "+5%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Damage",
+                    amount = "-15%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
-                
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

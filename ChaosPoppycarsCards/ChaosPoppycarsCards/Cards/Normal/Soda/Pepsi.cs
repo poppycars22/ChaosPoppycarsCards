@@ -11,11 +11,11 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using ChaosPoppycarsCards.MonoBehaviours;
 using System.Reflection;
 using UnboundLib.Networking;
 using System.Collections.ObjectModel;
 using UnboundLib.Utils;
+using ChaosPoppycarsCards.MonoBehaviours.SodaMonos;
 
 namespace ChaosPoppycarsCards.Cards
 {

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using ModdingUtils.MonoBehaviours;
 using UnboundLib.Cards;
 using UnboundLib;
@@ -7,9 +7,9 @@ using System;
 using System.Collections.Generic;
 using ChaosPoppycarsCards.Cards;
 
-namespace ChaosPoppycarsCards.MonoBehaviours
+namespace ChaosPoppycarsCards.MonoBehaviours.SodaMonos
 {
-    internal class COCSodaEffect : ReversibleEffect
+    internal class MTDSodaEffect : ReversibleEffect
     {
         private float duration = 0;
         public override void OnOnDestroy()
@@ -23,16 +23,16 @@ namespace ChaosPoppycarsCards.MonoBehaviours
                 ApplyModifiers();
             }
             duration = 5f;
-             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
-            effect.SetColor(Color.red);
+            ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
+            effect.SetColor(Color.green);
         }
 
         public override void OnStart()
         {
-            gravityModifier.gravityForce_mult = 0.75f;
-            characterDataModifier.maxHealth_mult = 1.5f;
-            characterDataModifier.health_mult = 1.5f;
-            blockModifier.cdMultiplier_mult = 1.5f;
+            characterStatModifiersModifier.movementSpeed_mult = 2f; //make it affect speed, jumpheight, and increase size
+            characterStatModifiersModifier.sizeMultiplier_mult = 1.75f;
+            characterStatModifiersModifier.jump_mult = 2f;
+            blockModifier.cdMultiplier_mult = 1.25f;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }
@@ -41,12 +41,11 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             if (!(duration <= 0))
             {
                 duration -= TimeHandler.deltaTime;
-                data.healthHandler.Heal(7f * TimeHandler.deltaTime);
             }
             else
             {
                 ClearModifiers();
-                UnityEngine.GameObject.Destroy(this.gameObject.GetOrAddComponent<ColorEffect>());
+                Destroy(gameObject.GetOrAddComponent<ColorEffect>());
             }
         }
         public override void OnOnDisable()

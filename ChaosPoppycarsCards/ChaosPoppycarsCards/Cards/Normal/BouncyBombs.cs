@@ -23,7 +23,7 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             gun.reflects = 5;
-            gun.dmgMOnBounce = 0.7f;
+            gun.dmgMOnBounce = 0.85f;
             gun.speedMOnBounce = 1.3f;
             gun.attackSpeed = 1.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
@@ -35,12 +35,16 @@ namespace ChaosPoppycarsCards.Cards
             
             ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Timed detonation")).GetComponent<Gun>().objectsToSpawn[0];
             ObjectsToSpawn objectsToSpawn2 = ((GameObject)Resources.Load("0 cards/Mayhem")).GetComponent<Gun>().objectsToSpawn[0];
+            ObjectsToSpawn objectsToSpawn3 = ((GameObject)Resources.Load("0 cards/Thruster")).GetComponent<Gun>().objectsToSpawn[0];
             List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
             list.Add(
                 objectsToSpawn
             );
             list.Add(
                 objectsToSpawn2
+            );
+            list.Add(
+                objectsToSpawn3
             );
             gun.objectsToSpawn = list.ToArray();     
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
@@ -59,7 +63,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Your bullets turn into bouncy bombs (taking multiple wont affect bomb size until you take timed detonation)";
+            return "Your bullets turn into bouncy bombs";
         }
         protected override GameObject GetCardArt()
         {
@@ -83,15 +87,15 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Speed Per Bounce",
+                    stat = "Bullet Speed On Bounce",
                     amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Damage Per Bounce",
-                    amount = "-30%",
+                    stat = "Damage On Bounce",
+                    amount = "-15%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

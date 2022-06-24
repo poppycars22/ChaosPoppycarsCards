@@ -89,32 +89,32 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             {
                 foreach (Player player in PlayerManager.instance.players.ToArray())
                 {
-                    if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Chainmail Armor")))
+                    if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, Carmor.Card))
                     {
-                        var upgradeChainArmor = ModdingUtils.Utils.Cards.instance.GetCardWithName("Chainmail Armor");
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeChainArmor, addToCardBar: true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeChainArmor);
+                        
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, Carmor.Card, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, Carmor.Card);
 
                     }
-                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Armor")))
+                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, Iarmor.Card))
                     {
-                        var upgradeIronArmor = ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Armor");
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeIronArmor, addToCardBar: true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeIronArmor);
+                       
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, Iarmor.Card, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, Iarmor.Card);
 
                     }
-                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Armor")))
+                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, Darmor.Card))
                     {
-                        var upgradeDiamondArmor = ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Armor");
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeDiamondArmor, addToCardBar: true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeDiamondArmor);
+                        
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, Darmor.Card, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, Darmor.Card);
 
                     }
-                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Armor")))
+                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, Narmor.Card))
                     {
-                        var upgradeNetheriteArmor = ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Armor");
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeNetheriteArmor, addToCardBar: true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeNetheriteArmor);
+   
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, Narmor.Card, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, Narmor.Card);
 
                     }
                 }

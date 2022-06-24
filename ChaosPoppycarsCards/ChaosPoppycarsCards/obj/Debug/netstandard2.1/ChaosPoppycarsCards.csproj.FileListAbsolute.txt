@@ -101,3 +101,4 @@ C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPopp
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\ClassesManagerReborn.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\RarityLib.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\WillsWackyMapObjects.dll
+C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\WillsWackyManagers.dll

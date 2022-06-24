@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using ChaosPoppycarsCards.Cards;
 
-namespace ChaosPoppycarsCards.MonoBehaviours
+namespace ChaosPoppycarsCards.MonoBehaviours.SodaMonos
 {
     internal class PEPSodaEffect : ReversibleEffect
     {
@@ -23,18 +23,18 @@ namespace ChaosPoppycarsCards.MonoBehaviours
                 ApplyModifiers();
             }
             duration = 5f;
-             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
+            ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
             effect.SetColor(Color.blue);
-            
+
         }
 
         public override void OnStart()
         {
             characterStatModifiersModifier.movementSpeed_mult = 1.5f;
-            characterStatModifiersModifier.secondsToTakeDamageOver_add = 3;
+            characterStatModifiersModifier.secondsToTakeDamageOver_add = 5;
             characterDataModifier.maxHealth_mult = 1.5f;
             characterDataModifier.health_mult = 1.5f;
-            blockModifier.cdMultiplier_mult = 1.5f;
+            blockModifier.cdMultiplier_mult = 1.25f;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }
@@ -47,7 +47,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             else
             {
                 ClearModifiers();
-                UnityEngine.GameObject.Destroy(this.gameObject.GetOrAddComponent<ColorEffect>());
+                Destroy(gameObject.GetOrAddComponent<ColorEffect>());
             }
         }
         public override void OnOnDisable()

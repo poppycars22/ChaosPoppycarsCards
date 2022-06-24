@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using ModdingUtils.MonoBehaviours;
 using UnboundLib.Cards;
 using UnboundLib;
@@ -9,7 +9,7 @@ using ChaosPoppycarsCards.Cards;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
-    internal class MTDSodaEffect : ReversibleEffect
+    internal class SPRSodaEffect : ReversibleEffect
     {
         private float duration = 0;
         public override void OnOnDestroy()
@@ -29,10 +29,9 @@ namespace ChaosPoppycarsCards.MonoBehaviours
 
         public override void OnStart()
         {
-            characterStatModifiersModifier.movementSpeed_mult = 2f; //make it affect speed, jumpheight, and increase size
-            characterStatModifiersModifier.sizeMultiplier_mult = 1.5f;
-            characterStatModifiersModifier.jump_mult = 2f;
-            blockModifier.cdMultiplier_mult = 1.5f;
+            characterStatModifiersModifier.lifeSteal_add = 3f;
+            characterStatModifiersModifier.sizeMultiplier_mult = 0.5f;
+            blockModifier.cdMultiplier_mult = 1.25f;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }

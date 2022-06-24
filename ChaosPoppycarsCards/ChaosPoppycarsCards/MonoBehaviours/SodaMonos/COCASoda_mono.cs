@@ -9,7 +9,7 @@ using ChaosPoppycarsCards.Cards;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
-    internal class DRSodaEffect : ReversibleEffect
+    internal class COCSodaEffect : ReversibleEffect
     {
         private float duration = 0;
         public override void OnOnDestroy()
@@ -29,10 +29,10 @@ namespace ChaosPoppycarsCards.MonoBehaviours
 
         public override void OnStart()
         {
-            gunStatModifier.damage_mult = 1.5f;
-            gunAmmoStatModifier.reloadTimeMultiplier_mult = 0.5f;
-            gunStatModifier.attackSpeed_mult = 0.5f;
-            blockModifier.cdMultiplier_mult = 1.5f;
+            gravityModifier.gravityForce_mult = 0.5f;
+            characterDataModifier.maxHealth_mult = 1.75f;
+            characterDataModifier.health_mult = 1.75f;
+            blockModifier.cdMultiplier_mult = 1.25f;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }
@@ -41,6 +41,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             if (!(duration <= 0))
             {
                 duration -= TimeHandler.deltaTime;
+                data.healthHandler.Heal(7f * TimeHandler.deltaTime);
             }
             else
             {

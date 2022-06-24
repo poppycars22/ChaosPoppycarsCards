@@ -101,6 +101,9 @@
     <Reference Include="UnityEngine.UIModule">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.UIModule.dll</HintPath>
     </Reference>
+    <Reference Include="WillsWackyManagers">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\willuwontu-WillsWackyManagers\WillsWackyManagers.dll</HintPath>
+    </Reference>
     <Reference Include="WillsWackyMapObjects">
       <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\willuwontu-WillsWackyMapObjects\WillsWackyMapObjects.dll</HintPath>
     </Reference>

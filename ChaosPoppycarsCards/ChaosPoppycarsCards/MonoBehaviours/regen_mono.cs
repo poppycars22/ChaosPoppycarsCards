@@ -38,7 +38,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             if (!(duration <= 0))
             {
                 duration -= TimeHandler.deltaTime;
-                data.healthHandler.Heal(10f * TimeHandler.deltaTime);
+                data.healthHandler.Heal(20f * TimeHandler.deltaTime);
             }
             else
             {

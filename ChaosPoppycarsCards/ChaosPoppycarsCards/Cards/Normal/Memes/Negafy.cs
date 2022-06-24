@@ -42,7 +42,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Times some of your stats by -1 (makes you attack really fast in a way thats hard to reverse)";
+            return "Times some of your stats by -1 (inverted controls, attack fast in a way hard to reverse)";
         }
         protected override GameObject GetCardArt()
         {

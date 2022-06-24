@@ -25,7 +25,7 @@ namespace ChaosPoppycarsCards.Cards
             cardInfo.allowMultiple = false;
             gun.spread = 0.05f;
             gun.ammo = 1;
-            gun.damage = 1.25f;
+            gun.damage = 1.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -90,7 +90,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+25%",
+                    amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

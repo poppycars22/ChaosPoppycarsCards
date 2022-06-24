@@ -100,32 +100,32 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             {
                 foreach (Player player in PlayerManager.instance.players.ToArray())
                 {
-                    if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Stone Axe")))
+                    if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, StoneAxe.Card))
                     {
-                        var upgradeStoneAxe = ModdingUtils.Utils.Cards.instance.GetCardWithName("Stone Axe");
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeStoneAxe, addToCardBar: true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeStoneAxe);
+
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, StoneAxe.Card, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, StoneAxe.Card);
 
                     }
-                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Axe")))
+                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, IronAxe.Card))
                     {
-                        var upgradeIronAxe = ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Axe");
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeIronAxe, addToCardBar: true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeIronAxe);
+                       
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, IronAxe.Card, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, IronAxe.Card);
 
                     }
-                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Axe")))
+                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, DiamondAxe.Card))
                     {
-                        var upgradeDiamondAxe = ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Axe");
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeDiamondAxe, addToCardBar: true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeDiamondAxe);
+                        
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, DiamondAxe.Card, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, DiamondAxe.Card);
 
                     }
-                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Axe")))
+                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, NetheriteAxe.Card))
                     {
-                        var upgradeNetheriteAxe = ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Axe");
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeNetheriteAxe, addToCardBar: true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeNetheriteAxe);
+                        
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, NetheriteAxe.Card, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, NetheriteAxe.Card);
 
                     }
                     

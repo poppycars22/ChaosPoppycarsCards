@@ -27,7 +27,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-
+           
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             gun.attackSpeed = .5f;
             cardInfo.allowMultiple = false;
@@ -101,32 +101,32 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             {
                 foreach (Player player in PlayerManager.instance.players.ToArray())
                 {
-                    if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Stone Hoe")))
+                    if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, StoneHoe.Card))
                     {
-                        var upgradeStoneHoe = ModdingUtils.Utils.Cards.instance.GetCardWithName("Stone Hoe");
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeStoneHoe, addToCardBar: true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeStoneHoe);
+                        
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, StoneHoe.Card, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, StoneHoe.Card);
                         
                     }
-                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Hoe")))
+                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, IronHoe.Card))
                     {
-                        var upgradeIronHoe = ModdingUtils.Utils.Cards.instance.GetCardWithName("Iron Hoe");
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeIronHoe, addToCardBar: true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeIronHoe);
+                        
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, IronHoe.Card, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, IronHoe.Card);
                         
                     }
-                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Hoe")))
+                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, DiamondHoe.Card))
                     {
-                        var upgradeDiamondHoe = ModdingUtils.Utils.Cards.instance.GetCardWithName("Diamond Hoe");
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeDiamondHoe, addToCardBar: true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeDiamondHoe);
+                        
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, DiamondHoe.Card, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, DiamondHoe.Card);
                        
                     }
-                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Hoe")))
+                    else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, NetheriteHoe.Card))
                     {
-                        var upgradeNetheriteHoe = ModdingUtils.Utils.Cards.instance.GetCardWithName("Netherite Hoe");
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, upgradeNetheriteHoe, addToCardBar: true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, upgradeNetheriteHoe);
+                      
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, NetheriteHoe.Card, addToCardBar: true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, NetheriteHoe.Card);
                         
                     }
                     

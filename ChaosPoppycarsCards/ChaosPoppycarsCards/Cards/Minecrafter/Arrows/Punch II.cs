@@ -17,22 +17,19 @@ using ChaosPoppycarsCards.Cards.Minecrafter;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class ExplosiveArrows : CustomCard
+    class Punch2 : CustomCard
     {
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.spread = 0.05f;
-            gun.ammo = 1;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             cardInfo.allowMultiple = false;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            gun.numberOfProjectiles += 1;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Timed detonation")).GetComponent<Gun>().objectsToSpawn[0];
+            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Thruster")).GetComponent<Gun>().objectsToSpawn[0];
             List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
             list.Add(
                 objectsToSpawn
@@ -52,15 +49,15 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetTitle()
         {
-            return "TNT Arrows";
+            return "Punch II";
         }
         protected override string GetDescription()
         {
-            return "You attached TNT to your arrows, now they will explode shortly after landing";
+            return "You enchanted your bow with Punch II, now your arrows push opponents away";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_ExplosiveArrow");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_PunchII");
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -70,33 +67,13 @@ namespace ChaosPoppycarsCards.Cards
         {
             return new CardInfoStat[]
             {
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Arrows",
-                    amount = "+1",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Ammo",
-                    amount = "+1",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Spread",
-                    amount = "+5%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }
+                
                 
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.FirepowerYellow;
         }
         public override string GetModName()
         {
