@@ -19,7 +19,7 @@ namespace ChaosPoppycarsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.movementSpeed = 11f;
+            statModifiers.movementSpeed = 16f;
             cardInfo.categories = new CardCategory[] { CurseManager.instance.curseCategory };
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -45,7 +45,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_Sugared");
+            return null;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -59,7 +59,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = false,
                     stat = "Move Speed",
-                    amount = "+1000%",
+                    amount = "+1500%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
