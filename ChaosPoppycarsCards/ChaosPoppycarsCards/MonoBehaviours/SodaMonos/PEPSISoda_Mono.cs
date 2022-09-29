@@ -34,7 +34,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours.SodaMonos
             characterStatModifiersModifier.secondsToTakeDamageOver_add = 5;
             characterDataModifier.maxHealth_mult = 1.5f;
             characterDataModifier.health_mult = 1.5f;
-            blockModifier.cdMultiplier_mult = 1.25f;
+            
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }

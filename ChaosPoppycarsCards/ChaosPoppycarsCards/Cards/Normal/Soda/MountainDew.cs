@@ -50,7 +50,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "When you block you get increased movment speed, jump height, and you become bigger for 5 seconds, but your block cd gets increased during the duration";
+            return "When you block you get increased movment speed, jump height, and you become bigger for 5 seconds";
         }
         protected override GameObject GetCardArt()
         {

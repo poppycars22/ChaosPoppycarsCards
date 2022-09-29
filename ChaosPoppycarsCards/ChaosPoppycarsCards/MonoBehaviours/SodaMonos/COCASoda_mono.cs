@@ -32,7 +32,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             gravityModifier.gravityForce_mult = 0.5f;
             characterDataModifier.maxHealth_mult = 1.75f;
             characterDataModifier.health_mult = 1.75f;
-            blockModifier.cdMultiplier_mult = 1.25f;
+            
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }

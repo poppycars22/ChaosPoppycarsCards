@@ -24,88 +24,82 @@
       <HintPath>..\..\..\..\..\Desktop\bepin\BepInEx\core\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx">
       <HintPath>..\..\..\..\..\Desktop\bepin\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="BlockForcePatch">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\willuwontu-BlockForcePatch\BlockForcePatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\BlockForcePatch.dll</HintPath>
     </Reference>
     <Reference Include="CardChoiceSpawnUniqueCardPatch">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-CardChoiceSpawnUniqueCardPatch\CardChoiceSpawnUniqueCardPatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\CardChoiceSpawnUniqueCardPatch.dll</HintPath>
     </Reference>
     <Reference Include="ClassesManagerReborn">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Root-Classes_Manager_Reborn\ClassesManagerReborn.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\ClassesManagerReborn.dll</HintPath>
     </Reference>
     <Reference Include="DemonicPactPatch">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-DemonicPactPatch\DemonicPactPatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\DemonicPactPatch.dll</HintPath>
     </Reference>
     <Reference Include="GunUnblockablePatch">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-GunUnblockablePatch\GunUnblockablePatch.dll</HintPath>
-    </Reference>
-    <Reference Include="InControl">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\InControl.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\GunUnblockablePatch.dll</HintPath>
     </Reference>
     <Reference Include="LegRaycastersPatch">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-LegRaycastersPatch\LegRaycastersPatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\LegRaycastersPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="MapsExtended">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\olavim-MapsExtended\MapsExtended.dll</HintPath>
+    </Reference>
+    <Reference Include="MMHOOK_Assembly-CSharp">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\willis81808-MMHook\MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="ModdingUtils">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-ModdingUtils\ModdingUtils.dll</HintPath>
-    </Reference>
-    <Reference Include="PhotonRealtime">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\PhotonRealtime.dll</HintPath>
-    </Reference>
-    <Reference Include="PhotonUnityNetworking">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\PhotonUnityNetworking.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\ModdingUtils.dll</HintPath>
     </Reference>
     <Reference Include="PlayerJumpPatch">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-PlayerJumpPatch\PlayerJumpPatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\PlayerJumpPatch.dll</HintPath>
     </Reference>
     <Reference Include="RarityLib">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Root-RarityLib\RarityLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\RarityLib.dll</HintPath>
+    </Reference>
+    <Reference Include="RayHitReflectPatch">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Pykess-RayHitReflectPatch\RayHitReflectPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="RespawnPatch">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\willuwontu-RespawnPatch\RespawnPatch.dll</HintPath>
     </Reference>
     <Reference Include="SonigonAudioEngine.Runtime">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\SonigonAudioEngine.Runtime.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\SonigonAudioEngine.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="TemporaryStatsPatch">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\Pykess-TemporaryStatsPatch\TemporaryStatsPatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\TemporaryStatsPatch.dll</HintPath>
     </Reference>
     <Reference Include="UnboundLib">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\willis81808-UnboundLib\UnboundLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\UnboundLib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>bin\Debug\netstandard2.1\UnityEngine.AssetBundleModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UIModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
     </Reference>
     <Reference Include="WillsWackyManagers">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\willuwontu-WillsWackyManagers\WillsWackyManagers.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\WillsWackyManagers.dll</HintPath>
     </Reference>
     <Reference Include="WillsWackyMapObjects">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\mod making\BepInEx\plugins\willuwontu-WillsWackyMapObjects\WillsWackyMapObjects.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\modding folder\WillsWackyMapObjects.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

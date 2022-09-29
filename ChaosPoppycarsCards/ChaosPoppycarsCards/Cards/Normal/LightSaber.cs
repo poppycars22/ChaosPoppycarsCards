@@ -19,12 +19,14 @@ using ModdingUtils.Extensions;
 using UnityEngine.UI;
 using RarityLib.Utils;
 using RarityLib;
-
+using UnboundLib.GameModes;
+using System.Collections;
 
 namespace ChaosPoppycarsCards.Cards
 {
     class LightSaber : CustomCard
     {
+        public static bool RangeChanger = false;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
@@ -47,16 +49,15 @@ namespace ChaosPoppycarsCards.Cards
             //Edits values on player when card is selected
             gun.reflects *= 0;
             gun.spread *= 0;
+            RangeChanger = true;
 
-            var mono = player.gameObject.GetOrAddComponent<TestMono>();
-            
-        }
+
+    }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
 
-            var mono = player.gameObject.GetOrAddComponent<TestMono>();
-            UnityEngine.GameObject.Destroy(mono);
+            RangeChanger = false;
             //Run when the card is removed from the player
         }
 
@@ -143,5 +144,30 @@ namespace ChaosPoppycarsCards.Cards
         {
             return "CPC";
         }
+        /*/internal static IEnumerator RangeResetTruth(IGameModeHandler gm)
+        {
+            if (RangeChanger)
+            {
+                foreach (Player player in PlayerManager.instance.players.ToArray())
+                {
+
+                    if (gun.projectileSpeed != 1f)
+                    {
+                        gun.projectileSpeed = 1f;
+                    }
+                    if (gun.projectielSimulatonSpeed != 1f)
+                    {
+                        gun.projectielSimulatonSpeed = 1f;
+                    }
+                    if (gun.destroyBulletAfter != 0.066f)
+                    {
+                        gun.destroyBulletAfter = 0.066f;
+                    }
+                }
+                
+            }
+                yield break;
+        }/*/
+        
     }
 }

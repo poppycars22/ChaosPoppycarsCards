@@ -31,7 +31,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         {
             characterStatModifiersModifier.lifeSteal_add = 3f;
             characterStatModifiersModifier.sizeMultiplier_mult = 0.5f;
-            blockModifier.cdMultiplier_mult = 1.25f;
+            
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }

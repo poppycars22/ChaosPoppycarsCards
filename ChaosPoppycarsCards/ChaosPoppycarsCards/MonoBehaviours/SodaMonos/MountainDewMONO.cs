@@ -32,7 +32,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours.SodaMonos
             characterStatModifiersModifier.movementSpeed_mult = 2f; //make it affect speed, jumpheight, and increase size
             characterStatModifiersModifier.sizeMultiplier_mult = 1.75f;
             characterStatModifiersModifier.jump_mult = 2f;
-            blockModifier.cdMultiplier_mult = 1.25f;
+           
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }

@@ -102,3 +102,7 @@ C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPopp
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\RarityLib.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\WillsWackyMapObjects.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\WillsWackyManagers.dll
+C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\MapsExtended.dll
+C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\MMHOOK_Assembly-CSharp.dll
+C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\RayHitReflectPatch.dll
+C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\RespawnPatch.dll
