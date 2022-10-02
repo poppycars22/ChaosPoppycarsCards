@@ -14,6 +14,7 @@ using Jotunn.Utils;
 using System.Linq;
 using System.Collections.ObjectModel;
 using System;
+using WillsWackyManagers.Utils;
 
 namespace ChaosPoppycarsCards
 {
@@ -35,7 +36,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.6.0"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.6.1"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -114,9 +115,9 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<BouncyArrows>((card) => BouncyArrows.Card = card);
             CustomCard.BuildCard<Arrows>((card) => Arrows.Card = card);
             CustomCard.BuildCard<Punch2>((card) => Punch2.Card = card);
-            CustomCard.BuildCard<SpeedCurse>();
-            CustomCard.BuildCard<BlockFlipCurse>();
-            
+            CustomCard.BuildCard<SpeedCurse>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+            CustomCard.BuildCard<BlockFlipCurse>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+            CustomCard.BuildCard<NerfCurse>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             // CustomCard.BuildCard<WoodenPickaxe>();
             // CustomCard.BuildCard<StonePickaxe>();
             // CustomCard.BuildCard<GoldPickaxe>();

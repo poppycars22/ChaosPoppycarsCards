@@ -32,7 +32,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             cardInfo.allowMultiple = false;
-            gun.damage = 1.3f;
+            gun.damage = 1.1f;
             
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
@@ -76,7 +76,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+30%",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

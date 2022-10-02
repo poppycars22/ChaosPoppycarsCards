@@ -22,7 +22,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
 
-            statModifiers.health = 1.5f;
+            statModifiers.health = 1.3f;
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
 
@@ -67,7 +67,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+50%",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
@@ -101,6 +101,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                        
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, Iarmor.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, Iarmor.Card);
+                        
 
                     }
                     else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, Darmor.Card))

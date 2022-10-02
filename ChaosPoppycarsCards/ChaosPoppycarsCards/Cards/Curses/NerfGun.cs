@@ -19,8 +19,9 @@ namespace ChaosPoppycarsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.damage = 0.5f;
-            
+            gun.damage = 0.75f;
+            gun.dontAllowAutoFire = true;
+
             cardInfo.categories = new CardCategory[] { CurseManager.instance.curseCategory };
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -42,7 +43,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "You lost your real gun and picked up this toy, what could go wrong";
+            return "You lost your real gun and picked up this toy, what could go wrong, (disables auto fire)";
         }
         protected override GameObject GetCardArt()
         {
