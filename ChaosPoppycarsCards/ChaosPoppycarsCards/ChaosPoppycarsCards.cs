@@ -123,10 +123,11 @@ namespace ChaosPoppycarsCards
             // CustomCard.BuildCard<GoldPickaxe>();
             //  CustomCard.BuildCard<PoppysChaos>();
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeAction);
-          //  GameModeManager.AddHook(GameModeHooks.HookBattleStart, LightSaberRangeReset);
+            
+            //  GameModeManager.AddHook(GameModeHooks.HookBattleStart, LightSaberRangeReset);
         }
 
-        
+
 
         private IEnumerator UpgradeAction(IGameModeHandler gm)
         {
@@ -137,10 +138,12 @@ namespace ChaosPoppycarsCards
             yield return Larmor.UpgradeArmor(gm);
 
         }
-       /* private IEnumerator LightSaberRangeReset(IGameModeHandler gm)
-        {
-            yield return LightSaber.RangeResetTruth(gm);
-        } */
+        
+        
+        /* private IEnumerator LightSaberRangeReset(IGameModeHandler gm)
+         {
+             yield return LightSaber.RangeResetTruth(gm);
+         } */
         IEnumerator GameStart(IGameModeHandler gm)
         {
             // Runs at start of match

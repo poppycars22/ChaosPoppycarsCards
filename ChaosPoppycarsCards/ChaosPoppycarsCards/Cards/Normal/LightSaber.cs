@@ -21,26 +21,28 @@ using RarityLib.Utils;
 using RarityLib;
 using UnboundLib.GameModes;
 using System.Collections;
+using ModdingUtils.MonoBehaviours;
 
 namespace ChaosPoppycarsCards.Cards
 {
     class LightSaber : CustomCard
     {
-        public static bool RangeChanger = false;
+        
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
-            gun.damage = 0.5f;
+            gun.damage = 0.15f;
             cardInfo.allowMultiple = false;
             gun.destroyBulletAfter = 0.066f;
-            gun.reloadTime = 0.0000000003f;
+            gun.reloadTime = 0.00003f;
             gun.gravity = 0f;
-            gun.attackSpeed = 0.0000000000000003f;
-            gun.ammo = -101;
-            gun.unblockable = true;
-           
+            gun.attackSpeed = 0.00003f;
+            gun.ammo = +50;
+            block.cdMultiplier = 2f;
+            block.additionalBlocks = -100;
+            statModifiers.movementSpeed = 0.1f;
             //make this card, if you can figure out how, a light saber png attached to the gun that also makes the bullets invisable and makes the gun auto fire
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -49,15 +51,14 @@ namespace ChaosPoppycarsCards.Cards
             //Edits values on player when card is selected
             gun.reflects *= 0;
             gun.spread *= 0;
-            RangeChanger = true;
+            
 
-
-    }
+        }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
 
-            RangeChanger = false;
+           
             //Run when the card is removed from the player
         }
 
@@ -99,7 +100,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = false,
                     stat = "Damage",
-                    amount = "-50%",
+                    amount = "-85%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
@@ -120,7 +121,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = false,
                     stat = "Ammo",
-                    amount = "1"
+                    amount = "+50"
                 },
                 new CardInfoStat()
                 {
@@ -130,9 +131,21 @@ namespace ChaosPoppycarsCards.Cards
                 },
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Bullets",
-                    amount = "Unblockable"
+                    positive = false,
+                    stat = "Block CD",
+                    amount = "+100%"
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Blocks",
+                    amount = "1"
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Movement Speed",
+                    amount = "-90%"
                 }
             };
         }
@@ -144,30 +157,9 @@ namespace ChaosPoppycarsCards.Cards
         {
             return "CPC";
         }
-        /*/internal static IEnumerator RangeResetTruth(IGameModeHandler gm)
-        {
-            if (RangeChanger)
-            {
-                foreach (Player player in PlayerManager.instance.players.ToArray())
-                {
-
-                    if (gun.projectileSpeed != 1f)
-                    {
-                        gun.projectileSpeed = 1f;
-                    }
-                    if (gun.projectielSimulatonSpeed != 1f)
-                    {
-                        gun.projectielSimulatonSpeed = 1f;
-                    }
-                    if (gun.destroyBulletAfter != 0.066f)
-                    {
-                        gun.destroyBulletAfter = 0.066f;
-                    }
-                }
-                
-            }
-                yield break;
-        }/*/
         
+        
+        
+
     }
 }
