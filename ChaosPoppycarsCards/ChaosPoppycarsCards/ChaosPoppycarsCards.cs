@@ -36,7 +36,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.6.1"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.6.3"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -118,6 +118,16 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<SpeedCurse>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<BlockFlipCurse>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<NerfCurse>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+            CustomCard.BuildCard<SpeedDemon>((card) => SpeedDemon.Card = card);
+            CustomCard.BuildCard<MomentumShots>((card) => MomentumShots.Card = card);
+            CustomCard.BuildCard<SpeedyHands>((card) => SpeedyHands.Card = card);
+            CustomCard.BuildCard<Tricky>((card) => Tricky.Card = card);
+            CustomCard.BuildCard<TriggerFinger>((card) => TriggerFinger.Card = card);
+            CustomCard.BuildCard<Swifter>((card) => Swifter.Card = card);
+            CustomCard.BuildCard<Stretches>((card) => Stretches.Card = card);
+            CustomCard.BuildCard<LegDay>((card) => LegDay.Card = card);
+            CustomCard.BuildCard<SpeedstersGun>((card) => SpeedstersGun.Card = card);
+            CustomCard.BuildCard<AirHops>((card) => AirHops.Card = card);
             // CustomCard.BuildCard<WoodenPickaxe>();
             // CustomCard.BuildCard<StonePickaxe>();
             // CustomCard.BuildCard<GoldPickaxe>();

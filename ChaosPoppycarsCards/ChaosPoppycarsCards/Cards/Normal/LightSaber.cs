@@ -42,8 +42,8 @@ namespace ChaosPoppycarsCards.Cards
             gun.ammo = +50;
             block.cdMultiplier = 2f;
             block.additionalBlocks = -100;
-            statModifiers.movementSpeed = 0.1f;
-            //make this card, if you can figure out how, a light saber png attached to the gun that also makes the bullets invisable and makes the gun auto fire
+            statModifiers.movementSpeed = 0.7f;
+            //make this card, if you can figure out how, a light saber png attached to the gun that also makes the bullets invisable
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -145,7 +145,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = false,
                     stat = "Movement Speed",
-                    amount = "-90%"
+                    amount = "-30%"
                 }
             };
         }
