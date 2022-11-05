@@ -14,8 +14,10 @@
           "BepInEx": "5.4.19.0",
           "BlockForcePatch": "1.0.0.0",
           "CardChoiceSpawnUniqueCardPatch": "1.0.0.0",
+          "CardThemeLib": "1.0.0.0",
           "ClassesManagerReborn": "1.0.0.0",
           "DemonicPactPatch": "1.0.0.0",
+          "GunProjectileSizePatch": "1.0.0.0",
           "GunUnblockablePatch": "1.0.0.0",
           "LegRaycastersPatch": "1.0.0.0",
           "MapsExtended": "0.9.5.0",
@@ -81,6 +83,14 @@
           }
         }
       },
+      "CardThemeLib/1.0.0.0": {
+        "runtime": {
+          "CardThemeLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "ClassesManagerReborn/1.0.0.0": {
         "runtime": {
           "ClassesManagerReborn.dll": {
@@ -92,6 +102,14 @@
       "DemonicPactPatch/1.0.0.0": {
         "runtime": {
           "DemonicPactPatch.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GunProjectileSizePatch/1.0.0.0": {
+        "runtime": {
+          "GunProjectileSizePatch.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -826,12 +844,22 @@
       "serviceable": false,
       "sha512": ""
     },
+    "CardThemeLib/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "ClassesManagerReborn/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
     "DemonicPactPatch/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GunProjectileSizePatch/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

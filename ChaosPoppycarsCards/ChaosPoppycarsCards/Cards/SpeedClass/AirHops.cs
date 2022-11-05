@@ -55,7 +55,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_AirHop");
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -76,7 +76,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.MagicPink;
+            return CardThemeLib.CardThemeLib.instance.CreateOrGetType("Evergreen");
         }
         public override string GetModName()
         {

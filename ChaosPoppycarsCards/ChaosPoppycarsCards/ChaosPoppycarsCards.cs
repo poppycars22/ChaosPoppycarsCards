@@ -27,6 +27,8 @@ namespace ChaosPoppycarsCards
     [BepInDependency("root.classes.manager.reborn", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.willuwontu.rounds.managers", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("root.rarity.lib", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.root.projectile.size.patch", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("root.cardtheme.lib", BepInDependency.DependencyFlags.HardDependency)]
     // Declares our mod to Bepin
     [BepInPlugin(ModId, ModName, Version)]
 
@@ -36,7 +38,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.6.3"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.6.4"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -46,6 +48,7 @@ namespace ChaosPoppycarsCards
         void Awake()
         {
             // Use this to call any harmony patch files your mod may have
+            CardThemeLib.CardThemeLib.instance.CreateOrGetType("Evergreen", new CardThemeColor() { bgColor = new Color(0.09f, 0.23f, 0.11f), targetColor = new Color(0.28f, 0.80f, 0.32f) });
             var harmony = new Harmony(ModId);
             harmony.PatchAll();
         }

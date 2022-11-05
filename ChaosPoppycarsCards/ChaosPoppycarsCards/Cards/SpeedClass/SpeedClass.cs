@@ -11,7 +11,7 @@ namespace ChaosPoppycarsCards.Cards
 {
     class SpeedClass : ClassHandler
     {
-        internal static string name = "Speed Demon";
+        internal static string name = "Speedster";
 
         public override IEnumerator Init()
         {

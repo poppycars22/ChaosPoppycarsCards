@@ -35,11 +35,17 @@
     <Reference Include="CardChoiceSpawnUniqueCardPatch">
       <HintPath>..\..\..\..\..\Desktop\modding folder\CardChoiceSpawnUniqueCardPatch.dll</HintPath>
     </Reference>
+    <Reference Include="CardThemeLib">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Root-CardThemeLib\CardThemeLib.dll</HintPath>
+    </Reference>
     <Reference Include="ClassesManagerReborn">
       <HintPath>..\..\..\..\..\Desktop\modding folder\ClassesManagerReborn.dll</HintPath>
     </Reference>
     <Reference Include="DemonicPactPatch">
       <HintPath>..\..\..\..\..\Desktop\modding folder\DemonicPactPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="GunProjectileSizePatch">
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Root-GunProjectileSizePatch\GunProjectileSizePatch.dll</HintPath>
     </Reference>
     <Reference Include="GunUnblockablePatch">
       <HintPath>..\..\..\..\..\Desktop\modding folder\GunUnblockablePatch.dll</HintPath>
