@@ -47,7 +47,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_NerfGun");
         }
         protected override CardInfo.Rarity GetRarity()
         {
