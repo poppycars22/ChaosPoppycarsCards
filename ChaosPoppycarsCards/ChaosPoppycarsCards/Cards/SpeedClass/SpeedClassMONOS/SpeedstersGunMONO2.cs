@@ -1,6 +1,7 @@
 ﻿using System;
 using ChaosPoppycarsCards.MonoBehaviours;
 using ModdingUtils.MonoBehaviours;
+using UnboundLib;
 using UnityEngine;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
@@ -8,32 +9,39 @@ namespace ChaosPoppycarsCards.MonoBehaviours
     public class SpeedstersGunMono : MonoBehaviour
     {
 
-        public void Update()
+        private CharacterData data;
+        private Player player;
+        private Block block;
+        private WeaponHandler weaponHandler;
+        private Gun gun;
+        private void Start()
         {
-            if (Time.time >= this.startTime + this.updateDelay)
+            this.data = this.gameObject.GetComponentInParent<CharacterData>();
+        }
+        private void Update()
+        {
+
+
+            if (!player)
             {
-                this.ResetTimer();
-                if (GetComponent<Player>().GetComponent<SpeedstersGunBUFFMono>() != null)
+                if (!(data is null))
                 {
-                    GetComponent<Player>().GetComponent<SpeedstersGunBUFFMono>().Destroy();
+                    player = data.player;
+                    block = data.block;
+                    weaponHandler = data.weaponHandler;
+                    gun = weaponHandler.gun;
+
+                    gun.ShootPojectileAction += OnShootProjectileAction;
                 }
-                GetComponent<Player>().transform.gameObject.AddComponent<SpeedstersGunBUFFMono>();
+
             }
         }
-
-        private void ResetTimer()
+        private void OnShootProjectileAction(GameObject obj)
         {
-            this.startTime = Time.time;
+            MoveTransform move = obj.GetComponentInChildren<MoveTransform>();
+            Vector2 velocity = (Vector2)this.data.playerVel.GetFieldValue("velocity");
+
+            move.velocity += (Vector3)(Vector2)this.data.playerVel.GetFieldValue("velocity");
         }
-
-        private readonly float updateDelay = 0.1f;
-
-        public float startTime = Time.time;
-
-        public SpeedstersGunBUFFMono prevBuff;
-
-        public float movespeed;
-
-        
     }
 }

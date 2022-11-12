@@ -27,13 +27,14 @@ namespace ChaosPoppycarsCards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            
+            statModifiers.jump = 0.25f;
+            statModifiers.movementSpeed = 2f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
+            statModifiers.numberOfJumps += 25;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
 
@@ -51,7 +52,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "This cards changes almost every update";
+            return "This cards changes (almost) every update, The chaoth hath returned";
         }
         protected override GameObject GetCardArt()
         {
@@ -65,7 +66,19 @@ namespace ChaosPoppycarsCards.Cards
         {
             return new CardInfoStat[]
             {
-                
+                new CardInfoStat()
+                {
+                    stat = "Who knows",
+                    amount = "+???",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                },
+                new CardInfoStat()
+                {
+
+                    stat = "I dont",
+                    amount = "-???",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

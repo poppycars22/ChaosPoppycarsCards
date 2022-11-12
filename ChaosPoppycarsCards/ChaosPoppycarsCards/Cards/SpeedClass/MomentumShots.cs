@@ -23,9 +23,10 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-
+            
             statModifiers.movementSpeed = 1.25f;
             cardInfo.allowMultiple = false;
+            
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -53,7 +54,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Your speed adds power into your bullets, they now become stronger as you get faster";
+            return "Your speed adds power into your bullets, they now become stronger if you move in the same direction you shoot them";
         }
         protected override GameObject GetCardArt()
         {
@@ -85,4 +86,5 @@ namespace ChaosPoppycarsCards.Cards
             return "CPC";
         }
     }
+    
 }

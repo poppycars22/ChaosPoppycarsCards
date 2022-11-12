@@ -53,7 +53,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "You adjusted your gun now your bullets go faster based on your movespeed";
+            return "You adjusted your gun now your bullets will inherit your momentum";
         }
         protected override GameObject GetCardArt()
         {

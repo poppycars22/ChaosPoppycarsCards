@@ -1,39 +1,55 @@
 ﻿using System;
 using ChaosPoppycarsCards.MonoBehaviours;
 using ModdingUtils.MonoBehaviours;
+using ModdingUtils.RoundsEffects;
+using UnboundLib;
 using UnityEngine;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
     public class WarpathMono : MonoBehaviour
     {
-
-        public void Update()
+        private CharacterData data;
+        private Player player;
+        private Block block;
+        private WeaponHandler weaponHandler;
+        private Gun gun;
+        private void Start()
         {
-            if (Time.time >= this.startTime + this.updateDelay)
+            this.data = this.gameObject.GetComponentInParent<CharacterData>();
+        }
+        private void Update()
+        {
+            
+            
+            if (!player)
             {
-                this.ResetTimer();
-                if (GetComponent<Player>().GetComponent<WarpathBuffMono>() != null)
+                if (!(data is null))
                 {
-                    GetComponent<Player>().GetComponent<WarpathBuffMono>().Destroy();
+                    player = data.player;
+                    block = data.block;
+                    weaponHandler = data.weaponHandler;
+                    gun = weaponHandler.gun;
+
+                    gun.ShootPojectileAction += OnShootProjectileAction;
                 }
-                GetComponent<Player>().transform.gameObject.AddComponent<WarpathBuffMono>();
+
             }
         }
-
-        private void ResetTimer()
+        private void OnShootProjectileAction(GameObject obj)
         {
-            this.startTime = Time.time;
+
+            Vector2 velocity = (Vector2)this.data.playerVel.GetFieldValue("velocity");
+            Vector2 aim = this.data.input.aimDirection;
+            float angle = Vector2.Angle(velocity.normalized, aim.normalized);
+            float directionMult = (90 - angle) / 90;
+            float speedMult = velocity.magnitude/17;
+            ProjectileHit bullet = obj.GetComponent<ProjectileHit>();
+            //UnityEngine.Debug.Log($"[{velocity}] {(bullet.damage)}");
+            bullet.damage *= (speedMult) + (directionMult * speedMult);
+            
+            //UnityEngine.Debug.Log($"[{velocity}] {(bullet.damage)}");
         }
 
-        private readonly float updateDelay = 0.1f;
-
-        public float startTime = Time.time;
-
-        public WarpathBuffMono prevBuff;
-
-        public float movespeed;
-
-        public float bonusDmg = 10;
     }
 }
