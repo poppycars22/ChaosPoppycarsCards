@@ -43,8 +43,9 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             Vector2 aim = this.data.input.aimDirection;
             float angle = Vector2.Angle(velocity.normalized, aim.normalized);
             float directionMult = (90 - angle) / 90;
-            float speedMult = velocity.magnitude/17;
+            float speedMult = velocity.magnitude/ 17;
             ProjectileHit bullet = obj.GetComponent<ProjectileHit>();
+            
             //UnityEngine.Debug.Log($"[{velocity}] {(bullet.damage)}");
             bullet.damage *= (speedMult) + (directionMult * speedMult);
             

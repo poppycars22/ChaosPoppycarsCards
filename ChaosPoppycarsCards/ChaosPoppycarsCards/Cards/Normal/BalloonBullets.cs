@@ -11,23 +11,21 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using WillsWackyManagers.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class NerfCurse : CustomCard
+    class BalloonBullets : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
+            gun.projectileSize = 1.75f;
             gun.damage = 0.75f;
-            gun.dontAllowAutoFire = true;
-            gun.drag = 1.35f;
-            cardInfo.categories = new CardCategory[] { CurseManager.instance.curseCategory };
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -39,19 +37,19 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Nerf Gun";
+            return "Balloon Bullets";
         }
         protected override string GetDescription()
         {
-            return "You lost your real gun and picked up this toy, what could go wrong, (disables auto fire)";
+            return "Your bullets are now inflated like balloons, making them larger but they do less damage";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_NerfGun");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_BalloonBullets");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -59,27 +57,27 @@ namespace ChaosPoppycarsCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Damage",
-                    amount = "-50%",
+                    positive = true,
+                    stat = "Projectile Size",
+                    amount = "+75%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Drag",
-                    amount = "+35%",
+                    stat = "Damage",
+                    amount = "-25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.EvilPurple;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {
-            return "CPC Curses";
+            return "CPC";
         }
     }
 }

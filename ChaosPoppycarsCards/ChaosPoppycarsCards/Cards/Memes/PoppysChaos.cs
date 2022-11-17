@@ -6,30 +6,40 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
+using Photon.Pun;
 using BepInEx;
 using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using WillsWackyManagers.Utils;
+using ChaosPoppycarsCards.MonoBehaviours;
+using UnboundLib.Networking;
+using System.Reflection;
+using System.Collections.ObjectModel;
+using ModdingUtils.MonoBehaviours;
+using UnboundLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class NerfCurse : CustomCard
+    class PoppysChaos : CustomCard
     {
+       
+
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.damage = 0.75f;
-            gun.dontAllowAutoFire = true;
-            gun.drag = 1.35f;
-            cardInfo.categories = new CardCategory[] { CurseManager.instance.curseCategory };
+            gun.projectielSimulatonSpeed = 0.5f;
+            gun.projectileSize = 1.5f;
+            gun.drag = 1.2f;
+            gun.gravity = 0.75f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
+
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -37,21 +47,22 @@ namespace ChaosPoppycarsCards.Cards
             //Run when the card is removed from the player
         }
 
+
         protected override string GetTitle()
         {
-            return "Nerf Gun";
+            return "Poppys Chaos";
         }
         protected override string GetDescription()
         {
-            return "You lost your real gun and picked up this toy, what could go wrong, (disables auto fire)";
+            return "This cards changes (almost) every update, The chaoth hath returned";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_NerfGun");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_PoppysChaos");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -59,27 +70,26 @@ namespace ChaosPoppycarsCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Damage",
-                    amount = "-50%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    stat = "Who knows",
+                    amount = "+???",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Drag",
-                    amount = "+35%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+
+                    stat = "I dont",
+                    amount = "-???",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.EvilPurple;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {
-            return "CPC Curses";
+            return "CPC";
         }
     }
 }

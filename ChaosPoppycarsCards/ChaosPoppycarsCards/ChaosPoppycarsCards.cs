@@ -38,7 +38,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.6.7"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.6.8"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -134,7 +134,10 @@ namespace ChaosPoppycarsCards
             // CustomCard.BuildCard<WoodenPickaxe>();
             // CustomCard.BuildCard<StonePickaxe>();
             // CustomCard.BuildCard<GoldPickaxe>();
-             CustomCard.BuildCard<PoppysChaos>();
+            CustomCard.BuildCard<PoppysChaos>();
+            CustomCard.BuildCard<PercentageBullets>();
+            CustomCard.BuildCard<BalloonBullets>();
+            CustomCard.BuildCard<IcySprings>();
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeAction);
             
             //  GameModeManager.AddHook(GameModeHooks.HookBattleStart, LightSaberRangeReset);
