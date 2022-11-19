@@ -11,53 +11,55 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using System.Reflection;
-using UnboundLib.Networking;
-using System.Collections.ObjectModel;
-using UnboundLib.Utils;
-using ChaosPoppycarsCards.MonoBehaviours;
+using RarityLib.Utils;
+using IL;
+using CardChoiceSpawnUniqueCardPatch;
+using On;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class DrPepper : CustomCard
+    class Goose : CustomCard
     {
+        internal static CardInfo Card = null;
+        
+
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            block.cdMultiplier = 1.25f;
+            cardInfo.allowMultiple = true;
+            cardInfo.categories = new CardCategory[] {CustomCardCategories.CanDrawMultipleCategory };
+            gun.damage = 1.05f;
+            statModifiers.health = 1.05f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetOrAddComponent<DRSodaEffect>();
+            statModifiers.numberOfJumps += 1;
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
-        
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            var mono = player.gameObject.GetOrAddComponent<DRSodaEffect>();
-            UnityEngine.GameObject.Destroy(mono);
             //Run when the card is removed from the player
         }
-       
+
         protected override string GetTitle()
         {
-            return "Dr.Pepper";
+            return "Goose";
         }
         protected override string GetDescription()
         {
-            return "When you block you get increased gun stats for 5 seconds";
+            return "<i><size=200><b><color=#ff2020>Honk</b></color></size></i>";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_DrPepper");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_Goose");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return RarityUtils.GetRarity("Goose");
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -65,16 +67,30 @@ namespace ChaosPoppycarsCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Block Cooldown",
-                    amount = "+25%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                    positive = true,
+                    stat = "Jumps",
+                    amount = "+1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Damage",
+                    amount = "+5%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Health",
+                    amount = "+5%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.MagicPink;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

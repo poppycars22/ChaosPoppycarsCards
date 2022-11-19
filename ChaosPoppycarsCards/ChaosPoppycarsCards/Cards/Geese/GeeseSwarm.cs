@@ -11,49 +11,44 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using System.Reflection;
-using UnboundLib.Networking;
-using System.Collections.ObjectModel;
-using UnboundLib.Utils;
-using ChaosPoppycarsCards.MonoBehaviours;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class DrPepper : CustomCard
+    class GeeseSwarm : CustomCard
     {
+        internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            block.cdMultiplier = 1.25f;
+            gun.damage = 1.5f;
+            statModifiers.lifeSteal = 1.5f;
+            statModifiers.health = 1.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetOrAddComponent<DRSodaEffect>();
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
-        
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            var mono = player.gameObject.GetOrAddComponent<DRSodaEffect>();
-            UnityEngine.GameObject.Destroy(mono);
             //Run when the card is removed from the player
         }
-       
+
         protected override string GetTitle()
         {
-            return "Dr.Pepper";
+            return "Geese Swarm";
         }
         protected override string GetDescription()
         {
-            return "When you block you get increased gun stats for 5 seconds";
+            return "Unleash <i><b><color=#ff2020>The Geese</b></color></i>";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_DrPepper");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_GeeseSwarm");
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -65,16 +60,30 @@ namespace ChaosPoppycarsCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Block Cooldown",
-                    amount = "+25%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                    positive = true,
+                    stat = "Damage",
+                    amount = "+50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Life Steal",
+                    amount = "+50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Health",
+                    amount = "+50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.MagicPink;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

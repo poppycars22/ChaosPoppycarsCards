@@ -18,6 +18,7 @@ using UnboundLib.Utils;
 using ClassesManagerReborn.Util;
 using ChaosPoppycarsCards.MonoBehaviours;
 
+
 namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
     class InvisPotion : CustomCard

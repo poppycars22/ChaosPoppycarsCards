@@ -43,7 +43,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             else
             {
                 ClearModifiers();
-                UnityEngine.GameObject.Destroy(this.gameObject.GetOrAddComponent<ColorEffect>());
+                Destroy(gameObject.GetOrAddComponent<ColorEffect>());
             }
         }
         public override void OnOnDisable()

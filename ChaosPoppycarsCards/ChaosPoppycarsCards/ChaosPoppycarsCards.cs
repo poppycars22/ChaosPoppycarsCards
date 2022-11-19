@@ -15,6 +15,7 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System;
 using WillsWackyManagers.Utils;
+using RarityLib.Utils;
 
 namespace ChaosPoppycarsCards
 {
@@ -38,7 +39,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.6.9"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.7.0"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -49,6 +50,7 @@ namespace ChaosPoppycarsCards
         {
             // Use this to call any harmony patch files your mod may have
             CardThemeLib.CardThemeLib.instance.CreateOrGetType("Evergreen", new CardThemeColor() { bgColor = new Color(0.09f, 0.23f, 0.11f), targetColor = new Color(0.28f, 0.80f, 0.32f) });
+            RarityUtils.AddRarity("Goose", 10, new Color(0.722f, 0.840f, 0.775f), new Color(0.860f, 1.00f, 0.923f));
             var harmony = new Harmony(ModId);
             harmony.PatchAll();
         }
@@ -138,6 +140,8 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<PercentageBullets>();
             CustomCard.BuildCard<BalloonBullets>();
             CustomCard.BuildCard<IcySprings>();
+            CustomCard.BuildCard<GeeseSwarm>((card) => GeeseSwarm.Card = card);
+            CustomCard.BuildCard<Goose>((card) => Goose.Card = card);
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeAction);
             
             //  GameModeManager.AddHook(GameModeHooks.HookBattleStart, LightSaberRangeReset);

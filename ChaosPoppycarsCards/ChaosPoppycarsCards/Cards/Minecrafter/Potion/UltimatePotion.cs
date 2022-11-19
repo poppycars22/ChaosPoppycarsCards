@@ -18,6 +18,7 @@ using System.Collections.ObjectModel;
 using UnboundLib.Utils;
 using ClassesManagerReborn.Util;
 
+
 namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
     class UltimatePotion : CustomCard
