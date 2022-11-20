@@ -50,6 +50,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         public override void OnOnDisable()
         {
             duration = 0;
+            Destroy(gameObject.GetOrAddComponent<ColorEffect>());
         }
     }
 }

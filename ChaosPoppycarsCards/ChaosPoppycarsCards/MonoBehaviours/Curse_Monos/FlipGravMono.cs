@@ -9,7 +9,7 @@ using ChaosPoppycarsCards.Cards;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
-    internal class InvisEffect : ReversibleEffect
+    internal class FlipGravEffect : ReversibleEffect
     {
         private float duration = 0;
         public override void OnOnDestroy()
@@ -22,14 +22,15 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             {
                 ApplyModifiers();
             }
-            duration = 5f;
-            ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
-            effect.SetColor(Color.clear);
+            duration += 2f;
+            
         }
 
         public override void OnStart()
         {
-            gunStatModifier.projectileColor = Color.clear;
+            gravityModifier.gravityForce_mult = -1f;
+            characterStatModifiersModifier.sizeMultiplier_mult = -1f;
+            characterStatModifiersModifier.jump_mult = -1f;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }
@@ -42,13 +43,13 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             else
             {
                 ClearModifiers();
-                Destroy(gameObject.GetOrAddComponent<ColorEffect>());
+                
             }
         }
         public override void OnOnDisable()
         {
             duration = 0;
-            Destroy(gameObject.GetOrAddComponent<ColorEffect>());
+            
         }
     }
 }
