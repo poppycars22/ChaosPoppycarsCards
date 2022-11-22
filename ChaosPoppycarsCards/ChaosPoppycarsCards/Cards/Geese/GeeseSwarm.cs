@@ -11,25 +11,36 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using ChaosPoppycarsCards.Extensions;
+using RarityLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
+
+
 {
     class GeeseSwarm : CustomCard
     {
-        internal static CardInfo Card = null;
+        
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            gun.damage = 1.5f;
+            gun.damage = 1.35f;
             statModifiers.lifeSteal = 1.5f;
-            statModifiers.health = 1.5f;
+            statModifiers.health = 1.35f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
-            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            statModifiers.numberOfJumps += 3;
+            foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
+            {
+                if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(otherPlayer.data.stats).blacklistedCategories.Contains(CPCCardCategories.GeeseCategory))
+                {
+                    ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(otherPlayer.data.stats).blacklistedCategories.Remove(CPCCardCategories.GeeseCategory);
+                }
+            }
+                CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -44,7 +55,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Unleash <i><b><color=#ff2020>The Geese</b></color></i>";
+            return "Unleash <i><b><color=#ff2020>The Geese</b></color></i> onto your opponents";
         }
         protected override GameObject GetCardArt()
         {
@@ -52,7 +63,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return RarityUtils.GetRarity("Scarce");
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -62,7 +73,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+50%",
+                    amount = "+35%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
@@ -76,7 +87,14 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+50%",
+                    amount = "+35%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Jumps",
+                    amount = "+3",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
@@ -88,6 +106,62 @@ namespace ChaosPoppycarsCards.Cards
         public override string GetModName()
         {
             return "CPC";
+        }
+    }
+}
+
+
+namespace ChaosPoppycarsCards.Extensions
+{
+    public static class PlayerStatus
+    {
+        public static List<Player> GetEnemyPlayers(Player player)
+        {
+            List<Player> res = new List<Player>() { };
+            foreach (Player other_player in PlayerManager.instance.players)
+            {
+                if (other_player.teamID != player.teamID)
+                {
+                    res.Add(other_player);
+                }
+            }
+            return res;
+        }
+        public static List<Player> GetOtherPlayers(Player player)
+        {
+            List<Player> res = new List<Player>() { };
+            foreach (Player other_player in PlayerManager.instance.players)
+            {
+                if (other_player.playerID != player.playerID)
+                {
+                    res.Add(other_player);
+                }
+            }
+            return res;
+        }
+        public static bool PlayerAlive(Player player)
+        {
+            return !player.data.dead;
+        }
+        public static bool PlayerSimulated(Player player)
+        {
+            return (bool)Traverse.Create(player.data.playerVel).Field("simulated").GetValue();
+        }
+        public static bool PlayerAliveAndSimulated(Player player)
+        {
+            return (PlayerStatus.PlayerAlive(player) && PlayerStatus.PlayerSimulated(player));
+        }
+        public static int GetNumberOfEnemyPlayers(Player player)
+        {
+            int num = 0;
+            foreach (Player other_player in PlayerManager.instance.players)
+            {
+                if (other_player.teamID != player.teamID)
+                {
+                    num++;
+                }
+            }
+            return num;
         }
     }
 }

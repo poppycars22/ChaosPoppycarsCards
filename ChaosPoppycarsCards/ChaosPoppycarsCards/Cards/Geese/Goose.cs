@@ -20,21 +20,22 @@ namespace ChaosPoppycarsCards.Cards
 {
     class Goose : CustomCard
     {
-        internal static CardInfo Card = null;
+       
         
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = true;
-            cardInfo.categories = new CardCategory[] {CustomCardCategories.CanDrawMultipleCategory };
-            gun.damage = 1.05f;
-            statModifiers.health = 1.05f;
+            cardInfo.categories = new CardCategory[] {CustomCardCategories.CanDrawMultipleCategory, CPCCardCategories.GeeseCategory };
+           
+            gun.damage = 1.15f;
+            statModifiers.health = 1.15f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            statModifiers.numberOfJumps += 1;
+            statModifiers.numberOfJumps += 2;
             
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
@@ -69,21 +70,21 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Jumps",
-                    amount = "+1",
+                    amount = "+2",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+5%",
+                    amount = "+15%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+5%",
+                    amount = "+15%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
