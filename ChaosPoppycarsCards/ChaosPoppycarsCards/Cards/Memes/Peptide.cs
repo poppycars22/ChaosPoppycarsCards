@@ -11,21 +11,37 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using WillsWackyManagers.Utils;
+using ModdingUtils.Extensions;
+using RarityLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class BalloonBullets : CustomCard
+    class Peptide : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.projectileSize = 1.75f;
-            gun.damage = 0.75f;
+            cardInfo.GetAdditionalData().canBeReassigned = false;
+            cardInfo.categories = new CardCategory[] { CurseManager.instance.curseSpawnerCategory, RerollManager.instance.NoFlip };
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
+            ChaosPoppycarsCards.Instance.ExecuteAfterFrames(20, () => {
+                var rare = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, RareCondition);
+                var rare2 = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, RareCondition);
+                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, rare, false, "", 2f, 2f, true);
+            ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, rare, 3f);
+            ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, rare2, false, "", 2f, 2f, true);
+            ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, rare2, 3f);
+                CurseManager.instance.CursePlayer(player, (curse) => {
+                    ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse, 3f);
+                });
+                CurseManager.instance.CursePlayer(player, (curse) => {
+                    ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse, 3f);
+                });
+            });
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -37,19 +53,19 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Balloon Bullets";
+            return "Peptide";
         }
         protected override string GetDescription()
         {
-            return "Your bullets are now inflated like balloons, making them larger but they do less damage";
+            return "I'm a gambler at heart";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_BalloonBullets");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_Peptide");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return RarityUtils.GetRarity("Scarce");
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -58,26 +74,31 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Projectile Size",
-                    amount = "+175%",
+                    stat = "Rares",
+                    amount = "+2",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Damage",
-                    amount = "-25%",
+                    stat = "Curses",
+                    amount = "+2",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.EvilPurple;
         }
         public override string GetModName()
         {
             return "CPC";
+        }
+        private bool RareCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        {
+            return card.rarity == CardInfo.Rarity.Rare && card.cardName != "Purifying Light" && card.cardName != "Peptide" && card.cardName != "Distill";
+            
         }
     }
 }

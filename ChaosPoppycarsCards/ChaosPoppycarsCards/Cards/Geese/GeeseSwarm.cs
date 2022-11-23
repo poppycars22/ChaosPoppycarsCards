@@ -47,6 +47,13 @@ namespace ChaosPoppycarsCards.Cards
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
+            foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
+            {
+                if (!ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(otherPlayer.data.stats).blacklistedCategories.Contains(CPCCardCategories.GeeseCategory))
+                {
+                    ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(otherPlayer.data.stats).blacklistedCategories.Add(CPCCardCategories.GeeseCategory);
+                }
+            }
         }
 
         protected override string GetTitle()
