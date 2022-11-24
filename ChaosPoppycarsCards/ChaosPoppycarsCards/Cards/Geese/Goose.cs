@@ -30,13 +30,15 @@ namespace ChaosPoppycarsCards.Cards
            
             gun.damage = 1.15f;
             statModifiers.health = 1.15f;
+            statModifiers.movementSpeed = 0.85f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             statModifiers.numberOfJumps += 2;
-            
+            gun.ammo += -1;
+
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -85,6 +87,20 @@ namespace ChaosPoppycarsCards.Cards
                     positive = true,
                     stat = "Health",
                     amount = "+15%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Movement Speed",
+                    amount = "-15%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Ammo",
+                    amount = "-1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

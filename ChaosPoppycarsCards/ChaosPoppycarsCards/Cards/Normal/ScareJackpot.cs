@@ -11,26 +11,29 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using WillsWackyManagers.Utils;
+using ModdingUtils.Extensions;
+using RarityLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class Phantom : CustomCard
+    class ScarceJackpot : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.reflects = 3;
-            gun.spread = 0.2f;
-            
-            
+            cardInfo.GetAdditionalData().canBeReassigned = false;
+            cardInfo.categories = new CardCategory[] { CurseManager.instance.curseSpawnerCategory, RerollManager.instance.NoFlip };
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.cdAdd += 0.25f;
-            gunAmmo.reloadTime += 0.25f;
-            gun.numberOfProjectiles += 1;
-            
+            ChaosPoppycarsCards.Instance.ExecuteAfterFrames(20, () => {
+                var scarce = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, ScarceCondition);
+                
+                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, scarce, false, "", 2f, 2f, true);
+            ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, scarce, 3f);
+            });
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -42,15 +45,15 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Phantom";
+            return "Scarce Jackpot";
         }
         protected override string GetDescription()
         {
-            return "<#A020F0><i><b>What goes here?</b></i></color> (not from Cards+)";
+            return "gives you a random <#0A32FF>Scarce</color> card";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_Phantom");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_ScarceJackpot");
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -63,47 +66,24 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Bounces",
-                    amount = "+3",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Projectiles",
+                    stat = "Scarce",
                     amount = "+1",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Reload Time",
-                    amount = "+0.25s",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Block Cooldown",
-                    amount = "+0.25s",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Spread",
-                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.EvilPurple;
+            return CardThemeColor.CardThemeColorType.MagicPink;
         }
         public override string GetModName()
         {
             return "CPC";
+        }
+        private bool ScarceCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        {
+            return card.rarity == RarityUtils.GetRarity("Scarce") && card.cardName != "Peptide";
+            
         }
     }
 }

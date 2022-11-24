@@ -27,7 +27,7 @@ namespace ChaosPoppycarsCards.Cards
             HealthBasedEffect effect = player.gameObject.AddComponent<HealthBasedEffect>();
             effect.characterStatModifiersModifier.movementSpeed_mult = 2f;
             effect.gunStatModifier.attackSpeed_mult = 0.5f;
-            effect.gunStatModifier.knockback_mult = 2.5f;
+            effect.gunStatModifier.knockback_mult = 11f;
             effect.SetPercThresholdMax(0.5f);
             effect.SetColor(Color.yellow);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
@@ -70,14 +70,14 @@ namespace ChaosPoppycarsCards.Cards
             {
                 positive = true,
                 stat = "Attack Speed",
-                amount = "+100%",
+                amount = "+50%",
                 simepleAmount = CardInfoStat.SimpleAmount.notAssigned
             }, 
                 new CardInfoStat()
             {
                 positive = true,
                 stat = "Knockback",
-                amount = "+150%",
+                amount = "+1000%",
                 simepleAmount = CardInfoStat.SimpleAmount.notAssigned
             }
             };

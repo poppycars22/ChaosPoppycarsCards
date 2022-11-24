@@ -15,6 +15,7 @@ using UnityEngine.UI;
 using ClassesManagerReborn.Util;
 using ClassesManagerReborn;
 using ClassesManagerReborn.Patchs;
+using RarityLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
@@ -23,7 +24,7 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             gun.reflects = 5;
-            gun.dmgMOnBounce = 0.85f;
+            
             gun.speedMOnBounce = 1.3f;
             gun.attackSpeed = 1.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
@@ -69,7 +70,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return RarityUtils.GetRarity("Scarce");
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -87,13 +88,6 @@ namespace ChaosPoppycarsCards.Cards
                     positive = true,
                     stat = "Bullet Speed On Bounce",
                     amount = "+30%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Damage On Bounce",
-                    amount = "-15%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
