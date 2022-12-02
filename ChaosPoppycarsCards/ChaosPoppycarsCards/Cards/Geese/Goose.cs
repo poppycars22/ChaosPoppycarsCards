@@ -28,8 +28,7 @@ namespace ChaosPoppycarsCards.Cards
             cardInfo.allowMultiple = true;
             cardInfo.categories = new CardCategory[] {CustomCardCategories.CanDrawMultipleCategory, CPCCardCategories.GeeseCategory };
            
-            gun.damage = 1.15f;
-            statModifiers.health = 1.15f;
+            
             statModifiers.movementSpeed = 0.85f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -38,7 +37,8 @@ namespace ChaosPoppycarsCards.Cards
         {
             statModifiers.numberOfJumps += 2;
             gun.ammo += -1;
-
+            gun.damage += 15;
+            characterStats.health += 15;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -79,14 +79,14 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+15%",
+                    amount = "+15",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+15%",
+                    amount = "+15",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
