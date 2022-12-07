@@ -22,7 +22,7 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.GetAdditionalData().canBeReassigned = false;
-            cardInfo.categories = new CardCategory[] { CurseManager.instance.curseSpawnerCategory, RerollManager.instance.NoFlip };
+            cardInfo.categories = new CardCategory[] { CustomCardCategories.instance.CardCategory("CardManipulation"), RerollManager.instance.NoFlip };
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
@@ -97,7 +97,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         private bool RareCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == CardInfo.Rarity.Rare && card.cardName != "Purifying Light" && card.cardName != "Peptide" && card.cardName != "Distill";
+            return card.rarity == CardInfo.Rarity.Rare && card.cardName != "Purifying Light" && card.cardName != "Peptide" && card.cardName != "Distill" && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
             
         }
     }

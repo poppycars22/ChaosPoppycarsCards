@@ -22,7 +22,7 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.GetAdditionalData().canBeReassigned = false;
-            cardInfo.categories = new CardCategory[] { CurseManager.instance.curseSpawnerCategory, RerollManager.instance.NoFlip };
+            cardInfo.categories = new CardCategory[] { CustomCardCategories.instance.CardCategory("CardManipulation"), RerollManager.instance.NoFlip };
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
@@ -82,7 +82,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         private bool ScarceCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == RarityUtils.GetRarity("Scarce") && card.cardName != "Peptide";
+            return card.rarity == RarityUtils.GetRarity("Scarce") && card.cardName != "Peptide" && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
             
         }
     }

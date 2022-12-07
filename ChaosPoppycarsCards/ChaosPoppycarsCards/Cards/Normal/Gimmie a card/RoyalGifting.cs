@@ -14,6 +14,7 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using WillsWackyManagers.Utils;
 using ModdingUtils.Extensions;
 using RarityLib.Utils;
+using UnboundLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
@@ -22,7 +23,7 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.GetAdditionalData().canBeReassigned = false;
-            cardInfo.categories = new CardCategory[] { CurseManager.instance.curseSpawnerCategory, RerollManager.instance.NoFlip };
+            cardInfo.categories = new CardCategory[] { RerollManager.instance.NoFlip, CustomCardCategories.instance.CardCategory("CardManipulation") };
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
@@ -50,19 +51,19 @@ namespace ChaosPoppycarsCards.Cards
         }
         private bool ScarceCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == RarityUtils.GetRarity("Scarce");
+            return card.rarity == RarityUtils.GetRarity("Scarce") && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
         }
         private bool RareCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == CardInfo.Rarity.Rare && card.cardName != "Distill" && card.cardName != "Genie";
+            return card.rarity == CardInfo.Rarity.Rare && card.cardName != "Distill" && card.cardName != "Genie" && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
         }
         private bool UncommonCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == CardInfo.Rarity.Uncommon && card.cardName != "Copy";
+            return card.rarity == CardInfo.Rarity.Uncommon && card.cardName != "Copy" && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
         }
         private bool CommonCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == CardInfo.Rarity.Common;
+            return card.rarity == CardInfo.Rarity.Common && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
