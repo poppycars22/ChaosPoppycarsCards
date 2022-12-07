@@ -97,7 +97,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         private bool RareCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == CardInfo.Rarity.Rare && card.cardName != "Purifying Light" && card.cardName != "Peptide" && card.cardName != "Distill" && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
+            return card.rarity == CardInfo.Rarity.Rare && card.cardName != "Purifying Light" && card.cardName != "Peptide" && card.cardName != "Distill" && !card.categories.Intersect(ScarceJackpot.noLotteryCategories).Any();
             
         }
     }

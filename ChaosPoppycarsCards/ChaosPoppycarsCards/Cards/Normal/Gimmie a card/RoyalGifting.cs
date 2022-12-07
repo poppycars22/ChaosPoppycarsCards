@@ -51,19 +51,19 @@ namespace ChaosPoppycarsCards.Cards
         }
         private bool ScarceCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == RarityUtils.GetRarity("Scarce") && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
+            return card.rarity == RarityUtils.GetRarity("Scarce") && !card.categories.Intersect(ScarceJackpot.noLotteryCategories).Any();
         }
         private bool RareCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == CardInfo.Rarity.Rare && card.cardName != "Distill" && card.cardName != "Genie" && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
+            return card.rarity == CardInfo.Rarity.Rare && card.cardName != "Distill" && card.cardName != "Genie" && !card.categories.Intersect(ScarceJackpot.noLotteryCategories).Any() ;
         }
         private bool UncommonCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == CardInfo.Rarity.Uncommon && card.cardName != "Copy" && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
+            return card.rarity == CardInfo.Rarity.Uncommon && card.cardName != "Copy" && !card.categories.Intersect(ScarceJackpot.noLotteryCategories).Any();
         }
         private bool CommonCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == CardInfo.Rarity.Common && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
+            return card.rarity == CardInfo.Rarity.Common && !card.categories.Intersect(ScarceJackpot.noLotteryCategories).Any();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {

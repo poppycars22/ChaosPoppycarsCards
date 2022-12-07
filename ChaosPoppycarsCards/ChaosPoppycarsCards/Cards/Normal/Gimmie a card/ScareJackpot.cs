@@ -19,6 +19,7 @@ namespace ChaosPoppycarsCards.Cards
 {
     class ScarceJackpot : CustomCard
     {
+        public static CardCategory[] noLotteryCategories = new CardCategory[] { CardChoiceSpawnUniqueCardPatch.CustomCategories.CustomCardCategories.instance.CardCategory("CardManipulation"), CardChoiceSpawnUniqueCardPatch.CustomCategories.CustomCardCategories.instance.CardCategory("NoRandom") };
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.GetAdditionalData().canBeReassigned = false;
@@ -82,7 +83,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         private bool ScarceCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == RarityUtils.GetRarity("Scarce") && card.cardName != "Peptide" && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
+            return card.rarity == RarityUtils.GetRarity("Scarce") && card.cardName != "Peptide" && !card.categories.Intersect(ScarceJackpot.noLotteryCategories).Any(); ;
             
         }
     }

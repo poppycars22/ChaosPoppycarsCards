@@ -82,7 +82,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         private bool LegendCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == RarityUtils.GetRarity("Legendary") && card.cardName != "Peptide" && cardInfo != CustomCardCategories.instance.CardCategory("CardManipulation");
+            return card.rarity == RarityUtils.GetRarity("Legendary") && card.cardName != "Peptide" && !card.categories.Intersect(ScarceJackpot.noLotteryCategories).Any() ;
             
         }
     }
