@@ -21,7 +21,8 @@ namespace ChaosPoppycarsCards.Cards
             
             gun.damage = 0.75f;
             gun.attackSpeed = 1.5f;
-            statModifiers.lifeSteal = 1.25f;
+            statModifiers.lifeSteal = 0.25f;
+
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }

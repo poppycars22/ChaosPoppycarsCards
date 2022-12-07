@@ -29,9 +29,9 @@ namespace ChaosPoppycarsCards.MonoBehaviours.SodaMonos
 
         public override void OnStart()
         {
-            characterStatModifiersModifier.movementSpeed_mult = 2f; //make it affect speed, jumpheight, and increase size
-            characterStatModifiersModifier.sizeMultiplier_mult = 1.75f;
-            characterStatModifiersModifier.jump_mult = 2f;
+            characterStatModifiersModifier.movementSpeed_mult = 3f; //make it affect speed, jumpheight, and increase size
+            characterStatModifiersModifier.sizeMultiplier_mult = 1.5f;
+            characterStatModifiersModifier.jump_mult = 1.25f;
            
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);

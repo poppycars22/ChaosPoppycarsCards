@@ -30,8 +30,8 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         public override void OnStart()
         {
             gravityModifier.gravityForce_mult = 0.5f;
-            characterDataModifier.maxHealth_mult = 1.75f;
-            characterDataModifier.health_mult = 1.75f;
+            characterDataModifier.maxHealth_mult = 3f;
+            characterDataModifier.health_mult = 3f;
             
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);

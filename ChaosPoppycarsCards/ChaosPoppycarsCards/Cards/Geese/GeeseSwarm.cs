@@ -25,13 +25,14 @@ namespace ChaosPoppycarsCards.Cards
         {
             cardInfo.allowMultiple = false;
             gun.damage = 1.35f;
-            statModifiers.lifeSteal = 1.5f;
+            statModifiers.lifeSteal = 0.5f;
             statModifiers.health = 1.35f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            
             statModifiers.numberOfJumps += 3;
             foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
             {

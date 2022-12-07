@@ -114,7 +114,7 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Common",
+                    stat = "Commons",
                     amount = "+2",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }

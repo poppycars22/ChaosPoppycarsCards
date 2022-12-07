@@ -15,7 +15,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         public override IEnumerator Init()
         {
             UnityEngine.Debug.Log("Regestering: " + name);
-            while (!(CraftingTable.Card && MCBow.Card && MCShield.Card && WoodenSword.Card && StoneSword.Card && IronSword.Card && GoldSword.Card && DiamondSword.Card && NetheriteSword.Card && WoodenAxe.Card && StoneAxe.Card && IronAxe.Card && GoldAxe.Card && DiamondAxe.Card && NetheriteAxe.Card && AttackSpeed.Card && StoneHoe.Card && IronHoe.Card && GoldHoe.Card && DiamondHoe.Card && NetheriteHoe.Card && Larmor.Card && Carmor.Card && Iarmor.Card && Garmor.Card && Darmor.Card && Narmor.Card && BrewingStand.Card && InvisPotion.Card && JumpPotion.Card && RegenPotion.Card && SpeedPotion.Card && StrengthPotion.Card && TotemOfUndying.Card && UltimatePotion.Card)) yield return null;
+            while (!(CraftingTable.Card && MCBow.Card && MCShield.Card && WoodenSword.Card && StoneSword.Card && IronSword.Card && GoldSword.Card && DiamondSword.Card && NetheriteSword.Card && WoodenAxe.Card && StoneAxe.Card && IronAxe.Card && GoldAxe.Card && DiamondAxe.Card && NetheriteAxe.Card && AttackSpeed.Card && StoneHoe.Card && IronHoe.Card && GoldHoe.Card && DiamondHoe.Card && NetheriteHoe.Card && Larmor.Card && Carmor.Card && Iarmor.Card && Garmor.Card && Darmor.Card && Narmor.Card && BrewingStand.Card && InvisPotion.Card && JumpPotion.Card && RegenPotion.Card && SpeedPotion.Card && StrengthPotion.Card && TotemOfUndying.Card && UltimatePotion.Card && WoodenShovel.Card)) yield return null;
             ClassesRegistry.Register(CraftingTable.Card, CardType.Entry);
             ClassesRegistry.Register(MCShield.Card, CardType.Card, CraftingTable.Card);
             ClassesRegistry.Register(WoodenSword.Card, CardType.Gate, CraftingTable.Card);
@@ -42,6 +42,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             ClassesRegistry.Register(Garmor.Card, CardType.Card, CraftingTable.Card);
                         ClassesRegistry.Register(Darmor.Card, CardType.Gate, Iarmor.Card);
                             ClassesRegistry.Register(Narmor.Card, CardType.Card, Darmor.Card);
+            ClassesRegistry.Register(WoodenShovel.Card, CardType.Gate, CraftingTable.Card);
             ClassesRegistry.Register(TotemOfUndying.Card, CardType.Card, CraftingTable.Card, 3);
             ClassesRegistry.Register(BrewingStand.Card, CardType.SubClass, CraftingTable.Card);
                 ClassesRegistry.Register(InvisPotion.Card, CardType.Card, BrewingStand.Card);
@@ -76,6 +77,9 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             //(tier system)
             //Farmer
             //potato gain a bit of regen
+            //potato enjoyer, gives 5 potatos
+            //#3 potato farmer, gives 10 potatos
+            //Technoblade, gives a potato every other round
             //bread gain a bit more regen
             //steak gain even more regen
             //golden carrot gain a lot of regen
