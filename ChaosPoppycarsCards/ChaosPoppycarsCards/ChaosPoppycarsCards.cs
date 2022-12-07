@@ -39,7 +39,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.8.4"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.8.6"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -168,7 +168,7 @@ namespace ChaosPoppycarsCards
             yield return AttackSpeed.UpgradeHoe(gm);
             yield return WoodenAxe.UpgradeAxe(gm);
             yield return Larmor.UpgradeArmor(gm);
-            yield return WoodenShovel.UpgradeShovel(gm);
+           
 
         }
         

@@ -45,6 +45,12 @@ namespace ChaosPoppycarsCards.Cards
                 var common2 = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CommonCondition);
                 ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, common2, false, "", 2f, 2f, true);
                 ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, common2, 3f);
+                CurseManager.instance.CursePlayer(player, (curse) => {
+                    ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse, 3f);
+                });
+                CurseManager.instance.CursePlayer(player, (curse) => {
+                    ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse, 3f);
+                });
             });
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
@@ -77,7 +83,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "gives you 2 commons, 1 uncommon, 1 scarce, and 1 rare";
+            return "gives you 2 commons, 1 uncommon, 1 scarce, 1 rare, and 2 curses";
         }
         protected override GameObject GetCardArt()
         {
@@ -116,6 +122,13 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Commons",
+                    amount = "+2",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Curses",
                     amount = "+2",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
