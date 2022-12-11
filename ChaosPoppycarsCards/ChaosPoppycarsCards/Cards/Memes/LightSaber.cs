@@ -41,7 +41,7 @@ namespace ChaosPoppycarsCards.Cards
             gun.attackSpeed = 0.00003f;
             gun.ammo = +50;
             block.cdMultiplier = 2f;
-            block.additionalBlocks = -100;
+            
             statModifiers.movementSpeed = 0.7f;
             //make this card, if you can figure out how, a light saber png attached to the gun that also makes the bullets invisable
         }
@@ -51,7 +51,7 @@ namespace ChaosPoppycarsCards.Cards
             //Edits values on player when card is selected
             gun.reflects *= 0;
             gun.spread *= 0;
-            
+            block.additionalBlocks = 1;
 
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)

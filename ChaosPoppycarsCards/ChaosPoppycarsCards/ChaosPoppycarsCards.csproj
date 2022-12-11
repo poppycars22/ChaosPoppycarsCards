@@ -30,28 +30,19 @@
       <HintPath>..\..\..\..\..\Desktop\bepin\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="BlockForcePatch">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\BlockForcePatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\willuwontu-BlockForcePatch\BlockForcePatch.dll</HintPath>
     </Reference>
     <Reference Include="CardChoiceSpawnUniqueCardPatch">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\CardChoiceSpawnUniqueCardPatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Pykess-CardChoiceSpawnUniqueCardPatch\CardChoiceSpawnUniqueCardPatch.dll</HintPath>
     </Reference>
     <Reference Include="CardThemeLib">
       <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Root-CardThemeLib\CardThemeLib.dll</HintPath>
     </Reference>
     <Reference Include="ClassesManagerReborn">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\ClassesManagerReborn.dll</HintPath>
-    </Reference>
-    <Reference Include="DemonicPactPatch">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\DemonicPactPatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Root-Classes_Manager_Reborn\ClassesManagerReborn.dll</HintPath>
     </Reference>
     <Reference Include="GunProjectileSizePatch">
       <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Root-GunProjectileSizePatch\GunProjectileSizePatch.dll</HintPath>
-    </Reference>
-    <Reference Include="GunUnblockablePatch">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\GunUnblockablePatch.dll</HintPath>
-    </Reference>
-    <Reference Include="LegRaycastersPatch">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\LegRaycastersPatch.dll</HintPath>
     </Reference>
     <Reference Include="MapsExtended">
       <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\olavim-MapsExtended\MapsExtended.dll</HintPath>
@@ -60,28 +51,22 @@
       <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\willis81808-MMHook\MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="ModdingUtils">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\ModdingUtils.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Pykess-ModdingUtils\ModdingUtils.dll</HintPath>
     </Reference>
     <Reference Include="PlayerJumpPatch">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\PlayerJumpPatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Pykess-PlayerJumpPatch\PlayerJumpPatch.dll</HintPath>
     </Reference>
     <Reference Include="RarityLib">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\RarityLib.dll</HintPath>
-    </Reference>
-    <Reference Include="RayHitReflectPatch">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Pykess-RayHitReflectPatch\RayHitReflectPatch.dll</HintPath>
-    </Reference>
-    <Reference Include="RespawnPatch">
-      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\willuwontu-RespawnPatch\RespawnPatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Root-RarityLib\RarityLib.dll</HintPath>
     </Reference>
     <Reference Include="SonigonAudioEngine.Runtime">
       <HintPath>D:\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\SonigonAudioEngine.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="TemporaryStatsPatch">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\TemporaryStatsPatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Pykess-TemporaryStatsPatch\TemporaryStatsPatch.dll</HintPath>
     </Reference>
     <Reference Include="UnboundLib">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\UnboundLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\willis81808-UnboundLib\UnboundLib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\Unity.TextMeshPro.dll</HintPath>
@@ -102,10 +87,10 @@
       <HintPath>D:\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
     </Reference>
     <Reference Include="WillsWackyManagers">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\WillsWackyManagers.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\willuwontu-WillsWackyManagers\WillsWackyManagers.dll</HintPath>
     </Reference>
     <Reference Include="WillsWackyMapObjects">
-      <HintPath>..\..\..\..\..\Desktop\modding folder\WillsWackyMapObjects.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\willuwontu-WillsWackyMapObjects\WillsWackyMapObjects.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

@@ -93,9 +93,6 @@ C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPopp
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\obj\Debug\netstandard2.1\ChaosPoppycarsCards.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\obj\Debug\netstandard2.1\ChaosPoppycarsCards.pdb
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\BlockForcePatch.dll
-C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\DemonicPactPatch.dll
-C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\GunUnblockablePatch.dll
-C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\LegRaycastersPatch.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\PlayerJumpPatch.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\TemporaryStatsPatch.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\ClassesManagerReborn.dll
@@ -104,7 +101,5 @@ C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPopp
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\WillsWackyManagers.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\MapsExtended.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\MMHOOK_Assembly-CSharp.dll
-C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\RayHitReflectPatch.dll
-C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\RespawnPatch.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\CardThemeLib.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\GunProjectileSizePatch.dll

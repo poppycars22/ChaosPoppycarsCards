@@ -55,7 +55,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Your fingers get faster as you do, letting you shoot faster";
+            return "Your fingers get faster as you do, letting you shoot faster (more speed = faster attack speed)";
         }
         protected override GameObject GetCardArt()
         {

@@ -8,60 +8,51 @@ using UnboundLib.Cards;
 using UnityEngine;
 using BepInEx;
 using ChaosPoppycarsCards.Cards;
-using ChaosPoppycarsCards.MonoBehaviours;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using ClassesManagerReborn.Util;
-using ChaosPoppycarsCards.Cards.Minecrafter;
+using RarityLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class SpeedyHands : CustomCard
+    class SuperSprings : CustomCard
     {
-        internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
+            gun.knockback = 51f;
+            
+            
+           
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-
-            statModifiers.movementSpeed = 1.25f;
-            cardInfo.allowMultiple = false;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            player.transform.gameObject.AddComponent<SpeedyHandsMono>();
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            if (player.transform.gameObject.GetComponent<SpeedyHandsMono>() != null)
-            {
-                Destroy(player.transform.gameObject.GetComponent<SpeedyHandsMono>());
-            }
             //Run when the card is removed from the player
         }
-        public override void Callback()
-        {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = SpeedClass.name;
-        }
+
         protected override string GetTitle()
         {
-            return "Speedy Hands";
+            return "Super Springs";
         }
         protected override string GetDescription()
         {
-            return "Your hands become faster as you get faster letting you reload quicker (more speed = more reload)";
+            return "Your bullets are now hyper powered springs and launch your opponents into the stratosphere";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_SpeedyHands");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_SuperSprings");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return RarityUtils.GetRarity("Legendary");
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -70,15 +61,15 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Movement Speed",
-                    amount = "+25%",
+                    stat = "Knockback",
+                    amount = "+5000%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeLib.CardThemeLib.instance.CreateOrGetType("Evergreen");
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

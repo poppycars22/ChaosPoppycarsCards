@@ -16,17 +16,12 @@
           "CardChoiceSpawnUniqueCardPatch": "1.0.0.0",
           "CardThemeLib": "1.0.0.0",
           "ClassesManagerReborn": "1.0.0.0",
-          "DemonicPactPatch": "1.0.0.0",
           "GunProjectileSizePatch": "1.0.0.0",
-          "GunUnblockablePatch": "1.0.0.0",
-          "LegRaycastersPatch": "1.0.0.0",
           "MapsExtended": "0.9.5.0",
           "MMHOOK_Assembly-CSharp": "0.0.0.0",
           "ModdingUtils": "1.0.0.0",
           "PlayerJumpPatch": "1.0.0.0",
           "RarityLib": "1.0.0.0",
-          "RayHitReflectPatch": "0.0.0.0",
-          "RespawnPatch": "1.0.0.0",
           "SonigonAudioEngine.Runtime": "0.0.0.0",
           "TemporaryStatsPatch": "1.0.0.0",
           "UnboundLib": "3.1.4.0",
@@ -99,33 +94,9 @@
           }
         }
       },
-      "DemonicPactPatch/1.0.0.0": {
-        "runtime": {
-          "DemonicPactPatch.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "GunProjectileSizePatch/1.0.0.0": {
         "runtime": {
           "GunProjectileSizePatch.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "GunUnblockablePatch/1.0.0.0": {
-        "runtime": {
-          "GunUnblockablePatch.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "LegRaycastersPatch/1.0.0.0": {
-        "runtime": {
-          "LegRaycastersPatch.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -166,22 +137,6 @@
       "RarityLib/1.0.0.0": {
         "runtime": {
           "RarityLib.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "RayHitReflectPatch/0.0.0.0": {
-        "runtime": {
-          "RayHitReflectPatch.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "RespawnPatch/1.0.0.0": {
-        "runtime": {
-          "RespawnPatch.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -854,22 +809,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "DemonicPactPatch/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "GunProjectileSizePatch/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "GunUnblockablePatch/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "LegRaycastersPatch/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -895,16 +835,6 @@
       "sha512": ""
     },
     "RarityLib/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "RayHitReflectPatch/0.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "RespawnPatch/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
