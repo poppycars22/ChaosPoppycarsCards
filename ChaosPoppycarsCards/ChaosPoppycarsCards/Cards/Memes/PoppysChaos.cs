@@ -27,20 +27,21 @@ namespace ChaosPoppycarsCards.Cards
 {
     class PoppysChaos : CustomCard
     {
-       
 
+        internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-
-            gun.slow = 5f;
+            gun.damage = 1.05f;
+            gun.reflects = 1;
+           
             
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
-           
+
+            RarityUtils.AjustCardRarityModifier(PoppysChaos.Card, 20, 1);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
 
@@ -48,6 +49,7 @@ namespace ChaosPoppycarsCards.Cards
         
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            RarityUtils.AjustCardRarityModifier(PoppysChaos.Card, -20, 1);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }
@@ -77,14 +79,14 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     stat = "Who knows",
                     amount = "+???",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
 
                     stat = "I dont",
                     amount = "-???",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }

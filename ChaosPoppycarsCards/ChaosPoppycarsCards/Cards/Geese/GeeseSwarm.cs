@@ -14,6 +14,7 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ChaosPoppycarsCards.Extensions;
 using RarityLib.Utils;
 using RarityLib;
+using UnboundLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 
@@ -24,17 +25,18 @@ namespace ChaosPoppycarsCards.Cards
         
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            gun.damage = 1.35f;
-            statModifiers.lifeSteal = 0.5f;
-            statModifiers.health = 1.35f;
+            
+            gun.damage = 1.1f;
+            statModifiers.lifeSteal = 0.1f;
+            statModifiers.health = 1.1f;
+            statModifiers.numberOfJumps = 3;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            RarityUtils.AjustCardRarityModifier(Goose.Card, 20, 1);
             
-            statModifiers.numberOfJumps += 3;
             foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
             {
                 if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(otherPlayer.data.stats).blacklistedCategories.Contains(CPCCardCategories.GeeseCategory))
@@ -47,6 +49,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            RarityUtils.AjustCardRarityModifier(Goose.Card, -20, 1);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
             foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
@@ -64,7 +67,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Unleash <i><b><color=#ff2020>The Geese</b></color></i> onto your opponents";
+            return "Unleash <i><b><color=#ff2020>The Geese</b></color></i> onto your opponents (each stack makes the goose card more common)";
         }
         protected override GameObject GetCardArt()
         {
@@ -82,21 +85,21 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+35%",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Life Steal",
-                    amount = "+50%",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+35%",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
@@ -111,6 +114,7 @@ namespace ChaosPoppycarsCards.Cards
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
             return CardThemeColor.CardThemeColorType.ColdBlue;
+            
         }
         public override string GetModName()
         {

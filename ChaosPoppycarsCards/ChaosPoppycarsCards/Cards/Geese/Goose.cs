@@ -20,9 +20,9 @@ namespace ChaosPoppycarsCards.Cards
 {
     class Goose : CustomCard
     {
-       
-        
 
+
+        internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = true;
@@ -30,12 +30,13 @@ namespace ChaosPoppycarsCards.Cards
            
             
             statModifiers.movementSpeed = 0.85f;
+            statModifiers.numberOfJumps = 2;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            statModifiers.numberOfJumps += 2;
+            
             gun.ammo += -1;
             gun.damage += 10f/55f;
             characterStats.health += 10;
