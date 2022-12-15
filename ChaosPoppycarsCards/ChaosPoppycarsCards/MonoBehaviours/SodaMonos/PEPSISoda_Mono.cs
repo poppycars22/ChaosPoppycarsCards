@@ -14,7 +14,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours.SodaMonos
         private float duration = 0;
         public override void OnOnDestroy()
         {
-            block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Remove(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
+            data.block.BlockAction -= OnBlock;
         }
         private void OnBlock(BlockTrigger.BlockTriggerType trigger)
         {
@@ -35,7 +35,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours.SodaMonos
             characterDataModifier.maxHealth_mult = 1.5f;
             characterDataModifier.health_mult = 1.5f;
             
-            block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
+            data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }
         public override void OnUpdate()
@@ -53,6 +53,8 @@ namespace ChaosPoppycarsCards.MonoBehaviours.SodaMonos
         public override void OnOnDisable()
         {
             duration = 0;
+            ClearModifiers();
+            Destroy(gameObject.GetOrAddComponent<ColorEffect>());
         }
     }
 }

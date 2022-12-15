@@ -14,7 +14,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         private float duration = 0;
         public override void OnOnDestroy()
         {
-            block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Remove(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
+            data.block.BlockAction -= OnBlock;
         }
         private void OnBlock(BlockTrigger.BlockTriggerType trigger)
         {
@@ -32,7 +32,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             gunStatModifier.numberOfProjectiles_mult = 2;
             gunStatModifier.spread_add = 0.1f;
             gunStatModifier.projectileColor = Color.grey;
-            block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
+            data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }
         public override void OnUpdate()
@@ -44,12 +44,14 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             else
             {
                 ClearModifiers();
-                UnityEngine.GameObject.Destroy(this.gameObject.GetOrAddComponent<ColorEffect>());
+                Destroy(gameObject.GetOrAddComponent<ColorEffect>());
             }
         }
         public override void OnOnDisable()
         {
             duration = 0;
+            ClearModifiers();
+            Destroy(gameObject.GetOrAddComponent<ColorEffect>());
         }
     }
 }

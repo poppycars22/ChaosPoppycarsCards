@@ -14,7 +14,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         private float duration = 0;
         public override void OnOnDestroy()
         {
-            block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Remove(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
+            data.block.BlockAction -= OnBlock;
         }
         private void OnBlock(BlockTrigger.BlockTriggerType trigger)
         {
@@ -22,7 +22,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             {
                 ApplyModifiers();
             }
-            duration = 5f;
+            duration = 2f;
             
         }
 
@@ -30,7 +30,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         {
             characterStatModifiersModifier.movementSpeed_mult = -1f;
             
-            block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
+            data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }
         public override void OnUpdate()
@@ -48,6 +48,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         public override void OnOnDisable()
         {
             duration = 0;
+            ClearModifiers();
         }
     }
 }

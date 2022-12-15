@@ -39,7 +39,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.8.9"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.9.0"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -154,6 +154,10 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<FearCurse>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<LegendaryJackpot>();
             CustomCard.BuildCard<SuperSprings>();
+            CustomCard.BuildCard<JumpPower>();
+            CustomCard.BuildCard<JumpBursts>();
+            CustomCard.BuildCard<JumpSpeed>();
+            CustomCard.BuildCard<JumpShrink>();
             //CustomCard.BuildCard<WoodenShovel>((card) => WoodenShovel.Card = card);
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeAction);
             

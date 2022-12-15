@@ -6,66 +6,54 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using Photon.Pun;
 using BepInEx;
 using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using ChaosPoppycarsCards.MonoBehaviours;
-using UnboundLib.Networking;
 using System.Reflection;
+using UnboundLib.Networking;
 using System.Collections.ObjectModel;
-using ModdingUtils.MonoBehaviours;
 using UnboundLib.Utils;
-using WillsWackyManagers.Utils;
-using RarityLib.Utils;
-using ChaosPoppycarsCards.Extensions;
-
+using ChaosPoppycarsCards.MonoBehaviours;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class PoppysChaos : CustomCard
+    class JumpBursts : CustomCard
     {
-
-        internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-
-            gun.slow = 2f;
-           
+            cardInfo.allowMultiple = false;
             
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
-            RarityUtils.AjustCardRarityModifier(PoppysChaos.Card, 20, 1);
+            var mono = player.gameObject.GetOrAddComponent<JumpBurstEffect>();
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
-
         }
         
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            RarityUtils.AjustCardRarityModifier(PoppysChaos.Card, -20, 1);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
+            var mono = player.gameObject.GetOrAddComponent<JumpBurstEffect>();
+            UnityEngine.GameObject.Destroy(mono);
             //Run when the card is removed from the player
         }
-
-
+       
         protected override string GetTitle()
         {
-            return "Poppys Chaos";
+            return "Burst Jumps";
         }
         protected override string GetDescription()
         {
-            return "This cards changes (almost) every update, The chaoth hath returned";
+            return "When you jump you get some bursts";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_PoppysChaos");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_BurstJumps");
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -77,22 +65,13 @@ namespace ChaosPoppycarsCards.Cards
             {
                 new CardInfoStat()
                 {
-                    stat = "Who knows",
-                    amount = "+???",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-
-                    stat = "I dont",
-                    amount = "-???",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.MagicPink;
         }
         public override string GetModName()
         {
