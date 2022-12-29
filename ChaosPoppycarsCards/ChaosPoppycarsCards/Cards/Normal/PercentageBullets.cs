@@ -22,13 +22,13 @@ namespace ChaosPoppycarsCards.Cards
             gun.damage = 0.75f;
             gun.attackSpeed = 1.5f;
             statModifiers.lifeSteal = 0.25f;
-
+            gun.percentageDamage = 0.05f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            gun.percentageDamage += 0.05f;
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }

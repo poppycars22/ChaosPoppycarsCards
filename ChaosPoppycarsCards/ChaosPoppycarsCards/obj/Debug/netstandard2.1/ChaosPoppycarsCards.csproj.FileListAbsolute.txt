@@ -103,3 +103,4 @@ C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPopp
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\MMHOOK_Assembly-CSharp.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\CardThemeLib.dll
 C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\GunProjectileSizePatch.dll
+C:\Users\User\Documents\GitHub\ChaosPoppycarsCards\ChaosPoppycarsCards\ChaosPoppycarsCards\bin\Debug\netstandard2.1\NullManager.dll

@@ -20,16 +20,17 @@ namespace ChaosPoppycarsCards.Cards
         {
             gun.reflects = 3;
             gun.spread = 0.2f;
-            
-            
+            block.cdAdd = 0.25f;
+            gun.reloadTimeAdd = 0.25f;
+            gun.numberOfProjectiles = 1;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.cdAdd += 0.25f;
-            gunAmmo.reloadTime += 0.25f;
-            gun.numberOfProjectiles += 1;
+            
+            
+          
             
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected

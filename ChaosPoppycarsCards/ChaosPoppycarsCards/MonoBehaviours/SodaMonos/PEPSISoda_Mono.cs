@@ -33,7 +33,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours.SodaMonos
             characterStatModifiersModifier.movementSpeed_mult = 1.5f;
             characterStatModifiersModifier.secondsToTakeDamageOver_add = 5;
             characterDataModifier.maxHealth_mult = 1.5f;
-            characterDataModifier.health_mult = 1.5f;
+            
             
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);

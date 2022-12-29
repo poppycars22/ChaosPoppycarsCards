@@ -18,11 +18,11 @@ using UnboundLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 
-
+    
 {
     class GeeseSwarm : CustomCard
     {
-        
+        public int geeseSwarms = 0;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             
@@ -35,8 +35,10 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            geeseSwarms += 1;
             RarityUtils.AjustCardRarityModifier(Goose.Card, 20, 1);
-            
+            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, 6, 1);
+            RarityUtils.AjustCardRarityModifier(GoldGoose.Card, 3, 1);
             foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
             {
                 if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(otherPlayer.data.stats).blacklistedCategories.Contains(CPCCardCategories.GeeseCategory))
@@ -49,14 +51,20 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            geeseSwarms -= 1;
             RarityUtils.AjustCardRarityModifier(Goose.Card, -20, 1);
+            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, -6, 1);
+            RarityUtils.AjustCardRarityModifier(GoldGoose.Card, -3, 1);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
-            foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
+            if (geeseSwarms >= 0)
             {
-                if (!ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(otherPlayer.data.stats).blacklistedCategories.Contains(CPCCardCategories.GeeseCategory))
+                foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
                 {
-                    ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(otherPlayer.data.stats).blacklistedCategories.Add(CPCCardCategories.GeeseCategory);
+                    if (!ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(otherPlayer.data.stats).blacklistedCategories.Contains(CPCCardCategories.GeeseCategory))
+                    {
+                        ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(otherPlayer.data.stats).blacklistedCategories.Add(CPCCardCategories.GeeseCategory);
+                    }
                 }
             }
         }
@@ -67,7 +75,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Unleash <i><b><color=#ff2020>The Geese</b></color></i> onto your opponents (each stack makes the goose card more common)";
+            return "Unleash <i><b><color=#ff2020>The Geese</b></color></i> onto your opponents (each stack makes the goose cards more common)";
         }
         protected override GameObject GetCardArt()
         {
@@ -75,7 +83,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return RarityUtils.GetRarity("Scarce");
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {

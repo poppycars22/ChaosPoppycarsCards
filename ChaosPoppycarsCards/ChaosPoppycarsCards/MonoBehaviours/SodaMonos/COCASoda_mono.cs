@@ -31,7 +31,8 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         {
             gravityModifier.gravityForce_mult = 0.5f;
             characterDataModifier.maxHealth_mult = 3f;
-            characterDataModifier.health_mult = 3f;
+           
+            
             
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);

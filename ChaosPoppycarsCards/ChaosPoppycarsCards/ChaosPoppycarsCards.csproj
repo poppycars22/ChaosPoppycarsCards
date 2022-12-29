@@ -41,6 +41,9 @@
     <Reference Include="ClassesManagerReborn">
       <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Root-Classes_Manager_Reborn\ClassesManagerReborn.dll</HintPath>
     </Reference>
+	  <Reference Include="NullManager">
+		  <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Root-NullManager\NullManager.dll</HintPath>
+	  </Reference>
     <Reference Include="GunProjectileSizePatch">
       <HintPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\moddin rounds\BepInEx\plugins\Root-GunProjectileSizePatch\GunProjectileSizePatch.dll</HintPath>
     </Reference>

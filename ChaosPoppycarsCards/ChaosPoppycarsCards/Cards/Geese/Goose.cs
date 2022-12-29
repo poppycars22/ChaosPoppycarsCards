@@ -27,19 +27,22 @@ namespace ChaosPoppycarsCards.Cards
         {
             cardInfo.allowMultiple = true;
             cardInfo.categories = new CardCategory[] {CustomCardCategories.CanDrawMultipleCategory, CPCCardCategories.GeeseCategory };
-           
-            
+
+            gun.ammo = -1;
             statModifiers.movementSpeed = 0.85f;
             statModifiers.numberOfJumps = 2;
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             
-            gun.ammo += -1;
+            
             gun.damage += 10f/55f;
-            characterStats.health += 10;
+           
+            data.maxHealth += 10;
+            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
