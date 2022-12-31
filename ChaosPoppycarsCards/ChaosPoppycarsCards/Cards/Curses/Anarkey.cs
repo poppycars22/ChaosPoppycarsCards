@@ -13,6 +13,7 @@ using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using WillsWackyManagers.Utils;
 using ChaosPoppycarsCards.MonoBehaviours;
+using RarityLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
@@ -20,7 +21,9 @@ namespace ChaosPoppycarsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            
+            statModifiers.gravity = -1f;
+            statModifiers.sizeMultiplier = -1f;
+            statModifiers.jump = -1f;
             cardInfo.categories = new CardCategory[] { CurseManager.instance.curseCategory };
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -53,7 +56,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return RarityUtils.GetRarity("Legendary");
         }
         protected override CardInfoStat[] GetStats()
         {
