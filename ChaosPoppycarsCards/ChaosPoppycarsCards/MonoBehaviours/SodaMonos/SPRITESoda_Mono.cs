@@ -16,6 +16,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         {
             data.block.BlockAction -= OnBlock;
         }
+       
         private void OnBlock(BlockTrigger.BlockTriggerType trigger)
         {
             if (duration <= 0)
@@ -53,5 +54,6 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             ClearModifiers();
             Destroy(gameObject.GetOrAddComponent<ColorEffect>());
         }
+        
     }
 }
