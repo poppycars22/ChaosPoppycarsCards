@@ -1,0 +1,28 @@
+{
+    "name": "ChaosPoppycarsCards",
+    "references": [
+        "UnboundLib",
+        "ModdingUtils",
+        "CardChoiceSpawnUniqueCardPatch",
+        "RarityLib",
+        "CardThemeLib",
+        "WillsWackyManagers",
+        "NullManager",
+        "ClassesManagerReborn",
+        "Unity.TextMeshPro",
+        "WillsWackyMapObjects"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "0Harmony.dll",
+        "BepInEx.dll",
+        "Assembly-CSharp.dll",
+        "SonigonAudioEngine.Runtime.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
