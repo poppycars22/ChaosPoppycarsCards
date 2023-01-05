@@ -19,7 +19,7 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             gun.knockback = 8.5f;
-            gun.slow = 1.5f;
+            gun.slow = 0.5f;
             gun.damage = 0.75f;
             gun.projectileColor = Color.cyan;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");

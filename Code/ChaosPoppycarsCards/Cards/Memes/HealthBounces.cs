@@ -20,7 +20,7 @@ namespace ChaosPoppycarsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
+            cardInfo.allowMultiple = true;
             gun.reflects = 2;
             gun.objectsToSpawn = new ObjectsToSpawn[]
             {

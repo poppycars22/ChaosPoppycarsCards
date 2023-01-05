@@ -110,15 +110,15 @@ MonoBehaviour:
   objectsAddedToPlayer: []
   sizeMultiplier: 1
   health: 1
-  movementSpeed: 1
-  jump: 1
-  gravity: 1
+  movementSpeed: 0.5
+  jump: 0.75
+  gravity: 1.5
   slow: 0
   slowSlow: 0
   fastSlow: 0
   secondsToTakeDamageOver: 0
   numberOfJumps: 0
-  regen: 0
+  regen: 50
   lifeSteal: 0
   refreshOnDamage: 0
   automaticReload: 1

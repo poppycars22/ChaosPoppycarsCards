@@ -57,7 +57,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         private bool ScarceCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == RarityUtils.GetRarity("Scarce") && !card.categories.Intersect(ScareJackpot.noLotteryCategories).Any();
+            return card.rarity == RarityUtils.GetRarity("Exotic") && !card.categories.Intersect(ScareJackpot.noLotteryCategories).Any();
         }
         private bool RareCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -83,7 +83,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "gives you 2 commons, 1 uncommon, 1 scarce, 1 rare, and 2 curses";
+            return "gives you 2 commons, 1 uncommon, 1 exotic, 1 rare, and 2 curses";
         }
         protected override GameObject GetCardArt()
         {
@@ -107,7 +107,7 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Scarce",
+                    stat = "Exotic",
                     amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },

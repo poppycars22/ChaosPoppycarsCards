@@ -11,10 +11,10 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            
+            cardInfo.allowMultiple = true;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
-            
-            //make this card, if you can figure out how, a light saber png attached to the gun that also makes the bullets invisable
+
+
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -33,11 +33,11 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Reverse Thruster";
+            return "Reverse Thrusters";
         }
         protected override string GetDescription()
         {
-            return "Get the godly reverse thrusters onto your bullets";
+            return "Team Rocket's blasting off again!";
         }
         protected override GameObject GetCardArt()
         {

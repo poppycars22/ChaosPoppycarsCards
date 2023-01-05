@@ -46,11 +46,11 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Scarce Jackpot";
+            return "Exotic Jackpot";
         }
         protected override string GetDescription()
         {
-            return "gives you a random <#0A32FF>Scarce</color> card";
+            return "gives you a random <#0A32FF>Exotic</color> card";
         }
         protected override GameObject GetCardArt()
         {
@@ -67,7 +67,7 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Scarce",
+                    stat = "Exotic",
                     amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
@@ -83,7 +83,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         private bool ScarceCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == RarityUtils.GetRarity("Scarce") && card.cardName != "Peptide" && !card.categories.Intersect(ScareJackpot.noLotteryCategories).Any(); ;
+            return card.rarity == RarityUtils.GetRarity("Exotic") && card.cardName != "Peptide" && !card.categories.Intersect(ScareJackpot.noLotteryCategories).Any(); ;
             
         }
     }

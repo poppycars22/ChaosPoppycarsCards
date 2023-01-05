@@ -32,20 +32,7 @@ namespace ChaosPoppycarsCards.Cards
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
             
-            
-            statModifiers.movementSpeed = -1f;
-            gun.attackSpeed = -1f;
-            gun.damage = -1f;
-            statModifiers.jump = -1f;
-            statModifiers.gravity = -1f;
-            gun.gravity = -1f;
-            gun.dmgMOnBounce = -1f;
-            gun.knockback = -1f;
-            gun.reflects = -1;
-            statModifiers.secondsToTakeDamageOver = -1f;
-            statModifiers.sizeMultiplier = -1f;
             
 
           

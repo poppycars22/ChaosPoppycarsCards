@@ -21,9 +21,9 @@ namespace ChaosPoppycarsCards.Cards
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             gun.reloadTime = 0.003f; 
-            gun.damage = 0.3f;
+            gun.damage = 0.5f;
             gun.attackSpeed = 1.5f;
-            statModifiers.movementSpeed = 0.6f;
+            
             cardInfo.allowMultiple = false;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -44,7 +44,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Your gun gets ammo directly from a wormhole, no need to reload it anymore";
+            return "Your gun gets ammo directly from a wormhole, no need to reload it anymore DISABLES AUTO FIRE";
         }
         protected override GameObject GetCardArt()
         {
@@ -69,7 +69,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = false,
                     stat = "Damage",
-                    amount = "-70%",
+                    amount = "-50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
@@ -82,8 +82,8 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Movement Speed",
-                    amount = "-40%",
+                    stat = "Auto Fire",
+                    amount = "Removes",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

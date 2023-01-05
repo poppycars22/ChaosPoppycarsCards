@@ -56,7 +56,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return RarityUtils.GetRarity("Scarce");
+            return RarityUtils.GetRarity("Exotic");
         }
         protected override CardInfoStat[] GetStats()
         {

@@ -32,7 +32,7 @@ namespace ChaosPoppycarsCards.Cards
             foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
             {
                 characterStats.AjustNulls(5);
-                gun.damage *= 1.1f;
+                gun.damage *= 1.2f;
             }
 
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
@@ -50,7 +50,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gives you +10% damage but +5 nulls for every other player";
+            return "Gives you +20% damage but +5 nulls for every other player";
         }
         protected override GameObject GetCardArt()
         {
@@ -68,7 +68,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Damage per other player",
-                    amount = "+10%",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

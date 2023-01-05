@@ -32,6 +32,7 @@ namespace ChaosPoppycarsCards
     [BepInDependency("com.root.projectile.size.patch", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("root.cardtheme.lib", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.Root.Null", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.CrazyCoders.Rounds.RarityBundle", BepInDependency.DependencyFlags.HardDependency)]
     // Declares our mod to Bepin
     [BepInPlugin(ModId, ModName, Version)]
 
@@ -41,7 +42,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.9.4"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.9.7"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
