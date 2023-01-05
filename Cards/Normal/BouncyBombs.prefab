@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
   - component: {fileID: 114729986465702188}
+  - component: {fileID: 114183125423622868}
+  - component: {fileID: 114847249963933366}
   m_Layer: 0
   m_Name: BouncyBombs
   m_TagString: Untagged
@@ -220,8 +222,8 @@ MonoBehaviour:
     direction: 0
     spawnOn: 0
     spawnAsChild: 0
-    numberOfSpawns: 0
-    normalOffset: 0
+    numberOfSpawns: 1
+    normalOffset: 0.05
     stickToBigTargets: 0
     stickToAllTargets: 1
     zeroZ: 0
@@ -329,3 +331,36 @@ MonoBehaviour:
   cardStats: {fileID: 0}
   statModifiers: {fileID: 0}
   block: {fileID: 0}
+--- !u!114 &114183125423622868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043437007509817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafaf4e9b63575e45a27e3cc3925dabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerStartOnStart: 0
+  triggerStartOnEnable: 0
+  triggerEndOnDestroy: 0
+  triggerEndOnDisable: 0
+  useLocalTransformForInstanceID: 0
+  soundStart: {fileID: 0}
+  soundStartLoop: {fileID: 0}
+  soundEnd: {fileID: 0}
+--- !u!114 &114847249963933366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043437007509817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdb0ac013f5c304fa4980ba37f3e2e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0

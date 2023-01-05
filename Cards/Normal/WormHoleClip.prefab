@@ -214,7 +214,7 @@ MonoBehaviour:
   ignoreWalls: 0
   currentCharge: 0
   useCharge: 0
-  dontAllowAutoFire: 0
+  dontAllowAutoFire: 1
   objectsToSpawn: []
   projectileColor: {r: 0, g: 0, b: 0, a: 1}
   waveMovement: 0

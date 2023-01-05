@@ -9,17 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4059372422215643}
-  - component: {fileID: 114190967632551620}
-  - component: {fileID: 114554239418549338}
   - component: {fileID: 114421384111938668}
   - component: {fileID: 114081461618018503}
   - component: {fileID: 114200975647727354}
   - component: {fileID: 114997074887337774}
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
-  - component: {fileID: 114801876718368774}
+  - component: {fileID: 7262402834013347181}
   m_Layer: 0
-  m_Name: PoppysChaos
+  m_Name: InfectiousBullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,34 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
---- !u!114 &114190967632551620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043437007509817}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98b2bbcc09027464da20acbbb271927e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rarityName: Common
---- !u!114 &114554239418549338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043437007509817}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89d10daf3634254bb2e6b79b9ee4280, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: 
-  targetColor: {r: 0, g: 0, b: 0, a: 0}
-  bgColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114421384111938668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,19 +50,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: 
-  cardDestription: 
-  cardStats: []
-  rarity: 0
+  cardName: Infectious Bullets
+  cardDestription: Your Bullets infect your opponents with a deadly disease that does
+    dmg over time
+  cardStats:
+  - positive: 1
+    amount: +100%
+    simepleAmount: 0
+    stat: Damage
+  - positive: 0
+    amount: -1
+    simepleAmount: 0
+    stat: Ammo
+  rarity: 2
   cardArt: {fileID: 0}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
   categories: []
-  allowMultiple: 0
+  allowMultiple: 1
   blacklistedCategories: []
   cardBase: {fileID: 1720757555582362, guid: ab7829e25091330408953c12456bfb86, type: 3}
-  colorTheme: 0
+  colorTheme: 5
 --- !u!114 &114081461618018503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +145,7 @@ MonoBehaviour:
   shootPosition: {fileID: 0}
   player: {fileID: 0}
   isReloading: 0
-  damage: 1
+  damage: 2
   reloadTime: 1
   reloadTimeAdd: 0
   recoilMuiltiplier: 1
@@ -179,7 +158,7 @@ MonoBehaviour:
   bulletDamageMultiplier: 1
   multiplySpread: 1
   shakeM: 1
-  ammo: 0
+  ammo: -1
   ammoReg: 0
   size: 0
   overheatMultiplier: 0
@@ -225,14 +204,14 @@ MonoBehaviour:
     stickToBigTargets: 0
     stickToAllTargets: 0
     zeroZ: 0
-    AddToProjectile: {fileID: 1369467566980549, guid: f18fe4d211f53964e9a18362c8a5d162,
+    AddToProjectile: {fileID: 1369467566980549, guid: fbef3419e2a9d5b4ab080b71e4fc00f5,
       type: 3}
     removeScriptsFromProjectileObject: 0
     scaleStacks: 1
     scaleStackM: 0.7
     scaleFromDamage: 1
     stacks: 0
-  projectileColor: {r: 0.8352941, g: 0.5991128, b: 0.066666685, a: 0.49803922}
+  projectileColor: {r: 0.5188679, g: 0.012237449, b: 0.012237449, a: 1}
   waveMovement: 0
   teleport: 0
   spawnSkelletonSquare: 0
@@ -312,7 +291,7 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &114801876718368774
+--- !u!114 &7262402834013347181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -321,11 +300,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1043437007509817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14469a14b48561b4aa9b585b7ef711e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ddc17c6237fd44428d90967c2f3dcc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardInfo: {fileID: 0}
-  gun: {fileID: 0}
-  cardStats: {fileID: 0}
-  statModifiers: {fileID: 0}
-  block: {fileID: 0}
+  cardInfo: {fileID: 114421384111938668}
+  gun: {fileID: 114200975647727354}
+  cardStats: {fileID: 114969577739340399}
+  statModifiers: {fileID: 114081461618018503}
+  block: {fileID: 114997074887337774}
