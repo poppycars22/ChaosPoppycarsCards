@@ -41,7 +41,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_ReverseThruster");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_ReverseThrusters");
         }
         protected override CardInfo.Rarity GetRarity()
         {

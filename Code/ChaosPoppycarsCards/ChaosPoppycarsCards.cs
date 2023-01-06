@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using UnityEngine;
 using UnboundLib;
 using UnboundLib.Cards;
 using ChaosPoppycarsCards.Cards;
@@ -42,7 +43,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "0.9.8"; // What version are we on (major.minor.patch)?
+        public const string Version = "0.9.9"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -56,6 +57,7 @@ namespace ChaosPoppycarsCards
             RarityUtils.AddRarity("Goose", 1, new Color(0.722f, 0.840f, 0.775f), new Color(0.860f, 1.00f, 0.923f));
             var harmony = new Harmony(ModId);
             harmony.PatchAll();
+            Bundle.LoadAsset<GameObject>("ModCards").GetComponent<CardHolder>().RegisterCards();
         }
         //REGISTER CURSES
         private void RegisterCards() {
