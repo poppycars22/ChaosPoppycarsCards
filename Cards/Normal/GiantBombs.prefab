@@ -17,11 +17,8 @@ GameObject:
   - component: {fileID: 114997074887337774}
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
-  - component: {fileID: 114729986465702188}
-  - component: {fileID: 114183125423622868}
-  - component: {fileID: 114847249963933366}
   m_Layer: 0
-  m_Name: BouncyBombs
+  m_Name: GiantBombs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,12 +45,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043437007509817}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98b2bbcc09027464da20acbbb271927e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rarityName: Common
+  rarityName: Legendary
 --- !u!114 &114554239418549338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,16 +79,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: 
-  cardDestription: 
+  cardName: Gigantic Bombs
+  cardDestription: Bombs so big that everyone should fear them (doesnt hurt you or
+    your team)
   cardStats: []
   rarity: 0
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 4783916669901819845, guid: 19fb0ff44525d634ab65d9f3903ebe1f, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
   categories: []
-  allowMultiple: 0
+  allowMultiple: 1
   blacklistedCategories: []
   cardBase: {fileID: 1720757555582362, guid: ab7829e25091330408953c12456bfb86, type: 3}
   colorTheme: 0
@@ -218,7 +216,7 @@ MonoBehaviour:
   useCharge: 0
   dontAllowAutoFire: 0
   objectsToSpawn:
-  - effect: {fileID: 1873228727427583, guid: ee6ee9dbcc32796439a12191dd70c61e, type: 3}
+  - effect: {fileID: 1873228727427583, guid: 57b18305ccc19e142a148a31425d23af, type: 3}
     direction: 0
     spawnOn: 0
     spawnAsChild: 0
@@ -227,7 +225,7 @@ MonoBehaviour:
     stickToBigTargets: 0
     stickToAllTargets: 1
     zeroZ: 0
-    AddToProjectile: {fileID: 1355465248608431, guid: 0eadcb2fd7a979c4a93d1326e11992cc,
+    AddToProjectile: {fileID: 1355465248608431, guid: 9b662b804675d6d4d88b30e1862dac54,
       type: 3}
     removeScriptsFromProjectileObject: 0
     scaleStacks: 1
@@ -314,53 +312,3 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &114729986465702188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043437007509817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d3050930ec6dc349bef45ac73aa6fa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardInfo: {fileID: 0}
-  gun: {fileID: 0}
-  cardStats: {fileID: 0}
-  statModifiers: {fileID: 0}
-  block: {fileID: 0}
---- !u!114 &114183125423622868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043437007509817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bafaf4e9b63575e45a27e3cc3925dabe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerStartOnStart: 0
-  triggerStartOnEnable: 0
-  triggerEndOnDestroy: 0
-  triggerEndOnDisable: 0
-  useLocalTransformForInstanceID: 0
-  soundStart: {fileID: 0}
-  soundStartLoop: {fileID: 0}
-  soundEnd: {fileID: 0}
---- !u!114 &114847249963933366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043437007509817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cdb0ac013f5c304fa4980ba37f3e2e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0

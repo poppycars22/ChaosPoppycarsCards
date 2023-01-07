@@ -43,5 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07874fa3e4823040974ca861a708a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cards: []
+  Cards:
+  - {fileID: 1043437007509817, guid: 0ac48e3d976e49941a58e1cf951ff58e, type: 3}
+  - {fileID: 1043437007509817, guid: 0c57140fa5928ef4082bedc70140b14e, type: 3}
   HiddenCards: []

@@ -145,7 +145,7 @@ MonoBehaviour:
   shootPosition: {fileID: 0}
   player: {fileID: 0}
   isReloading: 0
-  damage: 2
+  damage: 3
   reloadTime: 1
   reloadTimeAdd: 0
   recoilMuiltiplier: 1
