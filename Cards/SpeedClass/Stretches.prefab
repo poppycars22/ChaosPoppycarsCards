@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 114997074887337774}
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
-  - component: {fileID: 114370266799749236}
+  - component: {fileID: 114129909284044086}
   m_Layer: 0
-  m_Name: HealthBounces
+  m_Name: Stretches
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &114370266799749236
+--- !u!114 &114129909284044086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1043437007509817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43bc6298bcdf0884a8bf359e1c4acd4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e106c58a734bb24cb4e7d3ee04418ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardInfo: {fileID: 0}

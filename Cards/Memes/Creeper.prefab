@@ -17,9 +17,8 @@ GameObject:
   - component: {fileID: 114997074887337774}
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
-  - component: {fileID: 114129909284044086}
   m_Layer: 0
-  m_Name: TemplateCard 10
+  m_Name: Creeper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,8 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: 
-  cardDestription: 
+  cardName: Creeper
+  cardDestription: ahhhhhhhhhhhhhhhhh
   cardStats: []
   rarity: 0
   cardArt: {fileID: 0}
@@ -89,7 +88,7 @@ MonoBehaviour:
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
   categories: []
-  allowMultiple: 0
+  allowMultiple: 1
   blacklistedCategories: []
   cardBase: {fileID: 1720757555582362, guid: ab7829e25091330408953c12456bfb86, type: 3}
   colorTheme: 0
@@ -243,7 +242,8 @@ MonoBehaviour:
   soundBlockRecharged: {fileID: 0}
   soundBlockBlocked: {fileID: 0}
   soundBlockStatusEffect: {fileID: 0}
-  objectsToSpawn: []
+  objectsToSpawn:
+  - {fileID: 1817971253521464, guid: 6423a49e68e119d44be92bd9470af1ff, type: 3}
   sinceBlock: 0
   particle: {fileID: 0}
   reloadParticle: {fileID: 0}
@@ -296,20 +296,3 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &114129909284044086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043437007509817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e106c58a734bb24cb4e7d3ee04418ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardInfo: {fileID: 0}
-  gun: {fileID: 0}
-  cardStats: {fileID: 0}
-  statModifiers: {fileID: 0}
-  block: {fileID: 0}

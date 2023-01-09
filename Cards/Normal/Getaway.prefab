@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 114193385136356738}
   - component: {fileID: 114549810094242778}
   m_Layer: 0
-  m_Name: TemplateCard 7
+  m_Name: Getaway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

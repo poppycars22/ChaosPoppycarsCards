@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 114193385136356738}
   - component: {fileID: 114574158720759982}
   m_Layer: 0
-  m_Name: TemplateCard 1
+  m_Name: AbsorbingBullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
   categories: []
-  allowMultiple: 0
+  allowMultiple: 1
   blacklistedCategories: []
   cardBase: {fileID: 1720757555582362, guid: ab7829e25091330408953c12456bfb86, type: 3}
   colorTheme: 0
