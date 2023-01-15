@@ -3561,7 +3561,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c94ce20af1a85834e8a5469326493432, type: 2}
-  - {fileID: 2100000, guid: 86378c81950bd7a4ea6233a4ce6ef2a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3624,9 +3623,9 @@ MonoBehaviour:
   force: -2500
   objectForceMultiplier: 1
   forceIgnoreMass: 1
-  damage: 0
+  damage: 1
   dmgColor: {r: 0, g: 0, b: 0, a: 1}
-  range: 2.4
+  range: 3
   flyingFor: 0
   auto: 1
   ignoreTeam: 0
@@ -3634,7 +3633,7 @@ MonoBehaviour:
   staticRangeMultiplier: 0
   scaleSlow: 0
   scaleSilence: 1
-  scaleDmg: 0
+  scaleDmg: 1
   scaleRadius: 1
   scaleStun: 1
   scaleForce: 0
@@ -3817,9 +3816,9 @@ MonoBehaviour:
   triggerEndOnDestroy: 0
   triggerEndOnDisable: 0
   useLocalTransformForInstanceID: 0
-  soundStart: {fileID: 11400000, guid: 95b10e4c905e82040a94c8fdfcfe3653, type: 2}
-  soundStartLoop: {fileID: 11400000, guid: dd689f1064c2e61458228a1b36f5e10e, type: 2}
-  soundEnd: {fileID: 11400000, guid: 957d50e8f1a92f5448ed0af5993a3fc2, type: 2}
+  soundStart: {fileID: 11400000, guid: fb17631dc366b0d40976e3e8d46aa239, type: 2}
+  soundStartLoop: {fileID: 11400000, guid: dd3b8a913e5c5dc4c99190b477235960, type: 2}
+  soundEnd: {fileID: 11400000, guid: 1e64ca5087cfe354aa374db6e16e90a7, type: 2}
 --- !u!114 &114845846511436378
 MonoBehaviour:
   m_ObjectHideFlags: 0

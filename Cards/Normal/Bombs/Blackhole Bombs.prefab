@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b2bbcc09027464da20acbbb271927e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rarityName: Epic
+  rarityName: Legendary
 --- !u!114 &114554239418549338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,11 +83,11 @@ MonoBehaviour:
   cardDestription: Wait, wheres the explosion?
   cardStats:
   - positive: 0
-    amount: -50%
+    amount: -25%
     simepleAmount: 0
     stat: Damage
   - positive: 0
-    amount: -50%
+    amount: -25%
     simepleAmount: 0
     stat: Attack Speed
   rarity: 0
@@ -173,12 +173,12 @@ MonoBehaviour:
   shootPosition: {fileID: 0}
   player: {fileID: 0}
   isReloading: 0
-  damage: 0.5
+  damage: 0.75
   reloadTime: 1
   reloadTimeAdd: 0
   recoilMuiltiplier: 1
   knockback: 1
-  attackSpeed: 1.5
+  attackSpeed: 1.25
   projectileSpeed: 1
   projectielSimulatonSpeed: 1
   gravity: 1

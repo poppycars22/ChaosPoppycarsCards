@@ -2,6 +2,7 @@
 using BepInEx;
 using UnboundLib;
 using UnboundLib.Cards;
+using ChaosPoppycarsCards;
 using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Cards.Minecrafter;
 using HarmonyLib;
@@ -27,7 +28,7 @@ public class CardHolder : MonoBehaviour
     {
         foreach (var Card in Cards)
         {
-            CustomCard.RegisterUnityCard(Card, "CPC", Card.GetComponent<CardInfo>().cardName, true, null);
+            CustomCard.RegisterUnityCard(Card, ChaosPoppycarsCards.ChaosPoppycarsCards.ModInitials, Card.GetComponent<CardInfo>().cardName, true, null);
         }
         foreach (var Card in HiddenCards)
         {
