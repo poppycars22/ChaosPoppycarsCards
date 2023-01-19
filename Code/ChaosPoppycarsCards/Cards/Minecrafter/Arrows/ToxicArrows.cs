@@ -26,7 +26,7 @@ namespace ChaosPoppycarsCards.Cards
             gun.spread = 0.05f;
             gun.ammo = 1;
             gun.damage = 0.85f;
-            cardInfo.allowMultiple = false;
+            cardInfo.allowMultiple = true;
             gun.numberOfProjectiles = 1;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             
@@ -36,16 +36,7 @@ namespace ChaosPoppycarsCards.Cards
         {
             
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            ObjectsToSpawn objectsToSpawn2 = ((GameObject)Resources.Load("0 cards/Timed detonation")).GetComponent<Gun>().objectsToSpawn[0];
-            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Toxic cloud")).GetComponent<Gun>().objectsToSpawn[0];
-            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
-            list.Add(
-                objectsToSpawn
-            );
-            list.Add(
-                objectsToSpawn2
-            );
-            gun.objectsToSpawn = list.ToArray();
+            
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)

@@ -225,14 +225,14 @@ MonoBehaviour:
     stickToBigTargets: 0
     stickToAllTargets: 0
     zeroZ: 0
-    AddToProjectile: {fileID: 1369467566980549, guid: f18fe4d211f53964e9a18362c8a5d162,
+    AddToProjectile: {fileID: 1032929958507315, guid: c3664b0f400e974499515a2c40175ce2,
       type: 3}
     removeScriptsFromProjectileObject: 0
-    scaleStacks: 1
+    scaleStacks: 0
     scaleStackM: 0.7
-    scaleFromDamage: 1
+    scaleFromDamage: 0
     stacks: 0
-  projectileColor: {r: 0.8352941, g: 0.5991128, b: 0.066666685, a: 0.49803922}
+  projectileColor: {r: 0, g: 0, b: 0, a: 1}
   waveMovement: 0
   teleport: 0
   spawnSkelletonSquare: 0
