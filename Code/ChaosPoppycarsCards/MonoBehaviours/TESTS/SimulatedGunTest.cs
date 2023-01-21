@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
+using System.Linq;
 
 public class SimulatedGunTest : MonoBehaviour
 {
@@ -13,8 +14,31 @@ public class SimulatedGunTest : MonoBehaviour
         // A list of guns created for this mono saved here.
         // Ideally you'll make a pool of guns for your mod to use.
         public SimulatedGun[] savedGuns = new SimulatedGun[1];
+    
+    public static GameObject _stopRecursionObj = null;
 
-        public void Start()
+    public static GameObject StopRecursionObj
+    {
+        get
+        {
+            if (_stopRecursionObj == null)
+            {
+                _stopRecursionObj = new GameObject("A_StopRecursion", typeof(StopRecursion));
+                DontDestroyOnLoad(_stopRecursionObj);
+            }
+            return _stopRecursionObj;
+        }
+    }
+
+    public static ObjectsToSpawn[] StopRecursionSpawn
+    {
+        get
+        {
+            return new ObjectsToSpawn[] { new ObjectsToSpawn() { AddToProjectile = StopRecursionObj } };
+        }
+    }
+
+    public void Start()
         {
             // Get Player
             this.player = this.GetComponentInParent<Player>();
@@ -33,8 +57,12 @@ public class SimulatedGunTest : MonoBehaviour
 
         public void OnShootProjectileAction(GameObject obj)
         {
-           
-            SimulatedGun oppositeGun = savedGuns[0];
+        if (obj.GetComponentsInChildren<StopRecursion>().Length > 0)
+        {
+            return;
+        }
+
+        SimulatedGun oppositeGun = savedGuns[0];
 
             // We copy over our gun stats, including actions, so that it's pretty much a copy of our gun.
             // Note, the methods for copying actions actually create separate instances of those actions
@@ -52,8 +80,8 @@ public class SimulatedGunTest : MonoBehaviour
         // We only want to fire 1 bullet per bullet, since we're mirroring our attacks.
         oppositeGun.numberOfProjectiles = 1;
         oppositeGun.bursts = 0;
-        
-        
+        oppositeGun.objectsToSpawn = oppositeGun.objectsToSpawn.Concat(StopRecursionSpawn).ToArray();
+
 
         // Our second gun is used to mirror about the y-axis
         // We use this gun since we want to have different values on our y than our x.
@@ -78,5 +106,6 @@ public class SimulatedGunTest : MonoBehaviour
         {
             // Remove our action when the mono is removed
             gun.ShootPojectileAction -= OnShootProjectileAction;
-        }
+        UnityEngine.GameObject.Destroy(savedGuns[0]);
+    }
     }

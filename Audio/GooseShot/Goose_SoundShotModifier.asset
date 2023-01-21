@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0d9fdb7e74f91438fe3fc16926979f, type: 3}
+  m_Name: Goose_SoundShotModifier
+  m_EditorClassIdentifier: 
+  priority: 0
+  single: {fileID: 11400000, guid: 54cec8c4a5162754ab790c1c91cc7230, type: 2}
+  singleAutoLoop: {fileID: 11400000, guid: 567253f0e46832c48a277c8f6e5807a5, type: 2}
+  singleAutoTail: {fileID: 11400000, guid: ef6041f8200ca344eb69388a23365491, type: 2}
+  shotgun: {fileID: 11400000, guid: 0a61df825a3800b4c83b19397f918ecf, type: 2}
+  shotgunAutoLoop: {fileID: 11400000, guid: 30c80e585ecaa2c4f9ef9536186f3015, type: 2}
+  shotgunAutoTail: {fileID: 11400000, guid: 765298f8ce160d54db474de5b3eeb20d, type: 2}

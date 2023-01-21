@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
   - component: {fileID: 114412947854080854}
+  - component: {fileID: 114878705936461736}
   m_Layer: 0
   m_Name: DualWield
   m_TagString: Untagged
@@ -398,3 +399,16 @@ MonoBehaviour:
   defaultCooldown: 1
   attackID: -1
   attackSpeedMultiplier: 1
+--- !u!114 &114878705936461736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043437007509817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01250c9c7c3a3a94eb4fbe6a5a71e818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tag: CPC

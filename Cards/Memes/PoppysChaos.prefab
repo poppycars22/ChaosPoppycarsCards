@@ -112,7 +112,7 @@ MonoBehaviour:
   health: 1
   movementSpeed: 1
   jump: 1
-  gravity: 1
+  gravity: 0.0001
   slow: 0
   slowSlow: 0
   fastSlow: 0
@@ -215,23 +215,7 @@ MonoBehaviour:
   currentCharge: 0
   useCharge: 0
   dontAllowAutoFire: 0
-  objectsToSpawn:
-  - effect: {fileID: 0}
-    direction: 0
-    spawnOn: 0
-    spawnAsChild: 0
-    numberOfSpawns: 1
-    normalOffset: 0
-    stickToBigTargets: 0
-    stickToAllTargets: 0
-    zeroZ: 0
-    AddToProjectile: {fileID: 1032929958507315, guid: c3664b0f400e974499515a2c40175ce2,
-      type: 3}
-    removeScriptsFromProjectileObject: 0
-    scaleStacks: 0
-    scaleStackM: 0.7
-    scaleFromDamage: 0
-    stacks: 0
+  objectsToSpawn: []
   projectileColor: {r: 0, g: 0, b: 0, a: 1}
   waveMovement: 0
   teleport: 0

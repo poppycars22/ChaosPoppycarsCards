@@ -155,7 +155,7 @@ MonoBehaviour:
     soundImpactModifierDamageToExplosionHuge: {fileID: 0}
     soundImpactBounce: {fileID: 0}
     soundImpactBullet: {fileID: 0}
-  soundShotModifier: {fileID: 0}
+  soundShotModifier: {fileID: 11400000, guid: 486df42ff4d9f954a8b9d6f267bd7937, type: 2}
   soundImpactModifier: {fileID: 0}
   soundDisableRayHitBulletSound: 0
   recoil: 0
