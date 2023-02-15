@@ -42,41 +42,61 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "1.1.6"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.1.8"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
 
-        public static AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
+        public static AssetBundle Bundle = null;
 
         void Awake()
         {
+           
+            Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
+            
             // Use this to call any harmony patch files your mod may have
             CardThemeLib.CardThemeLib.instance.CreateOrGetType("Evergreen", new CardThemeColor() { bgColor = new Color(0.09f, 0.23f, 0.11f), targetColor = new Color(0.28f, 0.80f, 0.32f) });
+           
             RarityUtils.AddRarity("Goose", 1, new Color(0.722f, 0.840f, 0.775f), new Color(0.860f, 1.00f, 0.923f));
+          
             var harmony = new Harmony(ModId);
+          
             harmony.PatchAll();
-            Bundle.LoadAsset<GameObject>("ModCards").GetComponent<CardHolder>().RegisterCards();
+           
+            var TESTIG = Bundle.LoadAsset<GameObject>("ModCards");
+            
+            var TESTIG2 = TESTIG.GetComponent<CardHolder>();
+         
+            TESTIG2.RegisterCards();
+           
             Bundle.LoadAllAssets();
+           
         }
         //REGISTER CURSES
         private void RegisterCards() {
 
             var assests = Bundle.LoadAllAssets<GameObject>();
-            List<Type> types = typeof(ChaosPoppycarsCards).Assembly.GetTypes().Where(type => type.IsClass&&!type.IsAbstract&&type.IsSubclassOf(typeof(CustomCard))).ToList();
-            foreach(var type in types) {
-                try {
-                    var card = assests.Where(a => a is GameObject&&a.GetComponent<CustomCard>()!=null&&a.GetComponent<CustomCard>().GetType()==type).First();
-                    try {
-                        type.GetField("Card", System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static).GetValue(null);
-                        card.GetComponent<CustomCard>().BuildUnityCard(cardInfo => type.GetField("Card", System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static).SetValue(null, cardInfo));
-                    } catch {
+            List<Type> types = typeof(ChaosPoppycarsCards).Assembly.GetTypes().Where(type => type.IsClass && !type.IsAbstract && type.IsSubclassOf(typeof(CustomCard))).ToList();
+            foreach (var type in types)
+            {
+                try
+                {
+                    var card = assests.Where(a => a is GameObject && a.GetComponent<CustomCard>() != null && a.GetComponent<CustomCard>().GetType() == type).First();
+                    try
+                    {
+                        type.GetField("Card", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static).GetValue(null);
+                        card.GetComponent<CustomCard>().BuildUnityCard(cardInfo => type.GetField("Card", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static).SetValue(null, cardInfo));
+                    }
+                    catch
+                    {
                         card.GetComponent<CustomCard>().BuildUnityCard(null);
                     }
-                } catch {
+                }
+                catch
+                {
                 }
             }
-            
+
             this.ExecuteAfterFrames(6, () => {
                 CurseManager.instance.RegisterCurse(Anarkey.Card);
                 CurseManager.instance.RegisterCurse(BlockConfusion.Card);

@@ -29,13 +29,13 @@ MonoBehaviour:
       volumeDecibel: 0
     disableEnable: 0
     soundEventModifier:
-      volumeDecibel: 0
-      volumeRatio: 1
+      volumeDecibel: -5
+      volumeRatio: 0.5
       pitchSemitone: 0
       pitchRatio: 1
       delay: 0
       increase2d: 0
-      intensity: 1
+      intensity: 0.01
       reverbZoneMixDecibel: 0
       reverbZoneMixRatio: 1
       startPosition: 0

@@ -1,12 +1,7 @@
 fileFormatVersion: 2
 guid: 57b18305ccc19e142a148a31425d23af
-timeCreated: 1670298630
-licenseType: Free
 PrefabImporter:
   externalObjects: {}
-  addedObjectFileIDs: []
-  isPrefabVariant: 0
-  unableToImportOnPreviousDomainReload: 0
-  userData:
-  assetBundleName:
-  assetBundleVariant:
+  userData: 
+  assetBundleName: cpcart
+  assetBundleVariant: 

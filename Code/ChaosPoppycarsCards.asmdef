@@ -23,7 +23,8 @@
         "BepInEx.dll",
         "Assembly-CSharp.dll",
         "SonigonAudioEngine.Runtime.dll",
-        "PhotonUnityNetworking.dll"
+        "PhotonUnityNetworking.dll",
+        "PhotonRealtime.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

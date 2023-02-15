@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4145435891841081496}
-  - component: {fileID: 114231776019840194}
+  - component: {fileID: 114325292000987048}
   m_Layer: 0
   m_Name: HealthBounceObject 1
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114231776019840194
+--- !u!114 &114325292000987048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,8 +40,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8427456020220049622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd6a0133f9249ce4094575149073fc15, type: 3}
+  m_Script: {fileID: 11500000, guid: 34a364779e48e544a991ffb8b419ef55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savedGuns:
-  - {fileID: 0}
+  player: {fileID: 0}

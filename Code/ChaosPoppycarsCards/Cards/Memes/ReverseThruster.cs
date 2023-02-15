@@ -12,8 +12,9 @@ namespace ChaosPoppycarsCards.Cards
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             cardInfo.allowMultiple = true;
+            
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
-
+           
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)

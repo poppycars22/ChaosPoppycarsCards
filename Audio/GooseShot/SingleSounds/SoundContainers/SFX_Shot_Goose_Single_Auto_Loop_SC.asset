@@ -45,7 +45,7 @@ MonoBehaviour:
     bypassVoiceEffects: 0
     bypassListenerEffects: 0
     intensityAdd: 0
-    intensityMultiplier: 1
+    intensityMultiplier: 0.25
     intensityRolloff: 0
     intensitySmoothing: 0
     intensityCurve:
@@ -75,10 +75,10 @@ MonoBehaviour:
     intensityThresholdEnable: 0
     intensityThreshold: 0
     volumeExpand: 1
-    volumeDecibel: -11
+    volumeDecibel: -20
     volumeRatio: 0.2818383
     volumeRandomEnable: 0
-    volumeRandomRangeDb: 3
+    volumeRandomRangeDb: 1
     volumeDistanceRolloff: -2
     volumeDistanceCurve:
       serializedVersion: 2
@@ -105,8 +105,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     volumeIntensityEnable: 0
-    volumeIntensityRolloff: 2
-    volumeIntensityStrength: 1
+    volumeIntensityRolloff: 1
+    volumeIntensityStrength: 0.5
     volumeIntensityCurve:
       serializedVersion: 2
       m_Curve:

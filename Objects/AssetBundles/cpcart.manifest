@@ -1,0 +1,610 @@
+ManifestFileVersion: 0
+CRC: 2691577668
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 70b16c4c2a218bbfe3af3ec108903cef
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4a5d6dbe24be076b4ca131575a1142fe
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3e4443104d9c73b43a4d0670e613a377, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3d8a5710fb457804787d3d8840ec0984, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 08b76750c56586b4a9896c432f1f6c6f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9e80e970c772197468c35fa4875fa7df, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b4687c90b3a1e494da4bc8e64b201ee3, type: 3}
+- Class: 114
+  Script: {fileID: -758139285, guid: 7b103cb0db623c84bbfc260cac5acf8d, type: 3}
+- Class: 114
+  Script: {fileID: 599046829, guid: 7b103cb0db623c84bbfc260cac5acf8d, type: 3}
+- Class: 114
+  Script: {fileID: -1149232314, guid: 7b103cb0db623c84bbfc260cac5acf8d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2cdb0ac013f5c304fa4980ba37f3e2e1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ab752ec07c46ee24799f14ef2b0756d9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6e1ac9d004fb41248b597daf93977a47, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6ebb9ed0ca0f8eb4b80046c5e260f795, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 36b8080194ccf1b4d98073c07755e25c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bab04c31776476046b21636bd8b5e6e5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f06ecf71048836a4b8670dd69f862483, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 25a2d191570291a4c8ca26547d482857, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8ecb70e12bb06a44286f4bb21d035487, type: 3}
+- Class: 114
+  Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 55c8a3127f0546a43a126bdc3e7713b5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fb6cd412cce6d77488ae5adb6686fee6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5dcc28127a9e09540805525832e472ff, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 22340a1287727744a9ecf6e8f7d4fc80, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 022477222f2c4534da11868a28a0f854, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c72d8f22443886243a626e53dbb42153, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a307154275c3a5e4fa5e07d13f494192, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 10995b52bc4943b45ae10793688c50e5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: db04c06281aa2e648a4e222e0fed73ee, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9bed8d7235b54c345a8a35322e94de7e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 186850821313d814685ffc266db59004, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: af43e6c2ae0b8dd43a3ce623cdfbd154, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b223f1d23c01cfc44a0835ea25b51d55, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 90250c53192a432439a701bce4a9d422, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 43adff536687e504dbb7a1a252b91457, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9f65197325fc7fc4f99dfebf135f2271, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0d3050930ec6dc349bef45ac73aa6fa8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e2bd859302a0443418026d4d81069a12, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: db1226a3996142e43b59afdd1eacfa2f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a2ea1aa3bbd734c4a8a0b8bc52b5aab5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0e61a5b3c9769c44d9436437380767bc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 207269c3344737d4fb28d1953e2e02b8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 05a507d3ab14bb44aa7e34123a8493bd, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b3bf77e34aec9ee4485acd6da88c13b9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4eb7cf041e856c7498f18b9042ec4f95, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 14469a14b48561b4aa9b585b7ef711e1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3c571c341c8242c4ca7fb44c4c81bbbe, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2a3411448f150ac429b204be46c17fd6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 11df5f445021e6b48921a9772e1206d0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2e27eeb4ee58dac489dd40704f859560, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4d0931c4163c150429bbbb63b9a0ad7d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a09c16e4dab163549a500d1534c26ef0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 117ecf153d9b8344c86108fd3f6d28dd, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fc635825bdbc97a4d934893b73364814, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7fc1bd250d829a4488a92e98533742f8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d596f3451a93e2744bbb68797b7aac8d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 14358d751784b9149a88bd78271792a8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3552d6b5187f1434295992eee7db6572, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d70cd9b55d523204dba41d401c87ecc2, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ab6af1c5a39908348940acae8d6c715f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4b4997c5c1dfe5d49b4226b586453fbc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bcd7d826e519f3346966efa120184574, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 610ac836d9c44564e9ee603f9f16404d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6d81305606d50f84b992e4c389f8bbb3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8ed55766971ce664ca17d2ef8543e5a7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 143b2376386e70b4c93b1d1ced63f95a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5022faa61494bdc41869ce9aa068f8f6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1ddc17c6237fd44428d90967c2f3dcc9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9edde6d61e40def429188a8ed2420a0c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8d3745e6286516c4181052936142102d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3648a20775429e14898b3ddfe3c4117c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 414f4e07c42cb674d95ea57f7f3eba02, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: db7dde67b00ebd54699b60664f268188, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 312d2e77495e16245a3f5c19ba1da52c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9316e597309b9cf4baa5bcf63de7fe78, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0e442ea79d1a3b8418206ed0a06da5bd, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 175b82c7e71c7514aac9e1912b746634, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0ff685d7bc374b54b8815f4501600c08, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5409aae735f3e7f47a0d1c32f4cef7a1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 06c91b0837abe9143a7a721fd4856c87, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 28566018aa0476f4a9f5e2912cd73720, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0352bb38e9a10d040aadcd125fc1645f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 296892488cc47144b8fa7135934f5872, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ff175e4836061cb498bb3c82fe616752, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8e106c58a734bb24cb4e7d3ee04418ed, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1d34ed6865c34cc4fb843e87e477b132, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 43bc6298bcdf0884a8bf359e1c4acd4e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fddbb0b842805694691c747fc53b8d2a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ef9ff0b8314eff24587e878e45af01f4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d09e61d8798559c41879e0963ec23e72, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0a7455d82e3521142be110549e6130ef, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 254e41397e040304690b19ee3bda7608, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 971383597f6bb384a9a15f42f425bc9f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fb28dca9e21f68440af06a1293dd86c7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bafaf4e9b63575e45a27e3cc3925dabe, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 432153f982a982c4a91a3fbfb635ca41, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8e35672aa71ad5b4599fd709c7b9c106, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 79b1694a4601d464facf572a28422a2f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8ca91c4a8d578cc4793e170d68d2a6e8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7856b36abd6a1884788657fb4ba1b419, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9c9b346a703fa274f8d6e02347dbd929, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 550e1a6a726891745a79a81cbd0cc566, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a179f98a5b626e34ba21c759431b61bf, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4a715c9afafd84d459388e15eb007de0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 334723ba7dd2cc0459c94202a1e8499e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 01be9fbaaacce3342bd1568e0e07c03c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a89d10daf3634254bb2e6b79b9ee4280, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 402855ea4ac0b1b488dd6c585c7622a7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b07874fa3e4823040974ca861a708a9f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4c7a0efae27fde243b83f5ac877f7103, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6322680b2805d5c4d905cbdb2e91e5ea, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f655e80ba1cf3e64e88b84703ef68098, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 426e7c5b9c1b664478255a64b1c789cd, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 448ba17bfa459c040ba2c962f0e4cde1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71ae689b885ad4e4297ea5d8f03a3570, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fbbb19cb6d8c76048b0564755e34c3f9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1dac8edb3f8656c47b9e4cbdc4a438fa, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 419ba2ebb5d0dbc4c895629a333931c2, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d5527eeb5f406084e9cb1351be043bd6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ac9fe7fb67a60484fa8d874c35516d8e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b52fb8fbe2fdd4c49a81f784f2e5bd64, type: 3}
+- Class: 114
+  Script: {fileID: -1283557461, guid: cc8a520cdc1a71048ac77742d0ea6366, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8ab8461c66666be4c9c3933a434de2d8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0b60005c27cf7f74da7d625fe205cd5b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6086475c71ea3314eb0981602e247791, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 556a409cdb893e64a97d4cea11410f1d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 01250c9c7c3a3a94eb4fbe6a5a71e818, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 98b2bbcc09027464da20acbbb271927e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6a64bedceafbf1b4088856a1987d14b5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 55b2212d591d72445917d376cc9e1244, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2ecf8d2d02f512b4a85b1eb2f0376f66, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 99aeaa3d5ad228c4f840fabab55af2cb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fd9f6d4d74043334281d3546a90c919c, type: 3}
+- Class: 114
+  Script: {fileID: 786953031, guid: fbb25f4d567ecbd439bfbdcfed7eb232, type: 3}
+- Class: 114
+  Script: {fileID: -953703611, guid: fbb25f4d567ecbd439bfbdcfed7eb232, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 225a3aad07793694ab56d95f6003fca0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 38f48ced5046a6d498e184143c23f228, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b42c6afd5b2849f4bb449710f00460a4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bcc47f0e0efc75b429fc42470eef4524, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7b3f492e3c0ecf94ebcd7c49196ff26e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3f63a19e900956a4b892fac471e56886, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aa8ad99ed3acaf346945707279a99dd6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a4b032fe9cba4be49be5bb256561788b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f92295fe49b73614591f58e9ea25e35f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bbb346fe7c0057b4baca9c90002a7c4a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1712440f624aabb429679df1e3ca82e0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a7ffe81f67a71414c8a335501049ede1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9a62b26fb3a3e9649b6512308ae3bedd, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 30f2e56f47b40d546b1b12706bf873a2, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dabc7aaff39fc794b8f87b39066beb42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 32617adf84c78e6449af0993061bbc3c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 580385efa0ead6b4ca0d46924e60f216, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c853d4ff26b081b4b8b964f7c64254de, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 34a364779e48e544a991ffb8b419ef55, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cd6a0133f9249ce4094575149073fc15, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 120
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 225
+  Script: {instanceID: 0}
+- Class: 241
+  Script: {instanceID: 0}
+- Class: 243
+  Script: {instanceID: 0}
+- Class: 245
+  Script: {instanceID: 0}
+Assets:
+- Assets/__CPC/Cards/Minecrafter/Axe/WoodenAxe.prefab
+- Assets/__CPC/Cards/Normal/JumpEffects/JumpPower.prefab
+- Assets/__CPC/Cards/Curses/SpeedCurse.prefab
+- Assets/__CPC/Cards/Minecrafter/Arrows/Punch II.prefab
+- Assets/__CPC/Objects/GiantBombs/A_BombEffect 2.prefab
+- Assets/__CPC/Objects/DOUBLEGUN/DOUBLEGUN.prefab
+- Assets/__CPC/CardArt/MC/Potions/C_SpeedPotion.prefab
+- Assets/__CPC/CardArt/MC/Arrows/C_BouncyArrow.prefab
+- Assets/__CPC/Cards/Minecrafter/Hoe/StoneHoe.prefab
+- Assets/__CPC/Cards/Normal/BalloonBullets.prefab
+- Assets/__CPC/Cards/Memes/FWPhantom.prefab
+- Assets/__CPC/Cards/Curses/BlockConfusion.prefab
+- Assets/__CPC/CardArt/Geese/C_Goose.prefab
+- Assets/__CPC/CardArt/C_NullPlayers.prefab
+- Assets/__CPC/Cards/Normal/BlockEffects/BouncyGel.prefab
+- Assets/__CPC/Cards/Normal/BlockEffects/Soda/Pepsi.prefab
+- Assets/__CPC/CardArt/Soda/C_Sprite.prefab
+- Assets/__CPC/Cards/Minecrafter/CraftingTable.prefab
+- Assets/__CPC/Cards/Minecrafter/Armor/IronArmor.prefab
+- Assets/__CPC/Cards/Normal/Gimmie a card/ScareJackpot.prefab
+- Assets/__CPC/CardArt/MC/Hoe/C_IronHoe.prefab
+- Assets/__CPC/CardArt/C_ShrinkingJumps.prefab
+- Assets/__CPC/Cards/Minecrafter/Potion/UltimatePotion.prefab
+- Assets/__CPC/Cards/SpeedClass/SpeedyHands.prefab
+- Assets/__CPC/Cards/Memes/LightSaber.prefab
+- Assets/__CPC/CardArt/Speedster/C_SpeedstersGun.prefab
+- Assets/__CPC/CardArt/MC/Armor/C_ChainmailArmor.prefab
+- Assets/__CPC/Cards/Normal/DoubleDuplicator.prefab
+- Assets/__CPC/CardArt/C_BurstJumps.prefab
+- Assets/__CPC/Cards/Normal/WormHoleClip.prefab
+- Assets/__CPC/Cards/Minecrafter/MCBow.prefab
+- Assets/__CPC/CardArt/Geese/C_KnifeGoose.prefab
+- Assets/__CPC/CardArt/MC/Armor/C_LeatherArmor.prefab
+- Assets/__CPC/CardArt/MC/C_TotemOfUndying.prefab
+- Assets/__CPC/Objects/Blackhole Bombs 1/A_Bomb_Timed_Detonation 3 (2).prefab
+- Assets/__CPC/CardArt/MC/Hoe/C_WoodenHoe.prefab
+- Assets/__CPC/Cards/Minecrafter/Arrows/PoisonArrows.prefab
+- Assets/__CPC/Cards/Curses/Anarkey.prefab
+- Assets/__CPC/CardArt/MC/Potions/C_UltimatePotion.prefab
+- Assets/__CPC/CardArt/Curses/C_Anarkey.prefab
+- Assets/__CPC/Cards/SpeedClass/SpeedstersGun.prefab
+- Assets/__CPC/Cards/Minecrafter/Arrows/Arrow.prefab
+- Assets/__CPC/CardArt/Curses/C_NerfGun.prefab
+- Assets/__CPC/CardArt/MC/C_AmmoChest.prefab
+- Assets/__CPC/CardArt/MC/Hoe/C_DiamondHoe.prefab
+- Assets/__CPC/Cards/SpeedClass/LegDay.prefab
+- Assets/__CPC/CardArt/MC/Potions/C_InvisiblilityPotion.prefab
+- Assets/__CPC/Cards/Normal/JumpEffects/JumpBursts.prefab
+- Assets/__CPC/CardArt/MC/Arrows/C_FlameArrow.prefab
+- Assets/__CPC/Cards/Minecrafter/Sword/StoneSword.prefab
+- Assets/__CPC/CardArt/C_DualWield.prefab
+- Assets/__CPC/Cards/SpeedClass/SpeedDemon.prefab
+- Assets/__CPC/CardArt/MC/Armor/C_GoldArmor.prefab
+- Assets/__CPC/Cards/Memes/HealthBounces.prefab
+- Assets/__CPC/CardArt/C_BlackholeBombs.prefab
+- Assets/__CPC/Cards/Memes/Whynack.prefab
+- Assets/__CPC/CardArt/C_AncientDistillPower.prefab
+- Assets/__CPC/CardArt/MC/Axe/C_NetheriteAxe.prefab
+- Assets/__CPC/Cards/Normal/Gimmie a card/RoyalGifting.prefab
+- Assets/__CPC/CardArt/C_AbsorbingBullets.prefab
+- Assets/__CPC/CardArt/C_LegendaryJackpot.prefab
+- Assets/__CPC/Cards/Normal/BlockEffects/Soda/Sprite.prefab
+- Assets/__CPC/CardArt/MC/Potions/C_StrengthPotion.prefab
+- Assets/__CPC/Cards/Memes/Negafy.prefab
+- Assets/__CPC/Cards/Minecrafter/Hoe/IronHoe.prefab
+- Assets/__CPC/Cards/Minecrafter/Armor/DiamondArmor.prefab
+- Assets/__CPC/Objects/Blackhole Bombs/E_BlackHole 1.prefab
+- Assets/__CPC/Cards/Geese/GoldGoose.prefab
+- Assets/__CPC/CardArt/C_GiantBombs.prefab
+- Assets/__CPC/Cards/Geese/Goose.prefab
+- Assets/__CPC/Objects/GiantBombs/A_Bomb_Timed_Detonation 2.prefab
+- Assets/__CPC/CardArt/MC/Sword/C_GoldSword.prefab
+- Assets/__CPC/Cards/SpeedClass/Swifter.prefab
+- Assets/__CPC/CardArt/C_GETAWAY.prefab
+- Assets/__CPC/CardArt/C_SpeedyJumps.prefab
+- Assets/__CPC/Cards/Minecrafter/Sword/NetheriteSword.prefab
+- Assets/__CPC/CardArt/C_Sugared.prefab
+- Assets/__CPC/Cards/Minecrafter/Arrows/ExplosiveArrows.prefab
+- Assets/__CPC/Cards/Minecrafter/Arrows/ToxicArrows.prefab
+- Assets/__CPC/Cards/Normal/PercentageBullets.prefab
+- Assets/__CPC/Cards/SpeedClass/TriggerFinger.prefab
+- Assets/__CPC/CardArt/C_BalloonBullets.prefab
+- Assets/__CPC/CardArt/MC/Hoe/C_NetheriteHoe.prefab
+- Assets/__CPC/CardArt/C_SuperSprings.prefab
+- Assets/__CPC/Cards/Geese/KnifeGoose.prefab
+- Assets/__CPC/Code/ChaosPoppycarsCards/ModCards.prefab
+- Assets/__CPC/Cards/Normal/Getaway.prefab
+- Assets/__CPC/Cards/Minecrafter/Axe/DiamondAxe.prefab
+- Assets/__CPC/Cards/Minecrafter/TotemOfUndying.prefab
+- Assets/__CPC/CardArt/MC/Axe/C_WoodenAxe.prefab
+- Assets/__CPC/CardArt/MC/Potions/C_JumpPotion.prefab
+- Assets/__CPC/CardArt/Speedster/C_MomentumShots.prefab
+- Assets/__CPC/CardArt/MC/Armor/C_IronArmor.prefab
+- Assets/__CPC/Cards/Memes/Sugared.prefab
+- Assets/__CPC/Cards/Normal/BlockEffects/Soda/DrPepper.prefab
+- Assets/__CPC/Cards/SpeedClass/MomentumShots.prefab
+- Assets/__CPC/CardArt/Speedster/C_Speedster.prefab
+- Assets/__CPC/CardArt/MC/Hoe/C_GoldHoe.prefab
+- Assets/__CPC/Cards/Minecrafter/MCShield.prefab
+- Assets/__CPC/CardArt/MC/Arrows/C_PoisonArrow.prefab
+- Assets/__CPC/Objects/Blackhole Bombs/A_Explosion_Timed_Detonation 3.prefab
+- Assets/__CPC/Cards/Normal/Gimmie a card/Nullgendary.prefab
+- Assets/__CPC/Cards/Minecrafter/Axe/IronAxe.prefab
+- Assets/__CPC/Cards/Normal/DualWield.prefab
+- Assets/__CPC/Cards/Normal/JumpEffects/JumpSpeed.prefab
+- Assets/__CPC/CardArt/MC/C_CraftingTable.prefab
+- Assets/__CPC/Cards/Curses/FearfulCurse.prefab
+- Assets/__CPC/Cards/Normal/Duplicator.prefab
+- Assets/__CPC/CardArt/MC/Potions/C_RegenrationPotion.prefab
+- Assets/__CPC/Cards/Minecrafter/BrewingStand.prefab
+- Assets/__CPC/CardArt/C_Phantom.prefab
+- Assets/__CPC/CardArt/MC/Sword/C_NetheriteSword.prefab
+- Assets/__CPC/CardArt/MC/Armor/C_DiamondArmor.prefab
+- Assets/__CPC/Objects/Blackhole Bombs/A_Bomb_Timed_Detonation 3.prefab
+- Assets/__CPC/Cards/Memes/ReverseThrusters.prefab
+- Assets/__CPC/CardArt/C_ScarceJackpot.prefab
+- Assets/__CPC/CardArt/C_ActivatedDuplicator.prefab
+- Assets/__CPC/Objects/REVERSETHRUSTER.prefab
+- Assets/__CPC/CardArt/C_InfectiousBullets.prefab
+- Assets/__CPC/CardArt/C_LightSaber.prefab
+- Assets/__CPC/CardArt/C_HealingBlock.prefab
+- Assets/__CPC/Cards/Normal/BlockEffects/ActivatedDuplicator.prefab
+- Assets/__CPC/CardArt/Speedster/C_Stretches.prefab
+- Assets/__CPC/CardArt/Speedster/C_LegDay.prefab
+- Assets/__CPC/CardArt/Geese/C_GoldGoose.prefab
+- Assets/__CPC/Objects/Blackhole Bombs 1/A_BombEffect 3 (2).prefab
+- Assets/__CPC/Cards/SpeedClass/Tricky.prefab
+- Assets/__CPC/CardArt/C_WormHole.prefab
+- Assets/__CPC/Cards/Minecrafter/Potion/StrengthPotion.prefab
+- Assets/__CPC/CardArt/MC/Axe/C_StoneAxe.prefab
+- Assets/__CPC/Cards/Minecrafter/Potion/InvisablityPotion.prefab
+- Assets/__CPC/Cards/Normal/AbsorbingBullets.prefab
+- Assets/__CPC/Cards/Normal/BlockEffects/Soda/MountainDewSoda.prefab
+- Assets/__CPC/Cards/Minecrafter/Potion/SpeedPotion.prefab
+- Assets/__CPC/Cards/Minecrafter/Sword/GoldSword.prefab
+- Assets/__CPC/Cards/Normal/InfectiousBullets.prefab
+- Assets/__CPC/CardArt/C_ReverseThrusters.prefab
+- Assets/__CPC/Cards/Minecrafter/Armor/LetherArmor.prefab
+- Assets/__CPC/Cards/Normal/JumpEffects/JumpShrink.prefab
+- Assets/__CPC/Cards/Minecrafter/Potion/JumpPotion.prefab
+- Assets/__CPC/CardArt/MC/Arrows/C_ExplosiveArrow.prefab
+- Assets/__CPC/CardArt/C_BouncyGel.prefab
+- Assets/__CPC/CardArt/C_DoubleDuplicator.prefab
+- Assets/__CPC/Cards/Minecrafter/Armor/ChainArmor.prefab
+- Assets/__CPC/CardArt/Soda/C_Pepsi.prefab
+- Assets/__CPC/CardArt/MC/Hoe/C_StoneHoe.prefab
+- Assets/__CPC/Cards/Normal/IcySprings.prefab
+- Assets/__CPC/CardArt/Curses/C_ConfusionBlock.prefab
+- Assets/__CPC/Cards/Minecrafter/Axe/NetheriteAxe.prefab
+- Assets/__CPC/CardArt/MC/Axe/C_GoldAxe.prefab
+- Assets/__CPC/Cards/Minecrafter/Arrows/FlammingArrows.prefab
+- Assets/__CPC/CardArt/MC/C_PunchII.prefab
+- Assets/__CPC/Cards/Memes/SuperSprings.prefab
+- Assets/__CPC/Objects/A_DemonicPact 2.prefab
+- Assets/__CPC/Cards/Normal/BlockEffects/HealingBlock.prefab
+- Assets/__CPC/CardArt/C_PoppysChaos.prefab
+- Assets/__CPC/Cards/Memes/PoppysChaos.prefab
+- Assets/__CPC/Cards/Minecrafter/Sword/DiamondSword.prefab
+- Assets/__CPC/Cards/TESTS/Creeper.prefab
+- Assets/__CPC/CardArt/MC/Sword/C_StoneSword.prefab
+- Assets/__CPC/Cards/Minecrafter/Hoe/NetheriteHoe.prefab
+- Assets/__CPC/Objects/HealthBounceObject.prefab
+- Assets/__CPC/Cards/Minecrafter/Hoe/WoodenHoe.prefab
+- Assets/__CPC/CardArt/C_BitingBullets.prefab
+- Assets/__CPC/CardArt/Speedster/C_SpeedyHands.prefab
+- Assets/__CPC/CardArt/C_PowerJumps.prefab
+- Assets/__CPC/CardArt/Speedster/C_Airhop.prefab
+- Assets/__CPC/CardArt/Geese/C_GeeseSwarm.prefab
+- Assets/__CPC/CardArt/MC/Axe/C_IronAxe.prefab
+- Assets/__CPC/CardArt/MC/Sword/C_WoodenSword.prefab
+- Assets/__CPC/Cards/Minecrafter/Armor/NetheriteArmor.prefab
+- Assets/__CPC/CardArt/MC/Sword/C_IronSword.prefab
+- Assets/__CPC/Cards/Memes/Peptide.prefab
+- Assets/__CPC/CardArt/Speedster/C_TriggerFinger.prefab
+- Assets/__CPC/Cards/Normal/Bombs/BouncyBombs.prefab
+- Assets/__CPC/Cards/Geese/GeeseSwarm.prefab
+- Assets/__CPC/Cards/Minecrafter/Armor/GoldArmor.prefab
+- Assets/__CPC/CardArt/C_RoyalGifitng.prefab
+- Assets/__CPC/CardArt/MC/Sword/C_DiamondSword.prefab
+- Assets/__CPC/Objects/Blackhole Bombs 1/E_BlackHole 2.prefab
+- Assets/__CPC/CardArt/C_HealthBounces.prefab
+- Assets/__CPC/Cards/Normal/Bombs/GiantBombs.prefab
+- Assets/__CPC/Cards/Curses/BrittleBullets.prefab
+- Assets/__CPC/CardArt/Images/MC/gras.png
+- Assets/__CPC/CardArt/Speedster/C_Tricky.prefab
+- Assets/__CPC/CardArt/Curses/C_ParalyzingFear.prefab
+- Assets/__CPC/CardArt/Soda/C_DrPepper.prefab
+- Assets/__CPC/CardArt/MC/C_MinecraftSheild.prefab
+- Assets/__CPC/CardArt/MC/Axe/C_DiamondAxe.prefab
+- Assets/__CPC/Cards/Minecrafter/Arrows/BouncyArrows.prefab
+- Assets/__CPC/CardArt/MC/Armor/C_NetheriteArmor.prefab
+- Assets/__CPC/CardArt/C_Duplicator.prefab
+- Assets/__CPC/Cards/Memes/Power.prefab
+- Assets/__CPC/CardArt/Images/MC/Tools/WoodenSword.png
+- Assets/__CPC/Cards/SpeedClass/AirHops.prefab
+- Assets/__CPC/Cards/Minecrafter/Potion/RegenPotion.prefab
+- Assets/__CPC/Objects/HealthBounceObject 1.prefab
+- Assets/__CPC/CardArt/MC/Arrows/C_Arrow.prefab
+- Assets/__CPC/Cards/Curses/NerfGun.prefab
+- Assets/__CPC/CardArt/C_BouncyBombs.prefab
+- Assets/__CPC/Cards/Minecrafter/Hoe/GoldHoe.prefab
+- Assets/__CPC/CardArt/Soda/C_MountainDew.prefab
+- Assets/__CPC/CardArt/MC/Arrows/C_ToxicArrow.prefab
+- Assets/__CPC/CardArt/C_Whynack.prefab
+- Assets/__CPC/Cards/Minecrafter/Sword/WoodenSword.prefab
+- Assets/__CPC/CardArt/MC/C_MinecraftBow.prefab
+- Assets/__CPC/CardArt/Soda/C_Coke.prefab
+- Assets/__CPC/CardArt/C_Peptide.prefab
+- Assets/__CPC/Cards/Normal/Null Stuffs/FriendNulls.prefab
+- Assets/__CPC/Cards/Minecrafter/Sword/IronSword.prefab
+- Assets/__CPC/Objects/Creeper/A_Explosion 1.prefab
+- Assets/__CPC/Cards/Minecrafter/Axe/GoldAxe.prefab
+- Assets/__CPC/CardArt/Curses/C_TooFast.prefab
+- Assets/__CPC/Cards/Normal/BlockEffects/Soda/CocaCola.prefab
+- Assets/__CPC/Cards/Normal/Bombs/Blackhole Bombs.prefab
+- Assets/__CPC/Cards/Minecrafter/Hoe/DiamondHoe.prefab
+- Assets/TemplateCard.prefab
+- Assets/__CPC/Objects/Blackhole Bombs/A_BombEffect 3.prefab
+- Assets/__CPC/CardArt/Speedster/C_Swifter.prefab
+- Assets/__CPC/Cards/TESTS/Creeper 1.prefab
+- Assets/__CPC/Cards/Normal/AmmoChest.prefab
+- Assets/__CPC/Objects/A_DemonicPact 1.prefab
+- Assets/__CPC/Cards/Normal/Gimmie a card/LegendaryJackpot.prefab
+- Assets/__CPC/CardArt/Curses/C_BrittleBullets.prefab
+- Assets/__CPC/Cards/SpeedClass/Stretches.prefab
+- Assets/__CPC/Cards/Minecrafter/Axe/StoneAxe.prefab
+- Assets/__CPC/CardArt/C_IcySprings.prefab
+- Assets/__CPC/CardArt/C_Negafy.prefab
+- Assets/__CPC/CardArt/MC/C_BrewingStand.prefab
+Dependencies: []

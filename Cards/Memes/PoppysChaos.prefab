@@ -112,7 +112,7 @@ MonoBehaviour:
   health: 1
   movementSpeed: 1
   jump: 1
-  gravity: 0.0001
+  gravity: 1
   slow: 0
   slowSlow: 0
   fastSlow: 0

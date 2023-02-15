@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
   - component: {fileID: 114903107508635912}
+  - component: {fileID: 114045056017198650}
+  - component: {fileID: 114262911938221738}
   m_Layer: 0
   m_Name: Goose
   m_TagString: Untagged
@@ -155,7 +157,7 @@ MonoBehaviour:
     soundImpactModifierDamageToExplosionHuge: {fileID: 0}
     soundImpactBounce: {fileID: 0}
     soundImpactBullet: {fileID: 0}
-  soundShotModifier: {fileID: 11400000, guid: 486df42ff4d9f954a8b9d6f267bd7937, type: 2}
+  soundShotModifier: {fileID: 0}
   soundImpactModifier: {fileID: 0}
   soundDisableRayHitBulletSound: 0
   recoil: 0
@@ -313,3 +315,36 @@ MonoBehaviour:
   cardStats: {fileID: 0}
   statModifiers: {fileID: 0}
   block: {fileID: 0}
+--- !u!114 &114045056017198650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043437007509817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafaf4e9b63575e45a27e3cc3925dabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerStartOnStart: 0
+  triggerStartOnEnable: 0
+  triggerEndOnDestroy: 0
+  triggerEndOnDisable: 0
+  useLocalTransformForInstanceID: 0
+  soundStart: {fileID: 0}
+  soundStartLoop: {fileID: 0}
+  soundEnd: {fileID: 0}
+--- !u!114 &114262911938221738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043437007509817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdb0ac013f5c304fa4980ba37f3e2e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0

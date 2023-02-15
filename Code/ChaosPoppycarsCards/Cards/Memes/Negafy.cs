@@ -41,7 +41,7 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "x-1";
+            return "*-1";
         }
         protected override string GetDescription()
         {
@@ -63,21 +63,21 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Attack speed",
-                    amount = "x-1",
+                    amount = "*-1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Move speed",
-                    amount = "x-1",
+                    amount = "*-1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "knockback",
-                    amount = "x-1",
+                    amount = "*-1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

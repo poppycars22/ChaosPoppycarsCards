@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 1796867894
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: cpcart
+      Dependencies: {}
