@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 114997074887337774}
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
-  - component: {fileID: 3416189700825150370}
+  - component: {fileID: 114505110222968570}
   m_Layer: 0
-  m_Name: TRTAnarkey
+  m_Name: PoppysChaos 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
   categories: []
-  allowMultiple: 0
+  allowMultiple: 1
   blacklistedCategories: []
   cardBase: {fileID: 1720757555582362, guid: ab7829e25091330408953c12456bfb86, type: 3}
   colorTheme: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &3416189700825150370
+--- !u!114 &114505110222968570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1043437007509817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 599d59498ff55f849a1a7a487e7958ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 626011734bb4abd43abb35982f7ff8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardInfo: {fileID: 0}

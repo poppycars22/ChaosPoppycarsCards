@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundCharacterSlowFreeze: {fileID: 0}
-  AddObjectToPlayer: {fileID: 8427456020220049622, guid: cc0cb4a055a36ba48a4513deafd0124a,
+  AddObjectToPlayer: {fileID: 1239389059503788513, guid: 2e871dca4b9813149be1f40bb19feefd,
     type: 3}
   objectsAddedToPlayer: []
   sizeMultiplier: 1
