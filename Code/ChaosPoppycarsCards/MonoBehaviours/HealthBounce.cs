@@ -18,7 +18,7 @@ using ModdingUtils.GameModes;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
-    class HealthBounce : BounceEffect, IPointEndHookHandler, IRoundEndHookHandler, IPickStartHookHandler, IPointStartHookHandler
+    class HealthBounce : BounceEffect, IRoundEndHookHandler, IPickStartHookHandler
     {
         private float timesHit = 0;
         public void Start()
@@ -34,27 +34,13 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         public override void DoBounce(HitInfo hit)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] Bullet Has hit");
-            player.data.maxHealth += 0.25f;
-            player.data.health += 0.25f;
-            timesHit += 0.25f;
+            player.data.maxHealth += 0.5f;
+            player.data.health += 0.5f;
+            timesHit += 0.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] {timesHit} times hit");
         }
-        public void OnPointEnd()
-        {
-            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] Point Ended");
-            player.data.maxHealth -= timesHit;
-            player.data.health -= timesHit;
-            timesHit *= 0;
-            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] {timesHit} times hit");
-        }
-        public void OnPointStart()
-        {
-            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] Point Started");
-            player.data.maxHealth -= timesHit;
-            player.data.health -= timesHit;
-            timesHit *= 0;
-            CPCDebug.Log($"{ChaosPoppycarsCards.ModInitials}][Test] {timesHit} times hit");
-        }
+       
+      
         public void OnRoundEnd()
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] Round Ended");

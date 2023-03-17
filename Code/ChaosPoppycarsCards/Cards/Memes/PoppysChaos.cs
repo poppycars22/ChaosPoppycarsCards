@@ -128,6 +128,7 @@ namespace ChaosPoppycarsCards.Cards
                     case 6:
                         data.maxHealth = 1;
                         statModifiers.sizeMultiplier = 2.4f;
+                        characterStats.respawns += 2;
                         break;
                     case 7:
                         block.additionalBlocks += 4;
@@ -153,7 +154,7 @@ namespace ChaosPoppycarsCards.Cards
                         //example case
                         break;
                     case 11:
-                        characterStats.AjustNulls(30);
+                        characterStats.AjustNulls(20);
                         //UnityEngine.Debug.Log("case 0");
                         //example case
                         break;
@@ -294,6 +295,8 @@ namespace ChaosPoppycarsCards.Cards
                         break;
                     case 29:
                         gravity.gravityForce *= -1;
+                        characterStats.jump *= -1;
+                        characterStats.sizeMultiplier *= -1;
                         characterStats.numberOfJumps += 10;
                         //UnityEngine.Debug.Log("case 0");
                         //example case

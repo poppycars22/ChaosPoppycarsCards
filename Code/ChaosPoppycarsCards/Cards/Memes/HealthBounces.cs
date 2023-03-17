@@ -21,7 +21,7 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = true;
-            gun.reflects = 2;
+            gun.reflects = 5;
             gun.objectsToSpawn = new ObjectsToSpawn[]
             {
               new ObjectsToSpawn ()
@@ -53,7 +53,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Every time your bullet bounces you get 0.25 hp (only lasts that one point)";
+            return "Every time your bullet bounces you get 0.5 hp (only lasts that one round)";
         }
         protected override GameObject GetCardArt()
         {
@@ -71,7 +71,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Bounces",
-                    amount = "+2",
+                    amount = "+5",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
