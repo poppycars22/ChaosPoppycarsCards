@@ -32,7 +32,7 @@ namespace ChaosPoppycarsCards.Cards
             gun.reflects *= 0;
             gun.spread *= 0;
             block.additionalBlocks = 0;
-
+            
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {

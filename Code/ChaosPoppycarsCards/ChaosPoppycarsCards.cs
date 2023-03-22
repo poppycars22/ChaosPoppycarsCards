@@ -17,6 +17,7 @@ using System;
 using WillsWackyManagers.Utils;
 using RarityLib.Utils;
 using System.Collections.Generic;
+using static ChaosPoppycarsCards.Utilities.CardUtils;
 
 namespace ChaosPoppycarsCards
 {
@@ -42,7 +43,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "1.2.0"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.2.1"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -220,8 +221,84 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<HealthBounces>();
             //CustomCard.BuildCard<WoodenShovel>((card) => WoodenShovel.Card = card);*/
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeAction);
-            
+
             //  GameModeManager.AddHook(GameModeHooks.HookBattleStart, LightSaberRangeReset);
+            // make cards mutually exclusive
+            this.ExecuteAfterFrames(10, () =>
+            {
+                if (GetCardInfo("Flak Cannon") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Flak Cannon");
+                    MakeExclusive("Flak Cannon", "Cursor gun");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+                 
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Backup Shotgun") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Backup Shotgun");
+                    MakeExclusive("Backup Shotgun", "Cursor gun");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+                
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Plasma Shotgun") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Plasma Shotgun");
+                    MakeExclusive("Plasma Shotgun", "Cursor gun");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Barrage") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Barrage");
+                    MakeExclusive("Barrage", "Cursor gun");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Buckshot") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Buckshot");
+                    MakeExclusive("Buckshot", "Cursor gun");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Arc of Bullets") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Arc of Bullets");
+                    MakeExclusive("Arc of Bullets", "Cursor gun");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Parallel Bullets") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Parallel Bullets");
+                    MakeExclusive("Parallel Bullets", "Cursor gun");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Minecraft Bow") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Minecraft Bow");
+                    MakeExclusive("Minecraft Bow", "Cursor gun");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+            });
         }
 
 

@@ -13,6 +13,7 @@ using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using WillsWackyManagers.Utils;
 using ChaosPoppycarsCards.MonoBehaviours;
+using RarityLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
@@ -53,7 +54,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return RarityUtils.GetRarity("Legendary");
         }
         protected override CardInfoStat[] GetStats()
         {

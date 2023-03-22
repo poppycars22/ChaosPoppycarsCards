@@ -83,7 +83,8 @@ public class CursorGun : MonoBehaviour
         // We only want to fire 1 bullet per bullet, since we're mirroring our attacks.
         Cursor1.numberOfProjectiles = 1;
         Cursor1.bursts = 0;
-        Cursor1.damage *= 0.125f;
+        
+        Cursor1.damage *= 0.25f;
         Cursor1.objectsToSpawn = Cursor1.objectsToSpawn.Concat(StopRecursionSpawn).ToArray();
 
 

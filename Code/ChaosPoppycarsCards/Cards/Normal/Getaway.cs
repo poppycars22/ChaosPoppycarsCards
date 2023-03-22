@@ -62,6 +62,13 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
+                    stat = "WHEN BELOW 50%",
+                    amount = "",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
                     stat = "Movement Speed",
                     amount = "+100%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned

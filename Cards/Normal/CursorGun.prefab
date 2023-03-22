@@ -68,6 +68,10 @@ MonoBehaviour:
     amount: Disabled
     simepleAmount: 0
     stat: Auto Fire
+  - positive: 0
+    amount: -20
+    simepleAmount: 0
+    stat: Bursts
   rarity: 2
   cardArt: {fileID: 7965827247082089813, guid: ec59ff07052050b4ca0eccdc64bcd005, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
@@ -171,7 +175,7 @@ MonoBehaviour:
   overheatMultiplier: 0
   timeToReachFullMovementMultiplier: 0
   numberOfProjectiles: 0
-  bursts: 0
+  bursts: -20
   reflects: 0
   smartBounce: 0
   bulletPortal: 0

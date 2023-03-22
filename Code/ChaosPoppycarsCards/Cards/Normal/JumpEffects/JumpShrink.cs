@@ -16,6 +16,7 @@ using UnboundLib.Networking;
 using System.Collections.ObjectModel;
 using UnboundLib.Utils;
 using ChaosPoppycarsCards.MonoBehaviours;
+using RarityLib.Utils;
 
 namespace ChaosPoppycarsCards.Cards
 {
@@ -57,7 +58,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return RarityUtils.GetRarity("Exotic");
         }
         protected override CardInfoStat[] GetStats()
         {

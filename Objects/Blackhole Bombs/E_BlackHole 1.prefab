@@ -3620,15 +3620,15 @@ MonoBehaviour:
   silence: 0
   fastSlow: 1
   stun: 0
-  force: -2500
+  force: -4000
   objectForceMultiplier: 1
   forceIgnoreMass: 1
-  damage: 1
+  damage: 0.5
   dmgColor: {r: 0, g: 0, b: 0, a: 1}
-  range: 3
+  range: 5
   flyingFor: 0
   auto: 1
-  ignoreTeam: 0
+  ignoreTeam: 1
   ignoreWalls: 1
   staticRangeMultiplier: 0
   scaleSlow: 0
