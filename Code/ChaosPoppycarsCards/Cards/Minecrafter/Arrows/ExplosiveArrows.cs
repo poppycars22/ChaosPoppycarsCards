@@ -22,10 +22,9 @@ namespace ChaosPoppycarsCards.Cards
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.spread = 0.05f;
-            gun.ammo = 1;
+           
             gun.damage = 0.85f;
-            gun.numberOfProjectiles = 1;
+           
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             cardInfo.allowMultiple = true;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -68,27 +67,7 @@ namespace ChaosPoppycarsCards.Cards
         {
             return new CardInfoStat[]
             {
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Arrows",
-                    amount = "+1",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Ammo",
-                    amount = "+1",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Spread",
-                    amount = "+5%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
+               
                 new CardInfoStat()
                 {
                     positive = false,

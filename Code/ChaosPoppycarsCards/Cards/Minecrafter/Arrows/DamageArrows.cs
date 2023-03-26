@@ -17,15 +17,13 @@ using ChaosPoppycarsCards.Cards.Minecrafter;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class Arrow : CustomCard
+    class DamageArrows : CustomCard
     {
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-           
-            gun.spread = -0.05f;
-            gun.damage = 1.05f;
-          
+            gun.percentageDamage = 0.10f;
+            gun.attackSpeed = 1.25f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -50,37 +48,36 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Arrow";
+            return "Instant Damage Arrows";
         }
         protected override string GetDescription()
         {
-            return "You do a bit more damage and reduce your spread";
+            return "You tipped your arrows in instant damage, making them deal percentage damage";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_Arrow");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_DeathArrow");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
             {
-                
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Spread",
-                    amount = "-5%",
+                    stat = "Percentage Damage",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                  new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Damage",
-                    amount = "+5%",
+                    positive = false,
+                    stat = "Attack Speed",
+                    amount = "-25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

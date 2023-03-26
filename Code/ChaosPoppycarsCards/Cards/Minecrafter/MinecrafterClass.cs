@@ -15,7 +15,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         public override IEnumerator Init()
         {
             UnityEngine.Debug.Log("Regestering: " + name);
-            while (!(CraftingTable.Card && MCBow.Card && MCShield.Card && WoodenSword.Card && StoneSword.Card && IronSword.Card && GoldSword.Card && DiamondSword.Card && NetheriteSword.Card && WoodenAxe.Card && StoneAxe.Card && IronAxe.Card && GoldAxe.Card && DiamondAxe.Card && NetheriteAxe.Card && WoodenHoe.Card && StoneHoe.Card && IronHoe.Card && GoldHoe.Card && DiamondHoe.Card && NetheriteHoe.Card && LetherArmor.Card && ChainArmor.Card && IronArmor.Card && GoldArmor.Card && DiamondArmor.Card && NetheriteArmor.Card && BrewingStand.Card && InvisablityPotion.Card && JumpPotion.Card && RegenPotion.Card && SpeedPotion.Card && StrengthPotion.Card && TotemOfUndying.Card && UltimatePotion.Card)) yield return null;
+            while (!(CraftingTable.Card && MCBow.Card && MCShield.Card && WoodenSword.Card && StoneSword.Card && IronSword.Card && GoldSword.Card && DiamondSword.Card && NetheriteSword.Card && WoodenAxe.Card && StoneAxe.Card && IronAxe.Card && GoldAxe.Card && DiamondAxe.Card && NetheriteAxe.Card && WoodenHoe.Card && StoneHoe.Card && IronHoe.Card && GoldHoe.Card && DiamondHoe.Card && NetheriteHoe.Card && LetherArmor.Card && ChainArmor.Card && IronArmor.Card && GoldArmor.Card && DiamondArmor.Card && NetheriteArmor.Card && BrewingStand.Card && InvisablityPotion.Card && JumpPotion.Card && RegenPotion.Card && SpeedPotion.Card && StrengthPotion.Card && TotemOfUndying.Card && UltimatePotion.Card && DamageArrows.Card)) yield return null;
             ClassesRegistry.Register(CraftingTable.Card, CardType.Entry);
             ClassesRegistry.Register(MCShield.Card, CardType.Card, CraftingTable.Card);
             ClassesRegistry.Register(WoodenSword.Card, CardType.Gate, CraftingTable.Card);
@@ -59,22 +59,27 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 ClassesRegistry.Register(Arrow.Card, CardType.Card, MCBow.Card);
                 ClassesRegistry.Register(ExplosiveArrows.Card, CardType.Card, MCBow.Card);
                 ClassesRegistry.Register(PunchII.Card, CardType.Card, MCBow.Card);
-            //Instant damage arrows (essentialy chompy bullets)
-            //Speed boost tipped arrows (when you hit a oppenent they become much faster, +dmg, +another projectile)
+                ClassesRegistry.Register(DamageArrows.Card, CardType.Card, MCBow.Card);
+            
+           
             //Crossbow (much faster bullets, slower attack cooldown)
-            //Jump boost tipped arrows (when you hit a oppenent they gain a lot of jump height)
             //Levitation tipped arrows
+            
             //Modded subclass
-            //MOST OF THESE WILL BE RARES OR HIGHER
-            //
-            //Redstoner subclass
-            //
+            //MOST OF THESE WILL BE RARES OR HIGHER <--- nearly no ideas
+            
+            
+            //Redstoner subclass <--- no ideas
+            
+            //MOB SUBCLASS DONE
+            
             //Builder subclass
             //Dirt, build a box that is easily broken
             //Stone, build a box that is slightly harder to break
             //Deepslate
             //Obsidian
             //(tier system)
+            
             //Farmer
             //potato gain a bit of regen
             //potato enjoyer, gives 5 potatos

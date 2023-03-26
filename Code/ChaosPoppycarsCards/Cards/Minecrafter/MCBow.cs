@@ -23,10 +23,10 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.spread = 0.20f;
-            gun.projectileSpeed = 0.85f;
+            gun.projectielSimulatonSpeed = 1.25f;
+            gun.projectileSpeed = 2;
             cardInfo.allowMultiple = false;
-            gun.numberOfProjectiles = 1;
+            gun.attackSpeed = 1.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -52,7 +52,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         protected override string GetDescription()
         {
-            return "You unlock some new arrow types (+1 arrow = +1 projectile)";
+            return "You wield the weapon known as a bow";
         }
         protected override GameObject GetCardArt()
         {
@@ -69,22 +69,22 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Arrow",
-                    amount = "+1",
+                    stat = "Bullet Speed",
+                    amount = "+100%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Bullet speed",
-                    amount = "-15%",
+                    positive = true,
+                    stat = "Projectile Speed",
+                    amount = "+25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                    new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Spread",
-                    amount = "+20%",
+                    stat = "Attack Speed",
+                    amount = "-50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

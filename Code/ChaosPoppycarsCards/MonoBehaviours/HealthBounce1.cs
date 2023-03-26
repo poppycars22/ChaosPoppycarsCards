@@ -60,6 +60,10 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         {
             UnityEngine.GameObject.Destroy(this);
         }
+        public void OnDestroy()
+        {
+            InterfaceGameModeHooksManager.instance.RemoveHooks(this);
+        }
         public Player player;
     }
 }

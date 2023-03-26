@@ -345,17 +345,17 @@ namespace ChaosPoppycarsCards.Utilities
             {
                 CustomCardCategories.instance.MakeCardsExclusive(cardInfoA, cardInfoB);
 
-                Miscs.Log($"[GearUp] MakeExclusive: card [{cardA}] and card [{cardB}] made exclusive");
+                Miscs.Log($"[CPC] MakeExclusive: card [{cardA}] and card [{cardB}] made exclusive");
             }
             else
             {
                 if (cardInfoA == null)
                 {
-                    Miscs.LogWarn($"[GearUp] MakeExclusive: card [{cardA}] not found");
+                    Miscs.LogWarn($"[CPC] MakeExclusive: card [{cardA}] not found");
                 }
                 if (cardInfoB == null)
                 {
-                    Miscs.LogWarn($"[GearUp] MakeExclusive: card [{cardB}] not found");
+                    Miscs.LogWarn($"[CPC] MakeExclusive: card [{cardB}] not found");
                 }
             }
         }

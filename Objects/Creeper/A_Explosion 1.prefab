@@ -11693,10 +11693,10 @@ MonoBehaviour:
   silence: 0
   fastSlow: 0
   stun: 0
-  force: 9000
+  force: 12000
   objectForceMultiplier: 3
   forceIgnoreMass: 0
-  damage: 100
+  damage: 150
   dmgColor: {r: 0, g: 0, b: 0, a: 1}
   range: 4
   flyingFor: 0
