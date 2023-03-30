@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackLevel: 1
-  levelScaleM: 0.7
+  levelScaleM: 0.4
 --- !u!114 &114196913708052880
 MonoBehaviour:
   m_ObjectHideFlags: 0

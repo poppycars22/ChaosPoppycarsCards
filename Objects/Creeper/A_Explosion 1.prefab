@@ -11617,7 +11617,7 @@ GameObject:
   - component: {fileID: 114383157166711120}
   - component: {fileID: 114973512357360048}
   - component: {fileID: 114859462070006813}
-  - component: {fileID: 114500577257188734}
+  - component: {fileID: 114302817402203582}
   m_Layer: 0
   m_Name: A_Explosion 1
   m_TagString: Untagged
@@ -11658,7 +11658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 5
-  shrink: 0
+  shrink: 1
   scaleWithScale: 0
 --- !u!114 &114383157166711120
 MonoBehaviour:
@@ -11695,9 +11695,9 @@ MonoBehaviour:
   stun: 0
   force: 12000
   objectForceMultiplier: 3
-  forceIgnoreMass: 0
-  damage: 150
-  dmgColor: {r: 0, g: 0, b: 0, a: 1}
+  forceIgnoreMass: 1
+  damage: 125
+  dmgColor: {r: 0.76199996, g: 0, b: 0, a: 1}
   range: 4
   flyingFor: 0
   auto: 1
@@ -11755,7 +11755,7 @@ MonoBehaviour:
             m_BoolArgument: 1
           m_CallState: 2
     threshold: 4
---- !u!114 &114500577257188734
+--- !u!114 &114302817402203582
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11768,7 +11768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
-  attackLevel: 0
+  attackLevel: 1
   attackID: 0
   view: {fileID: 0}
 --- !u!1 &1836493336408606

@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundCharacterSlowFreeze: {fileID: 0}
-  AddObjectToPlayer: {fileID: 0}
+  AddObjectToPlayer: {fileID: 1633795565445532, guid: b5b5e3bdf59024a41adc13b83b41e4f7,
+    type: 3}
   objectsAddedToPlayer: []
   sizeMultiplier: 1
   health: 1
@@ -249,8 +250,7 @@ MonoBehaviour:
   soundBlockRecharged: {fileID: 0}
   soundBlockBlocked: {fileID: 0}
   soundBlockStatusEffect: {fileID: 0}
-  objectsToSpawn:
-  - {fileID: 1817971253521464, guid: 6423a49e68e119d44be92bd9470af1ff, type: 3}
+  objectsToSpawn: []
   sinceBlock: 0
   particle: {fileID: 0}
   reloadParticle: {fileID: 0}

@@ -131,7 +131,7 @@ namespace ChaosPoppycarsCards.Cards
                         characterStats.respawns += 2;
                         break;
                     case 7:
-                        block.additionalBlocks += 4;
+                        block.additionalBlocks += 3;
                         break;
                     case 8:
                         gun.spread += 0.5f;
@@ -159,7 +159,7 @@ namespace ChaosPoppycarsCards.Cards
                         //example case
                         break;
                     case 12:
-                        block.forceToAdd += 25;
+                        block.forceToAdd += 15;
                         //UnityEngine.Debug.Log("case 0");
                         //example case
                         break;
@@ -216,7 +216,7 @@ namespace ChaosPoppycarsCards.Cards
                         //example case
                         break;
                     case 18:
-                        gun.knockback *= 10;
+                        gun.knockback *= 5;
                         //UnityEngine.Debug.Log("case 0");
                         //example case
                         break;
@@ -247,7 +247,7 @@ namespace ChaosPoppycarsCards.Cards
                         //example case
                         break;
                     case 22:
-                        characterStats.regen += 10;
+                        characterStats.regen += 15;
                         //UnityEngine.Debug.Log("case 0");
                         //example case
                         break;
@@ -274,7 +274,7 @@ namespace ChaosPoppycarsCards.Cards
                         //example case
                         break;
                     case 25:
-                        characterStats.movementSpeed *= 5;
+                        characterStats.movementSpeed *= 2.5f;
                         //UnityEngine.Debug.Log("case 25");
                         //example case
                         break;
@@ -294,7 +294,7 @@ namespace ChaosPoppycarsCards.Cards
                         //example case
                         break;
                     case 29:
-                        gravity.gravityForce *= -1;
+                        gravity.gravityForce *= -0.25f;
                         characterStats.jump *= -1;
                         characterStats.sizeMultiplier *= -1;
                         characterStats.numberOfJumps += 10;

@@ -83,7 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: Zombie
-  cardDestription: Aaarghhh
+  cardDestription: Bruhhhhhh
   cardStats:
   - positive: 1
     amount: Damage
