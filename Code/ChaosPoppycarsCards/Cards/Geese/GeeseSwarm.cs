@@ -26,9 +26,9 @@ namespace ChaosPoppycarsCards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             geeseSwarms += 1;
-            RarityUtils.AjustCardRarityModifier(Goose.Card, 20, 1);
-            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, 4, 1);
-            RarityUtils.AjustCardRarityModifier(GoldGoose.Card, 3, 1);
+            RarityUtils.AjustCardRarityModifier(Goose.Card, 20, 0);
+            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, 4, 0);
+            RarityUtils.AjustCardRarityModifier(GoldGoose.Card, 3, 0);
             foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
             {
                 if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(otherPlayer.data.stats).blacklistedCategories.Contains(CPCCardCategories.GeeseCategory))
@@ -42,12 +42,12 @@ namespace ChaosPoppycarsCards.Cards
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             geeseSwarms -= 1;
-            RarityUtils.AjustCardRarityModifier(Goose.Card, -20, 1);
-            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, -4, 1);
-            RarityUtils.AjustCardRarityModifier(GoldGoose.Card, -3, 1);
+            RarityUtils.AjustCardRarityModifier(Goose.Card, -20, 0);
+            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, -4, 0);
+            RarityUtils.AjustCardRarityModifier(GoldGoose.Card, -3, 0);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
-            if (geeseSwarms >= 0)
+            if (geeseSwarms <= 0)
             {
                 foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
                 {
