@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1346741942261452
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4081170049667390}
+  - component: {fileID: 114238702936880550}
+  - component: {fileID: 114633578362434409}
+  - component: {fileID: 114673478892632821}
+  - component: {fileID: 114091564257883973}
+  - component: {fileID: 114460989471453028}
+  m_Layer: 0
+  m_Name: A_Implode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4081170049667390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346741942261452}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5112158, y: -2.4873931, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114238702936880550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346741942261452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6322680b2805d5c4d905cbdb2e91e5ea, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  triggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerEventEarly:
+    m_PersistentCalls:
+      m_Calls: []
+  delayOtherActions: 1
+  triggerFirstBlockThatDelaysOthers:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114091564257883973}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument:
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114460989471453028}
+        m_MethodName: PlayStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument:
+          m_BoolArgument: 0
+        m_CallState: 2
+  triggerSuperFirstBlock:
+    m_PersistentCalls:
+      m_Calls: []
+  successfulBlockEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  blockRechargeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  cooldown: 0
+  blackListedType: 1
+  cooldownSuccess: 0
+--- !u!114 &114633578362434409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346741942261452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddbb0b842805694691c747fc53b8d2a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  attackLevel: 1
+  levelScaleM: 0.8
+--- !u!114 &114673478892632821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346741942261452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820e4e3905cb94c4aa9e1e1e3c95718c, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  onLevelUp: 1
+  onStart: 0
+--- !u!114 &114091564257883973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346741942261452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd9f6d4d74043334281d3546a90c919c, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  objectToSpawn:
+  - {fileID: 1751833908427676, guid: 9c479a00a98351f4c80d65c812e7462c, type: 2}
+  spawnRot: 0
+  inheritScale: 1
+  destroyObject: 0
+  destroyRoot: 0
+  mostRecentlySpawnedObject: {fileID: 0}
+--- !u!114 &114460989471453028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346741942261452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafaf4e9b63575e45a27e3cc3925dabe, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  triggerStartOnStart: 0
+  triggerStartOnEnable: 0
+  triggerEndOnDestroy: 0
+  triggerEndOnDisable: 0
+  useLocalTransformForInstanceID: 0
+  soundStart: {fileID: 11400000, guid: d65027e1b14dcc742adbfb0a3f57da8f, type: 2}
+  soundStartLoop: {fileID: 0}
+  soundEnd: {fileID: 0}

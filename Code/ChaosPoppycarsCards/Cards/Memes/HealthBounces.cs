@@ -53,7 +53,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Every time your bullet bounces you get 0.5 hp (only lasts that one round)";
+            return "Every time your bullet bounces you get 0.25 hp";
         }
         protected override GameObject GetCardArt()
         {
@@ -61,7 +61,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return RarityUtils.GetRarity("Legendary");
+            return RarityUtils.GetRarity("Divine");
         }
         protected override CardInfoStat[] GetStats()
         {

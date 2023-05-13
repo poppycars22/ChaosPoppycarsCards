@@ -18,6 +18,7 @@ using WillsWackyManagers.Utils;
 using RarityLib.Utils;
 using System.Collections.Generic;
 using static ChaosPoppycarsCards.Utilities.CardUtils;
+using ChaosPoppycarsCards.MonoBehaviours;
 
 namespace ChaosPoppycarsCards
 {
@@ -43,7 +44,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "1.2.5"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.2.6"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -289,15 +290,6 @@ namespace ChaosPoppycarsCards
 
                     otherCard.categories = newList.ToArray();
                 }
-                if (GetCardInfo("Minecraft Bow") != null)
-                {
-                    CardInfo otherCard = GetCardInfo("Minecraft Bow");
-                    MakeExclusive("Minecraft Bow", "Cursor gun");
-
-                    List<CardCategory> newList = otherCard.categories.ToList();
-
-                    otherCard.categories = newList.ToArray();
-                }
             });
         }
 
@@ -314,7 +306,7 @@ namespace ChaosPoppycarsCards
 
         }
         
-        
+      
         /* private IEnumerator LightSaberRangeReset(IGameModeHandler gm)
          {
              yield return LightSaber.RangeResetTruth(gm);

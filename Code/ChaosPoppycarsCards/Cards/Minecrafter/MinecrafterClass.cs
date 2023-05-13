@@ -59,7 +59,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 ClassesRegistry.Register(Arrow.Card, CardType.Card, MCBow.Card);
                 ClassesRegistry.Register(ExplosiveArrows.Card, CardType.Card, MCBow.Card);
                 ClassesRegistry.Register(PunchII.Card, CardType.Card, MCBow.Card);
-                ClassesRegistry.Register(DamageArrows.Card, CardType.Card, MCBow.Card);
+                ClassesRegistry.Register(DamageArrows.Card, CardType.Card, MCBow.Card,CardLimit: 5);
             
            
             //Crossbow (much faster bullets, slower attack cooldown)

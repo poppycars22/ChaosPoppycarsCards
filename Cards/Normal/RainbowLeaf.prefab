@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
   - component: {fileID: 114837455388346668}
+  - component: {fileID: 114910633032120104}
   m_Layer: 0
   m_Name: RainbowLeaf
   m_TagString: Untagged
@@ -80,8 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: Rainbow Leaf
-  cardDestription: Gain 5 max hp every point
+  cardName: Monstera Leaf
+  cardDestription: Gain 50 max hp every point
   cardStats: []
   rarity: 0
   cardArt: {fileID: 4518639248861438065, guid: ef71043819092414b91ca9d95f24393f, type: 3}
@@ -310,3 +311,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tag: CPC
+--- !u!114 &114910633032120104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043437007509817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0dd34067843ef04487105ca25d9d3ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardInfo: {fileID: 0}
+  gun: {fileID: 0}
+  cardStats: {fileID: 0}
+  statModifiers: {fileID: 0}
+  block: {fileID: 0}

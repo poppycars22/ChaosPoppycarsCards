@@ -20,7 +20,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
 {
     class HealthBounce1 : BounceEffect, IRoundEndHookHandler, IPickStartHookHandler
     {
-        private float timesHit = 0;
+        private static float timesHit = 0;
         public void Start()
         {
             InterfaceGameModeHooksManager.instance.RegisterHooks(this);

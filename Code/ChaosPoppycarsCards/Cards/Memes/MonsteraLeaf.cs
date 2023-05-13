@@ -12,74 +12,57 @@ using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ChaosPoppycarsCards.MonoBehaviours;
-using ClassesManagerReborn.Util;
-using ChaosPoppycarsCards.Cards.Minecrafter;
+using RarityLib.Utils;
+using static ChaosPoppycarsCards.MonoBehaviours.RainbowLeaf;
 
 namespace ChaosPoppycarsCards.Cards
 {
-    class DamageArrows : CustomCard
+    class MonsteraLeaf : CustomCard
     {
-        internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.percentageDamage = 0.10f;
-            gun.attackSpeed = 1.25f;
-            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             
+            
+            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             
+            data.maxHealth += rainbowleafHealth;
+
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            
+            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}]{rainbowleafHealth}");
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
+
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
-        }
-        public override void Callback()
-        {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
         }
 
         protected override string GetTitle()
         {
-            return "Instant Damage Arrows";
+            return "Monstera Leaf";
         }
         protected override string GetDescription()
         {
-            return "You tipped your arrows in instant damage, making them deal percentage damage (you can only get 5 of this card)";
+            return "Gain 25 max hp every point (warning: if more then one person gets this card they will also get the same amount of health you got)";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_DeathArrow");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_RainbowLeaf");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return RarityUtils.GetRarity("Divine");
         }
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
             {
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Percentage Damage",
-                    amount = "+10%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                 new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Attack Speed",
-                    amount = "-25%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }
+                
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

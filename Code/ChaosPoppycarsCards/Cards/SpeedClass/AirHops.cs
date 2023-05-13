@@ -24,8 +24,8 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.movementSpeed = 1.5f;
-            statModifiers.jump = 1.25f;
+            
+            
 
             statModifiers.numberOfJumps = 5;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -72,20 +72,6 @@ namespace ChaosPoppycarsCards.Cards
                     positive = true,
                     stat = "Jumps",
                     amount = "+5",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Movement Speed",
-                    amount = "+50%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Jump Height",
-                    amount = "+25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
