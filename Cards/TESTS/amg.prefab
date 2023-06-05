@@ -17,8 +17,10 @@ GameObject:
   - component: {fileID: 114997074887337774}
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
+  - component: {fileID: 114837455388346668}
+  - component: {fileID: 114951176711567652}
   m_Layer: 0
-  m_Name: Creeper 1
+  m_Name: amg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,8 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: test
-  cardDestription: ahhhhhhhhhhhhhhhhh
+  cardName: testaaaaaaaa
+  cardDestription: testaaaaaaaaaa
   cardStats: []
   rarity: 0
   cardArt: {fileID: 0}
@@ -88,7 +90,7 @@ MonoBehaviour:
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
   categories: []
-  allowMultiple: 1
+  allowMultiple: 0
   blacklistedCategories: []
   cardBase: {fileID: 1720757555582362, guid: ab7829e25091330408953c12456bfb86, type: 3}
   colorTheme: 0
@@ -214,22 +216,7 @@ MonoBehaviour:
   currentCharge: 0
   useCharge: 0
   dontAllowAutoFire: 0
-  objectsToSpawn:
-  - effect: {fileID: 1090746164792067, guid: 6f54ca9dcda4a38449507247aac7da06, type: 3}
-    direction: 0
-    spawnOn: 0
-    spawnAsChild: 1
-    numberOfSpawns: 1
-    normalOffset: 0.05
-    stickToBigTargets: 0
-    stickToAllTargets: 0
-    zeroZ: 0
-    AddToProjectile: {fileID: 0}
-    removeScriptsFromProjectileObject: 0
-    scaleStacks: 1
-    scaleStackM: 0.7
-    scaleFromDamage: 0.7
-    stacks: 0
+  objectsToSpawn: []
   projectileColor: {r: 0, g: 0, b: 0, a: 1}
   waveMovement: 0
   teleport: 0
@@ -301,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Group: 0
-  prefixField: -1
+  prefixField: 0
   observableSearch: 0
   Synchronization: 0
   OwnershipTransfer: 0
@@ -310,3 +297,30 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &114837455388346668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043437007509817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01250c9c7c3a3a94eb4fbe6a5a71e818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GunCritDamage2: 1
+  GunCritChance2: 1
+  Tag: CPC
+--- !u!114 &114951176711567652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043437007509817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d28a2b7bc8548848971e3c093a0c2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

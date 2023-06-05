@@ -13,14 +13,14 @@ namespace ChaosPoppycarsCards.Cards
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
-            gun.damage = 0.15f;
+            gun.damage = 0.5f;
             cardInfo.allowMultiple = false;
             gun.destroyBulletAfter = 0.066f;
             gun.reloadTime = 0.00003f;
             gun.gravity = 0f;
             gun.attackSpeed = 0.00003f;
-            gun.ammo = +50;
-            block.cdMultiplier = 2f;
+            gun.ammo = -101;
+            gun.unblockable = true;
             
             statModifiers.movementSpeed = 0.7f;
             //make this card, if you can figure out how, a light saber png attached to the gun that also makes the bullets invisable
@@ -80,7 +80,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = false,
                     stat = "Damage",
-                    amount = "-85%",
+                    amount = "-50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
@@ -101,7 +101,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = false,
                     stat = "Ammo",
-                    amount = "+50"
+                    amount = "1"
                 },
                 new CardInfoStat()
                 {
@@ -112,21 +112,9 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Block CD",
-                    amount = "+100%"
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
                     stat = "Blocks",
                     amount = "1"
                 },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Movement Speed",
-                    amount = "-30%"
-                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

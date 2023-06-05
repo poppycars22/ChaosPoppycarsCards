@@ -19,6 +19,8 @@ using RarityLib.Utils;
 using System.Collections.Generic;
 using static ChaosPoppycarsCards.Utilities.CardUtils;
 using ChaosPoppycarsCards.MonoBehaviours;
+using CPC.Extensions;
+using CPCCardInfostuffs;
 
 namespace ChaosPoppycarsCards
 {
@@ -285,6 +287,24 @@ namespace ChaosPoppycarsCards
                 {
                     CardInfo otherCard = GetCardInfo("Parallel Bullets");
                     MakeExclusive("Parallel Bullets", "Cursor gun");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Boomerang") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Boomerang");
+                    MakeExclusive("Boomerang", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Shields Up") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Shields Up");
+                    MakeExclusive("Shields Up", "Light Saber");
 
                     List<CardCategory> newList = otherCard.categories.ToList();
 
