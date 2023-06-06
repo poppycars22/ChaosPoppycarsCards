@@ -18,7 +18,7 @@ namespace ChaosPoppycarsCards.Cards
 
             gun.ammo = -1;
             statModifiers.movementSpeed = 0.85f;
-            statModifiers.numberOfJumps = 2;
+            statModifiers.numberOfJumps = 1;
             
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -54,7 +54,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return RarityUtils.GetRarity("Goose");
+            return RarityUtils.GetRarity("Trinket");
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -64,7 +64,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Jumps",
-                    amount = "+2",
+                    amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

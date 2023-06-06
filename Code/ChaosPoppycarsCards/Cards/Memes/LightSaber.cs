@@ -48,7 +48,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Replace your gun with a lightsaber";
+            return "Replace your gun with a lightsaber (blame whynack)";
         }
         protected override GameObject GetCardArt()
         {

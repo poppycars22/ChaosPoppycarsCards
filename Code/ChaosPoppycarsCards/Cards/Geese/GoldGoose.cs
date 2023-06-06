@@ -16,18 +16,18 @@ namespace ChaosPoppycarsCards.Cards
             cardInfo.allowMultiple = true;
             cardInfo.categories = new CardCategory[] {CustomCardCategories.CanDrawMultipleCategory, CPCCardCategories.GeeseCategory };
 
-            block.additionalBlocks = 2;
-            statModifiers.movementSpeed = 2f;
-            statModifiers.numberOfJumps = 10;
+            block.additionalBlocks = 1;
+            statModifiers.movementSpeed = 1.5f;
+            statModifiers.numberOfJumps = 5;
             
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            gun.damage += 50f/55f;
+            gun.damage += 25f/55f;
             
-            data.maxHealth += 50;
+            data.maxHealth += 25;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -51,7 +51,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return RarityUtils.GetRarity("Legendary");
+            return RarityUtils.GetRarity("Epic");
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -61,35 +61,35 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Jumps",
-                    amount = "+10",
+                    amount = "+5",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+50",
+                    amount = "+25",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+50",
+                    amount = "+25",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Movement Speed",
-                    amount = "+100%",
+                    amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Blocks",
-                    amount = "+2",
+                    amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

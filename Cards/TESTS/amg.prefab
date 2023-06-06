@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
   - component: {fileID: 114837455388346668}
-  - component: {fileID: 114951176711567652}
   m_Layer: 0
   m_Name: amg
   m_TagString: Untagged
@@ -107,7 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundCharacterSlowFreeze: {fileID: 0}
-  AddObjectToPlayer: {fileID: 0}
+  AddObjectToPlayer: {fileID: 1550235165504827944, guid: 05d13c6ac5261f542b2a1567c3bfb56f,
+    type: 3}
   objectsAddedToPlayer: []
   sizeMultiplier: 1
   health: 1
@@ -309,18 +309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01250c9c7c3a3a94eb4fbe6a5a71e818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunCritDamage2: 1
-  GunCritChance2: 1
+  GunCritDamage2: 0.5
+  GunCritChance2: 0.5
   Tag: CPC
---- !u!114 &114951176711567652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043437007509817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d28a2b7bc8548848971e3c093a0c2bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

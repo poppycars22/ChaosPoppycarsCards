@@ -65,24 +65,24 @@ namespace CPC.Extensions
 
     internal class ApplyCardStatsPatch
     {
-        private static void Postfix(CPCCardInfo __instance, Player ___playerToUpgrade)
+        private static void Postfix(ApplyCardStats __instance, Player ___playerToUpgrade)
         {
             var THINGaa = __instance.GetComponent<CPCCardInfo>();
 
             UnityEngine.Debug.Log("PostFix loaded");
-            UnityEngine.Debug.Log($"[test1 GunCritDamage {__instance.GunCritDamage2}, GunCritChance {__instance.GunCritChance2} ]");
+            UnityEngine.Debug.Log($"[test1 GunCritDamage {THINGaa.GunCritDamage2}, GunCritChance {THINGaa.GunCritChance2} ]");
             if (THINGaa != null)
             {
 
                 UnityEngine.Debug.Log("CPCCARDinfo isnt null");
-                UnityEngine.Debug.Log($"[test2 GunCritDamage {__instance.GunCritDamage2}, GunCritChance {__instance.GunCritChance2} ]");
+                UnityEngine.Debug.Log($"[test2 GunCritDamage {THINGaa.GunCritDamage2}, GunCritChance {THINGaa.GunCritChance2} ]");
                 if (___playerToUpgrade.data.weaponHandler.gun != null)
                 {
                     UnityEngine.Debug.Log("Gun Additional Data isnt null");
-                    UnityEngine.Debug.Log($"[test3 GunCritDamage {__instance.GunCritDamage2}, GunCritChance {__instance.GunCritChance2} ]");
+                    UnityEngine.Debug.Log($"[test3 GunCritDamage {THINGaa.GunCritDamage2} , GunCritChance  {THINGaa.GunCritChance2} ]");
                     UnityEngine.Debug.Log($"[ criticalHitDamage {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1}, criticalHitChance {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1} ]");
-                    ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1 += __instance.GunCritDamage2;
-                    ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1 += __instance.GunCritChance2;
+                    ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1 += THINGaa.GunCritDamage2;
+                    ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1 += THINGaa.GunCritChance2;
                     UnityEngine.Debug.Log($"[crit chance {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1}, crit damage {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1} ]");
                 }
             }

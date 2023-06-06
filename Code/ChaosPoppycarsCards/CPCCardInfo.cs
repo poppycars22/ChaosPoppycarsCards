@@ -51,10 +51,6 @@ namespace CPCCardInfostuffs
             modText.fontSize = 54;
 
 
-
-
-             GunCritDamage2 = 0f;
-             GunCritChance2 = 0f;
             UnityEngine.Debug.Log($"[CPCCardInfo Test GunCritDamage {GunCritDamage2}, GunCritChance {GunCritChance2} ]");
         }
     }

@@ -3,8 +3,9 @@ using UnityEngine;
 using CPC.Extensions;
 using ChaosPoppycarsCards.Utilities;
 using SimulationChamber;
+using UnboundLib.Networking;
 
-public class CriticalHitBehaviour : MonoBehaviour/*Pun*/
+public class CriticalHitBehaviour : MonoBehaviourPun
 {
     private float critMultiplier = 1f; // Current critical hit multiplier
     private bool isCriticalHit; // Flag indicating if it's a critical hit
@@ -25,28 +26,28 @@ public class CriticalHitBehaviour : MonoBehaviour/*Pun*/
     }
     public void OnShootProjectileAction(GameObject obj)
     {
-        //photonView.RPC("SyncRandomValue", RpcTarget.All, gun.GetAdditionalData().criticalHitChance);
-
+        photonView.RPC("SyncRandomValue", RpcTarget.All, gun.GetAdditionalData().criticalHitChance1);
         ProjectileHit bullet = obj.GetComponent<ProjectileHit>();
         
+
+
         UnityEngine.Debug.Log("You shot lmao");
 
+        
 
-        isCriticalHit = Random.value < this.gun.GetAdditionalData().criticalHitChance1;
-
+       //isCriticalHit = Random.value < gun.GetAdditionalData().criticalHitChance1;
         critMultiplier = 1f;
-
 
         if (isCriticalHit)
         {
             UnityEngine.Debug.Log("was a crit");
-            critMultiplier = Mathf.Floor(this.gun.GetAdditionalData().criticalHitChance1 / 1f); // Get the integer part of the critical hit chance
+            critMultiplier = Mathf.Floor(gun.GetAdditionalData().criticalHitChance1 / 1f); // Get the integer part of the critical hit chance
 
             // Check for double crit and higher crit multipliers
-            if (this.gun.GetAdditionalData().criticalHitChance1 >= 1f)
+            if (gun.GetAdditionalData().criticalHitChance1 >= 1f)
             {
-                float additionalCrits = Mathf.Floor((this.gun.GetAdditionalData().criticalHitChance1 - 1f) / 1f);
-                float doubleCritChance = (this.gun.GetAdditionalData().criticalHitChance1 - 1f) % 1f;
+                float additionalCrits = Mathf.Floor((gun.GetAdditionalData().criticalHitChance1 - 1f) / 1f);
+                float doubleCritChance = (gun.GetAdditionalData().criticalHitChance1 - 1f) % 1f;
                 if (Random.value < doubleCritChance)
                 {
                     critMultiplier += additionalCrits + 1f;
@@ -56,12 +57,28 @@ public class CriticalHitBehaviour : MonoBehaviour/*Pun*/
                     critMultiplier += additionalCrits;
                 }
             }
+            else
+            {
+                critMultiplier = 1f;
+            }
         }
         if (isCriticalHit)
         {
-            bullet.projectileColor = Color.yellow;
-            bullet.damage *= this.gun.GetAdditionalData().criticalHitDamage1 * critMultiplier;
-            UnityEngine.Debug.Log("Bullet dmg" + bullet.damage);
+           
+           
+            if (critMultiplier > 1f)
+            {
+                bullet.damage *= (this.gun.GetAdditionalData().criticalHitDamage1 * critMultiplier)/((critMultiplier/2f)+0.75f);
+            }
+            else
+            {
+                bullet.damage *= this.gun.GetAdditionalData().criticalHitDamage1;
+            }
+            UnityEngine.Debug.Log("Bullet dmg " + bullet.damage + " Crit mult" + critMultiplier + " Crit hit dmg 1" + gun.GetAdditionalData().criticalHitDamage1);
+        }
+        else
+        {
+           
         }
     }
     public void OnDestroy()
@@ -70,30 +87,38 @@ public class CriticalHitBehaviour : MonoBehaviour/*Pun*/
         gun.ShootPojectileAction -= OnShootProjectileAction;
 
     }
-    //[PunRPC]
-    /* private void SyncRandomValue(Gun gun)
-     {
-         isCriticalHit = Random.value < gun.GetAdditionalData().criticalHitChance;
-         critMultiplier = 1f;
+      [PunRPC]
+      private void SyncRandomValue(/*Gun gun, GameObject obj*/)
+       {
+          //ProjectileHit bullet = obj.GetComponent<ProjectileHit>();
+          isCriticalHit = Random.value < gun.GetAdditionalData().criticalHitChance1;
+         /*  critMultiplier = 1f;
 
-         if (isCriticalHit)
-         {
-             critMultiplier = Mathf.Floor(gun.GetAdditionalData().criticalHitChance / 1f); // Get the integer part of the critical hit chance
+          if (isCriticalHit)
+          {
+              UnityEngine.Debug.Log("was a crit");
+              critMultiplier = Mathf.Floor(gun.GetAdditionalData().criticalHitChance1 / 1f); // Get the integer part of the critical hit chance
 
-             // Check for double crit and higher crit multipliers
-             if (gun.GetAdditionalData().criticalHitChance >= 1f)
-             {
-                 float additionalCrits = Mathf.Floor((gun.GetAdditionalData().criticalHitChance - 1f) / 1f);
-                 float doubleCritChance = (gun.GetAdditionalData().criticalHitChance - 1f) % 1f;
-                 if (Random.value < doubleCritChance)
-                 {
-                     critMultiplier += additionalCrits + 1f;
-                 }
-                 else
-                 {
-                     critMultiplier += additionalCrits;
-                 }
-             }
-         } 
-     } */
+              // Check for double crit and higher crit multipliers
+              if (gun.GetAdditionalData().criticalHitChance1 >= 1f)
+              {
+                  float additionalCrits = Mathf.Floor((gun.GetAdditionalData().criticalHitChance1 - 1f) / 1f);
+                  float doubleCritChance = (gun.GetAdditionalData().criticalHitChance1 - 1f) % 1f;
+                  if (Random.value < doubleCritChance)
+                  {
+                      critMultiplier += additionalCrits + 1f;
+                  }
+                  else
+                  {
+                      critMultiplier += additionalCrits;
+                  }
+              }
+          }
+          if (isCriticalHit)
+          {
+              bullet.projectileColor = Color.yellow;
+              bullet.damage *= this.gun.GetAdditionalData().criticalHitDamage1 * critMultiplier;
+              UnityEngine.Debug.Log("Bullet dmg" + bullet.damage);
+          } */
+      } 
 }

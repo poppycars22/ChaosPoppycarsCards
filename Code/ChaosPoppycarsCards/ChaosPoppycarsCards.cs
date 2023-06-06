@@ -61,7 +61,7 @@ namespace ChaosPoppycarsCards
             // Use this to call any harmony patch files your mod may have
             CardThemeLib.CardThemeLib.instance.CreateOrGetType("Evergreen", new CardThemeColor() { bgColor = new Color(0.09f, 0.23f, 0.11f), targetColor = new Color(0.28f, 0.80f, 0.32f) });
            
-            RarityUtils.AddRarity("Goose", 1, new Color(0.722f, 0.840f, 0.775f), new Color(0.860f, 1.00f, 0.923f));
+            
           
             var harmony = new Harmony(ModId);
           
@@ -338,6 +338,7 @@ namespace ChaosPoppycarsCards
             {
                 ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Remove(CPCCardCategories.PotionCategory);
                 ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.GeeseCategory);
+                player.gameObject.GetOrAddComponent<CriticalHitBehaviour>();
             }
             yield break;
 
