@@ -15,6 +15,16 @@ namespace CPCCardInfostuffs
         //public bool Nullable = true;
         public float GunCritDamage2 = 0f;
         public float GunCritChance2 = 0f;
+        public int GunCritBounces = 0;
+        public float GunCritDamageOnBounce = 0f;
+        public bool GunConsecutiveCrits = false;
+        public float GunConsecutiveCritsDamage = 0f;
+        public bool GunGuranteedCrits = false;
+        public float GunCritSlow = 0f;
+        public Color GunCritColor = Color.red;
+        public Color GunDoubleCritColor = Color.cyan;
+        public float GunCritBulletSpeed = 0f;
+        public float GunCritSimulationSpeed = 0f;
         //public bool NeedsNull = false; 
         public string Tag = "CPC";
 
@@ -51,7 +61,7 @@ namespace CPCCardInfostuffs
             modText.fontSize = 54;
 
 
-            UnityEngine.Debug.Log($"[CPCCardInfo Test GunCritDamage {GunCritDamage2}, GunCritChance {GunCritChance2} ]");
+          
         }
     }
     

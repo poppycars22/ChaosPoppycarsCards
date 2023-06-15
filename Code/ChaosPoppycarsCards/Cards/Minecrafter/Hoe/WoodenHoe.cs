@@ -30,6 +30,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
            
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             gun.attackSpeed = .5f;
+            gun.reloadTime = .75f;
             cardInfo.allowMultiple = false;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
@@ -62,7 +63,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         protected override string GetDescription()
         {
-            return "Gives attack speed, unlocks stone hoe, craft the next level of hoe on every other round end";
+            return "Gives attack speed & reload speed, unlocks stone hoe, craft the next level of hoe on every other round end";
         }
         protected override GameObject GetCardArt()
         {
@@ -81,6 +82,13 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                     positive = true,
                     stat = "Attack Speed",
                     amount = "+50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                 new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Reload Speed",
+                    amount = "+25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

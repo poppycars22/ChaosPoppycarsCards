@@ -43,7 +43,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                         ClassesRegistry.Register(DiamondArmor.Card, CardType.Gate, IronArmor.Card);
                             ClassesRegistry.Register(NetheriteArmor.Card, CardType.Card, DiamondArmor.Card);
             
-            ClassesRegistry.Register(TotemOfUndying.Card, CardType.Card, CraftingTable.Card, 3);
+            ClassesRegistry.Register(TotemOfUndying.Card, CardType.Card, CraftingTable.Card, CardLimit: 3);
             ClassesRegistry.Register(BrewingStand.Card, CardType.SubClass, CraftingTable.Card);
                 ClassesRegistry.Register(InvisablityPotion.Card, CardType.Card, BrewingStand.Card);
                 ClassesRegistry.Register(JumpPotion.Card, CardType.Card, BrewingStand.Card);
@@ -80,7 +80,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             //Obsidian
             //(tier system)
             
-            //Farmer
+            //Farmer subclass
             //potato gain a bit of regen
             //potato enjoyer, gives 5 potatos
             //#3 potato farmer, gives 10 potatos
@@ -92,18 +92,41 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         public override IEnumerator PostInit()
         {
-            ClassesRegistry.Get(WoodenSword.Card).Blacklist(WoodenAxe.Card);
-            ClassesRegistry.Get(WoodenSword.Card).Blacklist(WoodenHoe.Card);
-            ClassesRegistry.Get(WoodenSword.Card).Blacklist(LetherArmor.Card);
+            //if (!NetheriteSword.Card)
+            //{
+                ClassesRegistry.Get(WoodenSword.Card).Blacklist(WoodenAxe.Card);
+                ClassesRegistry.Get(WoodenSword.Card).Blacklist(WoodenHoe.Card);
+                ClassesRegistry.Get(WoodenSword.Card).Blacklist(LetherArmor.Card);
+            //}
+            
+           
             ClassesRegistry.Get(WoodenAxe.Card).Blacklist(WoodenSword.Card);
             ClassesRegistry.Get(WoodenAxe.Card).Blacklist(WoodenHoe.Card);
             ClassesRegistry.Get(WoodenAxe.Card).Blacklist(LetherArmor.Card);
+           
             ClassesRegistry.Get(WoodenHoe.Card).Blacklist(WoodenSword.Card);
             ClassesRegistry.Get(WoodenHoe.Card).Blacklist(WoodenAxe.Card);
             ClassesRegistry.Get(WoodenHoe.Card).Blacklist(LetherArmor.Card);
+            
             ClassesRegistry.Get(LetherArmor.Card).Blacklist(WoodenSword.Card);
             ClassesRegistry.Get(LetherArmor.Card).Blacklist(WoodenHoe.Card);
             ClassesRegistry.Get(LetherArmor.Card).Blacklist(WoodenAxe.Card);
+            
+            /*ClassesRegistry.Get(NetheriteArmor.Card).DeBhitelist(WoodenAxe.Card);
+            ClassesRegistry.Get(NetheriteArmor.Card).DeBhitelist(WoodenHoe.Card);
+            ClassesRegistry.Get(NetheriteArmor.Card).DeBhitelist(WoodenSword.Card);
+            
+            ClassesRegistry.Get(NetheriteSword.Card).DeBhitelist(WoodenAxe.Card);
+            ClassesRegistry.Get(NetheriteSword.Card).DeBhitelist(WoodenHoe.Card);
+            ClassesRegistry.Get(NetheriteSword.Card).DeBhitelist(LetherArmor.Card);
+
+            ClassesRegistry.Get(NetheriteAxe.Card).DeBhitelist(WoodenSword.Card);
+            ClassesRegistry.Get(NetheriteAxe.Card).DeBhitelist(WoodenHoe.Card);
+            ClassesRegistry.Get(NetheriteAxe.Card).DeBhitelist(LetherArmor.Card);
+
+            ClassesRegistry.Get(NetheriteHoe.Card).DeBhitelist(WoodenSword.Card);
+            ClassesRegistry.Get(NetheriteHoe.Card).DeBhitelist(WoodenAxe.Card);
+            ClassesRegistry.Get(NetheriteHoe.Card).DeBhitelist(LetherArmor.Card);*/
             yield break;
         }
     }

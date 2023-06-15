@@ -16,7 +16,7 @@
     "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": false,
+    "allowUnsafeCode": true,
     "overrideReferences": true,
     "precompiledReferences": [
         "0Harmony.dll",
@@ -24,7 +24,9 @@
         "Assembly-CSharp.dll",
         "SonigonAudioEngine.Runtime.dll",
         "PhotonUnityNetworking.dll",
-        "PhotonRealtime.dll"
+        "PhotonRealtime.dll",
+        "Photon3Unity3D.dll",
+        "TabInfo.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

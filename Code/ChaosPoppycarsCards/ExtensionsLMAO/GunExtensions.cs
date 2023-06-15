@@ -14,15 +14,45 @@ namespace CPC.Extensions
 
         public float criticalHitChance1 = 0f;
         public float criticalHitDamage1 = 1f;
+        public int criticalHitBounces = 0;
+        public float criticalHitDamageOnBounce = 0f;
+        public bool consecutiveCrits = false;
+        public bool guranteedCrits = false;
+        public float consecutiveCritsDamage = 0f;
+        public float CritSlow = 0f;
+        public Color CritColor = Color.red;
+        public Color DoubleCritColor = Color.cyan;
+        public float criticalBulletSpeed = 1f;
+        public float criticalSimulationSpeed = 1f;
 
 
         public GunAdditionalData()
         {
-            UnityEngine.Debug.Log("GunAdditionalData Loaded");
+
             criticalHitChance1 = 0f;
-            UnityEngine.Debug.Log($"[crit chance {criticalHitChance1}]");
+
             criticalHitDamage1 = 1f;
-            UnityEngine.Debug.Log($"[crit damage {criticalHitDamage1}]");
+
+            criticalHitBounces = 0;
+
+            criticalHitDamageOnBounce = 0f;
+
+            consecutiveCrits = false;
+
+            guranteedCrits = false;
+
+            consecutiveCritsDamage = 0f;
+
+            CritSlow = 0f;
+
+            CritColor = Color.red;
+
+            DoubleCritColor = Color.cyan;
+
+            criticalBulletSpeed = 1f;
+
+            criticalSimulationSpeed = 1f;
+
         }
     }
     public static class GunExtension
@@ -31,19 +61,19 @@ namespace CPC.Extensions
 
         public static GunAdditionalData GetAdditionalData(this Gun gun)
         {
-            UnityEngine.Debug.Log("GunAdditionalData#2 Loaded");
+         
             return data.GetOrCreateValue(gun);
         }
 
         public static void AddData(this Gun gun, GunAdditionalData value)
         {
-            UnityEngine.Debug.Log("GunAddData Loaded");
+          
             try
             {
                 data.Add(gun, value);
-                UnityEngine.Debug.Log("Try succeded");
+             
             }
-            catch (Exception) { UnityEngine.Debug.Log("Try failed"); }
+            catch (Exception) {  }
         }
        
 
@@ -54,11 +84,30 @@ namespace CPC.Extensions
     {
         private static void Prefix(Gun __instance)
         {
-            UnityEngine.Debug.Log("prefix got applied");
+
             __instance.GetAdditionalData().criticalHitChance1 = 0f;
-            UnityEngine.Debug.Log($"[crit chance {__instance.GetAdditionalData().criticalHitChance1}]");
+
             __instance.GetAdditionalData().criticalHitDamage1 = 1f;
-            UnityEngine.Debug.Log($"[crit damage {__instance.GetAdditionalData().criticalHitDamage1}]");
+
+            __instance.GetAdditionalData().criticalHitBounces = 0;
+
+            __instance.GetAdditionalData().criticalHitDamageOnBounce = 0f;
+
+            __instance.GetAdditionalData().consecutiveCrits = false;
+
+            __instance.GetAdditionalData().consecutiveCritsDamage = 0f;
+
+            __instance.GetAdditionalData().guranteedCrits = false;
+
+            __instance.GetAdditionalData().CritSlow = 0f;
+
+            __instance.GetAdditionalData().CritColor = Color.red;
+
+            __instance.GetAdditionalData().DoubleCritColor = Color.cyan;
+
+            __instance.GetAdditionalData().criticalBulletSpeed = 1f;
+
+            __instance.GetAdditionalData().criticalSimulationSpeed = 1f; 
         }
     }
     [HarmonyPatch(typeof(ApplyCardStats), "ApplyStats")]
@@ -69,21 +118,51 @@ namespace CPC.Extensions
         {
             var THINGaa = __instance.GetComponent<CPCCardInfo>();
 
-            UnityEngine.Debug.Log("PostFix loaded");
-            UnityEngine.Debug.Log($"[test1 GunCritDamage {THINGaa.GunCritDamage2}, GunCritChance {THINGaa.GunCritChance2} ]");
+           
             if (THINGaa != null)
             {
 
-                UnityEngine.Debug.Log("CPCCARDinfo isnt null");
-                UnityEngine.Debug.Log($"[test2 GunCritDamage {THINGaa.GunCritDamage2}, GunCritChance {THINGaa.GunCritChance2} ]");
+
                 if (___playerToUpgrade.data.weaponHandler.gun != null)
                 {
-                    UnityEngine.Debug.Log("Gun Additional Data isnt null");
-                    UnityEngine.Debug.Log($"[test3 GunCritDamage {THINGaa.GunCritDamage2} , GunCritChance  {THINGaa.GunCritChance2} ]");
-                    UnityEngine.Debug.Log($"[ criticalHitDamage {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1}, criticalHitChance {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1} ]");
+
+                    // UnityEngine.Debug.Log($"[ criticalHitDamage {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1}, criticalHitChance {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1} ]");
                     ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1 += THINGaa.GunCritDamage2;
+
                     ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1 += THINGaa.GunCritChance2;
-                    UnityEngine.Debug.Log($"[crit chance {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1}, crit damage {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1} ]");
+
+                    ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitBounces += THINGaa.GunCritBounces;
+
+                    ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitDamageOnBounce += THINGaa.GunCritDamageOnBounce;
+
+                    if (___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().consecutiveCrits == false)
+                    {
+                        ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().consecutiveCrits = THINGaa.GunConsecutiveCrits;
+                    }
+
+                    ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().consecutiveCritsDamage += THINGaa.GunConsecutiveCritsDamage;
+
+                    if (___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().guranteedCrits == false)
+                    {
+                        ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().guranteedCrits = THINGaa.GunGuranteedCrits;
+                    }
+
+                    ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().CritSlow += THINGaa.GunCritSlow;
+
+                    if (THINGaa.GunCritColor != Color.red & ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().CritColor != Color.clear)
+                    {
+                        ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().CritColor = THINGaa.GunCritColor;
+                    }
+
+                    if (THINGaa.GunDoubleCritColor != Color.cyan & ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().CritColor != Color.clear)
+                    {
+                        ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().DoubleCritColor = THINGaa.GunDoubleCritColor;
+                    }
+
+                    ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalBulletSpeed += THINGaa.GunCritBulletSpeed;
+
+                    ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalSimulationSpeed += THINGaa.GunCritSimulationSpeed;
+                    //UnityEngine.Debug.Log($"[crit chance {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1}, crit damage {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1} ]");
                 }
             }
         }

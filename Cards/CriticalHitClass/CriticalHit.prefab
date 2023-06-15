@@ -18,8 +18,10 @@ GameObject:
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
   - component: {fileID: 114837455388346668}
+  - component: {fileID: 114275119899899320}
+  - component: {fileID: 114322199380818648}
   m_Layer: 0
-  m_Name: amg
+  m_Name: CriticalHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,11 +82,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: testaaaaaaaa
-  cardDestription: testaaaaaaaaaa
-  cardStats: []
-  rarity: 0
-  cardArt: {fileID: 0}
+  cardName: Critical Hit
+  cardDestription: Time for a crit build (if your crit chance goes over 100% you can
+    get "double crits)
+  cardStats:
+  - positive: 1
+    amount: +25%
+    simepleAmount: 0
+    stat: Crit Chance
+  - positive: 1
+    amount: +50%
+    simepleAmount: 0
+    stat: Crit Damage
+  - positive: 0
+    amount: +0.5s
+    simepleAmount: 0
+    stat: Reload Time
+  rarity: 1
+  cardArt: {fileID: 2313991409503150535, guid: f7de4f193a98e97428c5cb82d906b71b, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
@@ -169,7 +184,7 @@ MonoBehaviour:
   isReloading: 0
   damage: 1
   reloadTime: 1
-  reloadTimeAdd: 0
+  reloadTimeAdd: 0.5
   recoilMuiltiplier: 1
   knockback: 1
   attackSpeed: 1
@@ -310,5 +325,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GunCritDamage2: 0.5
-  GunCritChance2: 0.5
+  GunCritChance2: 0.25
+  GunCritBounces: 0
+  GunCritDamageOnBounce: 0
+  GunConsecutiveCrits: 0
+  GunConsecutiveCritsDamage: 0
+  GunGuranteedCrits: 0
+  GunCritSlow: 0
+  GunCritColor: {r: 1, g: 0, b: 0, a: 1}
+  GunDoubleCritColor: {r: 0, g: 1, b: 1, a: 1}
+  GunCritBulletSpeed: 0
+  GunCritSimulationSpeed: 0
   Tag: CPC
+--- !u!114 &114275119899899320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043437007509817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a21637c3db6054eae68910e02d3209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  className: Class
+  ClassDefult: {r: 0.20784314, g: 0.76862746, b: 0.039215688, a: 1}
+  SubClassDefult: {r: 0.7, g: 0.33, b: 0.05, a: 1}
+  color1: {r: 0, g: 0, b: 0, a: 1}
+  color2: {r: 0, g: 0, b: 0, a: 1}
+--- !u!114 &114322199380818648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043437007509817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0939ace75ac9f43b8b54ed3c30fdd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  className: Critical Hit
+  cardType: 1
+  maxAllowed: 1
+  requirementType: 0
+  singleReq: {fileID: 0}
+  listReq: []
+  multilistReq: []
+  multilistCount: 0
+  whiteList: []
+  blackList: []

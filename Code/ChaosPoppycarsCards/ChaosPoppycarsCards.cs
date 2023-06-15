@@ -21,6 +21,7 @@ using static ChaosPoppycarsCards.Utilities.CardUtils;
 using ChaosPoppycarsCards.MonoBehaviours;
 using CPC.Extensions;
 using CPCCardInfostuffs;
+using CPCTabInfoSTATS;
 
 namespace ChaosPoppycarsCards
 {
@@ -37,6 +38,7 @@ namespace ChaosPoppycarsCards
     [BepInDependency("root.cardtheme.lib", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.Root.Null", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.CrazyCoders.Rounds.RarityBundle", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.willuwontu.rounds.tabinfo", BepInDependency.DependencyFlags.HardDependency)]
     // Declares our mod to Bepin
     [BepInPlugin(ModId, ModName, Version)]
 
@@ -46,7 +48,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "1.2.6"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.2.8"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -116,7 +118,8 @@ namespace ChaosPoppycarsCards
         {
             Instance = this;
             GameModeManager.AddHook(GameModeHooks.HookGameStart, this.GameStart);
-            
+
+            TabinfoInterface.Setup();
 
             ChaosPoppycarsCards.ArtAssets=AssetUtils.LoadAssetBundleFromResources("cpccart", typeof(ChaosPoppycarsCards).Assembly);
             RegisterCards();
@@ -310,6 +313,87 @@ namespace ChaosPoppycarsCards
 
                     otherCard.categories = newList.ToArray();
                 }
+                if (GetCardInfo("Drive") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Drive");
+                    MakeExclusive("Drive", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Flak Cannon") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Flak Cannon");
+                    MakeExclusive("Flak Cannon", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Stasis") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Stasis");
+                    MakeExclusive("Stasis", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Bullet Time") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Bullet Time");
+                    MakeExclusive("Bullet Time", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Drone") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Drone");
+                    MakeExclusive("Drone", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Focus") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Focus");
+                    MakeExclusive("Focus", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Sun") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Sun");
+                    MakeExclusive("Sun", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Flex Seal") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Flex Seal");
+                    MakeExclusive("Flex Seal", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Rex") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Rex");
+                    MakeExclusive("Rex", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
             });
         }
 
@@ -337,8 +421,12 @@ namespace ChaosPoppycarsCards
             foreach (var player in PlayerManager.instance.players)
             {
                 ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Remove(CPCCardCategories.PotionCategory);
+                
                 ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.GeeseCategory);
-                player.gameObject.GetOrAddComponent<CriticalHitBehaviour>();
+
+                 
+                
+
             }
             yield break;
 

@@ -40,8 +40,10 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         {
             MoveTransform move = obj.GetComponentInChildren<MoveTransform>();
             Vector2 velocity = (Vector2)this.data.playerVel.GetFieldValue("velocity");
-
-            move.velocity += (Vector3)(Vector2)this.data.playerVel.GetFieldValue("velocity");
+            ChaosPoppycarsCards.Instance.ExecuteAfterFrames(1, () =>
+            {
+                move.velocity += (Vector3)(Vector2)this.data.playerVel.GetFieldValue("velocity");
+            });
         }
     }
 }
