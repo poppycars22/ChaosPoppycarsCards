@@ -110,11 +110,16 @@ namespace ChaosPoppycarsCards.MonoBehaviours
                 {
                     trail.mask = trail.ignoreWallsMask;
                 }
+                
+                bullet.unblockable = gun.GetAdditionalData().unblockableCrits;
+
 
                 if (critMultiplier > 1.1f)
                 {
-                    bullet.damage *= (this.gun.GetAdditionalData().criticalHitDamage1 * critMultiplier)/* / ((critMultiplier / 2f) + 0.75f)*/;
-
+                    if (gun.GetAdditionalData().criticalHitDamage1 > 0f)
+                    {
+                        bullet.damage *= (gun.GetAdditionalData().criticalHitDamage1 * critMultiplier)/* / ((critMultiplier / 2f) + 0.75f)*/;
+                    }
                     if (gun.GetAdditionalData().consecutiveCrits == true)
                     {
                         bullet.damage += consecutiveCritDamage;
@@ -122,8 +127,10 @@ namespace ChaosPoppycarsCards.MonoBehaviours
                 }
                 else
                 {
-                    bullet.damage *= (this.gun.GetAdditionalData().criticalHitDamage1);
-
+                    if (gun.GetAdditionalData().criticalHitDamage1 > 0f)
+                    {
+                        bullet.damage *= (gun.GetAdditionalData().criticalHitDamage1);
+                    }
                     if (gun.GetAdditionalData().consecutiveCrits == true)
                     {
                         bullet.damage += consecutiveCritDamage;
@@ -159,8 +166,8 @@ namespace ChaosPoppycarsCards.MonoBehaviours
                     typeof(MoveTransform).GetField("simulationSpeed", BindingFlags.Default | BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.SetField).SetValue(move, gun.GetAdditionalData().criticalSimulationSpeed);
                 }
                 
-
-
+               
+               
                 if (gun.GetAdditionalData().criticalHitBounces >= 1)
                 {
 

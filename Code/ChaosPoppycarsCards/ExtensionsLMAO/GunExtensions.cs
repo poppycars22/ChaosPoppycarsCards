@@ -24,6 +24,7 @@ namespace CPC.Extensions
         public Color DoubleCritColor = Color.cyan;
         public float criticalBulletSpeed = 1f;
         public float criticalSimulationSpeed = 1f;
+        public bool unblockableCrits = false;
 
 
         public GunAdditionalData()
@@ -52,6 +53,8 @@ namespace CPC.Extensions
             criticalBulletSpeed = 1f;
 
             criticalSimulationSpeed = 1f;
+
+            unblockableCrits = false;
 
         }
     }
@@ -107,7 +110,9 @@ namespace CPC.Extensions
 
             __instance.GetAdditionalData().criticalBulletSpeed = 1f;
 
-            __instance.GetAdditionalData().criticalSimulationSpeed = 1f; 
+            __instance.GetAdditionalData().criticalSimulationSpeed = 1f;
+
+            __instance.GetAdditionalData().unblockableCrits = false;
         }
     }
     [HarmonyPatch(typeof(ApplyCardStats), "ApplyStats")]
@@ -162,6 +167,11 @@ namespace CPC.Extensions
                     ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalBulletSpeed += THINGaa.GunCritBulletSpeed;
 
                     ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalSimulationSpeed += THINGaa.GunCritSimulationSpeed;
+
+                    if (___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().unblockableCrits == false)
+                    {
+                        ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().unblockableCrits = THINGaa.GunUnblockableCrits;
+                    }
                     //UnityEngine.Debug.Log($"[crit chance {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1}, crit damage {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1} ]");
                 }
             }

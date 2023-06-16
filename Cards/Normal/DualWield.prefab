@@ -61,7 +61,8 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
-  categories: []
+  categories:
+  - {fileID: 11400000, guid: 98898984f34ecd74d8bf2b02a3a69c21, type: 2}
   allowMultiple: 0
   blacklistedCategories: []
   cardBase: {fileID: 1720757555582362, guid: ab7829e25091330408953c12456bfb86, type: 3}
@@ -381,4 +382,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01250c9c7c3a3a94eb4fbe6a5a71e818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GunCritDamage2: 0
+  GunCritChance2: 0
+  GunCritBounces: 0
+  GunCritDamageOnBounce: 0
+  GunConsecutiveCrits: 0
+  GunConsecutiveCritsDamage: 0
+  GunGuranteedCrits: 0
+  GunCritSlow: 0
+  GunCritColor: {r: 1, g: 0, b: 0, a: 1}
+  GunDoubleCritColor: {r: 0, g: 1, b: 1, a: 1}
+  GunCritBulletSpeed: 0
+  GunCritSimulationSpeed: 0
+  GunUnblockableCrits: 0
   Tag: CPC

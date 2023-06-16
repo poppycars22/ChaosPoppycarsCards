@@ -26,8 +26,8 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         public override void OnStart()
         {
 
-            gunStatModifier.bursts_add = 5;
-            gunStatModifier.timeBetweenBullets_add = 0.3f;
+            gunStatModifier.bursts_add = 4;
+            gunStatModifier.timeBetweenBullets_add = 0.1f;
             data.jump.JumpAction += OnJump;
             SetLivesToEffect(int.MaxValue);
         }

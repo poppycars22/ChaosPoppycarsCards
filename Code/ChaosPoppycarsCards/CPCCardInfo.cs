@@ -25,6 +25,7 @@ namespace CPCCardInfostuffs
         public Color GunDoubleCritColor = Color.cyan;
         public float GunCritBulletSpeed = 0f;
         public float GunCritSimulationSpeed = 0f;
+        public bool GunUnblockableCrits = false;
         //public bool NeedsNull = false; 
         public string Tag = "CPC";
 

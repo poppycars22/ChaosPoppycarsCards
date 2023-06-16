@@ -18,8 +18,10 @@ GameObject:
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
   - component: {fileID: 114837455388346668}
+  - component: {fileID: 114275119899899320}
+  - component: {fileID: 114322199380818648}
   m_Layer: 0
-  m_Name: Power
+  m_Name: UnblockableCrits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,10 +82,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: Power
-  cardDestription: -Its about power-
+  cardName: Unblockable Crits
+  cardDestription: Your crits are now unblockable
   cardStats: []
-  rarity: 2
+  rarity: 1
   cardArt: {fileID: 0}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}
@@ -166,7 +168,7 @@ MonoBehaviour:
   shootPosition: {fileID: 0}
   player: {fileID: 0}
   isReloading: 0
-  damage: 2
+  damage: 1
   reloadTime: 1
   reloadTimeAdd: 0
   recoilMuiltiplier: 1
@@ -201,10 +203,10 @@ MonoBehaviour:
   percentageDamage: 0
   cos: 0
   slow: 0
-  chargeDamageMultiplier: 10
+  chargeDamageMultiplier: 1
   chargeSpreadTo: 0
   chargeEvenSpreadTo: 0
-  chargeSpeedTo: 0.5
+  chargeSpeedTo: 0
   chargeRecoilTo: 0
   chargeNumberOfProjectilesTo: 0
   destroyBulletAfter: 0
@@ -213,7 +215,7 @@ MonoBehaviour:
   unblockable: 0
   ignoreWalls: 0
   currentCharge: 0
-  useCharge: 1
+  useCharge: 0
   dontAllowAutoFire: 0
   objectsToSpawn: []
   projectileColor: {r: 0, g: 0, b: 0, a: 1}
@@ -287,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Group: 0
-  prefixField: -1
+  prefixField: 0
   observableSearch: 0
   Synchronization: 0
   OwnershipTransfer: 0
@@ -308,4 +310,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01250c9c7c3a3a94eb4fbe6a5a71e818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GunCritDamage2: 0
+  GunCritChance2: 0
+  GunCritBounces: 0
+  GunCritDamageOnBounce: 0
+  GunConsecutiveCrits: 0
+  GunConsecutiveCritsDamage: 0
+  GunGuranteedCrits: 0
+  GunCritSlow: 0
+  GunCritColor: {r: 1, g: 0, b: 0, a: 1}
+  GunDoubleCritColor: {r: 0, g: 1, b: 1, a: 1}
+  GunCritBulletSpeed: 0
+  GunCritSimulationSpeed: 0
+  GunUnblockableCrits: 1
   Tag: CPC
+--- !u!114 &114275119899899320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043437007509817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a21637c3db6054eae68910e02d3209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  className: Critical Hit
+  ClassDefult: {r: 0.20784314, g: 0.76862746, b: 0.039215688, a: 1}
+  SubClassDefult: {r: 0.7, g: 0.33, b: 0.05, a: 1}
+  color1: {r: 0, g: 0, b: 0, a: 1}
+  color2: {r: 0, g: 0, b: 0, a: 1}
+--- !u!114 &114322199380818648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043437007509817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0939ace75ac9f43b8b54ed3c30fdd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  className: Critical Hit
+  cardType: 16
+  maxAllowed: 0
+  requirementType: 1
+  singleReq: {fileID: 114421384111938668, guid: 5d8772cebe5960f48a465ec535461f50,
+    type: 3}
+  listReq: []
+  multilistReq: []
+  multilistCount: 0
+  whiteList: []
+  blackList: []
