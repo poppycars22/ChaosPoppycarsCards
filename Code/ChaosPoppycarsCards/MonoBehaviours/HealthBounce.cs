@@ -15,16 +15,18 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ModdingUtils.RoundsEffects;
 using System.ComponentModel;
 using ModdingUtils.GameModes;
+using CPC.Extensions;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
     class HealthBounce : BounceEffect
     {
-        
+
         public void Start()
         {
             InterfaceGameModeHooksManager.instance.RegisterHooks(this);
             player = GetComponentInParent<ProjectileHit>().ownPlayer;
+            characterStatModifiers = player.GetComponentInParent<CharacterStatModifiers>();
 
         }
         private void Awake()
@@ -34,16 +36,16 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         public override void DoBounce(HitInfo hit)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] Bullet Has hit");
-            player.data.maxHealth += 0.25f;
-            player.data.health += 0.25f;
-           
-            
+            player.data.maxHealth += 1f;
+            player.data.health += 1f;
+            characterStatModifiers.GetAdditionalData().HealthBouncesBounced += 1f;
+
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] {player.data.maxHealth} max hp");
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] {player.data.health} hp");
         }
 
-
        
+
         public void OnGameStart()
         {
             UnityEngine.GameObject.Destroy(this);
@@ -53,5 +55,38 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             InterfaceGameModeHooksManager.instance.RemoveHooks(this);
         }
         public Player player;
+        public CharacterStatModifiers characterStatModifiers;
+    }
+    class HealthBounceMono : MonoBehaviour, IRoundEndHookHandler
+    {
+        public Player player;
+        public CharacterStatModifiers characterStatModifiers;
+        public void Start()
+        {
+            InterfaceGameModeHooksManager.instance.RegisterHooks(this);
+            player = GetComponentInParent<Player>();
+            characterStatModifiers = GetComponentInParent<CharacterStatModifiers>();
+
+        }
+        public void OnRoundEnd()
+        {
+            player.data.maxHealth -= characterStatModifiers.GetAdditionalData().HealthBouncesBounced;
+            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] Round Ended");
+            characterStatModifiers.GetAdditionalData().HealthBouncesBounced = 0f;
+        }
+        /*public void OnPointEnd()
+        {
+            player.data.maxHealth -= characterStatModifiers.GetAdditionalData().HealthBouncesBounced;
+            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] Point End");
+            characterStatModifiers.GetAdditionalData().HealthBouncesBounced = 0f;
+        }*/
+        public void OnGameStart()
+        {
+            UnityEngine.GameObject.Destroy(this);
+        }
+        public void OnDestroy()
+        {
+            InterfaceGameModeHooksManager.instance.RemoveHooks(this);
+        }
     }
 }

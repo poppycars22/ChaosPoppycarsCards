@@ -331,6 +331,10 @@ MonoBehaviour:
   GunDoubleCritColor: {r: 0, g: 1, b: 1, a: 1}
   GunCritBulletSpeed: 0
   GunCritSimulationSpeed: 0
+  GunUnblockableCrits: 0
+  GunCritHeal: 0
+  GunCritBlockCDReduction: 0
+  GunBlockingCrits: 0
   Tag: CPC
 --- !u!114 &114275119899899320
 MonoBehaviour:
@@ -364,12 +368,10 @@ MonoBehaviour:
   className: Critical Hit
   cardType: 16
   maxAllowed: 0
-  requirementType: 2
-  singleReq: {fileID: 114421384111938668, guid: 5d8772cebe5960f48a465ec535461f50,
+  requirementType: 1
+  singleReq: {fileID: 114421384111938668, guid: 01ca6a4d65265674a829f2dc1678b0db,
     type: 3}
-  listReq:
-  - {fileID: 114421384111938668, guid: 5d8772cebe5960f48a465ec535461f50, type: 3}
-  - {fileID: 114421384111938668, guid: 01ca6a4d65265674a829f2dc1678b0db, type: 3}
+  listReq: []
   multilistReq: []
   multilistCount: 0
   whiteList: []

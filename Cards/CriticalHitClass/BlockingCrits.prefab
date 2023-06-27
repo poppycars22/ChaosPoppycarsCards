@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 114275119899899320}
   - component: {fileID: 114322199380818648}
   m_Layer: 0
-  m_Name: DamageUp
+  m_Name: BlockingCrits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,12 +48,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043437007509817}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98b2bbcc09027464da20acbbb271927e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rarityName: Common
+  rarityName: Legendary
 --- !u!114 &114554239418549338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,20 +82,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: Crit Damage
-  cardDestription: Increases your damage when you get a critical hit
+  cardName: Blocking Crits
+  cardDestription: On crit (or double crit if you have enough chance) you trigger
+    block effects, you have to shoot 5 times before it can activate again
   cardStats:
   - positive: 1
-    amount: +15%
+    amount: Blocking
     simepleAmount: 0
-    stat: Crit Damage
+    stat: Crits
+  - positive: 0
+    amount: -50%
+    simepleAmount: 0
+    stat: Crit Chance
   rarity: 0
-  cardArt: {fileID: 5053810205938838838, guid: bdefca74ec7b312448e39b3a6799557d, type: 3}
+  cardArt: {fileID: 9119316609821815354, guid: 86b745e75a7d37a4195b80d31e28ab49, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
   categories: []
-  allowMultiple: 1
+  allowMultiple: 0
   blacklistedCategories: []
   cardBase: {fileID: 1720757555582362, guid: ab7829e25091330408953c12456bfb86, type: 3}
   colorTheme: 0
@@ -314,8 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01250c9c7c3a3a94eb4fbe6a5a71e818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunCritDamage2: 0.15
-  GunCritChance2: 0
+  GunCritDamage2: 0
+  GunCritChance2: -0.5
   GunCritBounces: 0
   GunCritDamageOnBounce: 0
   GunConsecutiveCrits: 0
@@ -329,7 +334,7 @@ MonoBehaviour:
   GunUnblockableCrits: 0
   GunCritHeal: 0
   GunCritBlockCDReduction: 0
-  GunBlockingCrits: 0
+  GunBlockingCrits: 1
   Tag: CPC
 --- !u!114 &114275119899899320
 MonoBehaviour:
@@ -370,4 +375,5 @@ MonoBehaviour:
   multilistReq: []
   multilistCount: 0
   whiteList: []
-  blackList: []
+  blackList:
+  - {fileID: 114421384111938668, guid: 032fd94da1e31f6499b972621aca78c2, type: 3}

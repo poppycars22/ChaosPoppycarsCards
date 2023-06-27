@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b2bbcc09027464da20acbbb271927e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rarityName: Epic
+  rarityName: Legendary
 --- !u!114 &114554239418549338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +330,10 @@ MonoBehaviour:
   GunDoubleCritColor: {r: 0, g: 1, b: 1, a: 1}
   GunCritBulletSpeed: 0
   GunCritSimulationSpeed: 0
+  GunUnblockableCrits: 0
+  GunCritHeal: 0
+  GunCritBlockCDReduction: 0
+  GunBlockingCrits: 0
   Tag: CPC
 --- !u!114 &114275119899899320
 MonoBehaviour:

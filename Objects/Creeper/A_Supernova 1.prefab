@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 114184329609926029}
   - component: {fileID: 114196913708052880}
   - component: {fileID: 114358292274495996}
-  - component: {fileID: 114358072018950260}
   m_Layer: 0
   m_Name: A_Supernova 1
   m_TagString: Untagged
@@ -127,15 +126,3 @@ MonoBehaviour:
   destroyObject: 0
   destroyRoot: 0
   mostRecentlySpawnedObject: {fileID: 0}
---- !u!114 &114358072018950260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633795565445532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 100f04201a68ca14f8c737f45d1bfc3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

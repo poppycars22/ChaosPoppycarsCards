@@ -26,6 +26,9 @@ namespace CPCCardInfostuffs
         public float GunCritBulletSpeed = 0f;
         public float GunCritSimulationSpeed = 0f;
         public bool GunUnblockableCrits = false;
+        public float GunCritHeal = 0f;
+        public float GunCritBlockCDReduction = 0f;
+        public bool GunBlockingCrits = false;
         //public bool NeedsNull = false; 
         public string Tag = "CPC";
 

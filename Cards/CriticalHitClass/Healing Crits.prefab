@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 114275119899899320}
   - component: {fileID: 114322199380818648}
   m_Layer: 0
-  m_Name: DamageUp
+  m_Name: Healing Crits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,15 +82,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
-  cardName: Crit Damage
-  cardDestription: Increases your damage when you get a critical hit
+  cardName: Healing Crits
+  cardDestription: Your crits now heal you
   cardStats:
   - positive: 1
-    amount: +15%
+    amount: +10
     simepleAmount: 0
-    stat: Crit Damage
-  rarity: 0
-  cardArt: {fileID: 5053810205938838838, guid: bdefca74ec7b312448e39b3a6799557d, type: 3}
+    stat: Heal on Crit
+  rarity: 1
+  cardArt: {fileID: 245995954153144710, guid: 126387bb23b32144da54e5ea86c2e5ee, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
   sourceCard: {fileID: 0}
   cardColor: {r: 0.10568709, g: 0.18812303, b: 0.23584908, a: 1}
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01250c9c7c3a3a94eb4fbe6a5a71e818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunCritDamage2: 0.15
+  GunCritDamage2: 0
   GunCritChance2: 0
   GunCritBounces: 0
   GunCritDamageOnBounce: 0
@@ -327,7 +327,7 @@ MonoBehaviour:
   GunCritBulletSpeed: 0
   GunCritSimulationSpeed: 0
   GunUnblockableCrits: 0
-  GunCritHeal: 0
+  GunCritHeal: 10
   GunCritBlockCDReduction: 0
   GunBlockingCrits: 0
   Tag: CPC

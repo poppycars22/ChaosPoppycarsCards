@@ -331,6 +331,10 @@ MonoBehaviour:
   GunDoubleCritColor: {r: 0, g: 1, b: 1, a: 1}
   GunCritBulletSpeed: 0
   GunCritSimulationSpeed: 0
+  GunUnblockableCrits: 0
+  GunCritHeal: 0
+  GunCritBlockCDReduction: 0
+  GunBlockingCrits: 0
   Tag: CPC
 --- !u!114 &114275119899899320
 MonoBehaviour:

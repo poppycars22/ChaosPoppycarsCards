@@ -87,7 +87,7 @@ MonoBehaviour:
     also makes your bullets blue when you crit
   cardStats:
   - positive: 1
-    amount: +50%
+    amount: +75%
     simepleAmount: 0
     stat: Crit Slow
   rarity: 1
@@ -322,11 +322,12 @@ MonoBehaviour:
   GunConsecutiveCrits: 0
   GunConsecutiveCritsDamage: 0
   GunGuranteedCrits: 0
-  GunCritSlow: 0.5
+  GunCritSlow: 0.75
   GunCritColor: {r: 0, g: 1, b: 1, a: 1}
   GunDoubleCritColor: {r: 1, g: 0, b: 0, a: 1}
   GunCritBulletSpeed: 0
   GunCritSimulationSpeed: 0
+  GunUnblockableCrits: 0
   Tag: CPC
 --- !u!114 &114275119899899320
 MonoBehaviour:

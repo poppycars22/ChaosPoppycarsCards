@@ -16,17 +16,20 @@ using ModdingUtils.RoundsEffects;
 using System.ComponentModel;
 using ModdingUtils.GameModes;
 using ModdingUtils.MonoBehaviours;
+using CPC.Extensions;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
    public class RainbowLeaf : MonoBehaviour, IGameStartHookHandler, IPointStartHookHandler
     {
-        public static float rainbowleafHealth = 0;
+        CharacterStatModifiers characterStatModifiers;
+         Player player;
         public void Start()
         {
             InterfaceGameModeHooksManager.instance.RegisterHooks(this);
-            
+
             player = this.GetComponentInParent<Player>();
+            characterStatModifiers = this.GetComponentInParent<CharacterStatModifiers>();
         }
 
         public void OnPointStart()
@@ -34,19 +37,21 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] Round Ended");
             player.data.maxHealth += 25;
             player.data.health += 25;
-            rainbowleafHealth += 25;
-            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}]{rainbowleafHealth}");
+            characterStatModifiers.GetAdditionalData().RainbowLeafHealth += 25;
+            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}]{characterStatModifiers.GetAdditionalData().RainbowLeafHealth}");
         }
         public void OnGameStart()
         {
+
+          //  characterStatModifiers.GetAdditionalData().RainbowLeafHealth = 0;
             UnityEngine.GameObject.Destroy(this);
-            rainbowleafHealth = 0;
         }
         public void OnDestroy()
         {
+
+            //characterStatModifiers.GetAdditionalData().RainbowLeafHealth = 0;
             InterfaceGameModeHooksManager.instance.RemoveHooks(this);
-            rainbowleafHealth = 0;
         }
-        public Player player;
+        
     }
 }

@@ -48,7 +48,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "1.3.0"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.3.4"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
@@ -389,6 +389,24 @@ namespace ChaosPoppycarsCards
                 {
                     CardInfo otherCard = GetCardInfo("Rex");
                     MakeExclusive("Rex", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Anti Material Rifle​") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Anti Material Rifle​");
+                    MakeExclusive("Anti Material Rifle​", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Hyper Sonic​") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Hyper Sonic​");
+                    MakeExclusive("Hyper Sonic​", "Light Saber");
 
                     List<CardCategory> newList = otherCard.categories.ToList();
 

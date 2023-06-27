@@ -265,11 +265,12 @@ namespace ChaosPoppycarsCards.Cards
 
                            new ObjectsToSpawn ()
                            {
-                                AddToProjectile = ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("HealthBounceObject 1")
+                                AddToProjectile = ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("HealthBounceObject")
 
                            },
                         }.ToArray();
                         gun.reflects += 3;
+                        var mono = player.gameObject.GetOrAddComponent<HealthBounceMono>();
                         //UnityEngine.Debug.Log("case 0");
                         //example case
                         break;

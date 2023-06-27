@@ -86,7 +86,7 @@ MonoBehaviour:
   cardDestription: When your bullets crit they bounce
   cardStats:
   - positive: 1
-    amount: +2
+    amount: +3
     simepleAmount: 0
     stat: Crit Bounces
   rarity: 1
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GunCritDamage2: 0
   GunCritChance2: 0
-  GunCritBounces: 2
+  GunCritBounces: 3
   GunCritDamageOnBounce: 0
   GunConsecutiveCrits: 0
   GunConsecutiveCritsDamage: 0
@@ -342,6 +342,10 @@ MonoBehaviour:
   GunDoubleCritColor: {r: 0, g: 1, b: 1, a: 1}
   GunCritBulletSpeed: 0
   GunCritSimulationSpeed: 0
+  GunUnblockableCrits: 0
+  GunCritHeal: 0
+  GunCritBlockCDReduction: 0
+  GunBlockingCrits: 0
   Tag: CPC
 --- !u!114 &114275119899899320
 MonoBehaviour:
@@ -373,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   className: Critical Hit
-  cardType: 16
+  cardType: 8
   maxAllowed: 0
   requirementType: 1
   singleReq: {fileID: 114421384111938668, guid: 5d8772cebe5960f48a465ec535461f50,

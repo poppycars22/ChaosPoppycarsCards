@@ -13,7 +13,7 @@ using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ChaosPoppycarsCards.MonoBehaviours;
 using RarityLib.Utils;
-using static ChaosPoppycarsCards.MonoBehaviours.RainbowLeaf;
+using CPC.Extensions;
 
 namespace ChaosPoppycarsCards.Cards
 {
@@ -21,18 +21,18 @@ namespace ChaosPoppycarsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            
-            
+
+            cardInfo.allowMultiple = true;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
-            data.maxHealth += rainbowleafHealth;
-
+            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}]{characterStats.GetAdditionalData().RainbowLeafHealth}");
+            data.maxHealth += characterStats.GetAdditionalData().RainbowLeafHealth;
+            characterStats.health += characterStats.GetAdditionalData().RainbowLeafHealth;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}]{rainbowleafHealth}");
+            CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}]{characterStats.GetAdditionalData().RainbowLeafHealth}");
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -48,7 +48,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gain 25 max hp every point (warning: if more then one person gets this card they will also get the same amount of health you got)";
+            return "Gain 25 max hp every point";
         }
         protected override GameObject GetCardArt()
         {

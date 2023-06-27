@@ -84,7 +84,7 @@ MonoBehaviour:
   soundDisableBlockBasic: 0
   cardName: Critical Hit
   cardDestription: Time for a crit build (if your crit chance goes over 100% you can
-    get "double crits)
+    get "double crits")
   cardStats:
   - positive: 1
     amount: +25%
@@ -338,6 +338,9 @@ MonoBehaviour:
   GunCritBulletSpeed: 0
   GunCritSimulationSpeed: 0
   GunUnblockableCrits: 0
+  GunCritHeal: 0
+  GunCritBlockCDReduction: 0
+  GunBlockingCrits: 0
   Tag: CPC
 --- !u!114 &114275119899899320
 MonoBehaviour:

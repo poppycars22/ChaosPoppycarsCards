@@ -83,8 +83,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDisableBlockBasic: 0
   cardName: Consecutive crits
-  cardDestription: Increase your bullets damage on crit if you get multiple crits
-    in a row (if your double criting you must hit one to activate it)
+  cardDestription: Your bullets get stronger if you hit multiple crits in a row (if
+    your double criting you must double crit to increase the damage)
   cardStats:
   - positive: 1
     amount: +5%
@@ -94,10 +94,6 @@ MonoBehaviour:
     amount: +10%
     simepleAmount: 0
     stat: Consecutive Crit Damage
-  - positive: 0
-    amount: -5%
-    simepleAmount: 0
-    stat: Crit Damage
   rarity: 2
   cardArt: {fileID: 1542479293467718173, guid: b910bd37ab822ef4a9d1cfa41e0bc466, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
@@ -323,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01250c9c7c3a3a94eb4fbe6a5a71e818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunCritDamage2: -0.05
+  GunCritDamage2: 0
   GunCritChance2: 0.05
   GunCritBounces: 0
   GunCritDamageOnBounce: 0
@@ -335,6 +331,10 @@ MonoBehaviour:
   GunDoubleCritColor: {r: 0, g: 1, b: 1, a: 1}
   GunCritBulletSpeed: 0
   GunCritSimulationSpeed: 0
+  GunUnblockableCrits: 0
+  GunCritHeal: 0
+  GunCritBlockCDReduction: 0
+  GunBlockingCrits: 0
   Tag: CPC
 --- !u!114 &114275119899899320
 MonoBehaviour:
@@ -375,5 +375,4 @@ MonoBehaviour:
   multilistReq: []
   multilistCount: 0
   whiteList: []
-  blackList:
-  - {fileID: 114421384111938668, guid: 032fd94da1e31f6499b972621aca78c2, type: 3}
+  blackList: []

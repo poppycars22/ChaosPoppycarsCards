@@ -11700,8 +11700,8 @@ MonoBehaviour:
   dmgColor: {r: 0.76199996, g: 0, b: 0, a: 1}
   range: 4
   flyingFor: 0
-  auto: 1
-  ignoreTeam: 0
+  auto: 0
+  ignoreTeam: 1
   ignoreWalls: 0
   staticRangeMultiplier: 0
   scaleSlow: 1

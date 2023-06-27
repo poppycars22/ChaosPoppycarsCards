@@ -25,6 +25,9 @@ namespace CPC.Extensions
         public float criticalBulletSpeed = 1f;
         public float criticalSimulationSpeed = 1f;
         public bool unblockableCrits = false;
+        public float criticalHeal = 0f;
+        public float criticalBlockCDReduction = 0f;
+        public bool BlockingCrits = false;
 
 
         public GunAdditionalData()
@@ -55,6 +58,12 @@ namespace CPC.Extensions
             criticalSimulationSpeed = 1f;
 
             unblockableCrits = false;
+
+            criticalHeal = 0f;
+
+            criticalBlockCDReduction = 0f;
+
+            BlockingCrits = false;
 
         }
     }
@@ -113,6 +122,12 @@ namespace CPC.Extensions
             __instance.GetAdditionalData().criticalSimulationSpeed = 1f;
 
             __instance.GetAdditionalData().unblockableCrits = false;
+
+            __instance.GetAdditionalData().criticalHeal = 0f;
+
+            __instance.GetAdditionalData().criticalBlockCDReduction = 0f;
+
+            __instance.GetAdditionalData().BlockingCrits = false;
         }
     }
     [HarmonyPatch(typeof(ApplyCardStats), "ApplyStats")]
@@ -171,6 +186,15 @@ namespace CPC.Extensions
                     if (___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().unblockableCrits == false)
                     {
                         ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().unblockableCrits = THINGaa.GunUnblockableCrits;
+                    }
+
+                    ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHeal += THINGaa.GunCritHeal;
+
+                    ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalBlockCDReduction += THINGaa.GunCritBlockCDReduction;
+
+                    if (___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().BlockingCrits == false)
+                    {
+                        ___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().BlockingCrits = THINGaa.GunBlockingCrits;
                     }
                     //UnityEngine.Debug.Log($"[crit chance {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1}, crit damage {___playerToUpgrade.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1} ]");
                 }
