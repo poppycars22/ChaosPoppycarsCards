@@ -11,11 +11,17 @@ namespace CPC.Extensions
 
         public float RainbowLeafHealth;
         public float HealthBouncesBounced;
+        public bool useNewRespawnTime;
+        public float newRespawnTime;
+        public int shuffles;
 
         public CharacterStatModifiersAdditionalData()
         {
          //   RainbowLeafHealth = 0f;
             HealthBouncesBounced = 0f;
+            useNewRespawnTime = false;
+            newRespawnTime = 0f;
+            shuffles = 0;
         }
     }
     public static class CharacterStatModifiersExtension
@@ -43,6 +49,9 @@ namespace CPC.Extensions
         {
             //__instance.GetAdditionalData().RainbowLeafHealth = 0f;
             __instance.GetAdditionalData().HealthBouncesBounced = 0f;
+            __instance.GetAdditionalData().useNewRespawnTime = false;
+            __instance.GetAdditionalData().newRespawnTime = 0f;
+            __instance.GetAdditionalData().shuffles = 0;
         }
     }
 }

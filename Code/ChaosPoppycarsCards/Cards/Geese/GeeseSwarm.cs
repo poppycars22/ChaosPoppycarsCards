@@ -27,8 +27,8 @@ namespace ChaosPoppycarsCards.Cards
         {
             geeseSwarms += 1;
             RarityUtils.AjustCardRarityModifier(Goose.Card, 20, 0);
-            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, 4, 0);
-            RarityUtils.AjustCardRarityModifier(GoldGoose.Card, 3, 0);
+            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, 5, 0);
+            RarityUtils.AjustCardRarityModifier(GoldGoose.Card, 1, 0);
             foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
             {
                 if (ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(otherPlayer.data.stats).blacklistedCategories.Contains(CPCCardCategories.GeeseCategory))
@@ -43,8 +43,8 @@ namespace ChaosPoppycarsCards.Cards
         {
             geeseSwarms -= 1;
             RarityUtils.AjustCardRarityModifier(Goose.Card, -20, 0);
-            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, -4, 0);
-            RarityUtils.AjustCardRarityModifier(GoldGoose.Card, -3, 0);
+            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, -5, 0);
+            RarityUtils.AjustCardRarityModifier(GoldGoose.Card, -1, 0);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
             if (geeseSwarms <= 0)

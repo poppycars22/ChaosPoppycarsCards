@@ -16,7 +16,7 @@ namespace ChaosPoppycarsCards.Cards
             cardInfo.allowMultiple = true;
             cardInfo.categories = new CardCategory[] {CustomCardCategories.CanDrawMultipleCategory, CPCCardCategories.GeeseCategory };
 
-            gun.ammo = -1;
+
             statModifiers.movementSpeed = 0.85f;
             statModifiers.numberOfJumps = 1;
             
@@ -86,13 +86,6 @@ namespace ChaosPoppycarsCards.Cards
                     positive = false,
                     stat = "Movement Speed",
                     amount = "-15%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Ammo",
-                    amount = "-1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

@@ -18,10 +18,10 @@ namespace ChaosPoppycarsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.movementSpeed = 4f;
+            statModifiers.movementSpeed = 6f;
             statModifiers.health = 0.5f;
-            gun.reloadTime = 1f / 1.5f;
-            gun.attackSpeed = .50f;
+            gun.reloadTime = 0.5f;
+            gun.attackSpeed = 0.5f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
 
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -61,15 +61,8 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Move Speed",
-                    amount = "+300%",
+                    amount = "+500%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Health",
-                    amount = "1/2",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
@@ -84,8 +77,14 @@ namespace ChaosPoppycarsCards.Cards
                     stat = "Attack Speed",
                     amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Health",
+                    amount = "1/2",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
-                
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

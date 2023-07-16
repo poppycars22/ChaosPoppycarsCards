@@ -35,7 +35,7 @@ namespace ChaosPoppycarsCards.Cards
                 ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, legend, false, "", 2f, 2f, true);
             ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, legend, 3f);
             });
-            characterStats.AjustNulls(50);
+            characterStats.AjustNulls(30);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -76,7 +76,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = false,
                     stat = "Nulls",
-                    amount = "+50",
+                    amount = "+30",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

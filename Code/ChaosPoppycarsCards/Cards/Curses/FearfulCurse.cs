@@ -32,7 +32,7 @@ namespace ChaosPoppycarsCards.Cards
             effect.gunStatModifier.attackSpeed_mult = 1.5f;
             effect.gunStatModifier.spread_add = 0.5f;
             effect.gunAmmoStatModifier.reloadTimeMultiplier_mult = 1.5f;
-            effect.SetPercThresholdMax(0.75f);
+            effect.SetPercThresholdMax(0.5f);
             effect.SetColor(Color.magenta);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
@@ -49,7 +49,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "You quickly go into fear when below 75% of your max health";
+            return "You quickly go into fear when below 50% of your max health";
         }
         protected override GameObject GetCardArt()
         {

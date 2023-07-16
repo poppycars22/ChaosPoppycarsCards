@@ -22,7 +22,6 @@ namespace ChaosPoppycarsCards.Cards
             gun.ammo = -101;
             gun.unblockable = true;
             
-            statModifiers.movementSpeed = 0.7f;
             //make this card, if you can figure out how, a light saber png attached to the gun that also makes the bullets invisable
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)

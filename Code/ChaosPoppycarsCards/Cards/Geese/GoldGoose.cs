@@ -16,8 +16,7 @@ namespace ChaosPoppycarsCards.Cards
             cardInfo.allowMultiple = true;
             cardInfo.categories = new CardCategory[] {CustomCardCategories.CanDrawMultipleCategory, CPCCardCategories.GeeseCategory };
 
-            block.additionalBlocks = 1;
-            statModifiers.movementSpeed = 1.5f;
+
             statModifiers.numberOfJumps = 5;
             
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
@@ -76,20 +75,6 @@ namespace ChaosPoppycarsCards.Cards
                     positive = true,
                     stat = "Health",
                     amount = "+25",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Movement Speed",
-                    amount = "+50%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Blocks",
-                    amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

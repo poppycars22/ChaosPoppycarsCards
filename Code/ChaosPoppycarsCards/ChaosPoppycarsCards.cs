@@ -48,13 +48,12 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "1.3.4"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.3.5"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
         public static object CPC_Assets { get; internal set; }
 
         public static AssetBundle Bundle = null;
-
         void Awake()
         {
            
@@ -227,7 +226,7 @@ namespace ChaosPoppycarsCards
             CustomCard.BuildCard<HealthBounces>();
             //CustomCard.BuildCard<WoodenShovel>((card) => WoodenShovel.Card = card);*/
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeAction);
-
+            GameModeManager.AddHook(GameModeHooks.HookPlayerPickEnd, (gm) => PoppysChaos.ExtraPicks());
             //  GameModeManager.AddHook(GameModeHooks.HookBattleStart, LightSaberRangeReset);
             // make cards mutually exclusive
             this.ExecuteAfterFrames(10, () =>
