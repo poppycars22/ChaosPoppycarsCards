@@ -314,7 +314,6 @@ namespace ChaosPoppycarsCards.Cards
                         break;
                     case 29:
                         gravity.gravityForce *= -0.05f;
-                        characterStats.jump *= -1;
                         characterStats.sizeMultiplier *= -1;
                         characterStats.numberOfJumps += 10;
                         UnityEngine.Debug.Log("Poppys Chaos case 29");

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using ChaosPoppycarsCards.Cards;
 using HarmonyLib;
 
 namespace CPC.Extensions
@@ -14,6 +15,9 @@ namespace CPC.Extensions
         public bool useNewRespawnTime;
         public float newRespawnTime;
         public int shuffles;
+        public int GeeseSwarms;
+        public int StunningStares;
+        public int NanoMachines;
 
         public CharacterStatModifiersAdditionalData()
         {
@@ -22,6 +26,9 @@ namespace CPC.Extensions
             useNewRespawnTime = false;
             newRespawnTime = 0f;
             shuffles = 0;
+            GeeseSwarms = 0;
+            StunningStares = 0;
+            NanoMachines = 0;
         }
     }
     public static class CharacterStatModifiersExtension
@@ -52,6 +59,9 @@ namespace CPC.Extensions
             __instance.GetAdditionalData().useNewRespawnTime = false;
             __instance.GetAdditionalData().newRespawnTime = 0f;
             __instance.GetAdditionalData().shuffles = 0;
+            __instance.GetAdditionalData().GeeseSwarms = 0;
+            __instance.GetAdditionalData().StunningStares = 0;
+            __instance.GetAdditionalData().NanoMachines = 0;
         }
     }
 }

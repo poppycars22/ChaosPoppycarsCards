@@ -12,9 +12,11 @@ using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ModdingUtils.MonoBehaviours;
+using CPC.Extensions;
+
 namespace ChaosPoppycarsCards.Cards
 {
-    class GetawayTest : CustomCard
+    class NanoMachines : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
@@ -24,55 +26,47 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            characterStats.GetAdditionalData().NanoMachines += 1;
             HealthBasedEffect Above90 = player.gameObject.AddComponent<HealthBasedEffect>();
-            Above90.healthHandlerModifier.regen_add += 1;
+            Above90.healthHandlerModifier.regen_add += 1f * ((characterStats.GetAdditionalData().NanoMachines + 1)/2);
             Above90.SetPercThresholdMax(1f);
             Above90.SetPercThresholdMin(0.9f);
             HealthBasedEffect Above80 = player.gameObject.AddComponent<HealthBasedEffect>();
-            Above80.healthHandlerModifier.regen_add += 3;
+            Above80.healthHandlerModifier.regen_add += 3f * ((characterStats.GetAdditionalData().NanoMachines + 1) / 2);
             Above80.SetPercThresholdMax(0.9f);
             Above80.SetPercThresholdMin(0.8f);
-            Above80.SetColor(Color.grey);
             HealthBasedEffect Above70 = player.gameObject.AddComponent<HealthBasedEffect>();
-            Above70.healthHandlerModifier.regen_add += 6f;
+            Above70.healthHandlerModifier.regen_add += 6f * ((characterStats.GetAdditionalData().NanoMachines + 1) / 2);
             Above70.SetPercThresholdMax(0.8f);
             Above70.SetPercThresholdMin(0.7f);
-            Above70.SetColor(Color.green);
             HealthBasedEffect Above60 = player.gameObject.AddComponent<HealthBasedEffect>();
-            Above60.healthHandlerModifier.regen_add += 12;
+            Above60.healthHandlerModifier.regen_add += 12f * ((characterStats.GetAdditionalData().NanoMachines + 1) / 2);
             Above60.SetPercThresholdMax(0.7f);
             Above60.SetPercThresholdMin(0.6f);
-            Above60.SetColor(Color.cyan);
             HealthBasedEffect Above50 = player.gameObject.AddComponent<HealthBasedEffect>();
-            Above50.healthHandlerModifier.regen_add += 16f;
+            Above50.healthHandlerModifier.regen_add += 16f * ((characterStats.GetAdditionalData().NanoMachines + 1) / 2);
             Above50.SetPercThresholdMax(0.6f);
             Above50.SetPercThresholdMin(0.5f);
-            Above50.SetColor(Color.magenta);
             HealthBasedEffect Above40 = player.gameObject.AddComponent<HealthBasedEffect>();
-            Above40.healthHandlerModifier.regen_add += 20;
+            Above40.healthHandlerModifier.regen_add += 20f * ((characterStats.GetAdditionalData().NanoMachines + 1) / 2);
             Above40.SetPercThresholdMax(0.5f);
             Above40.SetPercThresholdMin(0.4f);
-            Above40.SetColor(Color.yellow);
             HealthBasedEffect Above30 = player.gameObject.AddComponent<HealthBasedEffect>();
-            Above30.healthHandlerModifier.regen_add += 24;
+            Above30.healthHandlerModifier.regen_add += 24f * ((characterStats.GetAdditionalData().NanoMachines + 1) / 2);
             Above30.SetPercThresholdMax(0.4f);
             Above30.SetPercThresholdMin(0.3f);
-            Above30.SetColor(Color.red);
             HealthBasedEffect Above20 = player.gameObject.AddComponent<HealthBasedEffect>();
-            Above20.healthHandlerModifier.regen_add += 28;
+            Above20.healthHandlerModifier.regen_add += 28f * ((characterStats.GetAdditionalData().NanoMachines + 1) / 2);
             Above20.SetPercThresholdMax(0.3f);
             Above20.SetPercThresholdMin(0.2f);
-            Above20.SetColor(Color.blue);
             HealthBasedEffect Above10 = player.gameObject.AddComponent<HealthBasedEffect>();
-            Above10.healthHandlerModifier.regen_add += 32;
+            Above10.healthHandlerModifier.regen_add += 32f * ((characterStats.GetAdditionalData().NanoMachines + 1) / 2);
             Above10.SetPercThresholdMax(0.2f);
             Above10.SetPercThresholdMin(0.1f);
-            Above10.SetColor(Color.white);
             HealthBasedEffect Above0 = player.gameObject.AddComponent<HealthBasedEffect>();
-            Above0.healthHandlerModifier.regen_add += 36;
+            Above0.healthHandlerModifier.regen_add += 36f * ((characterStats.GetAdditionalData().NanoMachines + 1) / 2);
             Above0.SetPercThresholdMax(0.1f);
             Above0.SetPercThresholdMin(0f);
-            Above0.SetColor(Color.clear);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -84,52 +78,25 @@ namespace ChaosPoppycarsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Test";
+            return "Nano Machines";
         }
         protected override string GetDescription()
         {
-            return "Once below 50% hp gain movment speed, attack speed, and knockback";
+            return "Nanomachines, son. The lower your health gets the higher your regen gets (getting this card more then once increases the regen)";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_GETAWAY");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_NanoMachines");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
             {
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "WHEN BELOW 50%",
-                    amount = "",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Movement Speed",
-                    amount = "+100%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-            new CardInfoStat()
-            {
-                positive = true,
-                stat = "Attack Speed",
-                amount = "+50%",
-                simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-            }, 
-                new CardInfoStat()
-            {
-                positive = true,
-                stat = "Knockback",
-                amount = "+1000%",
-                simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-            }
+               
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

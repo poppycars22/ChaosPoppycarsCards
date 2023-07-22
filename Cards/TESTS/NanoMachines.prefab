@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 114969577739340399}
   - component: {fileID: 114193385136356738}
   - component: {fileID: 114837455388346668}
-  - component: {fileID: 114236218848873640}
+  - component: {fileID: 568596293120651820}
   m_Layer: 0
   m_Name: GetawayTEST
   m_TagString: Untagged
@@ -326,7 +326,7 @@ MonoBehaviour:
   GunCritBlockCDReduction: 0
   GunBlockingCrits: 0
   Tag: CPC
---- !u!114 &114236218848873640
+--- !u!114 &568596293120651820
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1043437007509817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b0dede1c8bdd24abd86eaf23f398f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 2674c7333be53564a808f89ad5cc6d4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardInfo: {fileID: 0}

@@ -5,6 +5,7 @@ using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using ChaosPoppycarsCards.Extensions;
 using RarityLib.Utils;
+using CPC.Extensions;
 
 namespace ChaosPoppycarsCards.Cards
 
@@ -12,7 +13,6 @@ namespace ChaosPoppycarsCards.Cards
 {
     class GeeseSwarm : CustomCard
     {
-        public int geeseSwarms = 0;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             
@@ -25,9 +25,9 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            geeseSwarms += 1;
+            characterStats.GetAdditionalData().GeeseSwarms += 1;
             RarityUtils.AjustCardRarityModifier(Goose.Card, 20, 0);
-            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, 5, 0);
+            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, 15, 0);
             RarityUtils.AjustCardRarityModifier(GoldGoose.Card, 1, 0);
             foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
             {
@@ -41,13 +41,13 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            geeseSwarms -= 1;
+            characterStats.GetAdditionalData().GeeseSwarms -= 1;
             RarityUtils.AjustCardRarityModifier(Goose.Card, -20, 0);
-            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, -5, 0);
+            RarityUtils.AjustCardRarityModifier(KnifeGoose.Card, -15, 0);
             RarityUtils.AjustCardRarityModifier(GoldGoose.Card, -1, 0);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
-            if (geeseSwarms <= 0)
+            if (characterStats.GetAdditionalData().GeeseSwarms <= 0)
             {
                 foreach (Player otherPlayer in PlayerStatus.GetOtherPlayers(player))
                 {
