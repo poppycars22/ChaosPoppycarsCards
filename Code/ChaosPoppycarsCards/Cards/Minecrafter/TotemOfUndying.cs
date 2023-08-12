@@ -3,6 +3,8 @@ using UnityEngine;
 using UnboundLib;
 using ChaosPoppycarsCards.MonoBehaviours;
 using ClassesManagerReborn.Util;
+using RarityLib.Utils;
+using CPC.Extensions;
 
 
 namespace ChaosPoppycarsCards.Cards.Minecrafter
@@ -13,15 +15,15 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
             cardInfo.allowMultiple = true;
-            statModifiers.respawns = 1;
-            statModifiers.movementSpeed = 0.5f;
+            
             
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
+            player.gameObject.GetOrAddComponent<TotemEffect>();
+            characterStats.GetAdditionalData().totems += 1;
+            characterStats.GetAdditionalData().remainingTotems = characterStats.GetAdditionalData().totems;
 
-            
 
         }
         public override void OnRemoveCard()
@@ -37,7 +39,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         protected override string GetDescription()
         {
-            return "Gain a respawn, but loose some movement speed";
+            return "Survive one fatal blow and gain regen afterwards";
         }
 
         protected override GameObject GetCardArt()
@@ -47,7 +49,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
 
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return RarityUtils.GetRarity("Exotic");
         }
 
         protected override CardInfoStat[] GetStats()
@@ -57,15 +59,8 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 new CardInfoStat
                 {
                 positive = true,
-                stat = "Revives",
+                stat = "Totems",
                 amount = "+1",
-                simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                 new CardInfoStat
-                {
-                positive = false,
-                stat = "Move Speed",
-                amount = "-50%",
                 simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

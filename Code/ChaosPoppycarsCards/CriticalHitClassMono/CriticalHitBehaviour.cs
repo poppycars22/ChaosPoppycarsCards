@@ -26,6 +26,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         Gun gun;
         Player player;
         SpawnedAttack spawnedAttack;
+        HealthHandler healthHandler;
         private const string MessageEvent = "YourMod_MessageEvent";
 
         public void Start()
@@ -37,7 +38,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             this.gun = this.player.data.weaponHandler.gun;
             // Hook up our action.
             this.gun.ShootPojectileAction += this.OnShootProjectileAction;
-
+            this.healthHandler = this.player.data.healthHandler;
             isCriticalHit = false;
             isDoubleCrit = false;
             // Checks to see if we have a saved gun already, if not, we make one.
@@ -270,11 +271,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
                    
                     if (gun.GetAdditionalData().criticalHeal > 0)
                     {
-                        if (player.data.health <= player.data.maxHealth - 10)
-                        {
-                            player.data.health += gun.GetAdditionalData().criticalHeal;
-                        }
-                       
+                            healthHandler.Heal(gun.GetAdditionalData().criticalHeal);
                     }
                     if (gun.GetAdditionalData().criticalBlockCDReduction > 0)
                     {

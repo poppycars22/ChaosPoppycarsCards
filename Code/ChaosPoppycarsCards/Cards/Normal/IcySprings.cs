@@ -19,7 +19,7 @@ namespace ChaosPoppycarsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.knockback = 8.5f;
+            gun.knockback = 6f;
             gun.slow = 0.5f;
             gun.damage = 0.75f;
             gun.projectileColor = Color.cyan;
@@ -69,7 +69,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = true,
                     stat = "Knockback",
-                    amount = "+750%",
+                    amount = "+500%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

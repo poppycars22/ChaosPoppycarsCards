@@ -11618,6 +11618,8 @@ GameObject:
   - component: {fileID: 114973512357360048}
   - component: {fileID: 114859462070006813}
   - component: {fileID: 114302817402203582}
+  - component: {fileID: 114228047345340794}
+  - component: {fileID: 114208325283484466}
   m_Layer: 0
   m_Name: A_Explosion 1
   m_TagString: Untagged
@@ -11658,7 +11660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 5
-  shrink: 1
+  shrink: 0
   scaleWithScale: 0
 --- !u!114 &114383157166711120
 MonoBehaviour:
@@ -11692,13 +11694,13 @@ MonoBehaviour:
   slow: 0
   silence: 0
   fastSlow: 0
-  stun: 0
-  force: 12000
-  objectForceMultiplier: 3
+  stun: 0.25
+  force: 50000
+  objectForceMultiplier: 5
   forceIgnoreMass: 1
-  damage: 125
+  damage: 175
   dmgColor: {r: 0.76199996, g: 0, b: 0, a: 1}
-  range: 4
+  range: 6
   flyingFor: 0
   auto: 0
   ignoreTeam: 1
@@ -11708,7 +11710,7 @@ MonoBehaviour:
   scaleSilence: 1
   scaleDmg: 1
   scaleRadius: 1
-  scaleStun: 1
+  scaleStun: 0
   scaleForce: 1
   immunity: 0
   locallySimulated: 0
@@ -11771,6 +11773,62 @@ MonoBehaviour:
   attackLevel: 1
   attackID: 0
   view: {fileID: 0}
+--- !u!114 &114228047345340794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817971253521464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c1aa95e5091764882819db5f90100b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114973512357360048}
+        m_MethodName: Explode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &114208325283484466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817971253521464}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab752ec07c46ee24799f14ef2b0756d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114973512357360048}
+        m_MethodName: Explode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  time: 1
+  auto: 1
+  repeating: 0
+  usedTimeScale: 1
 --- !u!1 &1836493336408606
 GameObject:
   m_ObjectHideFlags: 0

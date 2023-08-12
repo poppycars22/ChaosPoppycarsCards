@@ -3,40 +3,36 @@ using ModdingUtils.MonoBehaviours;
 using UnboundLib;
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
-    internal class RegenEffect : ReversibleEffect
+    internal class TotemRegenEffect : ReversibleEffect
     {
         private float duration = 0;
-        public override void OnOnDestroy()
+        private float HealAmt = 0;
+        public override void OnStart()
         {
-            data.block.BlockAction -= OnBlock;
-        }
-        private void OnBlock(BlockTrigger.BlockTriggerType trigger)
-        {
+
+            HealAmt = (player.data.maxHealth * 0.4f);
+            healthHandlerModifier.regen_add = (HealAmt / 1.5f);
             if (duration <= 0)
             {
                 ApplyModifiers();
             }
-            duration = 3f;
+            duration = 1.5f;
             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
             effect.SetColor(Color.magenta);
-        }
-
-        public override void OnStart()
-        {
-            healthHandlerModifier.regen_add = (50f/3f);
-            data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }
         public override void OnUpdate()
         {
             if (!(duration <= 0))
             {
+               // data.healthHandler.Heal(HealAmt * TimeHandler.deltaTime);
                 duration -= TimeHandler.deltaTime;
             }
             else
             {
                 ClearModifiers();
                 Destroy(gameObject.GetOrAddComponent<ColorEffect>());
+                Destroy(this);
             }
         }
         public override void OnOnDisable()

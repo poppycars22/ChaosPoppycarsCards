@@ -18,7 +18,8 @@ namespace CPC.Extensions
         public int GeeseSwarms;
         public int StunningStares;
         public int NanoMachines;
-
+        public int remainingTotems;
+        public int totems;
         public CharacterStatModifiersAdditionalData()
         {
          //   RainbowLeafHealth = 0f;
@@ -29,6 +30,8 @@ namespace CPC.Extensions
             GeeseSwarms = 0;
             StunningStares = 0;
             NanoMachines = 0;
+            remainingTotems = 0;
+            totems = 0;
         }
     }
     public static class CharacterStatModifiersExtension
@@ -62,6 +65,8 @@ namespace CPC.Extensions
             __instance.GetAdditionalData().GeeseSwarms = 0;
             __instance.GetAdditionalData().StunningStares = 0;
             __instance.GetAdditionalData().NanoMachines = 0;
+            __instance.GetAdditionalData().remainingTotems = 0;
+            __instance.GetAdditionalData().totems = 0;
         }
     }
 }

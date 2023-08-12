@@ -43,7 +43,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                         ClassesRegistry.Register(DiamondArmor.Card, CardType.Gate, IronArmor.Card);
                             ClassesRegistry.Register(NetheriteArmor.Card, CardType.Card, DiamondArmor.Card);
             
-            ClassesRegistry.Register(TotemOfUndying.Card, CardType.Card, CraftingTable.Card, CardLimit: 3);
+            ClassesRegistry.Register(TotemOfUndying.Card, CardType.Card, CraftingTable.Card, CardLimit: 5);
             ClassesRegistry.Register(BrewingStand.Card, CardType.SubClass, CraftingTable.Card);
                 ClassesRegistry.Register(InvisablityPotion.Card, CardType.Card, BrewingStand.Card);
                 ClassesRegistry.Register(JumpPotion.Card, CardType.Card, BrewingStand.Card);
@@ -52,7 +52,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 ClassesRegistry.Register(StrengthPotion.Card, CardType.Card, BrewingStand.Card);
                 ClassesRegistry.Register(UltimatePotion.Card, CardType.Card, BrewingStand.Card);
             ClassesRegistry.Register(MCBow.Card, CardType.SubClass, CraftingTable.Card);
-                ClassesRegistry.Register(FlamingArrows.Card, CardType.Card, MCBow.Card);
+                //ClassesRegistry.Register(FlamingArrows.Card, CardType.Card, MCBow.Card);
                 ClassesRegistry.Register(PoisonArrows.Card, CardType.Card, MCBow.Card);
                 ClassesRegistry.Register(BouncyArrows.Card, CardType.Card, MCBow.Card);
                 ClassesRegistry.Register(ToxicArrows.Card, CardType.Card, MCBow.Card);
