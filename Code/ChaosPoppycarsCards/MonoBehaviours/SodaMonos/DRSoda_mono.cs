@@ -29,9 +29,9 @@ namespace ChaosPoppycarsCards.MonoBehaviours
 
         public override void OnStart()
         {
-            gunStatModifier.damage_mult = 2.5f;
-            gunAmmoStatModifier.reloadTimeMultiplier_mult = 0.25f;
-            gunStatModifier.attackSpeed_mult = 0.25f;
+            gunStatModifier.damage_mult = 1.5f;
+            gunAmmoStatModifier.reloadTimeMultiplier_mult = 0.5f;
+            gunStatModifier.attackSpeed_mult = 0.5f;
             
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);

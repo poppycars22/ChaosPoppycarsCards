@@ -86,7 +86,7 @@ MonoBehaviour:
   cardDestription: Increases your chance of getting a critical hit
   cardStats:
   - positive: 1
-    amount: +5%
+    amount: +10%
     simepleAmount: 0
     stat: Crit Chance
   rarity: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GunCritDamage2: 0
-  GunCritChance2: 0.05
+  GunCritChance2: 0.1
   GunCritBounces: 0
   GunCritDamageOnBounce: 0
   GunConsecutiveCrits: 0

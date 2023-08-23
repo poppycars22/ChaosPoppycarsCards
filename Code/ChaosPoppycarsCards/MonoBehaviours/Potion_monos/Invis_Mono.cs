@@ -25,6 +25,13 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         public override void OnStart()
         {
             gunStatModifier.projectileColor = Color.clear;
+            if (player.data.view.IsMine)
+            {
+                if (ChaosPoppycarsCards.MC_Particles.Value)
+                {
+                    characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Invisibility"));
+                }
+            }
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }

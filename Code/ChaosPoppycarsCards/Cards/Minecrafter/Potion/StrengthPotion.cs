@@ -28,7 +28,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             
             cardInfo.allowMultiple = false;
-            block.cdMultiplier = 1.5f;
+            block.cdMultiplier = 1.25f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             cardInfo.categories = new CardCategory[] { CPCCardCategories.PotionCategory };
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -75,7 +75,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 {
                     positive = false,
                     stat = "Block Cooldown",
-                    amount = "+50%",
+                    amount = "+25%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 }
             };

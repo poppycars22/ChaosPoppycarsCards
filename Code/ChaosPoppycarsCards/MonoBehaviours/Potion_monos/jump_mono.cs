@@ -23,8 +23,13 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         }
         public override void OnStart()
         {
-            characterStatModifiersModifier.jump_add = 1.15f; 
-            gravityModifier.gravityForce_mult = 0.08f;
+            characterStatModifiersModifier.jump_add = 0.5f;
+            gravityModifier.gravityForce_mult = 0.5f;
+            characterDataModifier.numberOfJumps_add = 3;
+            if (ChaosPoppycarsCards.MC_Particles.Value)
+            {
+                characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Jump"));
+            }
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }

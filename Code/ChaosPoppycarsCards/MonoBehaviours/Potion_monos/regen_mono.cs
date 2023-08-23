@@ -23,7 +23,11 @@ namespace ChaosPoppycarsCards.MonoBehaviours
 
         public override void OnStart()
         {
-            healthHandlerModifier.regen_add = (50f/3f);
+            healthHandlerModifier.regen_add = ((0.2f * player.data.maxHealth) / 3f);
+            if (ChaosPoppycarsCards.MC_Particles.Value)
+            {
+                characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Regen"));
+            }
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }

@@ -30,10 +30,10 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         public override void OnStart()
         {
             gravityModifier.gravityForce_mult = 0.5f;
-            characterDataModifier.maxHealth_mult = 3f;
-           
-            
-            
+            characterDataModifier.maxHealth_mult = 1.5f;
+            healthHandlerModifier.regen_add = (50f / 5f);
+
+
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }
@@ -42,7 +42,6 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             if (!(duration <= 0))
             {
                 duration -= TimeHandler.deltaTime;
-                data.healthHandler.Heal(7f * TimeHandler.deltaTime);
             }
             else
             {

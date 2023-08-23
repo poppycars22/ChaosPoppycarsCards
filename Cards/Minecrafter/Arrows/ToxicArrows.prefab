@@ -216,7 +216,7 @@ MonoBehaviour:
   useCharge: 0
   dontAllowAutoFire: 0
   objectsToSpawn:
-  - effect: {fileID: 1873228727427583, guid: ee6ee9dbcc32796439a12191dd70c61e, type: 3}
+  - effect: {fileID: 1873228727427583, guid: b9d271bdaaea82844906bcaec154c98e, type: 3}
     direction: 0
     spawnOn: 0
     spawnAsChild: 0
@@ -225,12 +225,12 @@ MonoBehaviour:
     stickToBigTargets: 0
     stickToAllTargets: 1
     zeroZ: 0
-    AddToProjectile: {fileID: 1355465248608431, guid: 0eadcb2fd7a979c4a93d1326e11992cc,
+    AddToProjectile: {fileID: 1355465248608431, guid: 432a8349fcef68346a7a5c66bd3ff65b,
       type: 3}
     removeScriptsFromProjectileObject: 0
     scaleStacks: 1
-    scaleStackM: 0.7
-    scaleFromDamage: 0.7
+    scaleStackM: 0.5
+    scaleFromDamage: 0.35
     stacks: 0
   - effect: {fileID: 1711786085530118, guid: ea824c81b247ee142943e48b354825f1, type: 3}
     direction: 0
@@ -253,7 +253,7 @@ MonoBehaviour:
   spawnSkelletonSquare: 0
   explodeNearEnemyRange: 0
   explodeNearEnemyDamage: 0
-  hitMovementMultiplier: 1
+  hitMovementMultiplier: 1.33
   isProjectileGun: 0
   defaultCooldown: 1
   attackID: -1

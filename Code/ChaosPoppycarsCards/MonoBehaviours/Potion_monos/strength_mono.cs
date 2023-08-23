@@ -30,6 +30,10 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         public override void OnStart()
         {
             gunStatModifier.damage_mult = 2f;
+            if (ChaosPoppycarsCards.MC_Particles.Value)
+            {
+                characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Strength"));
+            }
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }

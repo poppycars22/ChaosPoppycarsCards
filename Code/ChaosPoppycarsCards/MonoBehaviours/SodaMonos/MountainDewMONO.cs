@@ -29,7 +29,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours.SodaMonos
 
         public override void OnStart()
         {
-            characterStatModifiersModifier.movementSpeed_mult = 3f; //make it affect speed, jumpheight, and increase size
+            characterStatModifiersModifier.movementSpeed_mult = 2f; //make it affect speed, jumpheight, and increase size
             characterStatModifiersModifier.sizeMultiplier_mult = 1.5f;
             characterStatModifiersModifier.jump_mult = 1.25f;
            

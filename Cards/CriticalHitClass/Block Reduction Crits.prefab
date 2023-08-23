@@ -86,9 +86,9 @@ MonoBehaviour:
   cardDestription: On crit your block recharges a bit
   cardStats:
   - positive: 1
-    amount: +0.75%
+    amount: +0.75
     simepleAmount: 0
-    stat: Crit CD reduction
+    stat: Crit CD recharge
   rarity: 1
   cardArt: {fileID: 3405684943180386383, guid: f32f1f979d23fd44f88fcacf5980c375, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}

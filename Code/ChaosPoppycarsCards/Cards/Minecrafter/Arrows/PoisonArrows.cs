@@ -23,8 +23,8 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
            
-            gun.damage = 1.5f;
-        
+            gun.damage = 1.7f;
+            gun.ammo = -1;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -33,12 +33,7 @@ namespace ChaosPoppycarsCards.Cards
         {
             
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Poison bullets")).GetComponent<Gun>().objectsToSpawn[0];
-            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
-            list.Add(
-                objectsToSpawn
-            );
-            gun.objectsToSpawn = list.ToArray();
+            
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -77,12 +72,19 @@ namespace ChaosPoppycarsCards.Cards
                     stat = "Damage",
                     amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Ammo",
+                    amount = "-1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.PoisonGreen;
         }
         public override string GetModName()
         {

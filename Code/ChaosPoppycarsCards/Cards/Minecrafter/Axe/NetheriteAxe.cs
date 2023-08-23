@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ChaosPoppycarsCards.Utilities;
+using ClassesManagerReborn;
+using ClassesManagerReborn.Util;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using BepInEx;
-using ChaosPoppycarsCards.Cards;
-using ChaosPoppycarsCards.Utilities;
-using HarmonyLib;
-using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using ClassesManagerReborn.Util;
 
 namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
@@ -29,11 +21,23 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            ClassesRegistry.Get(WoodenAxe.Card).DeBhitelist(WoodenHoe.Card);
+            ClassesRegistry.Get(WoodenAxe.Card).DeBhitelist(WoodenSword.Card);
+            ClassesRegistry.Get(WoodenAxe.Card).DeBhitelist(LetherArmor.Card);
+            ClassesRegistry.Get(WoodenSword.Card).DeBhitelist(WoodenAxe.Card);
+            ClassesRegistry.Get(WoodenHoe.Card).DeBhitelist(WoodenAxe.Card);
+            ClassesRegistry.Get(LetherArmor.Card).DeBhitelist(WoodenAxe.Card);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            ClassesRegistry.Get(WoodenAxe.Card).Blacklist(WoodenHoe.Card);
+            ClassesRegistry.Get(WoodenAxe.Card).Blacklist(WoodenSword.Card);
+            ClassesRegistry.Get(WoodenAxe.Card).Blacklist(LetherArmor.Card);
+            ClassesRegistry.Get(WoodenSword.Card).Blacklist(WoodenAxe.Card);
+            ClassesRegistry.Get(WoodenHoe.Card).Blacklist(WoodenAxe.Card);
+            ClassesRegistry.Get(LetherArmor.Card).Blacklist(WoodenAxe.Card);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }

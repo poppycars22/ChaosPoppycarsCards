@@ -91,7 +91,7 @@ MonoBehaviour:
     simepleAmount: 0
     stat: Crits
   - positive: 0
-    amount: -50%
+    amount: -25%
     simepleAmount: 0
     stat: Crit Chance
   rarity: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GunCritDamage2: 0
-  GunCritChance2: -0.5
+  GunCritChance2: -0.25
   GunCritBounces: 0
   GunCritDamageOnBounce: 0
   GunConsecutiveCrits: 0

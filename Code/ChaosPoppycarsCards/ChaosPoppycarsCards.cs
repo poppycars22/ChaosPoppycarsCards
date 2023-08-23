@@ -22,6 +22,9 @@ using ChaosPoppycarsCards.MonoBehaviours;
 using CPC.Extensions;
 using CPCCardInfostuffs;
 using CPCTabInfoSTATS;
+using BepInEx.Configuration;
+using System.Diagnostics;
+using UnboundLib.Utils.UI;
 
 namespace ChaosPoppycarsCards
 {
@@ -48,34 +51,39 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "1.3.7"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.3.8"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         public static ChaosPoppycarsCards Instance { get; private set; }
+
+        public static ConfigEntry<bool> MC_Particles;
         public static object CPC_Assets { get; internal set; }
 
         public static AssetBundle Bundle = null;
         void Awake()
         {
-           
+
             Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
-            
+
             // Use this to call any harmony patch files your mod may have
             CardThemeLib.CardThemeLib.instance.CreateOrGetType("Evergreen", new CardThemeColor() { bgColor = new Color(0.09f, 0.23f, 0.11f), targetColor = new Color(0.28f, 0.80f, 0.32f) });
-           
-            
-          
+
+
+
             var harmony = new Harmony(ModId);
-          
+
             harmony.PatchAll();
-           
+
             var TESTIG = Bundle.LoadAsset<GameObject>("ModCards");
-            
+
             var TESTIG2 = TESTIG.GetComponent<CardHolder>();
-         
+
             TESTIG2.RegisterCards();
-           
+
             Bundle.LoadAllAssets();
-           
+
+
+
+            MC_Particles = base.Config.Bind<bool>(ModId, "Minecraft_Particles", true, "Enable Minecraft Particles");
         }
         //REGISTER CURSES
         private void RegisterCards() {
@@ -122,109 +130,110 @@ namespace ChaosPoppycarsCards
 
             ChaosPoppycarsCards.ArtAssets=AssetUtils.LoadAssetBundleFromResources("cpccart", typeof(ChaosPoppycarsCards).Assembly);
             RegisterCards();
-/*
-            CustomCard.BuildCard<Sugared>();
-            CustomCard.BuildCard<Getaway>();
-            CustomCard.BuildCard<WoodenHoe>((card) => WoodenHoe.Card = card);
-            CustomCard.BuildCard<WoodenSword>((card) => WoodenSword.Card = card);
-            CustomCard.BuildCard<DoubleDuplicator>();
-            CustomCard.BuildCard<Duplicator>();
-            CustomCard.BuildCard<StoneSword>((card) => StoneSword.Card = card);
-            CustomCard.BuildCard<GoldSword>((card) => GoldSword.Card = card);
-            CustomCard.BuildCard<IronSword>((card) => IronSword.Card = card);
-            CustomCard.BuildCard<DiamondSword>((card) => DiamondSword.Card = card);
-            CustomCard.BuildCard<NetheriteSword>((card) => NetheriteSword.Card = card);
-            CustomCard.BuildCard<MCBow>((card) => MCBow.Card = card);
-            CustomCard.BuildCard<AmmoChest>();
-            CustomCard.BuildCard<StrengthPotion>((card) => StrengthPotion.Card = card);
-            CustomCard.BuildCard<SpeedPotion>((card) => SpeedPotion.Card = card);
-            CustomCard.BuildCard<LetherArmor>((card) => LetherArmor.Card = card);
-            CustomCard.BuildCard<ChainArmor>((card) => ChainArmor.Card = card);
-            CustomCard.BuildCard<IronArmor>((card) => IronArmor.Card = card);
-            CustomCard.BuildCard<GoldArmor>((card) => GoldArmor.Card = card);
-            CustomCard.BuildCard<DiamondArmor>((card) => DiamondArmor.Card = card);
-            CustomCard.BuildCard<NetheriteArmor>((card) => NetheriteArmor.Card = card);
-            CustomCard.BuildCard<JumpPotion>((card) => JumpPotion.Card = card);
-            CustomCard.BuildCard<RegenPotion>((card) => RegenPotion.Card = card);
-            CustomCard.BuildCard<ActivatedDuplicator>();
-            CustomCard.BuildCard<UltimatePotion>((card) => UltimatePotion.Card = card);
-            CustomCard.BuildCard<WoodenAxe>((card) => WoodenAxe.Card = card);
-            CustomCard.BuildCard<BouncyGel>();
-            CustomCard.BuildCard<StoneAxe>((card) => StoneAxe.Card = card);
-            CustomCard.BuildCard<IronAxe>((card) => IronAxe.Card = card);
-            CustomCard.BuildCard<GoldAxe>((card) => GoldAxe.Card = card);
-            CustomCard.BuildCard<DiamondAxe>((card) => DiamondAxe.Card = card);
-            CustomCard.BuildCard<NetheriteAxe>((card) => NetheriteAxe.Card = card);
-            CustomCard.BuildCard<TotemOfUndying>((card) => TotemOfUndying.Card = card);
-            CustomCard.BuildCard<InvisablityPotion>((card) => InvisablityPotion.Card = card);
-            CustomCard.BuildCard<Negafy>();
-            CustomCard.BuildCard<StoneHoe>((card) => StoneHoe.Card = card);
-            CustomCard.BuildCard<GoldHoe>((card) => GoldHoe.Card = card);
-            CustomCard.BuildCard<IronHoe>((card) => IronHoe.Card = card);
-            CustomCard.BuildCard<DiamondHoe>((card) => DiamondHoe.Card = card);
-            CustomCard.BuildCard<NetheriteHoe>((card) => NetheriteHoe.Card = card);
-            CustomCard.BuildCard<WormHoleClip>();
-            CustomCard.BuildCard<MCShield>((card) => MCShield.Card = card);
-            CustomCard.BuildCard<CocaCola>();
-            CustomCard.BuildCard<Pepsi>();
-            CustomCard.BuildCard<DrPepper>();
-            CustomCard.BuildCard<Cards.Sprite>();
-            CustomCard.BuildCard<BouncyBombs>();
-            CustomCard.BuildCard<MountainDew>();
-            CustomCard.BuildCard<LightSaber>();
-            CustomCard.BuildCard<CraftingTable>((card) => CraftingTable.Card = card);
-            CustomCard.BuildCard<BrewingStand>((card) => BrewingStand.Card = card);
-            CustomCard.BuildCard<FlamingArrows>((card) => FlamingArrows.Card = card);
-            CustomCard.BuildCard<PoisonArrows>((card) => PoisonArrows.Card = card);
-            CustomCard.BuildCard<ToxicArrows>((card) => ToxicArrows.Card = card);
-            CustomCard.BuildCard<ExplosiveArrows>((card) => ExplosiveArrows.Card = card);
-            CustomCard.BuildCard<BouncyArrows>((card) => BouncyArrows.Card = card);
-            CustomCard.BuildCard<Arrows>((card) => Arrows.Card = card);
-            CustomCard.BuildCard<PunchII>((card) => PunchII.Card = card);
-            CustomCard.BuildCard<SpeedCurse>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
-            CustomCard.BuildCard<BlockConfusion>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
-            CustomCard.BuildCard<NerfGun>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
-            CustomCard.BuildCard<SpeedDemon>((card) => SpeedDemon.Card = card);
-            CustomCard.BuildCard<MomentumShots>((card) => MomentumShots.Card = card);
-            CustomCard.BuildCard<SpeedyHands>((card) => SpeedyHands.Card = card);
-            CustomCard.BuildCard<Tricky>((card) => Tricky.Card = card);
-            CustomCard.BuildCard<TriggerFinger>((card) => TriggerFinger.Card = card);
-            CustomCard.BuildCard<Swifter>((card) => Swifter.Card = card);
-            CustomCard.BuildCard<Stretches>((card) => Stretches.Card = card);
-            CustomCard.BuildCard<LegDay>((card) => LegDay.Card = card);
-            CustomCard.BuildCard<SpeedstersGun>((card) => SpeedstersGun.Card = card);
-            CustomCard.BuildCard<AirHops>((card) => AirHops.Card = card);
-            // CustomCard.BuildCard<WoodenPickaxe>();
-            // CustomCard.BuildCard<StonePickaxe>();
-            // CustomCard.BuildCard<GoldPickaxe>();
-            CustomCard.BuildCard<PoppysChaos>((card) => PoppysChaos.Card = card);
-            CustomCard.BuildCard<PercentageBullets>();
-            CustomCard.BuildCard<BalloonBullets>();
-            CustomCard.BuildCard<IcySprings>();
-            CustomCard.BuildCard<GeeseSwarm>();
-            CustomCard.BuildCard<Goose>((card) => Goose.Card = card);
-            CustomCard.BuildCard<Whynack>();
-            CustomCard.BuildCard<Anarkey>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
-            CustomCard.BuildCard<FWPhantom>();
-            CustomCard.BuildCard<Peptide>();
-            CustomCard.BuildCard<ScareJackpot>();
-            CustomCard.BuildCard<HealingBlock>();
-            CustomCard.BuildCard<AbsorbingBullets>();
-            CustomCard.BuildCard<RoyalGifting>();
-            CustomCard.BuildCard<BrittleBullets>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
-            CustomCard.BuildCard<FearfulCurse>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
-            CustomCard.BuildCard<LegendaryJackpot>();
-            CustomCard.BuildCard<SuperSprings>();
-            CustomCard.BuildCard<JumpPower>();
-            CustomCard.BuildCard<JumpBursts>();
-            CustomCard.BuildCard<JumpSpeed>();
-            CustomCard.BuildCard<JumpShrink>();
-            CustomCard.BuildCard<Nullgendary>();
-            CustomCard.BuildCard<FriendNulls>();
-            CustomCard.BuildCard<KnifeGoose>((card) => KnifeGoose.Card = card);
-            CustomCard.BuildCard<GoldGoose>((card) => GoldGoose.Card = card);
-            CustomCard.BuildCard<HealthBounces>();
-            //CustomCard.BuildCard<WoodenShovel>((card) => WoodenShovel.Card = card);*/
+            Unbound.RegisterMenu(ModName, delegate () { }, new Action<GameObject>(this.NewGUI), null, false);
+            /*
+                        CustomCard.BuildCard<Sugared>();
+                        CustomCard.BuildCard<Getaway>();
+                        CustomCard.BuildCard<WoodenHoe>((card) => WoodenHoe.Card = card);
+                        CustomCard.BuildCard<WoodenSword>((card) => WoodenSword.Card = card);
+                        CustomCard.BuildCard<DoubleDuplicator>();
+                        CustomCard.BuildCard<Duplicator>();
+                        CustomCard.BuildCard<StoneSword>((card) => StoneSword.Card = card);
+                        CustomCard.BuildCard<GoldSword>((card) => GoldSword.Card = card);
+                        CustomCard.BuildCard<IronSword>((card) => IronSword.Card = card);
+                        CustomCard.BuildCard<DiamondSword>((card) => DiamondSword.Card = card);
+                        CustomCard.BuildCard<NetheriteSword>((card) => NetheriteSword.Card = card);
+                        CustomCard.BuildCard<MCBow>((card) => MCBow.Card = card);
+                        CustomCard.BuildCard<AmmoChest>();
+                        CustomCard.BuildCard<StrengthPotion>((card) => StrengthPotion.Card = card);
+                        CustomCard.BuildCard<SpeedPotion>((card) => SpeedPotion.Card = card);
+                        CustomCard.BuildCard<LetherArmor>((card) => LetherArmor.Card = card);
+                        CustomCard.BuildCard<ChainArmor>((card) => ChainArmor.Card = card);
+                        CustomCard.BuildCard<IronArmor>((card) => IronArmor.Card = card);
+                        CustomCard.BuildCard<GoldArmor>((card) => GoldArmor.Card = card);
+                        CustomCard.BuildCard<DiamondArmor>((card) => DiamondArmor.Card = card);
+                        CustomCard.BuildCard<NetheriteArmor>((card) => NetheriteArmor.Card = card);
+                        CustomCard.BuildCard<JumpPotion>((card) => JumpPotion.Card = card);
+                        CustomCard.BuildCard<RegenPotion>((card) => RegenPotion.Card = card);
+                        CustomCard.BuildCard<ActivatedDuplicator>();
+                        CustomCard.BuildCard<UltimatePotion>((card) => UltimatePotion.Card = card);
+                        CustomCard.BuildCard<WoodenAxe>((card) => WoodenAxe.Card = card);
+                        CustomCard.BuildCard<BouncyGel>();
+                        CustomCard.BuildCard<StoneAxe>((card) => StoneAxe.Card = card);
+                        CustomCard.BuildCard<IronAxe>((card) => IronAxe.Card = card);
+                        CustomCard.BuildCard<GoldAxe>((card) => GoldAxe.Card = card);
+                        CustomCard.BuildCard<DiamondAxe>((card) => DiamondAxe.Card = card);
+                        CustomCard.BuildCard<NetheriteAxe>((card) => NetheriteAxe.Card = card);
+                        CustomCard.BuildCard<TotemOfUndying>((card) => TotemOfUndying.Card = card);
+                        CustomCard.BuildCard<InvisablityPotion>((card) => InvisablityPotion.Card = card);
+                        CustomCard.BuildCard<Negafy>();
+                        CustomCard.BuildCard<StoneHoe>((card) => StoneHoe.Card = card);
+                        CustomCard.BuildCard<GoldHoe>((card) => GoldHoe.Card = card);
+                        CustomCard.BuildCard<IronHoe>((card) => IronHoe.Card = card);
+                        CustomCard.BuildCard<DiamondHoe>((card) => DiamondHoe.Card = card);
+                        CustomCard.BuildCard<NetheriteHoe>((card) => NetheriteHoe.Card = card);
+                        CustomCard.BuildCard<WormHoleClip>();
+                        CustomCard.BuildCard<MCShield>((card) => MCShield.Card = card);
+                        CustomCard.BuildCard<CocaCola>();
+                        CustomCard.BuildCard<Pepsi>();
+                        CustomCard.BuildCard<DrPepper>();
+                        CustomCard.BuildCard<Cards.Sprite>();
+                        CustomCard.BuildCard<BouncyBombs>();
+                        CustomCard.BuildCard<MountainDew>();
+                        CustomCard.BuildCard<LightSaber>();
+                        CustomCard.BuildCard<CraftingTable>((card) => CraftingTable.Card = card);
+                        CustomCard.BuildCard<BrewingStand>((card) => BrewingStand.Card = card);
+                        CustomCard.BuildCard<FlamingArrows>((card) => FlamingArrows.Card = card);
+                        CustomCard.BuildCard<PoisonArrows>((card) => PoisonArrows.Card = card);
+                        CustomCard.BuildCard<ToxicArrows>((card) => ToxicArrows.Card = card);
+                        CustomCard.BuildCard<ExplosiveArrows>((card) => ExplosiveArrows.Card = card);
+                        CustomCard.BuildCard<BouncyArrows>((card) => BouncyArrows.Card = card);
+                        CustomCard.BuildCard<Arrows>((card) => Arrows.Card = card);
+                        CustomCard.BuildCard<PunchII>((card) => PunchII.Card = card);
+                        CustomCard.BuildCard<SpeedCurse>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+                        CustomCard.BuildCard<BlockConfusion>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+                        CustomCard.BuildCard<NerfGun>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+                        CustomCard.BuildCard<SpeedDemon>((card) => SpeedDemon.Card = card);
+                        CustomCard.BuildCard<MomentumShots>((card) => MomentumShots.Card = card);
+                        CustomCard.BuildCard<SpeedyHands>((card) => SpeedyHands.Card = card);
+                        CustomCard.BuildCard<Tricky>((card) => Tricky.Card = card);
+                        CustomCard.BuildCard<TriggerFinger>((card) => TriggerFinger.Card = card);
+                        CustomCard.BuildCard<Swifter>((card) => Swifter.Card = card);
+                        CustomCard.BuildCard<Stretches>((card) => Stretches.Card = card);
+                        CustomCard.BuildCard<LegDay>((card) => LegDay.Card = card);
+                        CustomCard.BuildCard<SpeedstersGun>((card) => SpeedstersGun.Card = card);
+                        CustomCard.BuildCard<AirHops>((card) => AirHops.Card = card);
+                        // CustomCard.BuildCard<WoodenPickaxe>();
+                        // CustomCard.BuildCard<StonePickaxe>();
+                        // CustomCard.BuildCard<GoldPickaxe>();
+                        CustomCard.BuildCard<PoppysChaos>((card) => PoppysChaos.Card = card);
+                        CustomCard.BuildCard<PercentageBullets>();
+                        CustomCard.BuildCard<BalloonBullets>();
+                        CustomCard.BuildCard<IcySprings>();
+                        CustomCard.BuildCard<GeeseSwarm>();
+                        CustomCard.BuildCard<Goose>((card) => Goose.Card = card);
+                        CustomCard.BuildCard<Whynack>();
+                        CustomCard.BuildCard<Anarkey>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+                        CustomCard.BuildCard<FWPhantom>();
+                        CustomCard.BuildCard<Peptide>();
+                        CustomCard.BuildCard<ScareJackpot>();
+                        CustomCard.BuildCard<HealingBlock>();
+                        CustomCard.BuildCard<AbsorbingBullets>();
+                        CustomCard.BuildCard<RoyalGifting>();
+                        CustomCard.BuildCard<BrittleBullets>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+                        CustomCard.BuildCard<FearfulCurse>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+                        CustomCard.BuildCard<LegendaryJackpot>();
+                        CustomCard.BuildCard<SuperSprings>();
+                        CustomCard.BuildCard<JumpPower>();
+                        CustomCard.BuildCard<JumpBursts>();
+                        CustomCard.BuildCard<JumpSpeed>();
+                        CustomCard.BuildCard<JumpShrink>();
+                        CustomCard.BuildCard<Nullgendary>();
+                        CustomCard.BuildCard<FriendNulls>();
+                        CustomCard.BuildCard<KnifeGoose>((card) => KnifeGoose.Card = card);
+                        CustomCard.BuildCard<GoldGoose>((card) => GoldGoose.Card = card);
+                        CustomCard.BuildCard<HealthBounces>();
+                        //CustomCard.BuildCard<WoodenShovel>((card) => WoodenShovel.Card = card);*/
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeAction);
             GameModeManager.AddHook(GameModeHooks.HookPlayerPickEnd, (gm) => PoppysChaos.ExtraPicks());
             //  GameModeManager.AddHook(GameModeHooks.HookBattleStart, LightSaberRangeReset);
@@ -414,8 +423,16 @@ namespace ChaosPoppycarsCards
             });
         }
 
+        private void NewGUI(GameObject menu)
+        {
+            MenuHandler.CreateText(ModName, menu, out _, 60, false, null, null, null, null);
 
-        
+            MenuHandler.CreateToggle(MC_Particles.Value, "Enable Minecraft Particles (only effects potions right now)", menu, value => MC_Particles.Value = value);
+            
+            MenuHandler.CreateText("", menu, out _);
+        }
+
+
         private IEnumerator UpgradeAction(IGameModeHandler gm)
         {
 

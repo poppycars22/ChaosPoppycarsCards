@@ -6,9 +6,11 @@ using ModdingUtils.Extensions;
 using System;
 using System.Collections.Generic;
 using ChaosPoppycarsCards.Cards;
+using ChaosPoppycarsCards;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
+  
     internal class SpeedEffect : ReversibleEffect
     {
         private float duration = 0;
@@ -22,6 +24,8 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             {
                 ApplyModifiers();
             }
+            
+           
             duration = 5f;
             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
             effect.SetColor(Color.cyan);
@@ -32,9 +36,14 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             characterStatModifiersModifier.movementSpeed_mult = 2f;
             gunStatModifier.attackSpeed_mult = 0.5f;
             gunAmmoStatModifier.reloadTimeMultiplier_mult = 0.5f;
+            if (ChaosPoppycarsCards.MC_Particles.Value)
+            {
+                characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Speed"));
+            }
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }
+
         public override void OnUpdate()
         {
             if (!(duration <= 0))

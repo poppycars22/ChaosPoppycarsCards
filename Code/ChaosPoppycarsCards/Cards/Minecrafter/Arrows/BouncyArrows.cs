@@ -23,8 +23,8 @@ namespace ChaosPoppycarsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
          
-            gun.reflects = 3;
-           
+            gun.reflects = 5;
+            gun.speedMOnBounce = 0.75f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
          
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -58,7 +58,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "You covered your arrows in slime, now they will bounce";
+            return "You covered your arrows in slime, now they will bounce and loose some speed after every bounce";
         }
         protected override GameObject GetCardArt()
         {
@@ -72,12 +72,18 @@ namespace ChaosPoppycarsCards.Cards
         {
             return new CardInfoStat[]
             {
-                
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Bounces",
-                    amount = "+3",
+                    amount = "+5",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Projectile Speed on bounce",
+                    amount = "-25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

@@ -27,7 +27,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             
             cardInfo.allowMultiple = false;
-            block.cdMultiplier = 1.25f;
+            block.cdMultiplier = 1.15f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             cardInfo.categories = new CardCategory[] { CPCCardCategories.PotionCategory };
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
@@ -56,7 +56,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         protected override string GetDescription()
         {
-            return "When you block you get 0.08 gravity and increased jump height for 5 seconds";
+            return "When you block you get half gravity, increased jump height, and 3 extra jumps for 5 seconds";
         }
         protected override GameObject GetCardArt()
         {
@@ -74,7 +74,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 {
                     positive = false,
                     stat = "Block Cooldown",
-                    amount = "+25%",
+                    amount = "+15%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 }
             };

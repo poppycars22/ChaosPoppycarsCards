@@ -30,8 +30,8 @@ namespace ChaosPoppycarsCards.MonoBehaviours
 
         public override void OnStart()
         {
-            characterStatModifiersModifier.lifeSteal_add = 3f;
-            characterStatModifiersModifier.sizeMultiplier_mult = 0.5f;
+            characterStatModifiersModifier.lifeSteal_add = 1f;
+            characterStatModifiersModifier.sizeMultiplier_mult = 0.75f;
             data.block.BlockAction += OnBlock;
             
             SetLivesToEffect(int.MaxValue);

@@ -30,9 +30,9 @@ namespace ChaosPoppycarsCards.MonoBehaviours.SodaMonos
 
         public override void OnStart()
         {
-            characterStatModifiersModifier.movementSpeed_mult = 1.5f;
-            characterStatModifiersModifier.secondsToTakeDamageOver_add = 5;
-            characterDataModifier.maxHealth_mult = 1.5f;
+            characterStatModifiersModifier.movementSpeed_mult = 1.25f;
+            characterStatModifiersModifier.secondsToTakeDamageOver_add = 3;
+            characterDataModifier.maxHealth_mult = 1.25f;
             
             
             data.block.BlockAction += OnBlock;
