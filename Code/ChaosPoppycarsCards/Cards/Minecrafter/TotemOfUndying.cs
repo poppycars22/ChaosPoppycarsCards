@@ -4,7 +4,7 @@ using UnboundLib;
 using ChaosPoppycarsCards.MonoBehaviours;
 using ClassesManagerReborn.Util;
 using RarityLib.Utils;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 
 
 namespace ChaosPoppycarsCards.Cards.Minecrafter

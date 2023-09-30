@@ -15,7 +15,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         public override IEnumerator Init()
         {
             UnityEngine.Debug.Log("Regestering: " + name);
-            while (!(CraftingTable.Card && MCBow.Card && MCShield.Card && WoodenSword.Card && StoneSword.Card && IronSword.Card && GoldSword.Card && DiamondSword.Card && NetheriteSword.Card && WoodenAxe.Card && StoneAxe.Card && IronAxe.Card && GoldAxe.Card && DiamondAxe.Card && NetheriteAxe.Card && WoodenHoe.Card && StoneHoe.Card && IronHoe.Card && GoldHoe.Card && DiamondHoe.Card && NetheriteHoe.Card && LetherArmor.Card && ChainArmor.Card && IronArmor.Card && GoldArmor.Card && DiamondArmor.Card && NetheriteArmor.Card && BrewingStand.Card && InvisablityPotion.Card && JumpPotion.Card && RegenPotion.Card && SpeedPotion.Card && StrengthPotion.Card && TotemOfUndying.Card && UltimatePotion.Card && DamageArrows.Card)) yield return null;
+            while (!(CraftingTable.Card && MCBow.Card && MCShield.Card && WoodenSword.Card && StoneSword.Card && IronSword.Card && GoldSword.Card && DiamondSword.Card && NetheriteSword.Card && WoodenAxe.Card && StoneAxe.Card && IronAxe.Card && GoldAxe.Card && DiamondAxe.Card && NetheriteAxe.Card && WoodenHoe.Card && StoneHoe.Card && IronHoe.Card && GoldHoe.Card && DiamondHoe.Card && NetheriteHoe.Card && LetherArmor.Card && ChainArmor.Card && IronArmor.Card && GoldArmor.Card && DiamondArmor.Card && NetheriteArmor.Card && BrewingStand.Card && InvisablityPotion.Card && JumpPotion.Card && RegenPotion.Card && SpeedPotion.Card && StrengthPotion.Card && TotemOfUndying.Card && UltimatePotion.Card && DamageArrows.Card && RedstoneDust.Card && GlowstoneDust.Card)) yield return null;
             ClassesRegistry.Register(CraftingTable.Card, CardType.Entry);
             ClassesRegistry.Register(MCShield.Card, CardType.Card, CraftingTable.Card);
             ClassesRegistry.Register(WoodenSword.Card, CardType.Gate, CraftingTable.Card);
@@ -50,7 +50,9 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 ClassesRegistry.Register(RegenPotion.Card, CardType.Card, BrewingStand.Card);
                 ClassesRegistry.Register(SpeedPotion.Card, CardType.Card, BrewingStand.Card);
                 ClassesRegistry.Register(StrengthPotion.Card, CardType.Card, BrewingStand.Card);
-                ClassesRegistry.Register(UltimatePotion.Card, CardType.Card, BrewingStand.Card);
+            ClassesRegistry.Register(UltimatePotion.Card, CardType.Card, BrewingStand.Card);
+            ClassesRegistry.Register(GlowstoneDust.Card, CardType.Card, BrewingStand.Card);
+            ClassesRegistry.Register(RedstoneDust.Card, CardType.Card, BrewingStand.Card);
             ClassesRegistry.Register(MCBow.Card, CardType.SubClass, CraftingTable.Card);
                 //ClassesRegistry.Register(FlamingArrows.Card, CardType.Card, MCBow.Card);
                 ClassesRegistry.Register(PoisonArrows.Card, CardType.Card, MCBow.Card);

@@ -11,55 +11,57 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using WillsWackyManagers.Utils;
-using ModdingUtils.Extensions;
-using RarityLib.Utils;
-using Nullmanager;
+using System.Reflection;
+using UnboundLib.Networking;
+using System.Collections.ObjectModel;
+using UnboundLib.Utils;
+using ClassesManagerReborn.Util;
+using ChaosPoppycarsCards.MonoBehaviours;
+using ChaosPoppycarsCards.Extensions;
 
-namespace ChaosPoppycarsCards.Cards
+namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
-    class Nullgendary : CustomCard
+    class RedstoneDust : CustomCard
     {
+        internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.GetAdditionalData().canBeReassigned = false;
-            cardInfo.categories = new CardCategory[] { CustomCardCategories.instance.CardCategory("CardManipulation"), RerollManager.instance.NoFlip };
+
+            cardInfo.allowMultiple = true;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            ChaosPoppycarsCards.Instance.ExecuteAfterFrames(20, () => {
-                var legend = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, LegendCondition);
-                
-                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, legend, false, "", 2f, 2f, true);
-            ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, legend, 3f);
-            });
-            characterStats.AjustNulls(30);
+            characterStats.GetAdditionalData().Redstone += 1;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
+        
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }
-
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+        }
         protected override string GetTitle()
         {
-            return "Ancient distill power";
+            return "Redstone Dust";
         }
         protected override string GetDescription()
         {
-            return "gives you a random <#b2b200>Legendary</color> card at the price of a lot of nulls";
+            return "Increases the length of your potion effects";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_AncientDistillPower");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_Redstone");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -68,15 +70,8 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Legendary",
+                    stat = "Redstone",
                     amount = "+1",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Nulls",
-                    amount = "+30",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
@@ -88,11 +83,6 @@ namespace ChaosPoppycarsCards.Cards
         public override string GetModName()
         {
             return "CPC";
-        }
-        private bool LegendCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            return card.rarity == RarityUtils.GetRarity("Legendary") && card.cardName != "Peptide" && !card.categories.Intersect(ScareJackpot.noLotteryCategories).Any() ;
-            
         }
     }
 }

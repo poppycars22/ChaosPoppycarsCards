@@ -113,7 +113,7 @@ namespace ChaosPoppycarsCards.Cards
                     positive = false,
                     stat = "Blocks",
                     amount = "1"
-                },
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

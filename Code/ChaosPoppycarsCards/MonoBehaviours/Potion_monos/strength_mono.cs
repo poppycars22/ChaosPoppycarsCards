@@ -2,7 +2,7 @@
 using ModdingUtils.MonoBehaviours;
 using UnboundLib.Cards;
 using UnboundLib;
-using ModdingUtils.Extensions;
+using ChaosPoppycarsCards.Extensions;
 using System;
 using System.Collections.Generic;
 using ChaosPoppycarsCards.Cards;
@@ -20,20 +20,29 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         {
             if (duration <= 0)
             {
+                gunStatModifier.damage_mult = 1.5f + (stats.GetAdditionalData().Glowstone * 0.25f);
                 ApplyModifiers();
             }
-            duration = 5f;
+            if (!stats.GetAdditionalData().InvisPot)
+            {
+
+                if (ChaosPoppycarsCards.MC_Particles.Value)
+                {
+                    characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Strength"));
+                }
+
+            }
+            else if (stats.GetAdditionalData().InvisPot && data.view.IsMine && ChaosPoppycarsCards.MC_Particles.Value)
+            {
+                characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Strength"));
+            }
+            duration = 3f + (stats.GetAdditionalData().Redstone * 1.5f);
             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
             effect.SetColor(Color.red);
         }
 
         public override void OnStart()
         {
-            gunStatModifier.damage_mult = 2f;
-            if (ChaosPoppycarsCards.MC_Particles.Value)
-            {
-                characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Strength"));
-            }
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }

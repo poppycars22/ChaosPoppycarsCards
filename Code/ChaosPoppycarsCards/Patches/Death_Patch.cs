@@ -1,10 +1,10 @@
 ﻿using HarmonyLib;
 using UnityEngine;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 using Sonigon;
 using UnboundLib;
 
-namespace CPC.Patches
+namespace ChaosPoppycarsCards.Patches
 {
     [HarmonyPatch(typeof(DeathEffect))]
     class DeathEffect_Patch

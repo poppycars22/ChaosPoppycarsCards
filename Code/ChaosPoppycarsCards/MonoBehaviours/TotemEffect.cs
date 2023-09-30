@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using HarmonyLib;
 using ModdingUtils.MonoBehaviours;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 using UnboundLib;
 
 namespace ChaosPoppycarsCards.MonoBehaviours

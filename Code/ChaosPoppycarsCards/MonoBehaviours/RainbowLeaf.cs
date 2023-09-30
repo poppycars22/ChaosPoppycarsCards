@@ -16,7 +16,7 @@ using ModdingUtils.RoundsEffects;
 using System.ComponentModel;
 using ModdingUtils.GameModes;
 using ModdingUtils.MonoBehaviours;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {

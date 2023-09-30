@@ -4,7 +4,7 @@ using CPCCardInfostuffs;
 using HarmonyLib;
 using UnityEngine;
 
-namespace CPC.Extensions
+namespace ChaosPoppycarsCards.Extensions
 {
 
     // ADD FIELDS TO GUN

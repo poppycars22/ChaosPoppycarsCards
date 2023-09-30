@@ -19,12 +19,14 @@ using RarityLib.Utils;
 using System.Collections.Generic;
 using static ChaosPoppycarsCards.Utilities.CardUtils;
 using ChaosPoppycarsCards.MonoBehaviours;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 using CPCCardInfostuffs;
 using CPCTabInfoSTATS;
 using BepInEx.Configuration;
 using System.Diagnostics;
 using UnboundLib.Utils.UI;
+using UnityEditor.VersionControl;
+using System.Reflection;
 
 namespace ChaosPoppycarsCards
 {
@@ -41,7 +43,7 @@ namespace ChaosPoppycarsCards
     [BepInDependency("root.cardtheme.lib", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.Root.Null", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.CrazyCoders.Rounds.RarityBundle", BepInDependency.DependencyFlags.HardDependency)]
-    [BepInDependency("com.willuwontu.rounds.tabinfo", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.willuwontu.rounds.tabinfo", BepInDependency.DependencyFlags.SoftDependency)]
     // Declares our mod to Bepin
     [BepInPlugin(ModId, ModName, Version)]
 
@@ -51,8 +53,9 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "1.3.8"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.3.9"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
+        internal static List<BaseUnityPlugin> plugins;
         public static ChaosPoppycarsCards Instance { get; private set; }
 
         public static ConfigEntry<bool> MC_Particles;
@@ -121,12 +124,15 @@ namespace ChaosPoppycarsCards
         }
 
         private void Start()
-
         {
+            plugins = (List<BaseUnityPlugin>)typeof(BepInEx.Bootstrap.Chainloader).GetField("_plugins", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
             Instance = this;
             GameModeManager.AddHook(GameModeHooks.HookGameStart, this.GameStart);
 
-            TabinfoInterface.Setup();
+            if (plugins.Exists(plugin => plugin.Info.Metadata.GUID == "com.willuwontu.rounds.tabinfo"))
+            {
+                TabinfoInterface.Setup();
+            }
 
             ChaosPoppycarsCards.ArtAssets=AssetUtils.LoadAssetBundleFromResources("cpccart", typeof(ChaosPoppycarsCards).Assembly);
             RegisterCards();
@@ -415,6 +421,15 @@ namespace ChaosPoppycarsCards
                 {
                     CardInfo otherCard = GetCardInfo("Hyper Sonic​");
                     MakeExclusive("Hyper Sonic​", "Light Saber");
+
+                    List<CardCategory> newList = otherCard.categories.ToList();
+
+                    otherCard.categories = newList.ToArray();
+                }
+                if (GetCardInfo("Squid​") != null)
+                {
+                    CardInfo otherCard = GetCardInfo("Squid​");
+                    MakeExclusive("Squid​", "Light Saber");
 
                     List<CardCategory> newList = otherCard.categories.ToList();
 

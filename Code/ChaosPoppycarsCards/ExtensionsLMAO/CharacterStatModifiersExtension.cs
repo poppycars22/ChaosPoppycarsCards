@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using ChaosPoppycarsCards.Cards;
 using HarmonyLib;
 
-namespace CPC.Extensions
+namespace ChaosPoppycarsCards.Extensions
 {
     // ADD FIELDS TO GUN
     [Serializable]
@@ -20,6 +20,9 @@ namespace CPC.Extensions
         public int NanoMachines;
         public int remainingTotems;
         public int totems;
+        public int Redstone;
+        public int Glowstone;
+        public bool InvisPot;
         public CharacterStatModifiersAdditionalData()
         {
          //   RainbowLeafHealth = 0f;
@@ -32,6 +35,9 @@ namespace CPC.Extensions
             NanoMachines = 0;
             remainingTotems = 0;
             totems = 0;
+            Redstone = 0;
+            Glowstone = 0;
+            InvisPot = false;
         }
     }
     public static class CharacterStatModifiersExtension
@@ -67,6 +73,9 @@ namespace CPC.Extensions
             __instance.GetAdditionalData().NanoMachines = 0;
             __instance.GetAdditionalData().remainingTotems = 0;
             __instance.GetAdditionalData().totems = 0;
+            __instance.GetAdditionalData().Redstone = 0;
+            __instance.GetAdditionalData().Glowstone = 0;
+            __instance.GetAdditionalData().InvisPot = false;
         }
     }
 }

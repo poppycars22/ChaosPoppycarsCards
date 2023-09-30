@@ -3,7 +3,7 @@ using Nullmanager;
 using TMPro;
 using UnityEngine;
 using UnboundLib;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 using HarmonyLib;
 
 

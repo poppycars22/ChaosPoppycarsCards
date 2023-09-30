@@ -11,50 +11,53 @@ using ChaosPoppycarsCards.Cards;
 using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using WillsWackyManagers.Utils;
-using ModdingUtils.Extensions;
-using RarityLib.Utils;
+using System.Reflection;
+using UnboundLib.Networking;
+using System.Collections.ObjectModel;
+using UnboundLib.Utils;
+using ClassesManagerReborn.Util;
+using ChaosPoppycarsCards.MonoBehaviours;
+using ChaosPoppycarsCards.Extensions;
 
-namespace ChaosPoppycarsCards.Cards
+namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
-    class ScareJackpot : CustomCard
+    class GlowstoneDust : CustomCard
     {
-        public static CardCategory[] noLotteryCategories = new CardCategory[] { CardChoiceSpawnUniqueCardPatch.CustomCategories.CustomCardCategories.instance.CardCategory("CardManipulation"), CardChoiceSpawnUniqueCardPatch.CustomCategories.CustomCardCategories.instance.CardCategory("NoRandom") };
+        internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.GetAdditionalData().canBeReassigned = false;
-            cardInfo.categories = new CardCategory[] { CustomCardCategories.instance.CardCategory("CardManipulation"), RerollManager.instance.NoFlip };
+
+            cardInfo.allowMultiple = true;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            ChaosPoppycarsCards.Instance.ExecuteAfterFrames(20, () => {
-                var scarce = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, ScarceCondition);
-                
-                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, scarce, false, "", 2f, 2f, true);
-            ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, scarce, 3f);
-            });
+            characterStats.GetAdditionalData().Glowstone += 1;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
+        
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }
-
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = MinecrafterClass.name;
+        }
         protected override string GetTitle()
         {
-            return "Exotic Jackpot";
+            return "Glowstone Dust";
         }
         protected override string GetDescription()
         {
-            return "gives you a random <#0A32FF>Exotic</color> card";
+            return "Increases the strength of your potion effects";
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_ScarceJackpot");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_Glowstone");
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -67,7 +70,7 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Exotic",
+                    stat = "Glowstone",
                     amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
@@ -80,11 +83,6 @@ namespace ChaosPoppycarsCards.Cards
         public override string GetModName()
         {
             return "CPC";
-        }
-        private bool ScarceCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            return card.rarity == RarityUtils.GetRarity("Exotic") && card.cardName != "Peptide" && !card.categories.Intersect(ScareJackpot.noLotteryCategories).Any(); ;
-            
         }
     }
 }

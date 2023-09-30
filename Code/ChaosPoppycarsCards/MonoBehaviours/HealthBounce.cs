@@ -15,7 +15,7 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ModdingUtils.RoundsEffects;
 using System.ComponentModel;
 using ModdingUtils.GameModes;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {

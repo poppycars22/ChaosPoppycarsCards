@@ -1,30 +1,48 @@
 ﻿using UnityEngine;
 using ModdingUtils.MonoBehaviours;
 using UnboundLib;
+using ChaosPoppycarsCards.Extensions;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
     internal class InvisEffect : ReversibleEffect
     {
         private float duration = 0;
+        private bool IgnoreWallStorage = false;
         public override void OnOnDestroy()
         {
             data.block.BlockAction -= OnBlock;
         }
         private void OnBlock(BlockTrigger.BlockTriggerType trigger)
         {
+            if (stats.GetAdditionalData().Glowstone <= 0)
+            {
+                gunStatModifier.projectileColor = Color.clear;
+            }
+            else
+            {
+                gunStatModifier.projectileColor = gun.projectileColor;
+            }
+            if (stats.GetAdditionalData().Glowstone >= 1 && duration <= 0)
+            {
+                IgnoreWallStorage = gun.ignoreWalls;
+                gun.ignoreWalls = true;
+            }
+            if (!(player.data.view.IsMine) && stats.GetAdditionalData().Glowstone >= 1)
+            {
+                gunStatModifier.projectileColor = Color.clear;
+            }
             if (duration <= 0)
             {
                 ApplyModifiers();
             }
-            duration = 5f;
+            duration = 3f + (stats.GetAdditionalData().Redstone * 1.5f);
             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
             effect.SetColor(Color.clear);
         }
 
         public override void OnStart()
         {
-            gunStatModifier.projectileColor = Color.clear;
             if (player.data.view.IsMine)
             {
                 if (ChaosPoppycarsCards.MC_Particles.Value)
@@ -43,6 +61,10 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             }
             else
             {
+                if (stats.GetAdditionalData().Glowstone >= 1)
+                {
+                    gun.ignoreWalls = IgnoreWallStorage;
+                }
                 ClearModifiers();
                 Destroy(gameObject.GetOrAddComponent<ColorEffect>());
             }

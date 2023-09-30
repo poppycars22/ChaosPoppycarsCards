@@ -23,10 +23,11 @@ using RarityLib.Utils;
 using Nullmanager;
 //using ModdingUtils.Extensions;
 using ChaosPoppycarsCards.Cards.Minecrafter;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 using System.Collections;
 using UnboundLib.GameModes;
-
+using System.Numerics;
+using UnityEditor;
 
 namespace ChaosPoppycarsCards.Cards
 {
@@ -36,6 +37,7 @@ namespace ChaosPoppycarsCards.Cards
         private PhotonView photonView;
         private int previousRandomNumber;
         public bool HealthBouncesCASE = false;
+        public bool BlockCase = false;
         public void Start()
         { 
         photonView = GetComponent<PhotonView>();
@@ -73,12 +75,12 @@ namespace ChaosPoppycarsCards.Cards
             
             void GenerateAndPerformEffect()
             {
-                int randomNumber = randomNumberGenerator.Next(1, 32);
+                int randomNumber = randomNumberGenerator.Next(1, 45);
 
-                while (randomNumber == previousRandomNumber)
+                /*while (randomNumber == previousRandomNumber)
                 {
-                    randomNumber = randomNumberGenerator.Next(1, 32);   //add 1 to max value (want 4 results? max num = 5)
-                }
+                    randomNumber = randomNumberGenerator.Next(41, 42);   //add 1 to max value (want 4 results? max num = 5)
+                }*/
 
                 previousRandomNumber = randomNumber;
 
@@ -127,19 +129,21 @@ namespace ChaosPoppycarsCards.Cards
                         break;
                     case 5:
                         gun.damage *= 0.5f;
-                        gun.reloadTime *= 0.25f;
+                        //gun.reloadTime *= 0.25f;
+                        gunAmmo.reloadTimeMultiplier *= 0.25f;
                         UnityEngine.Debug.Log("Poppys Chaos case 5");
                         break;
                     case 6:
                         data.maxHealth = 1;
-                        statModifiers.sizeMultiplier = 2.4f;
+                        //statModifiers.sizeMultiplier = 2.4f;
+                        characterStats.sizeMultiplier *= 2.4f;
                         characterStats.respawns += 2;
                         characterStats.GetAdditionalData().useNewRespawnTime = true;
                         characterStats.GetAdditionalData().newRespawnTime = 0.5f; 
                         UnityEngine.Debug.Log("Poppys Chaos case 6");
                         break;
                     case 7:
-                        block.additionalBlocks += 3;
+                        block.additionalBlocks += 2;
                         UnityEngine.Debug.Log("Poppys Chaos case 7");
                         break;
                     case 8:
@@ -155,13 +159,12 @@ namespace ChaosPoppycarsCards.Cards
                         //example case
                         break;
                     case 10:
-                        ChaosPoppycarsCards.Instance.ExecuteAfterFrames(20, () => {
+                        
+                        ChaosPoppycarsCards.Instance.ExecuteAfterFrames(10, () => {
                             var legend = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, LegendCondition);
-                            var legend2 = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, LegendCondition);
                             ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, legend, false, "", 2f, 2f, true);
                             ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, legend, 3f);
-                            ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, legend2, false, "", 2f, 2f, true);
-                            ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, legend2, 3f);
+                           
                         });
                         UnityEngine.Debug.Log("Poppys Chaos case 10");
                         //example case
@@ -177,7 +180,7 @@ namespace ChaosPoppycarsCards.Cards
                         //example case
                         break;
                     case 13:
-                        gravity.gravityForce = 0.001f;
+                        gravity.gravityForce *= 0.001f;
                         UnityEngine.Debug.Log("Poppys Chaos case 13");
                         //example case
                         break;
@@ -217,7 +220,7 @@ namespace ChaosPoppycarsCards.Cards
                         //example case
                         break;
                     case 17:
-                        ChaosPoppycarsCards.Instance.ExecuteAfterFrames(20, () => {
+                        ChaosPoppycarsCards.Instance.ExecuteAfterFrames(10, () => {
                             CurseManager.instance.CursePlayer(player, (curse) => {
                                 ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse, 3f);
                             });
@@ -229,7 +232,7 @@ namespace ChaosPoppycarsCards.Cards
                         //example case
                         break;
                     case 18:
-                        gun.knockback *= 5;
+                        gun.knockback *= 3;
                         UnityEngine.Debug.Log("Poppys Chaos case 18");
                         //example case
                         break;
@@ -268,7 +271,7 @@ namespace ChaosPoppycarsCards.Cards
                         var addedObj = Instantiate((ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("A_DemonicPact 1")), player.transform.position, player.transform.rotation, player.transform);
                         characterStats.objectsAddedToPlayer.Add(addedObj);
                         gun.damage *= 2f;
-                        gun.reloadTime *= 0.75f;
+                        gunAmmo.reloadTime *= 0.75f;
                         UnityEngine.Debug.Log("Poppys Chaos case 23");
                         //example case
                         break;
@@ -315,7 +318,8 @@ namespace ChaosPoppycarsCards.Cards
                     case 29:
                         gravity.gravityForce *= -0.05f;
                         characterStats.sizeMultiplier *= -1;
-                        characterStats.numberOfJumps += 10;
+                        data.jumps += 9;
+                        characterStats.jump *= -1f;
                         UnityEngine.Debug.Log("Poppys Chaos case 29");
                         //example case
                         break;
@@ -329,6 +333,99 @@ namespace ChaosPoppycarsCards.Cards
                         UnityEngine.Debug.Log("Poppys Chaos case 31");
                         //example case
                         break;
+                    case 32:
+                        player.data.movement.airControl /= 5;
+                        UnityEngine.Debug.Log("Poppys Chaos case 32");
+                        //example case
+                        break;
+                    case 33:
+                        player.data.movement.airControl *= 5;
+                        UnityEngine.Debug.Log("Poppys Chaos case 33");
+                        //example case
+                        break;
+                    case 34:
+                        //UnityEngine.Vector3 vectorThing = new UnityEngine.Vector3(1f, 2f, 1f);
+                        //gun.transform.localScale += vectorThing;
+                        gun.damage = 0.25f;
+                        UnityEngine.Debug.Log("Poppys Chaos case 34");
+                        //example case
+                        break;
+                    case 35:
+                        gunAmmo.reloadTimeMultiplier *= 1.75f;
+                        UnityEngine.Debug.Log("Poppys Chaos case 35");
+                        //example case
+                        break;
+                    case 36:
+                        gunAmmo.ammoReg -= 0.5f;
+                        gunAmmo.maxAmmo = 1;
+                        gunAmmo.reloadTimeAdd += 0.75f;
+                        UnityEngine.Debug.Log("Poppys Chaos case 36");
+                        //example case
+                        break;
+                    case 37:
+                        characterStats.respawns -= 1;
+                        characterStats.health *= 0.75f;
+                        characterStats.sizeMultiplier = 1f;
+                        UnityEngine.Debug.Log("Poppys Chaos case 37");
+                        //example case
+                        break;
+                    case 38:
+                        characterStats.numberOfJumps *= 0;
+                        data.jumps *= 0;
+                        UnityEngine.Debug.Log("Poppys Chaos case 38");
+                        //example case
+                        break;
+                    case 39:
+                        gun.damage = 50 / 28;
+                        gun.damage *= 0.5f;
+                        UnityEngine.Debug.Log("Poppys Chaos case 39");
+                        //example case
+                        break;
+                    case 40:
+                        gun.drag += 2.5f;
+                        gun.gravity *= 0f;
+                        gun.cos += 0.5f;
+                        UnityEngine.Debug.Log("Poppys Chaos case 40");
+                        //example case
+                        break;
+                    case 41:
+                        gun.destroyBulletAfter += 0.5f;
+
+                        UnityEngine.Debug.Log("Poppys Chaos case 41");
+                        //example case
+                        break;
+                    case 42:
+                        block.SetFieldValue("timeBetweenBlocks", ((float)block.GetFieldValue("timeBetweenBlocks")) + 0.4f);
+                        BlockCase = true;
+                        UnityEngine.Debug.Log("Poppys Chaos case 42");
+                        //example case
+                        break;
+                    case 43:
+                        gun.dontAllowAutoFire = true;
+                        gun.percentageDamage -= 0.15f;
+                        gun.damage *= 0.75f;
+                        UnityEngine.Debug.Log("Poppys Chaos case 43");
+                        //example case
+                        break;
+                    case 44:
+                        gun.ignoreWalls = false;
+                        gun.damageAfterDistanceMultiplier *= 0.5f;
+                        UnityEngine.Debug.Log("Poppys Chaos case 44");
+                        //example case
+                        break;
+                    /*case 45:
+                        foreach (CardInfo.Rarity r in Enum.GetValues(typeof(CardInfo.Rarity)))
+                        {
+                            if (r == CardInfo.Rarity.Common || r == RarityUtils.GetRarity("Trinket"))
+                            {
+                                continue;
+                            }
+                            var commonCategory = CustomCardCategories.instance.CardCategory($"__rarity-{r}");
+                            ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(commonCategory);
+                        }
+                            UnityEngine.Debug.Log("Poppys Chaos case 44");
+                        //example case
+                        break;*/
                     default:
                         UnityEngine.Debug.LogError("Unexpected random number value: " + randomNumber);
                         break;
@@ -340,9 +437,13 @@ namespace ChaosPoppycarsCards.Cards
 
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-           if (HealthBouncesCASE == true)
+            if (HealthBouncesCASE == true)
             {
                 UnityEngine.GameObject.Destroy(player.GetComponent<HealthBounceMono>());
+            }
+            if (BlockCase == true)
+            {
+                block.SetFieldValue("timeBetweenBlocks", ((float)block.GetFieldValue("timeBetweenBlocks")) - 0.4f);
             }
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player

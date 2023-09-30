@@ -13,7 +13,7 @@ using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ChaosPoppycarsCards.MonoBehaviours;
 using RarityLib.Utils;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 
 namespace ChaosPoppycarsCards.Cards
 {

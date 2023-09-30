@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using ModdingUtils.MonoBehaviours;
 using UnboundLib;
+using ChaosPoppycarsCards.Extensions;
+
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
     internal class JumpEffect : ReversibleEffect
@@ -15,9 +17,23 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         {
             if (duration <= 0)
             {
+                characterDataModifier.numberOfJumps_add = 3 + stats.GetAdditionalData().Glowstone;
                 ApplyModifiers();
             }
-            duration = 5f;
+            duration = 3f + (stats.GetAdditionalData().Redstone * 1.5f);
+            if (!stats.GetAdditionalData().InvisPot)
+            {
+
+                if (ChaosPoppycarsCards.MC_Particles.Value)
+                {
+                    characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Jump"));
+                }
+
+            }
+            else if (stats.GetAdditionalData().InvisPot && data.view.IsMine && ChaosPoppycarsCards.MC_Particles.Value)
+            {
+                characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Jump"));
+            }
             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
             effect.SetColor(Color.green);
         }
@@ -25,11 +41,9 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         {
             characterStatModifiersModifier.jump_add = 0.5f;
             gravityModifier.gravityForce_mult = 0.5f;
-            characterDataModifier.numberOfJumps_add = 3;
-            if (ChaosPoppycarsCards.MC_Particles.Value)
-            {
-                characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Jump"));
-            }
+            
+           
+                
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }

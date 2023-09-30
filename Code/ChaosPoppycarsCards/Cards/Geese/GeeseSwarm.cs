@@ -5,7 +5,6 @@ using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using ChaosPoppycarsCards.Extensions;
 using RarityLib.Utils;
-using CPC.Extensions;
 
 namespace ChaosPoppycarsCards.Cards
 

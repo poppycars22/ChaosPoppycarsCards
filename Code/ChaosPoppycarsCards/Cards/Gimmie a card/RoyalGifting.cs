@@ -30,23 +30,28 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            ChaosPoppycarsCards.Instance.ExecuteAfterFrames(20, () => {
-                var scarce = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, ScarceCondition);
-                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, scarce, false, "", 2f, 2f, true);
-            ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, scarce, 3f);
+            
+            ChaosPoppycarsCards.Instance.ExecuteAfterFrames(10, () => {
                 var rare = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, RareCondition);
+                //var scarce = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, ScarceCondition);
+                var uncommon = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, UncommonCondition);
+                var common = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CommonCondition);
+                var common2 = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CommonCondition);
+                //ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, scarce, false, "", 2f, 2f, true);
+                //ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, scarce, 3f);
                 ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, rare, false, "", 2f, 2f, true);
                 ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, rare, 3f);
-                var uncommon = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, UncommonCondition);
                 ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, uncommon, false, "", 2f, 2f, true);
                 ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, uncommon, 3f);
-                var common = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CommonCondition);
                 ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, common, false, "", 2f, 2f, true);
                 ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, common, 3f);
-                var common2 = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CommonCondition);
                 ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, common2, false, "", 2f, 2f, true);
                 ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, common2, 3f);
                 CurseManager.instance.CursePlayer(player, (curse) => {
+                    ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse, 3f);
+                });
+                CurseManager.instance.CursePlayer(player, (curse) =>
+                {
                     ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse, 3f);
                 });
                 CurseManager.instance.CursePlayer(player, (curse) => {
@@ -84,7 +89,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "gives you 2 commons, 1 uncommon, 1 exotic, 1 rare, and 2 curses";
+            return "gives you 2 commons, 1 uncommon, 1 rare, and 3 curses";
         }
         protected override GameObject GetCardArt()
         {
@@ -108,13 +113,6 @@ namespace ChaosPoppycarsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Exotic",
-                    amount = "+1",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
                     stat = "Uncommon",
                     amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
@@ -130,7 +128,7 @@ namespace ChaosPoppycarsCards.Cards
                 {
                     positive = false,
                     stat = "Curses",
-                    amount = "+2",
+                    amount = "+3",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

@@ -2,7 +2,7 @@
 using ModdingUtils.MonoBehaviours;
 using UnboundLib.Cards;
 using UnboundLib;
-using ModdingUtils.Extensions;
+using ChaosPoppycarsCards.Extensions;
 using System;
 using System.Collections.Generic;
 using ChaosPoppycarsCards.Cards;
@@ -22,24 +22,34 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         {
             if (duration <= 0)
             {
+                characterStatModifiersModifier.movementSpeed_mult = 1.5f + (stats.GetAdditionalData().Glowstone / 4f);
+                gunStatModifier.attackSpeed_mult = 0.75f - (stats.GetAdditionalData().Glowstone / 16f);
+                gunAmmoStatModifier.reloadTimeMultiplier_mult = 0.75f - (stats.GetAdditionalData().Glowstone / 16f);
                 ApplyModifiers();
             }
-            
-           
-            duration = 5f;
+
+            if (!stats.GetAdditionalData().InvisPot)
+            {
+
+                if (ChaosPoppycarsCards.MC_Particles.Value)
+                {
+                    characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Speed"));
+                }
+
+            }
+            else if (stats.GetAdditionalData().InvisPot && data.view.IsMine && ChaosPoppycarsCards.MC_Particles.Value)
+            {
+                characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Speed"));
+            }
+            duration = 3f + (stats.GetAdditionalData().Redstone * 1.5f);
             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
             effect.SetColor(Color.cyan);
         }
 
         public override void OnStart()
         {
-            characterStatModifiersModifier.movementSpeed_mult = 2f;
-            gunStatModifier.attackSpeed_mult = 0.5f;
-            gunAmmoStatModifier.reloadTimeMultiplier_mult = 0.5f;
-            if (ChaosPoppycarsCards.MC_Particles.Value)
-            {
-                characterStatModifiersModifier.objectsToAddToPlayer.Add(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("PotionMCParticle_Speed"));
-            }
+
+
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }

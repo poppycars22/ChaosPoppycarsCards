@@ -1,6 +1,6 @@
 ﻿using Photon.Pun;
 using UnityEngine;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 using ChaosPoppycarsCards.Utilities;
 using SimulationChamber;
 using System.Collections;
@@ -16,6 +16,7 @@ using ModdingUtils.MonoBehaviours;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
+    [DisallowMultipleComponent]
     public class CriticalHitBehaviour : MonoBehaviour//Pun
     {
         private float critMultiplier = 1f; // Current critical hit multiplier
@@ -82,10 +83,6 @@ namespace ChaosPoppycarsCards.MonoBehaviours
                 }
 
 
-
-
-
-
                 NetworkingManager.RPC(typeof(CriticalHitBehaviour), nameof(SyncCriticalHit), new object[] { isCriticalHit });
 
                 if (gun.GetAdditionalData().guranteedCrits == false && gun.GetAdditionalData().criticalHitChance1 > 1f)
@@ -109,6 +106,34 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             critMultiplier = 0f;
             if (isCriticalHit)
             {
+                spawnedAttack.SetColor(gun.GetAdditionalData().CritColor);
+                if (gun.GetAdditionalData().criticalHitChance1 >= 1.1f & gun.GetAdditionalData().guranteedCrits == false)
+                {
+                    int additionalCrits = (int)Math.Round(gun.GetAdditionalData().criticalHitChance1);
+                    //UnityEngine.Debug.Log(additionalCrits + "addition crits");
+
+                    //UnityEngine.Debug.Log(doubleCritChance + "double crit chance");
+
+                    if (isDoubleCrit)
+                    {
+                        critMultiplier += additionalCrits + 1f;
+                        //UnityEngine.Debug.Log(critMultiplier + "crit mult");
+                        spawnedAttack.SetColor(gun.GetAdditionalData().DoubleCritColor);
+                    }
+                    else
+                    {
+                        critMultiplier += additionalCrits;
+                        if (gun.GetAdditionalData().consecutiveCrits == true)
+                        {
+                            consecutiveCritDamage = 0f;
+                        }
+                    }
+                }
+                else
+                {
+                    critMultiplier = 0f;
+                }
+
                 RayCastTrail trail = obj.GetComponent<RayCastTrail>();
                 if (gun.GetAdditionalData().CritColor == Color.clear)
                 {
@@ -174,39 +199,20 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             {
                 if (isCriticalHit)
                 {
-                   // UnityEngine.Debug.Log("Crit");
                     spawnedAttack.SetColor(gun.GetAdditionalData().CritColor);
-                    //UnityEngine.Debug.Log("was a crit");
-                    //critMultiplier = Mathf.Floor(gun.GetAdditionalData().criticalHitChance1 / 1f); // Get the integer part of the critical hit chance
-
-                    // Check for double crit and higher crit multipliers
-                    if (gun.GetAdditionalData().criticalHitChance1 >= 1.1f & gun.GetAdditionalData().guranteedCrits == false)
-                    {
-                        int additionalCrits = (int)Math.Round(gun.GetAdditionalData().criticalHitChance1);
-                        //UnityEngine.Debug.Log(additionalCrits + "addition crits");
-                       
-                        //UnityEngine.Debug.Log(doubleCritChance + "double crit chance");
 
                         if (isDoubleCrit)
                         {
-                            critMultiplier += additionalCrits + 1f;
-                            //UnityEngine.Debug.Log(critMultiplier + "crit mult");
                             spawnedAttack.SetColor(gun.GetAdditionalData().DoubleCritColor);
                         }
-                        else
-                        {
-                            critMultiplier += additionalCrits;
-                            if (gun.GetAdditionalData().consecutiveCrits == true)
-                            {
-                                consecutiveCritDamage = 0f;
-                            }
-                        }
+                        // UnityEngine.Debug.Log("Crit");
+
+                        //UnityEngine.Debug.Log("was a crit");
+                        //critMultiplier = Mathf.Floor(gun.GetAdditionalData().criticalHitChance1 / 1f); // Get the integer part of the critical hit chance
+
+                        // Check for double crit and higher crit multipliers
+
                     }
-                    else
-                    {
-                        critMultiplier = 0f;
-                    }
-                }
                 if (isCriticalHit)
                 {
 

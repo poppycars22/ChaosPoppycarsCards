@@ -1,9 +1,9 @@
 ﻿using System;
 using HarmonyLib;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 
 
-namespace CPC.Patches
+namespace ChaosPoppycarsCards.Patches
 {
     [Serializable]
     [HarmonyPatch(typeof(HealthHandler), "Revive")]

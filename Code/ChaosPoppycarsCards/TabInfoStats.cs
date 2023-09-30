@@ -1,6 +1,5 @@
 ﻿using TabInfo.Utils;
 using ChaosPoppycarsCards.Extensions;
-using CPC.Extensions;
 
 namespace CPCTabInfoSTATS
 {
@@ -8,9 +7,11 @@ namespace CPCTabInfoSTATS
     {
         public static void Setup()
         {
-            var TotemStats = TabInfoManager.RegisterCategory("CPC Extras", 2);
-            TabInfoManager.RegisterStat(TotemStats, "Totems", (p) => p.data.stats.GetAdditionalData().totems != 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().totems));
-            TabInfoManager.RegisterStat(TotemStats, "Remaining Totems", (p) => p.data.stats.GetAdditionalData().remainingTotems != 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().remainingTotems));
+            var ExtraStats = TabInfoManager.RegisterCategory("CPC Extras", 4);
+            TabInfoManager.RegisterStat(ExtraStats, "Totems", (p) => p.data.stats.GetAdditionalData().totems != 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().totems));
+            TabInfoManager.RegisterStat(ExtraStats, "Remaining Totems", (p) => p.data.stats.GetAdditionalData().remainingTotems != 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().remainingTotems));
+            TabInfoManager.RegisterStat(ExtraStats, "Glowstone", (p) => p.data.stats.GetAdditionalData().Glowstone > 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().Glowstone));
+            TabInfoManager.RegisterStat(ExtraStats, "Redstone", (p) => p.data.stats.GetAdditionalData().Redstone > 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().Redstone));
             var CritStats = TabInfoManager.RegisterCategory("Critical Hit Stats", 12);
             TabInfoManager.RegisterStat(CritStats, "Crit Damage", (p) => p.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1 != 1f, (p) => string.Format("{0:F0}%", (p.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1 -1f) * 100));
             TabInfoManager.RegisterStat(CritStats, "Crit Chance", (p) => p.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1 != 0, (p) => string.Format("{0:F0}%", p.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1 * 100));

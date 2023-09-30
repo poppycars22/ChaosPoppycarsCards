@@ -29,13 +29,14 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            ChaosPoppycarsCards.Instance.ExecuteAfterFrames(20, () => {
+           
+            ChaosPoppycarsCards.Instance.ExecuteAfterFrames(10, () => {
                 var rare = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, RareCondition);
                 var rare2 = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, RareCondition);
                 ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, rare, false, "", 2f, 2f, true);
-            ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, rare, 3f);
-            ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, rare2, false, "", 2f, 2f, true);
-            ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, rare2, 3f);
+                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, rare, 3f);
+                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, rare2, false, "", 2f, 2f, true);
+                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, rare2, 3f);
                 CurseManager.instance.CursePlayer(player, (curse) => {
                     ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse, 3f);
                 });

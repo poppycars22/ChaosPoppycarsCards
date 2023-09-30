@@ -2,10 +2,10 @@
 using HarmonyLib;
 using ChaosPoppycarsCards.MonoBehaviours;
 using UnityEngine;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 
 
-namespace CPC.Patches
+namespace ChaosPoppycarsCards.Patches
 {
     [Serializable]
     [HarmonyPatch(typeof(HealthHandler), "DoDamage")]

@@ -12,7 +12,7 @@ using ChaosPoppycarsCards.Utilities;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ModdingUtils.MonoBehaviours;
-using CPC.Extensions;
+using ChaosPoppycarsCards.Extensions;
 namespace ChaosPoppycarsCards.Cards
 {
     class StunningStare : CustomCard

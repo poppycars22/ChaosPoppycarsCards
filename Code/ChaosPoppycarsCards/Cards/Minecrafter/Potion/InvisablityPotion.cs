@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using UnboundLib.Utils;
 using ClassesManagerReborn.Util;
 using ChaosPoppycarsCards.MonoBehaviours;
-
+using ChaosPoppycarsCards.Extensions;
 
 namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
@@ -36,6 +36,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             var mono = player.gameObject.GetOrAddComponent<InvisEffect>();
+            characterStats.GetAdditionalData().InvisPot = true;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }

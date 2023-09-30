@@ -17,6 +17,7 @@ using UnboundLib.Networking;
 using System.Collections.ObjectModel;
 using UnboundLib.Utils;
 using ClassesManagerReborn.Util;
+using ChaosPoppycarsCards.Extensions;
 
 
 namespace ChaosPoppycarsCards.Cards.Minecrafter
@@ -39,6 +40,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             var mono3 = player.gameObject.GetOrAddComponent<SpeedEffect>();
             var mono4 = player.gameObject.GetOrAddComponent<StrengthEffect>();
             var mono5 = player.gameObject.GetOrAddComponent<InvisEffect>();
+            characterStats.GetAdditionalData().InvisPot = true;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             ModdingUtils.Extensions.CharacterStatModifiersExtension.GetAdditionalData(player.data.stats).blacklistedCategories.Add(CPCCardCategories.PotionCategory);
             //Edits values on player when card is selected
