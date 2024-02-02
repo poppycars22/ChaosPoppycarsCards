@@ -11,12 +11,12 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         {
 
             HealAmt = (player.data.maxHealth * 0.4f);
-            healthHandlerModifier.regen_add = (HealAmt / 1.5f);
+            healthHandlerModifier.regen_add = (HealAmt / 3f);
             if (duration <= 0)
             {
                 ApplyModifiers();
             }
-            duration = 1.5f;
+            duration = 3f;
             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
             effect.SetColor(Color.magenta);
             SetLivesToEffect(int.MaxValue);

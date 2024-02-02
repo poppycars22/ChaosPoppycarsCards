@@ -7,7 +7,7 @@ using ChaosPoppycarsCards.Cards.Minecrafter;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ModdingUtils;
-using ModdingUtils.Extensions;
+//using ModdingUtils.Extensions;
 using System.Collections;
 using UnboundLib.GameModes;
 using Jotunn.Utils;
@@ -20,13 +20,16 @@ using System.Collections.Generic;
 using static ChaosPoppycarsCards.Utilities.CardUtils;
 using ChaosPoppycarsCards.MonoBehaviours;
 using ChaosPoppycarsCards.Extensions;
+using ChaosPoppycarsCards.Patches;
 using CPCCardInfostuffs;
 using CPCTabInfoSTATS;
 using BepInEx.Configuration;
 using System.Diagnostics;
 using UnboundLib.Utils.UI;
-using UnityEditor.VersionControl;
 using System.Reflection;
+using UnboundLib.Utils;
+using InControl;
+using PlayerActionsHelper;
 
 namespace ChaosPoppycarsCards
 {
@@ -43,6 +46,9 @@ namespace ChaosPoppycarsCards
     [BepInDependency("root.cardtheme.lib", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.Root.Null", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.CrazyCoders.Rounds.RarityBundle", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.willuwontu.rounds.attacklevelPatch", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.rounds.willuwontu.ActionHelper", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.Poppycars.PSA.Id", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.willuwontu.rounds.tabinfo", BepInDependency.DependencyFlags.SoftDependency)]
     // Declares our mod to Bepin
     [BepInPlugin(ModId, ModName, Version)]
@@ -70,8 +76,6 @@ namespace ChaosPoppycarsCards
             // Use this to call any harmony patch files your mod may have
             CardThemeLib.CardThemeLib.instance.CreateOrGetType("Evergreen", new CardThemeColor() { bgColor = new Color(0.09f, 0.23f, 0.11f), targetColor = new Color(0.28f, 0.80f, 0.32f) });
 
-
-
             var harmony = new Harmony(ModId);
 
             harmony.PatchAll();
@@ -84,7 +88,8 @@ namespace ChaosPoppycarsCards
 
             Bundle.LoadAllAssets();
 
-
+            // PlayerActionManager.RegisterPlayerAction(new ActionInfo("SwitchHoldable", new KeyBindingSource(Key.Q),
+            // new DeviceBindingSource(InputControlType.DPadDown)));
 
             MC_Particles = base.Config.Bind<bool>(ModId, "Minecraft_Particles", true, "Enable Minecraft Particles");
         }
@@ -113,13 +118,15 @@ namespace ChaosPoppycarsCards
                 }
             }
 
-            this.ExecuteAfterFrames(6, () => {
+            this.ExecuteAfterFrames(10, () => {
                 CurseManager.instance.RegisterCurse(Anarkey.Card);
                 CurseManager.instance.RegisterCurse(BlockConfusion.Card);
                 CurseManager.instance.RegisterCurse(BrittleBullets.Card);
                 CurseManager.instance.RegisterCurse(FearfulCurse.Card);
                 CurseManager.instance.RegisterCurse(NerfGun.Card);
                 CurseManager.instance.RegisterCurse(SpeedCurse.Card);
+                CurseManager.instance.RegisterCurse(RandomCurse.Card);
+                //CurseManager.instance.RegisterCurse(CursedTablet.Card);
             });
         }
 
@@ -241,6 +248,7 @@ namespace ChaosPoppycarsCards
                         CustomCard.BuildCard<HealthBounces>();
                         //CustomCard.BuildCard<WoodenShovel>((card) => WoodenShovel.Card = card);*/
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, UpgradeAction);
+            GameModeManager.AddHook(GameModeHooks.HookPointEnd, PointEnd);
             GameModeManager.AddHook(GameModeHooks.HookPlayerPickEnd, (gm) => PoppysChaos.ExtraPicks());
             //  GameModeManager.AddHook(GameModeHooks.HookBattleStart, LightSaberRangeReset);
             // make cards mutually exclusive
@@ -252,7 +260,7 @@ namespace ChaosPoppycarsCards
                     MakeExclusive("Flak Cannon", "Cursor gun");
 
                     List<CardCategory> newList = otherCard.categories.ToList();
-                 
+
                     otherCard.categories = newList.ToArray();
                 }
                 if (GetCardInfo("Backup Shotgun") != null)
@@ -261,7 +269,7 @@ namespace ChaosPoppycarsCards
                     MakeExclusive("Backup Shotgun", "Cursor gun");
 
                     List<CardCategory> newList = otherCard.categories.ToList();
-                
+
                     otherCard.categories = newList.ToArray();
                 }
                 if (GetCardInfo("Plasma Shotgun") != null)
@@ -436,8 +444,21 @@ namespace ChaosPoppycarsCards
                     otherCard.categories = newList.ToArray();
                 }
             });
+            ExtensionMethods.ExecuteAfterFrames(this, 60, delegate ()
+            {
+                Enumerable.ToList<Card>(CardManager.cards.Values).ForEach(delegate (Card card)
+                {
+                    this.AddMod(card);
+                });
+            });
         }
-
+        private void AddMod(Card card)
+        {
+            string text = "__Rarity-" + card.cardInfo.rarity;
+            CardCategory cardCategory = CustomCardCategories.instance.CardCategory(text);
+            CardCategory[] categories = CollectionExtensions.AddToArray<CardCategory>(card.cardInfo.categories, cardCategory);
+            card.cardInfo.categories = categories;
+        }
         private void NewGUI(GameObject menu)
         {
             MenuHandler.CreateText(ModName, menu, out _, 60, false, null, null, null, null);
@@ -458,7 +479,16 @@ namespace ChaosPoppycarsCards
            
 
         }
-        
+        IEnumerator PointEnd(IGameModeHandler gm)
+        {
+            foreach(var player in PlayerManager.instance.players)
+            {
+                player.data.stats.GetAdditionalData().firstHit = true;
+                player.data.stats.GetAdditionalData().firstDamage = true;
+                //player.data.stats.GetAdditionalData().damageMult = player.data.stats.GetAdditionalData().damageMultMax;
+            }
+            yield break;
+        }
       
         /* private IEnumerator LightSaberRangeReset(IGameModeHandler gm)
          {

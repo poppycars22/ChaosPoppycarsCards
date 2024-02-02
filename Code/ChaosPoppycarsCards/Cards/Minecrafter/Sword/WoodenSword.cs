@@ -20,6 +20,8 @@ using UnboundLib.Utils;
 using UnboundLib.Networking;
 using Photon.Pun;
 using ClassesManagerReborn;
+using UnboundLib.Extensions;
+using ChaosPoppycarsCards.Extensions;
 
 namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
@@ -34,11 +36,11 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
             cardInfo.allowMultiple = false;
             gun.damage = 1.1f;
-            
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            characterStats.GetAdditionalData().everyOther = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
 
            
@@ -92,48 +94,38 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             return "CPC";
         }
-        static bool everyOtherRound = true;
         
         
         internal static IEnumerator UpgradeSword(IGameModeHandler gm)
         {
-            everyOtherRound = !everyOtherRound;
-            if (everyOtherRound == false)
+            foreach (Player player in PlayerManager.instance.players.ToArray())
             {
-                foreach (Player player in PlayerManager.instance.players.ToArray())
+                player.data.stats.GetAdditionalData().everyOther = !(player.data.stats.GetAdditionalData().everyOther);
+                if (player.data.stats.GetAdditionalData().everyOther == false)
                 {
                     if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, StoneSword.Card))
                     {
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, StoneSword.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, StoneSword.Card);
-
                     }
                     else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, IronSword.Card))
                     {
-
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, IronSword.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, IronSword.Card);
-
                     }
                     else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, DiamondSword.Card))
                     {
-
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, DiamondSword.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, DiamondSword.Card);
-
                     }
                     else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, NetheriteSword.Card))
                     {
-
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, NetheriteSword.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, NetheriteSword.Card);
                     }
                 }
-
             }
             yield break;
-        }
-
-        
+        }    
     }
 }

@@ -20,7 +20,7 @@ namespace ChaosPoppycarsCards.Cards
         {
             cardInfo.allowMultiple = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.spread = 0.20f;
+            gun.spread = 0.2f;
             gun.damage = 0.5f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }

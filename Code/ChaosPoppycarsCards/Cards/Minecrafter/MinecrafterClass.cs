@@ -113,22 +113,6 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
             ClassesRegistry.Get(LetherArmor.Card).Blacklist(WoodenSword.Card);
             ClassesRegistry.Get(LetherArmor.Card).Blacklist(WoodenHoe.Card);
             ClassesRegistry.Get(LetherArmor.Card).Blacklist(WoodenAxe.Card);
-            
-            /*ClassesRegistry.Get(NetheriteArmor.Card).DeBhitelist(WoodenAxe.Card);
-            ClassesRegistry.Get(NetheriteArmor.Card).DeBhitelist(WoodenHoe.Card);
-            ClassesRegistry.Get(NetheriteArmor.Card).DeBhitelist(WoodenSword.Card);
-            
-            ClassesRegistry.Get(NetheriteSword.Card).DeBhitelist(WoodenAxe.Card);
-            ClassesRegistry.Get(NetheriteSword.Card).DeBhitelist(WoodenHoe.Card);
-            ClassesRegistry.Get(NetheriteSword.Card).DeBhitelist(LetherArmor.Card);
-
-            ClassesRegistry.Get(NetheriteAxe.Card).DeBhitelist(WoodenSword.Card);
-            ClassesRegistry.Get(NetheriteAxe.Card).DeBhitelist(WoodenHoe.Card);
-            ClassesRegistry.Get(NetheriteAxe.Card).DeBhitelist(LetherArmor.Card);
-
-            ClassesRegistry.Get(NetheriteHoe.Card).DeBhitelist(WoodenSword.Card);
-            ClassesRegistry.Get(NetheriteHoe.Card).DeBhitelist(WoodenAxe.Card);
-            ClassesRegistry.Get(NetheriteHoe.Card).DeBhitelist(LetherArmor.Card);*/
             yield break;
         }
     }

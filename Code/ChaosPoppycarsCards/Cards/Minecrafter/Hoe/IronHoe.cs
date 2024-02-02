@@ -21,8 +21,8 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.attackSpeed = .30f;
-            gun.reloadTime = 0.5f;
+            gun.attackSpeed = .8f;
+            gun.reloadTime = 0.8f;
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             cardInfo.allowMultiple = false;
         }
@@ -66,14 +66,14 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
                 {
                     positive = true,
                     stat = "Attack Speed",
-                    amount = "+70%",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Reload Speed",
-                    amount = "+50%",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

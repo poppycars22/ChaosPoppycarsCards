@@ -12,13 +12,13 @@ using ChaosPoppycarsCards.Utilities;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using UnboundLib.GameModes;
 using System.Collections;
+using ChaosPoppycarsCards.Extensions;
 
 namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
     class LetherArmor : CustomCard
     {
         internal static CardInfo Card = null;
-        static bool everyOtherRound4 = true;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
 
@@ -30,7 +30,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            characterStats.GetAdditionalData().everyOther = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -84,42 +84,31 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
 
         internal static IEnumerator UpgradeArmor(IGameModeHandler gm)
         {
-            everyOtherRound4 = !everyOtherRound4;
-            if (everyOtherRound4 == false)
+            foreach (Player player in PlayerManager.instance.players.ToArray())
             {
-                foreach (Player player in PlayerManager.instance.players.ToArray())
+                if (player.data.stats.GetAdditionalData().everyOther == false)
                 {
                     if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, ChainArmor.Card))
                     {
-                        
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, ChainArmor.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, ChainArmor.Card);
-
                     }
                     else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, IronArmor.Card))
                     {
-                       
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, IronArmor.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, IronArmor.Card);
-                        
-
                     }
                     else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, DiamondArmor.Card))
                     {
-                        
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, DiamondArmor.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, DiamondArmor.Card);
-
                     }
                     else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, NetheriteArmor.Card))
                     {
-   
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, NetheriteArmor.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, NetheriteArmor.Card);
-
                     }
                 }
-                
             }
             yield break;
         }

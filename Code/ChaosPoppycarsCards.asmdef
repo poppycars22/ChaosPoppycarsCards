@@ -26,7 +26,10 @@
         "PhotonUnityNetworking.dll",
         "PhotonRealtime.dll",
         "Photon3Unity3D.dll",
-        "TabInfo.dll"
+        "TabInfo.dll",
+        "InControl.dll",
+        "PlayerActionsHelper.dll",
+        "PSA.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

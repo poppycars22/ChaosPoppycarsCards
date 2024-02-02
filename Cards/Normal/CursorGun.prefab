@@ -60,18 +60,6 @@ MonoBehaviour:
     amount: -25%
     simepleAmount: 0
     stat: Damage
-  - positive: 0
-    amount: -50%
-    simepleAmount: 0
-    stat: Attack Speed
-  - positive: 0
-    amount: Disabled
-    simepleAmount: 0
-    stat: Auto Fire
-  - positive: 0
-    amount: -20
-    simepleAmount: 0
-    stat: Bursts
   rarity: 2
   cardArt: {fileID: 7965827247082089813, guid: ec59ff07052050b4ca0eccdc64bcd005, type: 3}
   sprite: {fileID: 21300000, guid: 5b742d082ddefaa489468fac5e1e3bff, type: 2}
@@ -156,12 +144,12 @@ MonoBehaviour:
   shootPosition: {fileID: 0}
   player: {fileID: 0}
   isReloading: 0
-  damage: 0.5
+  damage: 0.75
   reloadTime: 1
   reloadTimeAdd: 0
   recoilMuiltiplier: 1
   knockback: 1
-  attackSpeed: 3
+  attackSpeed: 1
   projectileSpeed: 1
   projectielSimulatonSpeed: 1
   gravity: 1
@@ -175,7 +163,7 @@ MonoBehaviour:
   overheatMultiplier: 0
   timeToReachFullMovementMultiplier: 0
   numberOfProjectiles: 0
-  bursts: -20
+  bursts: 0
   reflects: 0
   smartBounce: 0
   bulletPortal: 0
@@ -204,7 +192,7 @@ MonoBehaviour:
   ignoreWalls: 0
   currentCharge: 0
   useCharge: 0
-  dontAllowAutoFire: 1
+  dontAllowAutoFire: 0
   objectsToSpawn: []
   projectileColor: {r: 0, g: 0, b: 0, a: 1}
   waveMovement: 0
@@ -397,6 +385,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01250c9c7c3a3a94eb4fbe6a5a71e818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GunCritDamage2: 0
+  GunCritChance2: 0
+  GunCritBounces: 0
+  GunCritDamageOnBounce: 0
+  GunConsecutiveCrits: 0
+  GunConsecutiveCritsDamage: 0
+  GunGuranteedCrits: 0
+  GunCritSlow: 0
+  GunCritColor: {r: 1, g: 0, b: 0, a: 1}
+  GunDoubleCritColor: {r: 0, g: 1, b: 1, a: 1}
+  GunCritBulletSpeed: 0
+  GunCritSimulationSpeed: 0
+  GunUnblockableCrits: 0
+  GunCritHeal: 0
+  GunCritBlockCDReduction: 0
+  GunBlockingCrits: 0
   Tag: CPC
 --- !u!114 &114228776047281020
 MonoBehaviour:

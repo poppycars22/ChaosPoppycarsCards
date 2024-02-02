@@ -7,12 +7,12 @@ namespace CPCTabInfoSTATS
     {
         public static void Setup()
         {
-            var ExtraStats = TabInfoManager.RegisterCategory("CPC Extras", 4);
-            TabInfoManager.RegisterStat(ExtraStats, "Totems", (p) => p.data.stats.GetAdditionalData().totems != 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().totems));
-            TabInfoManager.RegisterStat(ExtraStats, "Remaining Totems", (p) => p.data.stats.GetAdditionalData().remainingTotems != 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().remainingTotems));
-            TabInfoManager.RegisterStat(ExtraStats, "Glowstone", (p) => p.data.stats.GetAdditionalData().Glowstone > 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().Glowstone));
-            TabInfoManager.RegisterStat(ExtraStats, "Redstone", (p) => p.data.stats.GetAdditionalData().Redstone > 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().Redstone));
-            var CritStats = TabInfoManager.RegisterCategory("Critical Hit Stats", 12);
+            var MCStats = TabInfoManager.RegisterCategory("Minecraft Stats", 0);
+            TabInfoManager.RegisterStat(MCStats, "Totems", (p) => p.data.stats.GetAdditionalData().totems != 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().totems));
+            TabInfoManager.RegisterStat(MCStats, "Remaining Totems", (p) => p.data.stats.GetAdditionalData().remainingTotems != 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().remainingTotems));
+            TabInfoManager.RegisterStat(MCStats, "Glowstone", (p) => p.data.stats.GetAdditionalData().Glowstone > 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().Glowstone));
+            TabInfoManager.RegisterStat(MCStats, "Redstone", (p) => p.data.stats.GetAdditionalData().Redstone > 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().Redstone));
+            var CritStats = TabInfoManager.RegisterCategory("Critical Hit Stats", 5);
             TabInfoManager.RegisterStat(CritStats, "Crit Damage", (p) => p.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1 != 1f, (p) => string.Format("{0:F0}%", (p.data.weaponHandler.gun.GetAdditionalData().criticalHitDamage1 -1f) * 100));
             TabInfoManager.RegisterStat(CritStats, "Crit Chance", (p) => p.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1 != 0, (p) => string.Format("{0:F0}%", p.data.weaponHandler.gun.GetAdditionalData().criticalHitChance1 * 100));
             TabInfoManager.RegisterStat(CritStats, "Crit Slow", (p) => p.data.weaponHandler.gun.GetAdditionalData().CritSlow > 0, (p) => string.Format("{0:F0}%", p.data.weaponHandler.gun.GetAdditionalData().CritSlow * 100));

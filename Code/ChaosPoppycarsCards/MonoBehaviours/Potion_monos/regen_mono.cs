@@ -39,9 +39,6 @@ namespace ChaosPoppycarsCards.MonoBehaviours
 
         public override void OnStart()
         {
-
-
-
             data.block.BlockAction += OnBlock;
             SetLivesToEffect(int.MaxValue);
         }

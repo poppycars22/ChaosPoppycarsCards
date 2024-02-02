@@ -14,6 +14,7 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ClassesManagerReborn.Util;
 using UnboundLib.GameModes;
 using System.Collections;
+using ChaosPoppycarsCards.Extensions;
 
 namespace ChaosPoppycarsCards.Cards.Minecrafter
 {
@@ -34,7 +35,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            characterStats.GetAdditionalData().everyOther = false;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
@@ -92,45 +93,33 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         {
             return "CPC";
         }
-       static bool everyOtherRound3 = true;
         internal static IEnumerator UpgradeAxe(IGameModeHandler gm)
         {
-            everyOtherRound3 = !everyOtherRound3;
-            if (everyOtherRound3 == false)
+            foreach (Player player in PlayerManager.instance.players.ToArray())
             {
-                foreach (Player player in PlayerManager.instance.players.ToArray())
+                if (player.data.stats.GetAdditionalData().everyOther==false)
                 {
                     if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, StoneAxe.Card))
                     {
-
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, StoneAxe.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, StoneAxe.Card);
-
                     }
                     else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, IronAxe.Card))
                     {
-                       
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, IronAxe.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, IronAxe.Card);
-
                     }
                     else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, DiamondAxe.Card))
                     {
-                        
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, DiamondAxe.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, DiamondAxe.Card);
-
                     }
                     else if (ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, NetheriteAxe.Card))
                     {
-                        
                         ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, NetheriteAxe.Card, addToCardBar: true);
                         ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, NetheriteAxe.Card);
-
                     }
-                    
                 }
-                
             }
             yield break;
         }

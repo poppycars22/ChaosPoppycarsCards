@@ -24,8 +24,8 @@ namespace ChaosPoppycarsCards.MonoBehaviours
                 return;
             }
 
-            // force the player to block (for free)
-            //base.block.CallDoBlock(false, true, BlockTrigger.BlockTriggerType.Default);
+            // force the player to block
+            base.block.CallDoBlock(false, false, BlockTrigger.BlockTriggerType.Default);
             ChaosPoppycarsCards.Instance.ExecuteAfterFrames(5, () =>
             {
                 //healthHandler.Heal((player.data.maxHealth / 4));
