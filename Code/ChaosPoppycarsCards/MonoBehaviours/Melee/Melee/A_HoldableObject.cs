@@ -15,7 +15,7 @@ using ChaosPoppycarsCards.Lightsaber.Extensions;
 using UnityEngine.EventSystems;
 using SoundImplementation;
 using UnityEngine.Events;
-using PlayerActionsHelper.Extensions;
+//using PlayerActionsHelper.Extensions;
 using UnityEditor;
 using System.Runtime.Serialization;
 
@@ -88,7 +88,7 @@ namespace ChaosPoppycarsCards.Lightsaber
             if (this.Player is null || !this.Player.data.view.IsMine && this.Player.data.dead) { return; }
             this.StabTimer -= TimeHandler.deltaTime;
             this.switchTimer -= TimeHandler.deltaTime;
-            if (this.switchTimer <= 0f && this.Player.data.playerActions.ActionWasPressed("SwitchHoldable"))
+            if (this.switchTimer <= 0f /*&& this.Player.data.playerActions.ActionWasPressed("SwitchHoldable")*/)
             {
                 this.switchTimer = this.IsOut ? 0f : SwitchDelay;
                 this.IsOut = !this.IsOut;

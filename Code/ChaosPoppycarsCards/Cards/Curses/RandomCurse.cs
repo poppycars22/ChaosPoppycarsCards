@@ -83,8 +83,6 @@ namespace ChaosPoppycarsCards.Cards
                     break;
                 case 6:
                     characterStats.GetAdditionalData().damageReduction *= 0.5f;
-                    
-                    
                     UnityEngine.Debug.Log("Random Curse case 6");
                     break;
                 case 7:
@@ -135,7 +133,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_TooFast");
+            return ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("C_RandomCurse");
         }
         protected override CardInfo.Rarity GetRarity()
         {

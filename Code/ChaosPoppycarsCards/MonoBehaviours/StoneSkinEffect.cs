@@ -65,7 +65,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
                 timePass += Time.deltaTime;
                 if (timePass > 0.5f)  //every second
                 {
-                    player.data.healthHandler.DoDamage(damageAmount * (1.5f+(float)Math.Pow(secondCount, 1.1f)), Vector2.down, Color.grey, null, this.player, false, true, true);
+                    player.data.healthHandler.DoDamage(damageAmount * (1.5f+(float)Math.Pow(secondCount, 1.1f)), Vector2.down, Color.grey, null, null, false, true, true);
                     if (this.data.health <= 0)
                     {
                         secondCount = 0; //resets the exponential growth factor

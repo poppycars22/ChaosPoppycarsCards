@@ -76,7 +76,7 @@ public class CursorGun : MonoBehaviour
         }
         if (cd <= 0)
         {
-            cd += 0.25f;
+            cd += 0.15f;
             Cursor1.SimulatedAttack(this.player.playerID, new Vector3(MainCam.instance.cam.ScreenToWorldPoint(Input.mousePosition).x, MainCam.instance.cam.ScreenToWorldPoint(Input.mousePosition).y, 0), new Vector3(player.data.input.aimDirection.x, player.data.input.aimDirection.y, 0), 1f, 1);
         }
     }

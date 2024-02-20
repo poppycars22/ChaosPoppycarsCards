@@ -44,7 +44,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Happy Birthday Poppycars";
+            return "A card to celebrate Poppycars birthday (July 22nd)";
         }
         protected override GameObject GetCardArt()
         {

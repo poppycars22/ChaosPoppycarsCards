@@ -29,7 +29,7 @@ using UnboundLib.Utils.UI;
 using System.Reflection;
 using UnboundLib.Utils;
 using InControl;
-using PlayerActionsHelper;
+//using PlayerActionsHelper;
 
 namespace ChaosPoppycarsCards
 {
@@ -47,7 +47,7 @@ namespace ChaosPoppycarsCards
     [BepInDependency("com.Root.Null", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.CrazyCoders.Rounds.RarityBundle", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.willuwontu.rounds.attacklevelPatch", BepInDependency.DependencyFlags.HardDependency)]
-    [BepInDependency("com.rounds.willuwontu.ActionHelper", BepInDependency.DependencyFlags.HardDependency)]
+    //[BepInDependency("com.rounds.willuwontu.ActionHelper", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.Poppycars.PSA.Id", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.willuwontu.rounds.tabinfo", BepInDependency.DependencyFlags.SoftDependency)]
     // Declares our mod to Bepin
@@ -59,7 +59,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "1.3.9"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.4.0"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         internal static List<BaseUnityPlugin> plugins;
         public static ChaosPoppycarsCards Instance { get; private set; }
@@ -254,69 +254,6 @@ namespace ChaosPoppycarsCards
             // make cards mutually exclusive
             this.ExecuteAfterFrames(10, () =>
             {
-                if (GetCardInfo("Flak Cannon") != null)
-                {
-                    CardInfo otherCard = GetCardInfo("Flak Cannon");
-                    MakeExclusive("Flak Cannon", "Cursor gun");
-
-                    List<CardCategory> newList = otherCard.categories.ToList();
-
-                    otherCard.categories = newList.ToArray();
-                }
-                if (GetCardInfo("Backup Shotgun") != null)
-                {
-                    CardInfo otherCard = GetCardInfo("Backup Shotgun");
-                    MakeExclusive("Backup Shotgun", "Cursor gun");
-
-                    List<CardCategory> newList = otherCard.categories.ToList();
-
-                    otherCard.categories = newList.ToArray();
-                }
-                if (GetCardInfo("Plasma Shotgun") != null)
-                {
-                    CardInfo otherCard = GetCardInfo("Plasma Shotgun");
-                    MakeExclusive("Plasma Shotgun", "Cursor gun");
-
-                    List<CardCategory> newList = otherCard.categories.ToList();
-
-                    otherCard.categories = newList.ToArray();
-                }
-                if (GetCardInfo("Barrage") != null)
-                {
-                    CardInfo otherCard = GetCardInfo("Barrage");
-                    MakeExclusive("Barrage", "Cursor gun");
-
-                    List<CardCategory> newList = otherCard.categories.ToList();
-
-                    otherCard.categories = newList.ToArray();
-                }
-                if (GetCardInfo("Buckshot") != null)
-                {
-                    CardInfo otherCard = GetCardInfo("Buckshot");
-                    MakeExclusive("Buckshot", "Cursor gun");
-
-                    List<CardCategory> newList = otherCard.categories.ToList();
-
-                    otherCard.categories = newList.ToArray();
-                }
-                if (GetCardInfo("Arc of Bullets") != null)
-                {
-                    CardInfo otherCard = GetCardInfo("Arc of Bullets");
-                    MakeExclusive("Arc of Bullets", "Cursor gun");
-
-                    List<CardCategory> newList = otherCard.categories.ToList();
-
-                    otherCard.categories = newList.ToArray();
-                }
-                if (GetCardInfo("Parallel Bullets") != null)
-                {
-                    CardInfo otherCard = GetCardInfo("Parallel Bullets");
-                    MakeExclusive("Parallel Bullets", "Cursor gun");
-
-                    List<CardCategory> newList = otherCard.categories.ToList();
-
-                    otherCard.categories = newList.ToArray();
-                }
                 if (GetCardInfo("Boomerang") != null)
                 {
                     CardInfo otherCard = GetCardInfo("Boomerang");

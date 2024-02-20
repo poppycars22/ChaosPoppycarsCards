@@ -16,18 +16,18 @@ using ModdingUtils.RoundsEffects;
 using System.ComponentModel;
 using ModdingUtils.GameModes;
 using ChaosPoppycarsCards.Extensions;
+using Photon.Pun;
+using SimulationChamber;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
     class HealthBounce : BounceEffect
     {
-
         public void Start()
         {
             InterfaceGameModeHooksManager.instance.RegisterHooks(this);
             player = GetComponentInParent<ProjectileHit>().ownPlayer;
             characterStatModifiers = player.GetComponentInParent<CharacterStatModifiers>();
-
         }
         private void Awake()
         {
@@ -39,13 +39,12 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             player.data.maxHealth += 1f;
             player.data.health += 1f;
             characterStatModifiers.GetAdditionalData().HealthBouncesBounced += 1f;
-
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] {player.data.maxHealth} max hp");
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Test] {player.data.health} hp");
+
         }
 
-       
-
+ 
         public void OnGameStart()
         {
             UnityEngine.GameObject.Destroy(this);

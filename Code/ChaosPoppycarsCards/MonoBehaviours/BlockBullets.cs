@@ -7,6 +7,7 @@ using UnityEngine.Experimental.Rendering;
 using System.Linq;
 using ModdingUtils.MonoBehaviours;
 using UnboundLib;
+using ChaosPoppycarsCards.Utilities;
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
     public class BlockBullets : MonoBehaviour
@@ -14,32 +15,48 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         Block block;
         Player player;
         Gun gun;
+        private PhotonView photonView;
+        GameObject test;
         public SimulatedGun[] savedGuns = new SimulatedGun[1];
+
+
         public void OnDestroy()
         {
             block.BlockAction -= OnBlock;
+            UnityEngine.GameObject.Destroy(savedGuns[0]);
         }
         private void OnBlock(BlockTrigger.BlockTriggerType trigger)
         {
+            test = Object.Instantiate(ChaosPoppycarsCards.Bundle.LoadAsset<GameObject>("TestObj"));
+            test.AddComponent<Destroyer>();
             SimulatedGun BlockGun = savedGuns[0];
             BlockGun.CopyGunStatsExceptActions(this.gun);
             BlockGun.CopyAttackAction(this.gun);
             BlockGun.CopyShootProjectileAction(this.gun);
+            BlockGun.objectsToSpawn = BlockGun.objectsToSpawn.Concat(SimulatedGunTest.StopRecursionSpawn).ToArray();
             BlockGun.bursts = 3;
+            BlockGun.numberOfProjectiles = 1;
             BlockGun.timeBetweenBullets = 0.15f;
-            BlockGun.damage = 65f/55;
+            BlockGun.damage /= 2.5f;
             Vector3 temp = player.transform.position;
             Vector3 aim = new Vector3(player.data.input.aimDirection.x, player.data.input.aimDirection.y, 0);
-            if (!(player.data.view.IsMine || PhotonNetwork.OfflineMode))
+            test.transform.position = temp;
+            Vector3 Direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - test.transform.position;
+            float angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg - 45;
+            test.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            test.GetComponent<SpriteRenderer>().color = player.GetTeamColors().color;
+            if (player.data.view.IsMine)
             {
-                return;
+                photonView.RPC("SyncDir", RpcTarget.Others, angle);
             }
-            ChaosPoppycarsCards.Instance.ExecuteAfterSeconds(1.5f, () => { 
-              BlockGun.SimulatedAttack(this.player.playerID, temp, aim, 1f, 1);
+            ChaosPoppycarsCards.Instance.ExecuteAfterSeconds(1.5f, () => {
+                BlockGun.SimulatedAttack(this.player.playerID, temp, aim, 1f, 1);
+                //Destroy(test, 1.5f);
             });
         }
         public void Start()
         {
+            photonView = GetComponent<PhotonView>();
             this.player = gameObject.GetComponent<Player>();
             this.gun = this.player.data.weaponHandler.gun;
             this.block = this.player.GetComponent<Block>();
@@ -51,7 +68,12 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         }
         public void Update()
         {
-
+        }
+        [PunRPC]
+        public void SyncDir(float angle)
+        {
+            if (test!=null)
+                test.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
 }

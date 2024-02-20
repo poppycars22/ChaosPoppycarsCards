@@ -28,7 +28,6 @@
         "Photon3Unity3D.dll",
         "TabInfo.dll",
         "InControl.dll",
-        "PlayerActionsHelper.dll",
         "PSA.dll"
     ],
     "autoReferenced": true,

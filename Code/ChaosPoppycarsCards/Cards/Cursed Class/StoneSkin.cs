@@ -30,13 +30,18 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            characterStats.GetAdditionalData().damageReduction *= 1.5f;
-            player.gameObject.AddComponent<StoneSkinEffect>();
+            if (characterStats.GetAdditionalData().damageReductionFlat < 0.5f)
+            {
+                characterStats.GetAdditionalData().damageReductionFlat += 0.5f;
+                player.gameObject.AddComponent<StoneSkinEffect>();
+            }
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            var mono = player.gameObject.GetOrAddComponent<StoneSkinEffect>();
+            UnityEngine.GameObject.Destroy(mono);
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }

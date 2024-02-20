@@ -21,7 +21,7 @@ namespace ChaosPoppycarsCards.Cards
             ClassesRegistry.Register(UndeadTome.Card, CardType.Card, CursedTablet.Card);
             ClassesRegistry.Register(StoneSkin.Card, CardType.Card, CursedTablet.Card);
             ClassesRegistry.Register(ReducingDamage.Card, CardType.Card, CursedTablet.Card);
-            ClassesRegistry.Register(InvasiveThorns.Card, CardType.Gate, CursedTablet.Card);
+            ClassesRegistry.Register(InvasiveThorns.Card, CardType.Gate, CursedTablet.Card, 2);
             ClassesRegistry.Register(FleshFragments.Card, CardType.Card, CursedTablet.Card);
             ClassesRegistry.Register(ThornFiend.Card, CardType.Card, InvasiveThorns.Card);
         }

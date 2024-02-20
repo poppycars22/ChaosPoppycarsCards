@@ -29,7 +29,7 @@ using UnboundLib.GameModes;
 using System.Numerics;
 using UnityEditor;
 using Photon.Realtime;
-using ModdingUtils.AIMinion.Extensions;
+
 
 namespace ChaosPoppycarsCards.Cards
 {
