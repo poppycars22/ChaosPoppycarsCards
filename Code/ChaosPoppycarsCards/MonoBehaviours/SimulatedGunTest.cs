@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 using System.Linq;
+using UnboundLib;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
@@ -101,8 +102,10 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             }
 
             // Fires our gun that's mirrored across the y-axis, so we invert our x position and shoot angle.
-            oppositeGun.SimulatedAttack(this.player.playerID, new Vector3(gun.transform.position.x + 1.75f * (player.data.input.aimDirection.x * -1f), gun.transform.position.y - 0.5f * (player.data.input.aimDirection.y), 0), new Vector3(player.data.input.aimDirection.x * -1f, player.data.input.aimDirection.y, 0), 1f, 1);
-
+            ChaosPoppycarsCards.Instance.ExecuteAfterFrames(15, () =>
+            {
+                oppositeGun.SimulatedAttack(this.player.playerID, new Vector3(gun.transform.position.x + 2f * (player.data.input.aimDirection.x * -1f), gun.transform.position.y - 0.5f * (player.data.input.aimDirection.y), 0), new Vector3(player.data.input.aimDirection.x * -1f, player.data.input.aimDirection.y, 0), 1f, 1);
+            });
         }
 
         public void OnDestroy()

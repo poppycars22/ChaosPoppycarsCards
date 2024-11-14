@@ -43,7 +43,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "When you block you spawn or move your sentry that fires when you fire";
+            return "When you block you spawn or move your sentry that fires when you fire (idea stolen from root)";
         }
         protected override GameObject GetCardArt()
         {

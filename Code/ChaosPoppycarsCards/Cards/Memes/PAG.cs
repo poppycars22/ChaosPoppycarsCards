@@ -30,13 +30,15 @@ namespace ChaosPoppycarsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-           player.data.movement.extraDrag = 0.25f;
+            player.data.movement.extraDrag = 0.25f;
             player.data.movement.extraAngularDrag = 0.25f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            player.data.movement.extraDrag = 200f;
+            player.data.movement.extraAngularDrag = 250f;
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
             //Run when the card is removed from the player
         }
@@ -47,7 +49,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Personalized Anti-Gravity, with a P.A.G. device you will no longer deal with the restrictions of gravity";
+            return "Personalized Anti-Gravity Gear, with a P.A.G. you will no longer deal with the restrictions of gravity";
         }
         protected override GameObject GetCardArt()
         {

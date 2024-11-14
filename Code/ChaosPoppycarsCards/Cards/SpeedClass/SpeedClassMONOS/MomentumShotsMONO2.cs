@@ -21,7 +21,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         private void Update()
         {
             
-            
+
             if (!player)
             {
                 if (!(data is null))
@@ -51,6 +51,9 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             
             //UnityEngine.Debug.Log($"[{velocity}] {(bullet.damage)}");
         }
-
+        private void OnDestroy()
+        {
+            gun.ShootPojectileAction -= OnShootProjectileAction;
+        }
     }
 }

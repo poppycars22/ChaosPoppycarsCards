@@ -3616,27 +3616,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDamage: {fileID: 0}
-  slow: 0.15
+  slow: 0
   silence: 0
   fastSlow: 1
   stun: 0
-  force: -4000
-  objectForceMultiplier: 1
+  force: -2000
+  objectForceMultiplier: 2
   forceIgnoreMass: 1
   damage: 0.5
   dmgColor: {r: 0, g: 0, b: 0, a: 1}
-  range: 5
+  range: 4
   flyingFor: 0
   auto: 1
-  ignoreTeam: 1
+  ignoreTeam: 0
   ignoreWalls: 1
   staticRangeMultiplier: 0
   scaleSlow: 0
-  scaleSilence: 1
+  scaleSilence: 0
   scaleDmg: 1
   scaleRadius: 1
-  scaleStun: 1
-  scaleForce: 0
+  scaleStun: 0
+  scaleForce: 1
   immunity: 0
   locallySimulated: 1
 --- !u!114 &114890547464875699
@@ -3646,7 +3646,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818956079416637}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 254e41397e040304690b19ee3bda7608, type: 3}
   m_Name: 

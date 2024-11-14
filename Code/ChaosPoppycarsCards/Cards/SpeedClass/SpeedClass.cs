@@ -16,7 +16,7 @@ namespace ChaosPoppycarsCards.Cards
         public override IEnumerator Init()
         {
             UnityEngine.Debug.Log("Regestering: " + name);
-            while (!(SpeedDemon.Card && MomentumShots.Card && SpeedyHands.Card && Tricky.Card && TriggerFinger.Card && Swifter.Card && Stretches.Card && LegDay.Card && SpeedstersGun.Card && AirHops.Card)) yield return null;
+            while (!(SpeedDemon.Card && MomentumShots.Card && SpeedyHands.Card && Tricky.Card && TriggerFinger.Card && Swifter.Card && Stretches.Card && LegDay.Card && SpeedstersGun.Card && AirHops.Card && NitroBoost.Card && BoostedBlock.Card)) yield return null;
             ClassesRegistry.Register(SpeedDemon.Card, CardType.Entry);
             ClassesRegistry.Register(MomentumShots.Card, CardType.Card, SpeedDemon.Card);
             ClassesRegistry.Register(SpeedyHands.Card, CardType.Card, SpeedDemon.Card);
@@ -27,6 +27,11 @@ namespace ChaosPoppycarsCards.Cards
             ClassesRegistry.Register(LegDay.Card, CardType.Card, SpeedDemon.Card);
             ClassesRegistry.Register(SpeedstersGun.Card, CardType.Card, SpeedDemon.Card);
             ClassesRegistry.Register(AirHops.Card, CardType.Card, SpeedDemon.Card);
+            ClassesRegistry.Register(NitroBoost.Card, CardType.Card, SpeedDemon.Card);
+            //ClassesRegistry.Register(AcceleratedRejuvenation.Card, CardType.Card, SpeedDemon.Card);
+            ClassesRegistry.Register(BoostedBlock.Card, CardType.Card, SpeedDemon.Card);
+            ClassesRegistry.Register(TimeWarp.Card, CardType.Card, SpeedDemon.Card);
+            ClassesRegistry.Register(TimeBomb.Card, CardType.Card, SpeedDemon.Card);
         }
         public override IEnumerator PostInit()
         {

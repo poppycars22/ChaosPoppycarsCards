@@ -29,6 +29,7 @@ using UnboundLib.Utils.UI;
 using System.Reflection;
 using UnboundLib.Utils;
 using InControl;
+using PlayerActionsHelper;
 //using PlayerActionsHelper;
 
 namespace ChaosPoppycarsCards
@@ -47,8 +48,9 @@ namespace ChaosPoppycarsCards
     [BepInDependency("com.Root.Null", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.CrazyCoders.Rounds.RarityBundle", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.willuwontu.rounds.attacklevelPatch", BepInDependency.DependencyFlags.HardDependency)]
-    //[BepInDependency("com.rounds.willuwontu.ActionHelper", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.rounds.willuwontu.ActionHelper", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.Poppycars.PSA.Id", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.root.player.time", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.willuwontu.rounds.tabinfo", BepInDependency.DependencyFlags.SoftDependency)]
     // Declares our mod to Bepin
     [BepInPlugin(ModId, ModName, Version)]
@@ -59,7 +61,7 @@ namespace ChaosPoppycarsCards
     {
         private const string ModId = "com.Poppycars.CPC.Id";
         private const string ModName = "ChaosPoppycarsCards";
-        public const string Version = "1.4.0"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.4.2"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "CPC";
         internal static List<BaseUnityPlugin> plugins;
         public static ChaosPoppycarsCards Instance { get; private set; }
@@ -70,11 +72,16 @@ namespace ChaosPoppycarsCards
         public static AssetBundle Bundle = null;
         void Awake()
         {
-
             Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cpcart", typeof(ChaosPoppycarsCards).Assembly);
 
+            PlayerActionManager.RegisterPlayerAction(new ActionInfo("Dash", new MouseBindingSource(Mouse.MiddleButton),
+                new DeviceBindingSource(InputControlType.RightBumper)));
+
+            PlayerActionManager.RegisterPlayerAction(new ActionInfo("BlockMoveSwitch", new KeyBindingSource(Key.R),
+                new DeviceBindingSource(InputControlType.DPadLeft)));
+
             // Use this to call any harmony patch files your mod may have
-            CardThemeLib.CardThemeLib.instance.CreateOrGetType("Evergreen", new CardThemeColor() { bgColor = new Color(0.09f, 0.23f, 0.11f), targetColor = new Color(0.28f, 0.80f, 0.32f) });
+            CardThemeLib.CardThemeLib.instance.CreateOrGetType("Evergreen", new CardThemeColor() { bgColor = new UnityEngine.Color(0.09f, 0.23f, 0.11f), targetColor = new UnityEngine.Color(0.28f, 0.80f, 0.32f) });
 
             var harmony = new Harmony(ModId);
 
@@ -254,7 +261,7 @@ namespace ChaosPoppycarsCards
             // make cards mutually exclusive
             this.ExecuteAfterFrames(10, () =>
             {
-                if (GetCardInfo("Boomerang") != null)
+                /*if (GetCardInfo("Boomerang") != null)
                 {
                     CardInfo otherCard = GetCardInfo("Boomerang");
                     MakeExclusive("Boomerang", "Light Saber");
@@ -379,7 +386,7 @@ namespace ChaosPoppycarsCards
                     List<CardCategory> newList = otherCard.categories.ToList();
 
                     otherCard.categories = newList.ToArray();
-                }
+                }*/
             });
             ExtensionMethods.ExecuteAfterFrames(this, 60, delegate ()
             {

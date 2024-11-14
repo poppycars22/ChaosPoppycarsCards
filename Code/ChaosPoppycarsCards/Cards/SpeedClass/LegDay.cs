@@ -14,6 +14,8 @@ using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ClassesManagerReborn.Util;
 using ChaosPoppycarsCards.Cards.Minecrafter;
+using PlayerTimeScale;
+using ChaosPoppycarsCards.Extensions;
 
 namespace ChaosPoppycarsCards.Cards
 {
@@ -26,12 +28,12 @@ namespace ChaosPoppycarsCards.Cards
 
             statModifiers.movementSpeed = 2f;
             cardInfo.allowMultiple = false;
+            
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)

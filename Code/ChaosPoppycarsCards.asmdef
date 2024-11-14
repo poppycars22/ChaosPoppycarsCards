@@ -28,7 +28,9 @@
         "Photon3Unity3D.dll",
         "TabInfo.dll",
         "InControl.dll",
-        "PSA.dll"
+        "PSA.dll",
+        "PlayerActionsHelper.dll",
+        "PlayerTimeScale.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

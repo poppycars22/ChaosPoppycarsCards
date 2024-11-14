@@ -20,7 +20,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         }
         private void Update()
         {
-
+            
 
             if (!player)
             {
@@ -44,6 +44,10 @@ namespace ChaosPoppycarsCards.MonoBehaviours
             {
                 move.velocity += (Vector3)(Vector2)this.data.playerVel.GetFieldValue("velocity");
             });
+        }
+        private void OnDestroy()
+        {
+            gun.ShootPojectileAction -= OnShootProjectileAction;
         }
     }
 }

@@ -67,7 +67,7 @@ namespace ChaosPoppycarsCards.Cards.Minecrafter
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {

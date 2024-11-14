@@ -31,16 +31,15 @@ namespace ChaosPoppycarsCards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            player.transform.gameObject.AddComponent<SpeedstersGunMono>();
+            GameObject SpeedsterGun = new GameObject("A_SpeedstersGun");
+            SpeedsterGun.AddComponent<SpeedstersGunMono>();
+            SpeedsterGun.transform.parent = player.transform;
+            player.data.stats.objectsAddedToPlayer.Add(SpeedsterGun);
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            if (player.transform.gameObject.GetComponent<SpeedstersGunMono>() != null)
-            {
-                Destroy(player.transform.gameObject.GetComponent<SpeedstersGunMono>());
-            }
             //Run when the card is removed from the player
         }
         public override void Callback()

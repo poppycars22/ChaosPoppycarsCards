@@ -2713,7 +2713,7 @@ GameObject:
   - component: {fileID: 114985507816809548}
   - component: {fileID: 114830777558424374}
   m_Layer: 0
-  m_Name: E_SupernovaFirst 1
+  m_Name: E_POWERsupernovafirst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2728,7 +2728,7 @@ Transform:
   m_GameObject: {fileID: 1994977286351125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 3}
   m_Children:
   - {fileID: 4209325546074569}
   m_Father: {fileID: 0}
@@ -2754,9 +2754,9 @@ MonoBehaviour:
   force: -300
   objectForceMultiplier: 1
   forceIgnoreMass: 0
-  damage: 0
+  damage: 1
   dmgColor: {r: 0, g: 0, b: 0, a: 1}
-  range: 4
+  range: 5
   flyingFor: 0
   auto: 0
   ignoreTeam: 0

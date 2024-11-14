@@ -2,6 +2,8 @@
 using System.Runtime.CompilerServices;
 using ChaosPoppycarsCards.Cards;
 using HarmonyLib;
+using Photon.Realtime;
+using PlayerTimeScale;
 
 namespace ChaosPoppycarsCards.Extensions
 {
@@ -34,6 +36,17 @@ namespace ChaosPoppycarsCards.Extensions
         public float reducingDmgAmt;
         public float firstHitdmgReduction;
         public bool damagingBullet;
+        public int dashes;
+        public bool blockMover;
+        public bool blockPush;
+        public float blockMoveStrength;
+        public float forcedMove;
+        public bool forcedMoveEnabled;
+        public bool speedyHands;
+        public bool triggerFinger;
+        public bool acceleratedRejuvenation;
+        public bool boostedBlock;
+        public int maxWarps;
         public CharacterStatModifiersAdditionalData()
         {
          //   RainbowLeafHealth = 0f;
@@ -60,6 +73,17 @@ namespace ChaosPoppycarsCards.Extensions
             damageMultMax = 1f;
             reducingDmgAmt = 0f;
             damagingBullet = false;
+            dashes = 0;
+            blockMover = false;
+            blockPush = false;
+            blockMoveStrength = 0;
+            forcedMove = 0;
+            forcedMoveEnabled = false;
+            speedyHands = false;
+            triggerFinger = false;
+            acceleratedRejuvenation = false;
+            boostedBlock = false;
+            maxWarps = 0;
         }
     }
     public static class CharacterStatModifiersExtension
@@ -68,7 +92,8 @@ namespace ChaosPoppycarsCards.Extensions
 
         public static CharacterStatModifiersAdditionalData GetAdditionalData(this CharacterStatModifiers statModifiers)
         {
-            return data.GetOrCreateValue(statModifiers);
+            var a = data.GetOrCreateValue(statModifiers);
+            return a;
         }
 
         public static void AddData(this CharacterStatModifiers statModifiers, CharacterStatModifiersAdditionalData value)
@@ -109,6 +134,17 @@ namespace ChaosPoppycarsCards.Extensions
             __instance.GetAdditionalData().damageMultMax = 1f;
             __instance.GetAdditionalData().reducingDmgAmt = 0f;
             __instance.GetAdditionalData().damagingBullet = false;
+            __instance.GetAdditionalData().dashes = 0;
+            __instance.GetAdditionalData().blockMover = false;
+            __instance.GetAdditionalData().blockPush = false;
+            __instance.GetAdditionalData().blockMoveStrength = 0f;
+            __instance.GetAdditionalData().forcedMove = 0f;
+            __instance.GetAdditionalData().forcedMoveEnabled = false;
+            __instance.GetAdditionalData().speedyHands = false;
+            __instance.GetAdditionalData().triggerFinger = false;
+            __instance.GetAdditionalData().acceleratedRejuvenation = false;
+            __instance.GetAdditionalData().boostedBlock = false;
+            __instance.GetAdditionalData().maxWarps = 0;
         }
     }
 }

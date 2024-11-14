@@ -4,23 +4,27 @@ using UnityEngine;
 
 namespace ChaosPoppycarsCards.MonoBehaviours
 {
-    public class SpeedyHandsBUFFMono : ReversibleEffect
+    public class SpeedyHandsMono : ReversibleEffect
     {
         public override void OnStart()
         {
-            movespeed = this.player.data.stats.movementSpeed;
-            if (movespeed > 1)
-            {
-                this.gunAmmoStatModifier.reloadTimeMultiplier_mult *= (1f/(movespeed/2f) * 0.3f )*3f; 
-            }
+            gunAmmoStatModifier.reloadTimeMultiplier_mult = (1f / (Mathf.Abs(player.data.stats.movementSpeed) / 2f) * 0.3f) * 3f;
+            ApplyModifiers();
         }
-
+        public override void OnUpdate()
+        {
+            gunAmmoStatModifier.reloadTimeMultiplier_mult = (1f / (Mathf.Abs(player.data.stats.movementSpeed) / 2f) * 0.3f) * 3f;
+            ApplyModifiers();
+        }
         public override void OnOnDisable()
         {
+            ClearModifiers();
             Destroy();
         }
-
-        public float movespeed;
-
+        public override void OnOnDestroy()
+        {
+            ClearModifiers();
+            base.OnOnDestroy();
+        }
     }
 }

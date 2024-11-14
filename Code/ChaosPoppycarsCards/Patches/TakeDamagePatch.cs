@@ -62,7 +62,6 @@ namespace ChaosPoppycarsCards.Patches
             CharacterData data = (CharacterData)Traverse.Create(__instance).Field("data").GetValue();
             Player player = data.player;
             Player damagingPlayer = GetPlayerWithID(playerID);
-            damage = new Vector2(Math.Abs(damage.x) + Math.Abs(damage.y), 0);
             /*if (!data.isPlaying)
             {
                 return;
@@ -75,19 +74,7 @@ namespace ChaosPoppycarsCards.Patches
             {
                 return;
             }*/
-            if (damagingPlayer != null && damagingPlayer.data.stats.GetAdditionalData().firstDamage == true)
-            {
-                damagingPlayer.data.stats.GetAdditionalData().damageMult = damagingPlayer.data.stats.GetAdditionalData().damageMultMax;
-                damagingPlayer.data.stats.GetAdditionalData().firstDamage = false;
-            }
-            if (damagingPlayer != null && damagingPlayer.data.stats.GetAdditionalData().reducingDmg)
-            {
-                damage *= damagingPlayer.data.stats.GetAdditionalData().damageMult;
-                if (damagingPlayer.data.stats.GetAdditionalData().damageMult > 0.05f)
-                    damagingPlayer.data.stats.GetAdditionalData().damageMult -= damagingPlayer.data.stats.GetAdditionalData().reducingDmgAmt;
-                if (damagingPlayer.data.stats.GetAdditionalData().damageMult < 0.05f)
-                    damagingPlayer.data.stats.GetAdditionalData().damageMult = 0.05f;
-            }
+
             if (player.data.stats.GetAdditionalData().damagingBullet)
                 SimGun(player, damage);
         }

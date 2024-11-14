@@ -79,8 +79,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 1
+      scalar: 1
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -176,8 +176,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 1
+      scalar: 1
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -771,8 +771,8 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 500
-      minScalar: -500
+      scalar: 100
+      minScalar: -100
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -788,7 +788,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 500
+      scalar: 100
       minScalar: -10
       maxCurve:
         serializedVersion: 2
@@ -1668,7 +1668,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 3
     type: 1
     collisionMode: 1
@@ -2405,7 +2405,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317108034493518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f06ecf71048836a4b8670dd69f862483, type: 3}
   m_Name: 
@@ -2428,25 +2428,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundDamage: {fileID: 0}
   slow: 2
-  silence: 4
+  silence: 0
   fastSlow: 0
-  stun: 1
+  stun: 0
   force: 9000
   objectForceMultiplier: 5
   forceIgnoreMass: 0
-  damage: 200
+  damage: 125
   dmgColor: {r: 0, g: 0, b: 0, a: 1}
-  range: 6
+  range: 5
   flyingFor: 0
   auto: 1
   ignoreTeam: 1
   ignoreWalls: 0
   staticRangeMultiplier: 0
   scaleSlow: 1
-  scaleSilence: 1
+  scaleSilence: 0
   scaleDmg: 1
-  scaleRadius: 1
-  scaleStun: 1
+  scaleRadius: 0
+  scaleStun: 0
   scaleForce: 1
   immunity: 0
   locallySimulated: 0
@@ -2660,8 +2660,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.7
-      minScalar: 0.5
+      scalar: 0.5
+      minScalar: 0.25
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -4980,8 +4980,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.5
-      minScalar: 1
+      scalar: 0.75
+      minScalar: 0.25
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -7332,8 +7332,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.25
-      minScalar: 0.7
+      scalar: 0.75
+      minScalar: 0.4
       maxCurve:
         serializedVersion: 2
         m_Curve: []

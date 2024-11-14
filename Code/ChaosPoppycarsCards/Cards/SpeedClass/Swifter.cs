@@ -14,6 +14,7 @@ using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ClassesManagerReborn.Util;
 using ChaosPoppycarsCards.Cards.Minecrafter;
+using ChaosPoppycarsCards.Extensions;
 
 namespace ChaosPoppycarsCards.Cards
 {

@@ -14,6 +14,7 @@ using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ClassesManagerReborn.Util;
 using ChaosPoppycarsCards.Cards.Minecrafter;
+using ChaosPoppycarsCards.Extensions;
 
 namespace ChaosPoppycarsCards.Cards
 {
@@ -31,16 +32,13 @@ namespace ChaosPoppycarsCards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            player.transform.gameObject.AddComponent<SpeedyHandsMono>();
+            characterStats.GetAdditionalData().speedyHands = true;
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            if (player.transform.gameObject.GetComponent<SpeedyHandsMono>() != null)
-            {
-                Destroy(player.transform.gameObject.GetComponent<SpeedyHandsMono>());
-            }
+
             //Run when the card is removed from the player
         }
         public override void Callback()
@@ -53,7 +51,7 @@ namespace ChaosPoppycarsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Your hands become faster as you get faster letting you reload quicker (more speed = more reload)";
+            return "Your hands become faster as you get faster letting you reload quicker (you have to move for the buff to apply)";
         }
         protected override GameObject GetCardArt()
         {

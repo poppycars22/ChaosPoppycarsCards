@@ -32,16 +32,15 @@ namespace ChaosPoppycarsCards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            player.transform.gameObject.AddComponent<WarpathMono>();
+            GameObject Warpath = new GameObject("A_Warpath");
+            Warpath.AddComponent<WarpathMono>();
+            Warpath.transform.parent = player.transform;
+            player.data.stats.objectsAddedToPlayer.Add(Warpath);
             //Edits values on player when card is selected
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CPCDebug.Log($"[{ChaosPoppycarsCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            if (player.transform.gameObject.GetComponent<WarpathMono>() != null)
-            {
-                Destroy(player.transform.gameObject.GetComponent<WarpathMono>());
-            }
             //Run when the card is removed from the player
         }
         public override void Callback()

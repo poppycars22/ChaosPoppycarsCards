@@ -7,7 +7,11 @@ namespace CPCTabInfoSTATS
     {
         public static void Setup()
         {
-            var MCStats = TabInfoManager.RegisterCategory("Minecraft Stats", 0);
+            var OtherStats = TabInfoManager.RegisterCategory("Other Stats", 0);
+            TabInfoManager.RegisterStat(OtherStats, "Max Dashes", (p) => p.data.stats.GetAdditionalData().dashes != 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().dashes));
+            TabInfoManager.RegisterStat(OtherStats, "Blocks are", (p) => p.data.stats.GetAdditionalData().blockMover && !p.data.stats.GetAdditionalData().blockPush, (p) => "pulling");
+            TabInfoManager.RegisterStat(OtherStats, "Blocks <b>are</b>", (p) => p.data.stats.GetAdditionalData().blockMover && p.data.stats.GetAdditionalData().blockPush, (p) => "pushing");
+            var MCStats = TabInfoManager.RegisterCategory("Minecraft Stats", 1);
             TabInfoManager.RegisterStat(MCStats, "Totems", (p) => p.data.stats.GetAdditionalData().totems != 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().totems));
             TabInfoManager.RegisterStat(MCStats, "Remaining Totems", (p) => p.data.stats.GetAdditionalData().remainingTotems != 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().remainingTotems));
             TabInfoManager.RegisterStat(MCStats, "Glowstone", (p) => p.data.stats.GetAdditionalData().Glowstone > 0, (p) => string.Format("{0:F0}", p.data.stats.GetAdditionalData().Glowstone));

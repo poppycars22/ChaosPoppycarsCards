@@ -60,7 +60,7 @@ namespace ChaosPoppycarsCards.MonoBehaviours
         //Should the Health Boost be exponential? Right now will be 1hp per second (if at base health of 100)
         private void Update()
         {
-            if (this.data.input.direction == Vector3.zero || this.data.input.direction == Vector3.down && PlayerStatus.PlayerAliveAndSimulated(player))
+            if (this.data.input.direction == Vector3.zero || this.data.input.direction == Vector3.down || this.data.input.direction == Vector3.up && PlayerStatus.PlayerAliveAndSimulated(player))
             {
                 timePass += Time.deltaTime;
                 if (timePass > 0.5f)  //every second
